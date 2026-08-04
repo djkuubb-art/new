@@ -1,5 +1,5 @@
 (() => {
-  const ANNA_IMAGE = 'https://res.cloudinary.com/r8lomm2b/image/upload/v1785806218/5_1_casfeq.png?auto=format&fit=crop&w=180&q=82';
+  const ANNA_IMAGE = 'https://res.cloudinary.com/r8lomm2b/image/upload/f_auto,q_auto:eco,c_fill,g_face,w_112,h_112/v1785806218/5_1_casfeq.png';
   const VISIBLE_MS = 6200;
   const FIRST_DELAY_MS = 4500;
   const NEXT_DELAY_MS = 9000;
@@ -220,7 +220,7 @@
     notification.style.setProperty('--anna-visible-time', `${VISIBLE_MS}ms`);
     notification.innerHTML = `
       <span class="anna-notification-avatar">
-        <img src="${ANNA_IMAGE}" alt="Anna" />
+        <img src="${ANNA_IMAGE}" alt="Anna" width="112" height="112" loading="lazy" decoding="async" />
         <span class="anna-notification-icon" aria-hidden="true">▶</span>
       </span>
       <span class="anna-notification-copy">
