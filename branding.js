@@ -1,288 +1,179 @@
 (() => {
   const BRAND = 'RealMeetClub';
   const OLD_BRAND = 'HeartMatch';
+  const TIMER_SECONDS = 10 * 60;
+  const TIMER_KEY = 'realmeetclub_invite_deadline';
 
-  const messages = {
-    'en-GB': { name: 'Anna', text: 'I guess you’re not going to reply to me... I knew I wasn’t pretty enough.' },
-    'en-US': { name: 'Anna', text: 'I guess you’re not going to reply to me... I knew I wasn’t pretty enough.' },
-    'en-SG': { name: 'Anna', text: 'I guess you’re not going to reply to me... I knew I wasn’t pretty enough.' },
-    de: { name: 'Anna', text: 'Du wirst mir wohl nicht mehr antworten... Ich wusste, dass ich nicht hübsch genug bin.' },
-    nl: { name: 'Anna', text: 'Je gaat me zeker niet meer antwoorden... Ik wist wel dat ik niet mooi genoeg ben.' },
-    fr: { name: 'Anna', text: 'J’imagine que tu ne vas plus me répondre... Je savais bien que je n’étais pas assez jolie.' },
-    it: { name: 'Anna', text: 'Immagino che non mi risponderai più... Lo sapevo che non ero abbastanza carina.' },
-    es: { name: 'Anna', text: 'Supongo que ya no vas a responderme... Sabía que no era lo bastante guapa.' },
-    pt: { name: 'Anna', text: 'Acho que já não me vais responder... Eu sabia que não era bonita o suficiente.' },
-    pl: { name: 'Anna', text: 'Chyba już mi nie odpiszesz... Wiedziałam, że jestem za brzydka.' },
-    sv: { name: 'Anna', text: 'Du kommer nog inte att svara mig mer... Jag visste att jag inte var tillräckligt fin.' },
-    no: { name: 'Anna', text: 'Du kommer vel ikke til å svare meg mer... Jeg visste at jeg ikke var pen nok.' },
-    da: { name: 'Anna', text: 'Du svarer mig nok ikke mere... Jeg vidste, at jeg ikke var pæn nok.' },
-    fi: { name: 'Anna', text: 'Et taida enää vastata minulle... Tiesin, etten ollut tarpeeksi kaunis.' },
-    el: { name: 'Anna', text: 'Μάλλον δεν θα μου απαντήσεις πια... Το ήξερα ότι δεν ήμουν αρκετά όμορφη.' },
-    hr: { name: 'Anna', text: 'Izgleda da mi više nećeš odgovoriti... Znala sam da nisam dovoljno lijepa.' },
-    sl: { name: 'Anna', text: 'Verjetno mi ne boš več odpisal... Vedela sem, da nisem dovolj lepa.' },
-    sk: { name: 'Anna', text: 'Asi mi už neodpíšeš... Vedela som, že nie som dosť pekná.' },
-    cs: { name: 'Anna', text: 'Asi už mi neodpovíš... Věděla jsem, že nejsem dost hezká.' },
-    hu: { name: 'Anna', text: 'Úgy tűnik, már nem fogsz válaszolni... Tudtam, hogy nem vagyok elég szép.' },
-    he: { name: 'אנה', text: 'כנראה שכבר לא תענה לי... ידעתי שאני לא מספיק יפה.' }
+  const copy = {
+    'en-GB': { name: 'Anna', label: 'Expires in', waiting: 'Anna is waiting for your reply.', message: 'Hi 😊 I left you a private message.', cta: 'Open Anna’s message', expired: 'Last chance' },
+    'en-US': { name: 'Anna', label: 'Expires in', waiting: 'Anna is waiting for your reply.', message: 'Hi 😊 I left you a private message.', cta: 'Open Anna’s message', expired: 'Last chance' },
+    'en-SG': { name: 'Anna', label: 'Expires in', waiting: 'Anna is waiting for your reply.', message: 'Hi 😊 I left you a private message.', cta: 'Open Anna’s message', expired: 'Last chance' },
+    de: { name: 'Anna', label: 'Läuft ab in', waiting: 'Anna wartet auf deine Antwort.', message: 'Hallo 😊 Ich habe dir eine private Nachricht hinterlassen.', cta: 'Annas Nachricht öffnen', expired: 'Letzte Chance' },
+    nl: { name: 'Anna', label: 'Verloopt over', waiting: 'Anna wacht op je antwoord.', message: 'Hoi 😊 Ik heb je een privébericht gestuurd.', cta: 'Open Anna’s bericht', expired: 'Laatste kans' },
+    fr: { name: 'Anna', label: 'Expire dans', waiting: 'Anna attend votre réponse.', message: 'Bonjour 😊 Je vous ai laissé un message privé.', cta: 'Ouvrir le message d’Anna', expired: 'Dernière chance' },
+    it: { name: 'Anna', label: 'Scade tra', waiting: 'Anna aspetta la tua risposta.', message: 'Ciao 😊 Ti ho lasciato un messaggio privato.', cta: 'Apri il messaggio di Anna', expired: 'Ultima occasione' },
+    es: { name: 'Anna', label: 'Caduca en', waiting: 'Anna espera tu respuesta.', message: 'Hola 😊 Te he dejado un mensaje privado.', cta: 'Abrir el mensaje de Anna', expired: 'Última oportunidad' },
+    pt: { name: 'Anna', label: 'Expira em', waiting: 'A Anna está à espera da tua resposta.', message: 'Olá 😊 Deixei-te uma mensagem privada.', cta: 'Abrir a mensagem da Anna', expired: 'Última oportunidade' },
+    pl: { name: 'Anna', label: 'Wygasa za', waiting: 'Anna czeka na Twoją odpowiedź.', message: 'Hej 😊 Zostawiłam Ci prywatną wiadomość.', cta: 'Otwórz wiadomość Anny', expired: 'Ostatnia szansa' },
+    sv: { name: 'Anna', label: 'Går ut om', waiting: 'Anna väntar på ditt svar.', message: 'Hej 😊 Jag har lämnat ett privat meddelande till dig.', cta: 'Öppna Annas meddelande', expired: 'Sista chansen' },
+    no: { name: 'Anna', label: 'Utløper om', waiting: 'Anna venter på svaret ditt.', message: 'Hei 😊 Jeg har lagt igjen en privat melding til deg.', cta: 'Åpne Annas melding', expired: 'Siste sjanse' },
+    da: { name: 'Anna', label: 'Udløber om', waiting: 'Anna venter på dit svar.', message: 'Hej 😊 Jeg har lagt en privat besked til dig.', cta: 'Åbn Annas besked', expired: 'Sidste chance' },
+    fi: { name: 'Anna', label: 'Vanhenee', waiting: 'Anna odottaa vastaustasi.', message: 'Hei 😊 Jätin sinulle yksityisviestin.', cta: 'Avaa Annan viesti', expired: 'Viimeinen mahdollisuus' },
+    el: { name: 'Άννα', label: 'Λήγει σε', waiting: 'Η Άννα περιμένει την απάντησή σου.', message: 'Γεια 😊 Σου άφησα ένα προσωπικό μήνυμα.', cta: 'Άνοιξε το μήνυμα της Άννας', expired: 'Τελευταία ευκαιρία' },
+    hr: { name: 'Anna', label: 'Istječe za', waiting: 'Anna čeka tvoj odgovor.', message: 'Bok 😊 Ostavila sam ti privatnu poruku.', cta: 'Otvori Anninu poruku', expired: 'Posljednja prilika' },
+    sl: { name: 'Anna', label: 'Poteče čez', waiting: 'Anna čaka na tvoj odgovor.', message: 'Živjo 😊 Pustila sem ti zasebno sporočilo.', cta: 'Odpri Annino sporočilo', expired: 'Zadnja priložnost' },
+    sk: { name: 'Anna', label: 'Vyprší o', waiting: 'Anna čaká na tvoju odpoveď.', message: 'Ahoj 😊 Nechala som ti súkromnú správu.', cta: 'Otvoriť správu od Anny', expired: 'Posledná šanca' },
+    cs: { name: 'Anna', label: 'Vyprší za', waiting: 'Anna čeká na tvoji odpověď.', message: 'Ahoj 😊 Nechala jsem ti soukromou zprávu.', cta: 'Otevřít zprávu od Anny', expired: 'Poslední šance' },
+    hu: { name: 'Anna', label: 'Lejár ennyi idő múlva', waiting: 'Anna várja a válaszodat.', message: 'Szia 😊 Hagytam neked egy privát üzenetet.', cta: 'Anna üzenetének megnyitása', expired: 'Utolsó esély' },
+    he: { name: 'אנה', label: 'יפוג בעוד', waiting: 'אנה מחכה לתשובה שלך.', message: 'היי 😊 השארתי לך הודעה פרטית.', cta: 'פתיחת ההודעה של אנה', expired: 'הזדמנות אחרונה' }
   };
 
-  const invitations = {
-    'en-GB': {
-      label: 'Personal invitation from Anna',
-      title: 'Anna would like to get to know you.',
-      text: 'Open her profile and see whether you might be a good match.',
-      preview: 'I noticed you and thought I’d say hello 😊',
-      cta: 'View Anna’s profile',
-      note: 'Discreet access for adults only'
-    },
-    'en-US': {
-      label: 'Personal invitation from Anna',
-      title: 'Anna would like to get to know you.',
-      text: 'Open her profile and see if the two of you might be a good match.',
-      preview: 'You caught my attention, so I thought I’d say hi 😊',
-      cta: 'View Anna’s profile',
-      note: 'Discreet access for adults only'
-    },
-    'en-SG': {
-      label: 'Personal invitation from Anna',
-      title: 'Anna would like to get to know you.',
-      text: 'Open her profile and see whether the two of you might click.',
-      preview: 'You caught my attention, so I thought I’d say hello 😊',
-      cta: 'View Anna’s profile',
-      note: 'Discreet access for adults only'
-    },
-    de: {
-      label: 'Persönliche Einladung von Anna',
-      title: 'Anna würde dich gern kennenlernen.',
-      text: 'Öffne ihr Profil und schau, ob ihr zueinander passen könntet.',
-      preview: 'Du bist mir aufgefallen, deshalb wollte ich einfach mal Hallo sagen 😊',
-      cta: 'Annas Profil ansehen',
-      note: 'Diskreter Zugang nur für Erwachsene'
-    },
-    nl: {
-      label: 'Persoonlijke uitnodiging van Anna',
-      title: 'Anna wil je graag leren kennen.',
-      text: 'Open haar profiel en kijk of jullie misschien bij elkaar passen.',
-      preview: 'Je viel me op, dus ik dacht: ik zeg gewoon even hallo 😊',
-      cta: 'Bekijk Anna’s profiel',
-      note: 'Discrete toegang, alleen voor volwassenen'
-    },
-    fr: {
-      label: 'Invitation personnelle d’Anna',
-      title: 'Anna aimerait faire votre connaissance.',
-      text: 'Ouvrez son profil et voyez si vous pourriez bien vous entendre.',
-      preview: 'Vous avez attiré mon attention, alors j’ai eu envie de vous dire bonjour 😊',
-      cta: 'Voir le profil d’Anna',
-      note: 'Accès discret réservé aux adultes'
-    },
-    it: {
-      label: 'Invito personale da Anna',
-      title: 'Anna vorrebbe conoscerti.',
-      text: 'Apri il suo profilo e scopri se potreste essere compatibili.',
-      preview: 'Mi hai incuriosita e ho pensato di salutarti 😊',
-      cta: 'Guarda il profilo di Anna',
-      note: 'Accesso discreto riservato agli adulti'
-    },
-    es: {
-      label: 'Invitación personal de Anna',
-      title: 'A Anna le gustaría conocerte.',
-      text: 'Abre su perfil y comprueba si podríais encajar.',
-      preview: 'Me llamaste la atención y pensé en saludarte 😊',
-      cta: 'Ver el perfil de Anna',
-      note: 'Acceso discreto solo para adultos'
-    },
-    pt: {
-      label: 'Convite pessoal da Anna',
-      title: 'A Anna gostava de te conhecer.',
-      text: 'Abre o perfil dela e vê se poderão combinar.',
-      preview: 'Chamaste-me a atenção e pensei em dizer olá 😊',
-      cta: 'Ver o perfil da Anna',
-      note: 'Acesso discreto apenas para adultos'
-    },
-    pl: {
-      label: 'Osobiste zaproszenie od Anny',
-      title: 'Anna chciałaby Cię poznać.',
-      text: 'Otwórz jej profil i sprawdź, czy możecie do siebie pasować.',
-      preview: 'Zwróciłeś moją uwagę, więc pomyślałam, że się przywitam 😊',
-      cta: 'Zobacz profil Anny',
-      note: 'Dyskretny dostęp tylko dla dorosłych'
-    },
-    sv: {
-      label: 'Personlig inbjudan från Anna',
-      title: 'Anna skulle gärna vilja lära känna dig.',
-      text: 'Öppna hennes profil och se om ni kanske passar ihop.',
-      preview: 'Du fångade min uppmärksamhet, så jag tänkte säga hej 😊',
-      cta: 'Visa Annas profil',
-      note: 'Diskret åtkomst endast för vuxna'
-    },
-    no: {
-      label: 'Personlig invitasjon fra Anna',
-      title: 'Anna vil gjerne bli kjent med deg.',
-      text: 'Åpne profilen hennes og se om dere kanskje passer sammen.',
-      preview: 'Du fanget oppmerksomheten min, så jeg tenkte å si hei 😊',
-      cta: 'Se Annas profil',
-      note: 'Diskré tilgang kun for voksne'
-    },
-    da: {
-      label: 'Personlig invitation fra Anna',
-      title: 'Anna vil gerne lære dig at kende.',
-      text: 'Åbn hendes profil og se, om I måske passer godt sammen.',
-      preview: 'Du fangede min opmærksomhed, så jeg tænkte, jeg ville sige hej 😊',
-      cta: 'Se Annas profil',
-      note: 'Diskret adgang kun for voksne'
-    },
-    fi: {
-      label: 'Henkilökohtainen kutsu Annalta',
-      title: 'Anna haluaisi tutustua sinuun.',
-      text: 'Avaa hänen profiilinsa ja katso, voisitteko sopia yhteen.',
-      preview: 'Kiinnitin sinuun huomiota, joten ajattelin tulla sanomaan hei 😊',
-      cta: 'Katso Annan profiili',
-      note: 'Huomaamaton pääsy vain aikuisille'
-    },
-    el: {
-      label: 'Προσωπική πρόσκληση από την Άννα',
-      title: 'Η Άννα θα ήθελε να σε γνωρίσει.',
-      text: 'Άνοιξε το προφίλ της και δες αν θα μπορούσατε να ταιριάξετε.',
-      preview: 'Μου τράβηξες την προσοχή και σκέφτηκα να σου πω ένα γεια 😊',
-      cta: 'Δες το προφίλ της Άννας',
-      note: 'Διακριτική πρόσβαση μόνο για ενήλικες'
-    },
-    hr: {
-      label: 'Osobni poziv od Anne',
-      title: 'Anna bi te voljela upoznati.',
-      text: 'Otvori njezin profil i provjeri biste li mogli odgovarati jedno drugome.',
-      preview: 'Privukao si mi pažnju pa sam pomislila da ti se javim 😊',
-      cta: 'Pogledaj Annin profil',
-      note: 'Diskretan pristup samo za odrasle'
-    },
-    sl: {
-      label: 'Osebno povabilo Anne',
-      title: 'Anna bi te rada spoznala.',
-      text: 'Odpri njen profil in preveri, ali bi se lahko ujela.',
-      preview: 'Pritegnil si mojo pozornost, zato sem pomislila, da te pozdravim 😊',
-      cta: 'Poglej Annin profil',
-      note: 'Diskreten dostop samo za odrasle'
-    },
-    sk: {
-      label: 'Osobná pozvánka od Anny',
-      title: 'Anna by ťa rada spoznala.',
-      text: 'Otvor jej profil a zisti, či by ste si mohli rozumieť.',
-      preview: 'Zaujal si ma, tak som si povedala, že ťa pozdravím 😊',
-      cta: 'Pozrieť profil Anny',
-      note: 'Diskrétny prístup len pre dospelých'
-    },
-    cs: {
-      label: 'Osobní pozvánka od Anny',
-      title: 'Anna by tě ráda poznala.',
-      text: 'Otevři její profil a zjisti, jestli byste si mohli rozumět.',
-      preview: 'Zaujal jsi mě, tak jsem si řekla, že tě pozdravím 😊',
-      cta: 'Zobrazit profil Anny',
-      note: 'Diskrétní přístup pouze pro dospělé'
-    },
-    hu: {
-      label: 'Személyes meghívás Annától',
-      title: 'Anna szeretne megismerni téged.',
-      text: 'Nyisd meg a profilját, és nézd meg, vajon összeillenétek-e.',
-      preview: 'Felkeltetted a figyelmemet, ezért gondoltam, rád köszönök 😊',
-      cta: 'Anna profiljának megtekintése',
-      note: 'Diszkrét hozzáférés csak felnőtteknek'
-    },
-    he: {
-      label: 'הזמנה אישית מאנה',
-      title: 'אנה הייתה רוצה להכיר אותך.',
-      text: 'פתח את הפרופיל שלה ובדוק אם אולי יש ביניכם התאמה.',
-      preview: 'משכת את תשומת הלב שלי, אז חשבתי לומר שלום 😊',
-      cta: 'צפה בפרופיל של אנה',
-      note: 'גישה דיסקרטית למבוגרים בלבד'
+  const normaliseLocale = (value = '') => {
+    if (copy[value]) return value;
+    const short = String(value).toLowerCase().split('-')[0];
+    if (short === 'en') return 'en-GB';
+    return copy[short] ? short : 'en-GB';
+  };
+
+  const getLocale = () => {
+    const select = document.getElementById('languageSelect');
+    return normaliseLocale(select?.value || document.documentElement.lang || navigator.language);
+  };
+
+  const applyBrand = () => {
+    document.title = document.title.replaceAll(OLD_BRAND, BRAND);
+    document.querySelectorAll('.brand span:last-child, .mini-brand, .footer-brand strong').forEach((node) => {
+      node.textContent = node.classList.contains('mini-brand') ? `♥ ${BRAND}` : BRAND;
+    });
+  };
+
+  const ensureElements = () => {
+    const phone = document.querySelector('.phone-card');
+    const phoneTop = phone?.querySelector('.phone-top');
+    const featured = phone?.querySelector('.featured-profile');
+    const miniMessage = phone?.querySelector('.mini-message');
+    if (!phone || !phoneTop || !featured || !miniMessage) return null;
+
+    let timer = phoneTop.querySelector('.expiry-pill');
+    if (!timer) {
+      timer = document.createElement('div');
+      timer.className = 'expiry-pill';
+      timer.innerHTML = '<span class="expiry-copy"></span><strong class="expiry-time">10:00</strong>';
+      phoneTop.appendChild(timer);
+    }
+
+    let strip = phone.querySelector('.urgency-strip');
+    if (!strip) {
+      strip = document.createElement('div');
+      strip.className = 'urgency-strip';
+      strip.innerHTML = '<span class="urgency-dot" aria-hidden="true"></span><span class="urgency-copy"></span>';
+      featured.insertAdjacentElement('afterend', strip);
+    }
+
+    let cta = phone.querySelector('.phone-cta');
+    if (!cta) {
+      cta = document.createElement('a');
+      cta.className = 'phone-cta js-affiliate';
+      cta.dataset.slot = 'phone-message';
+      cta.href = '/api/go?slot=phone-message';
+      cta.innerHTML = '<span class="phone-cta-copy"></span><span aria-hidden="true">→</span>';
+      miniMessage.insertAdjacentElement('afterend', cta);
+    }
+
+    return { phone, timer, strip, cta, miniMessage };
+  };
+
+  const syncAvatar = () => {
+    const heroImage = document.querySelector('.featured-profile img');
+    const avatar = document.querySelector('.mini-message img');
+    if (heroImage && avatar) {
+      avatar.src = heroImage.src;
+      avatar.alt = 'Anna';
     }
   };
 
-  function applyBranding() {
-    if (document.title.includes(OLD_BRAND)) {
-      document.title = document.title.replaceAll(OLD_BRAND, BRAND);
-    }
-  }
+  const applyCopy = () => {
+    applyBrand();
+    const elements = ensureElements();
+    if (!elements) return;
 
-  function prepareAnnaMessage() {
-    const messageName = document.querySelector('.mini-message strong');
+    const t = copy[getLocale()] || copy['en-GB'];
+    const heroHeading = document.querySelector('.featured-profile .profile-overlay h2');
+    if (heroHeading) heroHeading.textContent = `${t.name}, 41`;
+
+    const messageName = elements.miniMessage.querySelector('strong');
+    const messageText = elements.miniMessage.querySelector('p span:not(.message-time), [data-i18n="messagePreview"]');
     if (messageName) {
       messageName.removeAttribute('data-profile');
-      messageName.dataset.i18n = 'messageName';
+      messageName.textContent = t.name;
+    }
+    if (messageText) {
+      messageText.removeAttribute('data-i18n');
+      messageText.textContent = t.message;
     }
 
-    const heroHeading = document.querySelector('.featured-profile .profile-overlay h2');
-    if (heroHeading) {
-      heroHeading.innerHTML = '<span data-profile="0-name">Anna</span>, 41';
+    elements.timer.querySelector('.expiry-copy').textContent = t.label;
+    elements.strip.querySelector('.urgency-copy').textContent = t.waiting;
+    elements.cta.querySelector('.phone-cta-copy').textContent = t.cta;
+
+    const sticky = document.querySelector('.mobile-sticky span:first-child');
+    if (sticky) {
+      sticky.removeAttribute('data-i18n');
+      sticky.textContent = t.cta;
     }
 
-    const firstCardHeading = document.querySelector('.profile-grid .profile-card:first-child h3');
-    if (firstCardHeading) {
-      firstCardHeading.innerHTML = '<span data-profile="0-name">Anna</span>, 41';
+    syncAvatar();
+  };
+
+  const getDeadline = () => {
+    const stored = Number(sessionStorage.getItem(TIMER_KEY));
+    if (Number.isFinite(stored) && stored > Date.now()) return stored;
+    const deadline = Date.now() + TIMER_SECONDS * 1000;
+    sessionStorage.setItem(TIMER_KEY, String(deadline));
+    return deadline;
+  };
+
+  const deadline = getDeadline();
+
+  const updateTimer = () => {
+    const time = document.querySelector('.expiry-time');
+    const pill = document.querySelector('.expiry-pill');
+    if (!time || !pill) return;
+
+    const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+    const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const seconds = String(remaining % 60).padStart(2, '0');
+    time.textContent = `${minutes}:${seconds}`;
+
+    pill.classList.toggle('is-urgent', remaining > 0 && remaining <= 60);
+    if (remaining === 0) {
+      pill.classList.add('is-expired');
+      const label = pill.querySelector('.expiry-copy');
+      if (label) label.textContent = (copy[getLocale()] || copy['en-GB']).expired;
     }
+  };
 
-    const heroImage = document.querySelector('.featured-profile img');
-    const smallAvatar = document.querySelector('.mini-message .avatar-small img');
-    const inviteAvatar = document.querySelector('.invite-avatar img');
+  const initialise = () => {
+    applyCopy();
+    updateTimer();
+    setInterval(updateTimer, 1000);
 
-    if (heroImage) {
-      const syncAvatars = () => {
-        [smallAvatar, inviteAvatar].filter(Boolean).forEach((avatar) => {
-          avatar.src = heroImage.src;
-          avatar.alt = 'Anna';
-        });
-      };
+    document.getElementById('languageSelect')?.addEventListener('change', () => setTimeout(applyCopy, 0));
 
-      syncAvatars();
-      new MutationObserver(syncAvatars).observe(heroImage, {
-        attributes: true,
-        attributeFilter: ['src']
-      });
-    }
-  }
-
-  function applyLocaleOverrides() {
-    if (typeof locales === 'undefined') return;
-
-    Object.entries(locales).forEach(([code, dictionary]) => {
-      const message = messages[code] || messages['en-GB'];
-      const invitation = invitations[code] || invitations['en-GB'];
-
-      dictionary.messageName = message.name;
-      dictionary.messagePreview = message.text;
-      dictionary.inviteLabel = invitation.label;
-      dictionary.inviteTitle = invitation.title;
-      dictionary.inviteText = invitation.text;
-      dictionary.invitePreview = invitation.preview;
-      dictionary.inviteCta = invitation.cta;
-      dictionary.inviteNote = invitation.note;
-      dictionary.stickyCta = invitation.cta;
-
-      if (typeof dictionary.metaTitle === 'string') {
-        dictionary.metaTitle = dictionary.metaTitle.replaceAll(OLD_BRAND, BRAND);
-      }
-
-      if (Array.isArray(dictionary.profiles) && dictionary.profiles[0]) {
-        dictionary.profiles[0][0] = message.name;
-      }
+    new MutationObserver(() => setTimeout(applyCopy, 0)).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang', 'dir']
     });
 
-    if (typeof setLocale === 'function') {
-      setLocale(typeof currentLocale === 'string' ? currentLocale : 'en-GB');
+    const title = document.querySelector('title');
+    if (title) {
+      new MutationObserver(applyBrand).observe(title, { childList: true, characterData: true, subtree: true });
     }
-  }
+  };
 
-  prepareAnnaMessage();
-  applyLocaleOverrides();
-  applyBranding();
-
-  window.addEventListener('load', applyBranding);
-
-  const title = document.querySelector('title');
-  if (title) {
-    new MutationObserver(applyBranding).observe(title, {
-      childList: true,
-      characterData: true,
-      subtree: true
-    });
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialise, { once: true });
+  } else {
+    initialise();
   }
 })();
