@@ -218,3 +218,22 @@
     display: none;
   }
 }
+
+/* Keep longer native distance labels fully visible on every profile card. */
+.profile-card-overlay-premium {
+  padding-right: 16px;
+  padding-bottom: 48px;
+}
+
+.profile-distance {
+  width: max-content;
+  max-width: calc(100% - 28px);
+  overflow: visible;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+[dir="rtl"] .profile-card-overlay-premium {
+  padding-right: 16px;
+  padding-left: 16px;
+}
