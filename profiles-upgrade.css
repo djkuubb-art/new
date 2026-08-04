@@ -1,0 +1,227 @@
+.premium-profiles {
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-swipe-shell {
+  position: relative;
+}
+
+.profile-swipe-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.profile-card-premium {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .10);
+  border-radius: 28px;
+  background: #111218;
+  box-shadow: 0 24px 70px rgba(20, 12, 18, .20);
+  cursor: pointer;
+  isolation: isolate;
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.profile-card-premium:hover,
+.profile-card-premium:focus-visible {
+  border-color: rgba(230, 48, 78, .42);
+  box-shadow: 0 30px 85px rgba(20, 12, 18, .28);
+  outline: none;
+  transform: translateY(-5px);
+}
+
+.profile-card-premium .image-wrap {
+  position: relative;
+  height: clamp(430px, 42vw, 570px);
+  overflow: hidden;
+  background: #181920;
+}
+
+.profile-card-premium .image-wrap > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .45s ease;
+}
+
+.profile-card-premium:hover .image-wrap > img {
+  transform: scale(1.025);
+}
+
+.profile-card-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 8, 12, .03) 26%, rgba(8, 8, 12, .35) 58%, rgba(8, 8, 12, .98) 100%),
+    linear-gradient(90deg, rgba(8, 8, 12, .22), transparent 45%);
+  pointer-events: none;
+}
+
+.profile-card-premium .status-pill {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  background: rgba(12, 14, 18, .68);
+  border: 1px solid rgba(255, 255, 255, .16);
+  color: #fff;
+}
+
+.profile-card-overlay-premium {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  padding: 24px;
+  color: #fff;
+}
+
+.profile-distance {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, .78);
+  font-size: .82rem;
+  font-weight: 750;
+}
+
+.profile-card-overlay-premium h3 {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(1.55rem, 2.4vw, 2.15rem);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+}
+
+.profile-bio {
+  min-height: 3.25em;
+  margin: 12px 0 18px;
+  color: rgba(255, 255, 255, .82);
+  font-size: .93rem;
+  line-height: 1.48;
+}
+
+.profile-primary-action {
+  width: 100%;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  border-radius: 16px;
+  color: #fff;
+  background: linear-gradient(135deg, #f23a59, #bf102f);
+  box-shadow: 0 14px 30px rgba(205, 24, 58, .26), inset 0 1px 0 rgba(255, 255, 255, .16);
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 900;
+  letter-spacing: .01em;
+  pointer-events: none;
+}
+
+.profile-swipe-dots,
+.profile-swipe-hint {
+  display: none;
+}
+
+.profile-swipe-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(106, 82, 95, .24);
+  transition: width .2s ease, background .2s ease;
+}
+
+.profile-swipe-dot.is-active {
+  width: 24px;
+  border-radius: 999px;
+  background: #d62248;
+}
+
+@media (max-width: 760px) {
+  .premium-profiles {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .premium-profiles .section-heading {
+    padding-inline: 20px;
+  }
+
+  .profile-swipe-track {
+    display: flex;
+    gap: 14px;
+    width: 100%;
+    padding: 4px 20px 18px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-inline: contain;
+    touch-action: pan-x;
+  }
+
+  .profile-swipe-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .profile-card-premium {
+    flex: 0 0 min(84vw, 350px);
+    scroll-snap-align: center;
+    border-radius: 25px;
+  }
+
+  .profile-card-premium:hover {
+    transform: none;
+  }
+
+  .profile-card-premium .image-wrap {
+    height: min(128vw, 535px);
+    min-height: 460px;
+  }
+
+  .profile-card-overlay-premium {
+    padding: 21px;
+  }
+
+  .profile-bio {
+    min-height: 0;
+    font-size: .9rem;
+  }
+
+  .profile-swipe-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin-top: 3px;
+  }
+
+  .profile-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    margin: 10px 20px 0;
+    color: rgba(58, 45, 52, .62);
+    font-size: .78rem;
+    font-weight: 750;
+    text-align: center;
+  }
+
+  [dir="rtl"] .profile-swipe-track {
+    direction: rtl;
+  }
+}
