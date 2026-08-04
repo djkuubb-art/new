@@ -1,0 +1,220 @@
+.anna-notification-region {
+  position: fixed;
+  right: 24px;
+  bottom: 26px;
+  z-index: 9990;
+  width: min(390px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.anna-notification {
+  position: relative;
+  width: 100%;
+  min-height: 86px;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 12px 14px 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 18px;
+  color: #fff;
+  background: rgba(17, 17, 22, .96);
+  box-shadow: 0 22px 65px rgba(0, 0, 0, .58), inset 0 1px 0 rgba(255, 255, 255, .05);
+  backdrop-filter: blur(18px);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: auto;
+  transform: translateX(calc(100% + 34px));
+  transition: opacity .28s ease, transform .34s cubic-bezier(.2, .8, .2, 1), border-color .18s ease;
+}
+
+.anna-notification::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f32250, #9f2cff);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.anna-notification.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.anna-notification.is-visible::after {
+  animation: annaNotificationProgress var(--anna-visible-time, 6000ms) linear forwards;
+}
+
+.anna-notification:hover,
+.anna-notification:focus-visible {
+  border-color: rgba(243, 34, 75, .62);
+  outline: none;
+}
+
+@keyframes annaNotificationProgress {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+.anna-notification-avatar {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  overflow: visible;
+}
+
+.anna-notification-avatar img {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.anna-notification-icon {
+  position: absolute;
+  right: -6px;
+  bottom: -6px;
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #121217;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #b549ff, #6c20dc);
+  box-shadow: 0 6px 18px rgba(112, 29, 220, .45);
+  font-size: .73rem;
+  font-weight: 900;
+}
+
+.anna-notification-copy {
+  min-width: 0;
+}
+
+.anna-notification-copy strong {
+  display: block;
+  margin-bottom: 2px;
+  color: #fff;
+  font-size: .98rem;
+  line-height: 1.2;
+}
+
+.anna-notification-copy p {
+  margin: 0;
+  color: rgba(255, 255, 255, .76);
+  font-size: .84rem;
+  line-height: 1.35;
+}
+
+.anna-notification-time {
+  display: block;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, .42);
+  font-size: .69rem;
+  line-height: 1;
+}
+
+.anna-notification-close {
+  align-self: start;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0 0 2px;
+  border: 0;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, .55);
+  background: transparent;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.anna-notification-close:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, .08);
+}
+
+[dir="rtl"] .anna-notification-region {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .anna-notification {
+  grid-template-columns: 30px minmax(0, 1fr) 58px;
+  transform: translateX(calc(-100% - 34px));
+}
+
+[dir="rtl"] .anna-notification.is-visible {
+  transform: translateX(0);
+}
+
+[dir="rtl"] .anna-notification-avatar {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+[dir="rtl"] .anna-notification-copy {
+  grid-column: 2;
+  grid-row: 1;
+  text-align: right;
+}
+
+[dir="rtl"] .anna-notification-close {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+[dir="rtl"] .anna-notification-icon {
+  right: auto;
+  left: -6px;
+}
+
+@media (max-width: 760px) {
+  .anna-notification-region {
+    right: 12px;
+    bottom: 82px;
+    width: calc(100vw - 24px);
+  }
+
+  [dir="rtl"] .anna-notification-region {
+    right: auto;
+    left: 12px;
+  }
+
+  .anna-notification {
+    min-height: 80px;
+    grid-template-columns: 52px minmax(0, 1fr) 28px;
+    gap: 11px;
+    padding: 12px 10px 12px 12px;
+    border-radius: 16px;
+  }
+
+  .anna-notification-avatar,
+  .anna-notification-avatar img {
+    width: 50px;
+    height: 50px;
+  }
+
+  [dir="rtl"] .anna-notification {
+    grid-template-columns: 28px minmax(0, 1fr) 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anna-notification {
+    transition: opacity .15s ease;
+    transform: none !important;
+  }
+
+  .anna-notification::after {
+    display: none;
+  }
+}
