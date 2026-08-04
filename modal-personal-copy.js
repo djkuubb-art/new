@@ -9,7 +9,7 @@
     it: { title: 'Ti manca solo un ultimo passaggio per arrivare ad Anna.', text: 'Scegli la tua fascia d’età per continuare al suo profilo e vedere se è ancora disponibile.', distance: 'a 12,3 km da te' },
     es: { title: 'Solo te queda un último paso para llegar a Anna.', text: 'Elige tu franja de edad para continuar a su perfil y comprobar si todavía está disponible.', distance: 'a 12,3 km de ti' },
     pt: { title: 'Falta apenas um último passo para chegares à Anna.', text: 'Escolhe a tua faixa etária para continuares para o perfil dela e veres se ainda está disponível.', distance: 'a 12,3 km de ti' },
-    pl: { title: 'To już ostatni krok, aby przejść do Anny.', text: 'Wybierz swój przedział wiekowy, a za chwilę przejdziesz do jej profilu i sprawdzisz, czy nadal jest dostępna.', distance: '12,3 km od Ciebie' },
+    pl: { title: 'Dzieli Cię już tylko jeden krok od profilu Anny.', text: 'Wybierz swój przedział wiekowy, aby zobaczyć jej profil i sprawdzić, czy nadal jest dostępna.', distance: '12,3 km od Ciebie' },
     sv: { title: 'Bara ett sista steg återstår innan du kommer till Anna.', text: 'Välj din åldersgrupp för att gå vidare till hennes profil och se om hon fortfarande är tillgänglig.', distance: '12,3 km från dig' },
     no: { title: 'Du er bare ett siste steg unna Anna.', text: 'Velg aldersgruppen din for å gå videre til profilen hennes og se om hun fortsatt er tilgjengelig.', distance: '12,3 km fra deg' },
     da: { title: 'Du er kun ét sidste trin fra Anna.', text: 'Vælg din aldersgruppe for at fortsætte til hendes profil og se, om hun stadig er tilgængelig.', distance: '12,3 km fra dig' },
