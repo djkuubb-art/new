@@ -9,7 +9,7 @@
     it: { title: 'Ci sei quasi.', text: 'Scegli la tua fascia d’età. Nel passaggio successivo completerai una registrazione rapida e potrai continuare la conversazione con Anna.', distance: 'a 12,3 km da te', accountCta: 'Crea un account' },
     es: { title: 'Ya estás muy cerca.', text: 'Elige tu franja de edad. En el siguiente paso completarás un registro rápido y podrás continuar la conversación con Anna.', distance: 'a 12,3 km de ti', accountCta: 'Crear una cuenta' },
     pt: { title: 'Estás quase lá.', text: 'Escolhe a tua faixa etária. No passo seguinte farás um registo rápido e poderás continuar a conversa com a Anna.', distance: 'a 12,3 km de ti', accountCta: 'Criar conta' },
-    pl: { title: 'Jesteś bardzo blisko.', text: 'Wybierz swój przedział wiekowy, a w następnym kroku przejdziesz do szybkiej rejestracji i rozmowy z Anną.', distance: '12,3 km od Ciebie', accountCta: 'Załóż konto' },
+    pl: { title: 'Jesteś bardzo blisko.', text: 'Wybierz swój przedział wiekowy, a w następnym kroku przejdziesz do szybkiej rejestracji i rozmowy z Anną.', distance: '12,3 km od Ciebie', accountCta: 'Załóż konto', message: 'Unikasz mnie? Czekam od rana na odpowiedź...' },
     sv: { title: 'Du är nästan framme.', text: 'Välj din åldersgrupp. Därefter gör du en snabb registrering och kan fortsätta till samtalet med Anna.', distance: '12,3 km från dig', accountCta: 'Skapa konto' },
     no: { title: 'Du er nesten fremme.', text: 'Velg aldersgruppen din. Deretter fullfører du en rask registrering og kan fortsette til samtalen med Anna.', distance: '12,3 km fra deg', accountCta: 'Opprett konto' },
     da: { title: 'Du er næsten fremme.', text: 'Vælg din aldersgruppe. Derefter gennemfører du en hurtig oprettelse og kan fortsætte til samtalen med Anna.', distance: '12,3 km fra dig', accountCta: 'Opret konto' },
@@ -61,6 +61,14 @@
       stickyCopy.removeAttribute('data-i18n');
       stickyCopy.setAttribute('data-role', 'sticky-account-copy');
       setText(stickyCopy, current.accountCta);
+    }
+
+    if (current.message) {
+      const messageCopy = document.querySelector('.mini-message [data-i18n="messagePreview"], .mini-message p span');
+      if (messageCopy) {
+        messageCopy.removeAttribute('data-i18n');
+        setText(messageCopy, current.message);
+      }
     }
   };
 
