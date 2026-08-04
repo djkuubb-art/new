@@ -9,6 +9,7 @@
   <meta name="description" content="A warm, local-first dating landing page with native multilingual content." />
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/invite.css" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -28,24 +29,38 @@
   </header>
 
   <main id="top">
-    <section class="hero shell">
+    <section class="hero hero-invite shell">
       <div class="hero-copy">
-        <div class="eyebrow"><span class="pulse"></span><span data-i18n="eyebrow">People near you are online now</span></div>
-        <h1 data-i18n="heroTitle">Meet someone who is looking for the same thing as you.</h1>
-        <p class="hero-lead" data-i18n="heroText">Real conversations, local profiles and no endless swiping. See who would like to get to know you today.</p>
+        <div class="personal-invite">
+          <div class="invite-badge">
+            <span class="invite-icon" aria-hidden="true">✉</span>
+            <span data-i18n="inviteLabel">Personal invitation from Anna</span>
+          </div>
 
-        <div class="hero-actions">
-          <a class="button button-primary js-affiliate" data-slot="hero" href="/api/go?slot=hero">
-            <span data-i18n="heroCta">See matches near me</span>
-            <span aria-hidden="true">→</span>
-          </a>
-          <a class="button button-ghost" href="#profiles" data-i18n="secondaryCta">Browse profiles</a>
-        </div>
+          <h1 data-i18n="inviteTitle">Anna would like to get to know you.</h1>
+          <p class="hero-lead invite-text" data-i18n="inviteText">Open her profile and see whether you might be a good match.</p>
 
-        <div class="trust-row" aria-label="Highlights">
-          <span><b>✓</b><span data-i18n="trustLocal">Local profiles</span></span>
-          <span><b>✓</b><span data-i18n="trustPrivate">Private and discreet</span></span>
-          <span><b>✓</b><span data-i18n="trustFast">Join in a minute</span></span>
+          <div class="invite-preview">
+            <span class="invite-avatar">
+              <img src="https://res.cloudinary.com/r8lomm2b/image/upload/v1785806218/5_1_casfeq.png?auto=format&fit=crop&w=160&q=80" alt="Anna" />
+            </span>
+            <div>
+              <strong>Anna, 41</strong>
+              <p data-i18n="invitePreview">I noticed you and thought I’d say hello 😊</p>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button button-primary js-affiliate" data-slot="hero" href="/api/go?slot=hero">
+              <span data-i18n="inviteCta">View Anna’s profile</span>
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <p class="invite-note">
+            <span aria-hidden="true">🔒</span>
+            <span data-i18n="inviteNote">Discreet access for adults only</span>
+          </p>
         </div>
       </div>
 
