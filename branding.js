@@ -41,9 +41,12 @@
   };
 
   const applyBrand = () => {
-    document.title = document.title.replaceAll(OLD_BRAND, BRAND);
+    if (document.title.includes(OLD_BRAND)) {
+      document.title = document.title.replaceAll(OLD_BRAND, BRAND);
+    }
     document.querySelectorAll('.brand span:last-child, .mini-brand, .footer-brand strong').forEach((node) => {
-      node.textContent = node.classList.contains('mini-brand') ? `♥ ${BRAND}` : BRAND;
+      const next = node.classList.contains('mini-brand') ? `♥ ${BRAND}` : BRAND;
+      if (node.textContent !== next) node.textContent = next;
     });
   };
 
