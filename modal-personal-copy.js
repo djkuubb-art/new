@@ -1,26 +1,26 @@
 (() => {
   const localeCopy = {
-    'en-GB': { title: 'You’re one final step away from Anna.', text: 'Select your age range to continue to her profile and see whether she is still available.', distance: '7.6 miles from you' },
-    'en-US': { title: 'You’re one final step away from Anna.', text: 'Select your age range to continue to her profile and see if she is still available.', distance: '7.6 miles from you' },
-    'en-SG': { title: 'You’re one final step away from Anna.', text: 'Select your age range to continue to her profile and see whether she is still available.', distance: '12.3 km from you' },
-    de: { title: 'Nur noch ein letzter Schritt bis zu Anna.', text: 'Wähle deine Altersgruppe, um zu ihrem Profil weiterzugehen und zu sehen, ob sie noch verfügbar ist.', distance: '12,3 km von dir entfernt' },
-    nl: { title: 'Nog één laatste stap en je bent bij Anna.', text: 'Kies je leeftijdsgroep om door te gaan naar haar profiel en te bekijken of ze nog beschikbaar is.', distance: '12,3 km bij je vandaan' },
-    fr: { title: 'Plus qu’une dernière étape avant de retrouver Anna.', text: 'Choisissez votre tranche d’âge pour accéder à son profil et vérifier si elle est toujours disponible.', distance: 'à 12,3 km de chez vous' },
-    it: { title: 'Ti manca solo un ultimo passaggio per arrivare ad Anna.', text: 'Scegli la tua fascia d’età per continuare al suo profilo e vedere se è ancora disponibile.', distance: 'a 12,3 km da te' },
-    es: { title: 'Solo te queda un último paso para llegar a Anna.', text: 'Elige tu franja de edad para continuar a su perfil y comprobar si todavía está disponible.', distance: 'a 12,3 km de ti' },
-    pt: { title: 'Falta apenas um último passo para chegares à Anna.', text: 'Escolhe a tua faixa etária para continuares para o perfil dela e veres se ainda está disponível.', distance: 'a 12,3 km de ti' },
-    pl: { title: 'Dzieli Cię już tylko jeden krok od profilu Anny.', text: 'Wybierz swój przedział wiekowy, aby zobaczyć jej profil i sprawdzić, czy nadal jest dostępna.', distance: '12,3 km od Ciebie' },
-    sv: { title: 'Bara ett sista steg återstår innan du kommer till Anna.', text: 'Välj din åldersgrupp för att gå vidare till hennes profil och se om hon fortfarande är tillgänglig.', distance: '12,3 km från dig' },
-    no: { title: 'Du er bare ett siste steg unna Anna.', text: 'Velg aldersgruppen din for å gå videre til profilen hennes og se om hun fortsatt er tilgjengelig.', distance: '12,3 km fra deg' },
-    da: { title: 'Du er kun ét sidste trin fra Anna.', text: 'Vælg din aldersgruppe for at fortsætte til hendes profil og se, om hun stadig er tilgængelig.', distance: '12,3 km fra dig' },
-    fi: { title: 'Olet enää yhden viimeisen vaiheen päässä Annasta.', text: 'Valitse ikäryhmäsi, niin pääset hänen profiiliinsa ja voit tarkistaa, onko hän yhä tavoitettavissa.', distance: '12,3 km päässä sinusta' },
-    el: { title: 'Μένει μόνο ένα τελευταίο βήμα για να πας στην Άννα.', text: 'Επίλεξε την ηλικιακή σου ομάδα για να συνεχίσεις στο προφίλ της και να δεις αν είναι ακόμη διαθέσιμη.', distance: '12,3 χλμ. από εσένα' },
-    hr: { title: 'Još samo jedan posljednji korak dijeli te od Anne.', text: 'Odaberi svoju dobnu skupinu kako bi nastavio do njezina profila i provjerio je li još dostupna.', distance: '12,3 km od tebe' },
-    sl: { title: 'Le še zadnji korak te loči od Anne.', text: 'Izberi svojo starostno skupino, da nadaljuješ do njenega profila in preveriš, ali je še vedno na voljo.', distance: '12,3 km od tebe' },
-    sk: { title: 'Od Anny ťa delí už len posledný krok.', text: 'Vyber svoju vekovú skupinu, pokračuj na jej profil a zisti, či je ešte dostupná.', distance: '12,3 km od teba' },
-    cs: { title: 'Od Anny tě dělí už jen poslední krok.', text: 'Vyber svou věkovou skupinu, pokračuj na její profil a zjisti, zda je ještě dostupná.', distance: '12,3 km od tebe' },
-    hu: { title: 'Már csak egy utolsó lépés választ el Annától.', text: 'Válaszd ki a korcsoportodat, lépj tovább a profiljára, és nézd meg, hogy még elérhető-e.', distance: '12,3 km-re tőled' },
-    he: { title: 'נשאר רק צעד אחרון אחד כדי להגיע לאנה.', text: 'בחר את קבוצת הגיל שלך כדי להמשיך לפרופיל שלה ולבדוק אם היא עדיין זמינה.', distance: 'במרחק 12.3 ק״מ ממך' }
+    'en-GB': { title: 'You’re very close.', text: 'Choose your age range. Next, you’ll complete a quick sign-up and continue to a conversation with Anna.', distance: '7.6 miles from you', accountCta: 'Create account' },
+    'en-US': { title: 'You’re very close.', text: 'Choose your age range. Next, you’ll complete a quick sign-up and continue to a conversation with Anna.', distance: '7.6 miles from you', accountCta: 'Create account' },
+    'en-SG': { title: 'You’re very close.', text: 'Choose your age range. Next, you’ll complete a quick sign-up and continue to a conversation with Anna.', distance: '12.3 km from you', accountCta: 'Create account' },
+    de: { title: 'Du bist ganz nah dran.', text: 'Wähle deine Altersgruppe. Im nächsten Schritt meldest du dich kurz an und kannst anschließend mit Anna chatten.', distance: '12,3 km von dir entfernt', accountCta: 'Konto erstellen' },
+    nl: { title: 'Je bent er bijna.', text: 'Kies je leeftijdsgroep. Daarna maak je snel een account aan en kun je verder naar het gesprek met Anna.', distance: '12,3 km bij je vandaan', accountCta: 'Account aanmaken' },
+    fr: { title: 'Vous y êtes presque.', text: 'Choisissez votre tranche d’âge. Vous passerez ensuite par une inscription rapide avant de poursuivre la conversation avec Anna.', distance: 'à 12,3 km de chez vous', accountCta: 'Créer un compte' },
+    it: { title: 'Ci sei quasi.', text: 'Scegli la tua fascia d’età. Nel passaggio successivo completerai una registrazione rapida e potrai continuare la conversazione con Anna.', distance: 'a 12,3 km da te', accountCta: 'Crea un account' },
+    es: { title: 'Ya estás muy cerca.', text: 'Elige tu franja de edad. En el siguiente paso completarás un registro rápido y podrás continuar la conversación con Anna.', distance: 'a 12,3 km de ti', accountCta: 'Crear una cuenta' },
+    pt: { title: 'Estás quase lá.', text: 'Escolhe a tua faixa etária. No passo seguinte farás um registo rápido e poderás continuar a conversa com a Anna.', distance: 'a 12,3 km de ti', accountCta: 'Criar conta' },
+    pl: { title: 'Jesteś bardzo blisko.', text: 'Wybierz swój przedział wiekowy, a w następnym kroku przejdziesz do szybkiej rejestracji i rozmowy z Anną.', distance: '12,3 km od Ciebie', accountCta: 'Załóż konto' },
+    sv: { title: 'Du är nästan framme.', text: 'Välj din åldersgrupp. Därefter gör du en snabb registrering och kan fortsätta till samtalet med Anna.', distance: '12,3 km från dig', accountCta: 'Skapa konto' },
+    no: { title: 'Du er nesten fremme.', text: 'Velg aldersgruppen din. Deretter fullfører du en rask registrering og kan fortsette til samtalen med Anna.', distance: '12,3 km fra deg', accountCta: 'Opprett konto' },
+    da: { title: 'Du er næsten fremme.', text: 'Vælg din aldersgruppe. Derefter gennemfører du en hurtig oprettelse og kan fortsætte til samtalen med Anna.', distance: '12,3 km fra dig', accountCta: 'Opret konto' },
+    fi: { title: 'Olet aivan lähellä.', text: 'Valitse ikäryhmäsi. Seuraavaksi teet nopean rekisteröitymisen ja voit jatkaa keskusteluun Annan kanssa.', distance: '12,3 km päässä sinusta', accountCta: 'Luo tili' },
+    el: { title: 'Είσαι πολύ κοντά.', text: 'Επίλεξε την ηλικιακή σου ομάδα. Στο επόμενο βήμα θα κάνεις μια γρήγορη εγγραφή και θα συνεχίσεις στη συζήτηση με την Άννα.', distance: '12,3 χλμ. από εσένα', accountCta: 'Δημιούργησε λογαριασμό' },
+    hr: { title: 'Još si samo korak do cilja.', text: 'Odaberi svoju dobnu skupinu. U sljedećem koraku brzo ćeš otvoriti račun i nastaviti razgovor s Annom.', distance: '12,3 km od tebe', accountCta: 'Otvori račun' },
+    sl: { title: 'Skoraj si že tam.', text: 'Izberi svojo starostno skupino. V naslednjem koraku se hitro registriraš in nadaljuješ pogovor z Anno.', distance: '12,3 km od tebe', accountCta: 'Ustvari račun' },
+    sk: { title: 'Si už veľmi blízko.', text: 'Vyber svoju vekovú skupinu. V ďalšom kroku sa rýchlo zaregistruješ a budeš môcť pokračovať v rozhovore s Annou.', distance: '12,3 km od teba', accountCta: 'Vytvoriť účet' },
+    cs: { title: 'Jsi už velmi blízko.', text: 'Vyber svou věkovou skupinu. V dalším kroku se rychle zaregistruješ a budeš moci pokračovat v rozhovoru s Annou.', distance: '12,3 km od tebe', accountCta: 'Vytvořit účet' },
+    hu: { title: 'Már nagyon közel vagy.', text: 'Válaszd ki a korcsoportodat. A következő lépésben gyorsan regisztrálsz, majd folytathatod a beszélgetést Annával.', distance: '12,3 km-re tőled', accountCta: 'Fiók létrehozása' },
+    he: { title: 'אתה ממש קרוב.', text: 'בחר את קבוצת הגיל שלך. בשלב הבא תבצע הרשמה מהירה ותוכל להמשיך לשיחה עם אנה.', distance: 'במרחק 12.3 ק״מ ממך', accountCta: 'פתיחת חשבון' }
   };
 
   const normaliseLocale = (value = '') => {
@@ -55,6 +55,13 @@
     document.querySelectorAll('[data-profile="0-city"]').forEach((node) => {
       setText(node, current.distance);
     });
+
+    const stickyCopy = document.querySelector('.mobile-sticky [data-role="sticky-account-copy"], .mobile-sticky span:first-child');
+    if (stickyCopy) {
+      stickyCopy.removeAttribute('data-i18n');
+      stickyCopy.setAttribute('data-role', 'sticky-account-copy');
+      setText(stickyCopy, current.accountCta);
+    }
   };
 
   const initialise = () => {
