@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/invite.css" />
+  <link rel="stylesheet" href="/profiles-upgrade.css" />
 </head>
 <body>
   <div class="ambient ambient-one"></div>
@@ -97,7 +98,7 @@
       <div><strong>1 min</strong><span data-i18n="quickStart">quick start</span></div>
     </section>
 
-    <section class="profiles-section shell" id="profiles">
+    <section class="profiles-section premium-profiles shell" id="profiles">
       <div class="section-heading">
         <div>
           <span class="section-kicker" data-i18n="profilesKicker">Discover</span>
@@ -106,42 +107,57 @@
         <p data-i18n="profilesText">Your selection changes depending on your language and location.</p>
       </div>
 
-      <div class="profile-grid">
-        <article class="profile-card">
-          <div class="image-wrap">
-            <img src="https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/a2da64a7-ee33-4baf-a2d6-e20504f45b50_ekpe66.png?auto=format&fit=crop&w=900&q=82" alt="Sample profile" loading="lazy" />
-            <span class="status-pill"><i></i><span data-i18n="online">Online</span></span>
-          </div>
-          <div class="profile-content">
-            <h3><span data-profile="0-name">Sofie</span>, 43</h3>
-            <p>📍 <span data-profile="0-city">Copenhagen</span></p>
-            <a class="profile-link js-affiliate" data-slot="card-1" href="/api/go?slot=card-1"><span data-i18n="viewProfile">View profile</span><span>→</span></a>
-          </div>
-        </article>
+      <div class="profile-swipe-shell">
+        <div class="profile-grid profile-swipe-track" id="profileSwipeTrack">
+          <article class="profile-card profile-card-premium js-affiliate" data-slot="card-1" tabindex="0" role="button" aria-label="View profile">
+            <div class="image-wrap">
+              <img src="https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/a2da64a7-ee33-4baf-a2d6-e20504f45b50_ekpe66.png?auto=format&fit=crop&w=900&q=84" alt="Sample profile" loading="lazy" />
+              <span class="status-pill"><i></i><span data-i18n="online">Online</span></span>
+              <div class="profile-card-gradient"></div>
+              <div class="profile-card-overlay-premium">
+                <span class="profile-distance">📍 <span data-profile-distance="0">7.6 miles from you</span></span>
+                <h3><span data-profile="0-name">Anna</span>, 41</h3>
+                <p class="profile-bio" data-profile-bio="0">I like honest conversations and men who know what they want.</p>
+                <button class="profile-primary-action" type="button"><span data-profile-cta>View profile</span><span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
 
-        <article class="profile-card">
-          <div class="image-wrap">
-            <img src="https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/1gb_le1u9j.png?auto=format&fit=crop&w=900&q=82" alt="Sample profile" loading="lazy" />
-            <span class="status-pill"><i></i><span data-i18n="online">Online</span></span>
-          </div>
-          <div class="profile-content">
-            <h3><span data-profile="1-name">Maja</span>, 46</h3>
-            <p>📍 <span data-profile="1-city">Aarhus</span></p>
-            <a class="profile-link js-affiliate" data-slot="card-2" href="/api/go?slot=card-2"><span data-i18n="viewProfile">View profile</span><span>→</span></a>
-          </div>
-        </article>
+          <article class="profile-card profile-card-premium js-affiliate" data-slot="card-2" tabindex="0" role="button" aria-label="View profile">
+            <div class="image-wrap">
+              <img src="https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/1gb_le1u9j.png?auto=format&fit=crop&w=900&q=84" alt="Sample profile" loading="lazy" />
+              <span class="status-pill"><i></i><span data-i18n="online">Online</span></span>
+              <div class="profile-card-gradient"></div>
+              <div class="profile-card-overlay-premium">
+                <span class="profile-distance">📍 <span data-profile-distance="1">5.0 miles from you</span></span>
+                <h3><span data-profile="1-name">Claire</span>, 44</h3>
+                <p class="profile-bio" data-profile-bio="1">I’m looking for someone mature, kind and easy to talk to.</p>
+                <button class="profile-primary-action" type="button"><span data-profile-cta>View profile</span><span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
 
-        <article class="profile-card">
-          <div class="image-wrap">
-            <img src="https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/2d4b618b-607f-454d-b3f5-daf793df0644_dzkv1u.png?auto=format&fit=crop&w=900&q=82" alt="Sample profile" loading="lazy" />
-            <span class="status-pill muted"><i></i><span data-i18n="activeToday">Active today</span></span>
-          </div>
-          <div class="profile-content">
-            <h3><span data-profile="2-name">Louise</span>, 41</h3>
-            <p>📍 <span data-profile="2-city">Odense</span></p>
-            <a class="profile-link js-affiliate" data-slot="card-3" href="/api/go?slot=card-3"><span data-i18n="viewProfile">View profile</span><span>→</span></a>
-          </div>
-        </article>
+          <article class="profile-card profile-card-premium js-affiliate" data-slot="card-3" tabindex="0" role="button" aria-label="View profile">
+            <div class="image-wrap">
+              <img src="https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/2d4b618b-607f-454d-b3f5-daf793df0644_dzkv1u.png?auto=format&fit=crop&w=900&q=84" alt="Sample profile" loading="lazy" />
+              <span class="status-pill muted"><i></i><span data-i18n="activeToday">Active today</span></span>
+              <div class="profile-card-gradient"></div>
+              <div class="profile-card-overlay-premium">
+                <span class="profile-distance">📍 <span data-profile-distance="2">3.5 miles from you</span></span>
+                <h3><span data-profile="2-name">Emma</span>, 39</h3>
+                <p class="profile-bio" data-profile-bio="2">I appreciate confidence, humour and genuine interest.</p>
+                <button class="profile-primary-action" type="button"><span data-profile-cta>View profile</span><span aria-hidden="true">→</span></button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="profile-swipe-dots" aria-label="Profile slides">
+          <button class="profile-swipe-dot is-active" type="button" aria-label="Profile 1"></button>
+          <button class="profile-swipe-dot" type="button" aria-label="Profile 2"></button>
+          <button class="profile-swipe-dot" type="button" aria-label="Profile 3"></button>
+        </div>
+        <p class="profile-swipe-hint"><span aria-hidden="true">↔</span><span data-profile-swipe-hint>Swipe to see more profiles</span></p>
       </div>
     </section>
 
@@ -180,7 +196,7 @@
     </div>
   </footer>
 
-  <a class="mobile-sticky js-affiliate" data-slot="sticky" href="/api/go?slot=sticky"><span data-i18n="stickyCta">See nearby profiles</span><span>→</span></a>
+  <a class="mobile-sticky js-affiliate" data-slot="sticky" href="/api/go?slot=sticky"><span data-role="sticky-account-copy">Create account</span><span>→</span></a>
 
   <dialog id="legalModal">
     <button class="modal-close" aria-label="Close">×</button>
@@ -191,5 +207,6 @@
   <script src="/app.js" defer></script>
   <script src="/branding.js" defer></script>
   <script src="/modal-personal-copy.js" defer></script>
+  <script src="/profiles-upgrade.js" defer></script>
 </body>
 </html>
