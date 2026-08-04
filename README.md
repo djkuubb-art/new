@@ -1,4 +1,4 @@
-# HeartMatch multilingual affiliate landing
+# HeartMatch multilingual affiliate landing.
 
 Static Vercel landing page with native dictionary-based translations, country/language detection and a central affiliate redirect.
 
