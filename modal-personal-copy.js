@@ -39,19 +39,21 @@
     navigator.language
   );
 
+  const setText = (node, value) => {
+    if (node && node.textContent !== value) node.textContent = value;
+  };
+
   const applyPersonalCopy = () => {
     const current = localeCopy[getLocale()] || localeCopy['en-GB'];
 
     const modal = document.getElementById('ageGateModal');
     if (modal) {
-      const title = modal.querySelector('.age-gate-title');
-      const description = modal.querySelector('.age-gate-text');
-      if (title) title.textContent = current.title;
-      if (description) description.textContent = current.text;
+      setText(modal.querySelector('.age-gate-title'), current.title);
+      setText(modal.querySelector('.age-gate-text'), current.text);
     }
 
     document.querySelectorAll('[data-profile="0-city"]').forEach((node) => {
-      node.textContent = current.distance;
+      setText(node, current.distance);
     });
   };
 
