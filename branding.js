@@ -60,7 +60,7 @@
       text: 'Et taida enää vastata minulle... Tiesin, etten ollut tarpeeksi kaunis.'
     },
     el: {
-      name: 'Άννα',
+      name: 'Anna',
       text: 'Μάλλον δεν θα μου απαντήσεις πια... Το ήξερα ότι δεν ήμουν αρκετά όμορφη.'
     },
     hr: {
@@ -84,7 +84,7 @@
       text: 'Úgy tűnik, már nem fogsz válaszolni... Tudtam, hogy nem vagyok elég szép.'
     },
     he: {
-      name: 'אנה',
+      name: 'Anna',
       text: 'כנראה שכבר לא תענה לי... ידעתי שאני לא מספיק יפה.'
     }
   };
