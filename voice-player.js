@@ -35,7 +35,7 @@
   const NOTIFICATION_DELAY_MS = 6000;
   const CTA_UNLOCK_MS = 1200;
   let unlockTimer = 0;
-  let stage = 'listen';
+  let stage = 'reply';
 
   const normaliseLocale = (value = '') => {
     if (copy[value]) return value;
@@ -254,7 +254,7 @@
         audio.src = audioFiles[getLocale()] || audioFiles['en-GB'];
         panel.querySelector('.anna-voice-progress').style.width = '0%';
         panel.querySelector('.anna-voice-time').textContent = '0:00';
-        stage = 'listen';
+        stage = 'reply';
         updateCopy();
       }, 0);
     });
