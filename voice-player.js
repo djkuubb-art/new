@@ -35,7 +35,6 @@
     he: { title: 'הודעה קולית מאנה', badge: 'פרטי', play: 'השמעת ההודעה הקולית', pause: 'השהיית ההודעה הקולית', hint: 'הקשב לאנה ואז השב לה כשתהיה מוכן.', reply: 'השב לאנה' }
   };
 
-  let activeProfileIndex = null;
   let unlockTimer = 0;
   let ageFromVoicePending = false;
 
@@ -58,19 +57,11 @@
   const getText = () => copy[getLocale()] || copy['en-GB'];
 
   const track = (eventName, details = {}) => {
-    const payload = {
-      event: eventName,
-      locale: getLocale(),
-      profile: 'Anna',
-      ...details
-    };
-
+    const payload = { event: eventName, locale: getLocale(), profile: 'Anna', placement: 'main-profile', ...details };
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(payload);
-
     if (typeof window.gtag === 'function') window.gtag('event', eventName, payload);
     if (typeof window.fbq === 'function') window.fbq('trackCustom', eventName, payload);
-
     window.dispatchEvent(new CustomEvent('realmeetclub:analytics', { detail: payload }));
   };
 
@@ -81,193 +72,158 @@
     return `${minutes}:${remainder}`;
   };
 
-  const resetPanel = (modal, { clearSource = false } = {}) => {
-    window.clearTimeout(unlockTimer);
-    const audio = modal?.querySelector('.anna-voice-audio');
-    const play = modal?.querySelector('.anna-voice-play');
-    const progress = modal?.querySelector('.anna-voice-progress');
-    const time = modal?.querySelector('.anna-voice-time');
-    const card = modal?.querySelector('.profile-detail-card');
-    const ctaCopy = modal?.querySelector('.profile-detail-cta-copy');
+  const getElements = () => {
+    const phone = document.querySelector('.hero-invite .phone-card');
+    return {
+      phone,
+      message: phone?.querySelector('.mini-message'),
+      cta: phone?.querySelector('.phone-cta'),
+      ctaCopy: phone?.querySelector('.phone-cta-copy'),
+      panel: phone?.querySelector('.anna-voice-panel')
+    };
+  };
 
-    if (audio) {
-      audio.pause();
-      try { audio.currentTime = 0; } catch (_) {}
-      if (clearSource) audio.removeAttribute('src');
-    }
-    if (play) {
-      play.textContent = '▶';
-      play.setAttribute('aria-label', getText().play);
-    }
-    if (progress) progress.style.width = '0%';
-    if (time) time.textContent = '0:00';
-    if (card) card.classList.remove('voice-cta-ready');
-    if (ctaCopy?.dataset.voiceOriginalCopy) {
-      ctaCopy.textContent = ctaCopy.dataset.voiceOriginalCopy;
-      delete ctaCopy.dataset.voiceOriginalCopy;
+  const updateCopy = () => {
+    const { panel, ctaCopy } = getElements();
+    if (!panel) return;
+    const text = getText();
+    const audio = panel.querySelector('.anna-voice-audio');
+    panel.querySelector('.anna-voice-title').textContent = text.title;
+    panel.querySelector('.anna-voice-badge').textContent = text.badge;
+    panel.querySelector('.anna-voice-hint').textContent = text.hint;
+    panel.querySelector('.anna-voice-play').setAttribute('aria-label', audio && !audio.paused ? text.pause : text.play);
+    if (panel.classList.contains('voice-cta-ready') && ctaCopy) ctaCopy.textContent = text.reply;
+  };
+
+  const resetAudio = ({ keepReady = false } = {}) => {
+    window.clearTimeout(unlockTimer);
+    const { phone, panel, ctaCopy } = getElements();
+    if (!panel) return;
+    const audio = panel.querySelector('.anna-voice-audio');
+    const play = panel.querySelector('.anna-voice-play');
+    const progress = panel.querySelector('.anna-voice-progress');
+    const time = panel.querySelector('.anna-voice-time');
+
+    audio.pause();
+    try { audio.currentTime = 0; } catch (_) {}
+    play.textContent = '▶';
+    progress.style.width = '0%';
+    time.textContent = '0:00';
+    panel.dataset.playTracked = '0';
+    panel.dataset.completeTracked = '0';
+
+    if (!keepReady) {
+      panel.classList.remove('voice-cta-ready');
+      phone?.classList.remove('voice-cta-ready');
+      if (ctaCopy?.dataset.voiceOriginalCopy) {
+        ctaCopy.textContent = ctaCopy.dataset.voiceOriginalCopy;
+        delete ctaCopy.dataset.voiceOriginalCopy;
+      }
     }
   };
 
-  const unlockVoiceCta = (modal) => {
-    const card = modal.querySelector('.profile-detail-card');
-    const ctaCopy = modal.querySelector('.profile-detail-cta-copy');
-    if (!card || !ctaCopy || card.classList.contains('voice-cta-ready')) return;
-
+  const unlockCta = () => {
+    const { phone, panel, ctaCopy } = getElements();
+    if (!panel || !ctaCopy || panel.classList.contains('voice-cta-ready')) return;
     ctaCopy.dataset.voiceOriginalCopy = ctaCopy.textContent;
     ctaCopy.textContent = getText().reply;
-    card.classList.add('voice-cta-ready');
+    panel.classList.add('voice-cta-ready');
+    phone?.classList.add('voice-cta-ready');
   };
 
-  const updatePanelCopy = (modal) => {
-    const text = getText();
-    const title = modal.querySelector('.anna-voice-title');
-    const badge = modal.querySelector('.anna-voice-badge');
-    const hint = modal.querySelector('.anna-voice-hint');
-    const play = modal.querySelector('.anna-voice-play');
-    const audio = modal.querySelector('.anna-voice-audio');
+  const installPlayer = () => {
+    const { phone, message, cta } = getElements();
+    if (!phone || !message || !cta) return false;
+    if (phone.querySelector('.anna-voice-panel')) return true;
 
-    if (title) title.textContent = text.title;
-    if (badge) badge.textContent = text.badge;
-    if (hint) hint.textContent = text.hint;
-    if (play) play.setAttribute('aria-label', audio && !audio.paused ? text.pause : text.play);
-
-    if (modal.querySelector('.profile-detail-card')?.classList.contains('voice-cta-ready')) {
-      const ctaCopy = modal.querySelector('.profile-detail-cta-copy');
-      if (ctaCopy) ctaCopy.textContent = text.reply;
-    }
-  };
-
-  const ensurePlayer = (modal) => {
-    if (!modal || activeProfileIndex !== 0 || !modal.open) return;
-
-    const body = modal.querySelector('.profile-detail-body');
-    const cta = modal.querySelector('.profile-detail-cta');
-    if (!body || !cta) return;
-
-    let panel = modal.querySelector('.anna-voice-panel');
-    if (!panel) {
-      panel = document.createElement('section');
-      panel.className = 'anna-voice-panel';
-      panel.innerHTML = `
-        <div class="anna-voice-header">
-          <div class="anna-voice-label">
-            <strong class="anna-voice-title"></strong>
-            <span class="anna-voice-subtitle">Anna, 41</span>
-          </div>
-          <span class="anna-voice-badge"></span>
+    const panel = document.createElement('section');
+    panel.className = 'anna-voice-panel anna-voice-panel--main';
+    panel.innerHTML = `
+      <div class="anna-voice-header">
+        <div class="anna-voice-label">
+          <strong class="anna-voice-title"></strong>
+          <span class="anna-voice-subtitle">Anna, 41</span>
         </div>
-        <div class="anna-voice-controls">
-          <button class="anna-voice-play" type="button" aria-label="">▶</button>
-          <div class="anna-voice-track" aria-hidden="true"><span class="anna-voice-progress"></span></div>
-          <span class="anna-voice-time">0:00</span>
-        </div>
-        <p class="anna-voice-hint"></p>
-        <audio class="anna-voice-audio" preload="metadata"></audio>
-      `;
-      body.insertBefore(panel, cta);
-
-      const audio = panel.querySelector('.anna-voice-audio');
-      const play = panel.querySelector('.anna-voice-play');
-      const progress = panel.querySelector('.anna-voice-progress');
-      const time = panel.querySelector('.anna-voice-time');
-
-      play.addEventListener('click', async () => {
-        if (!audio.src) audio.src = audioFiles[getLocale()] || audioFiles['en-GB'];
-
-        if (!audio.paused) {
-          audio.pause();
-          return;
-        }
-
-        try {
-          await audio.play();
-        } catch (_) {
-          play.textContent = '▶';
-          play.setAttribute('aria-label', getText().play);
-        }
-      });
-
-      audio.addEventListener('play', () => {
-        play.textContent = '❚❚';
-        play.setAttribute('aria-label', getText().pause);
-        if (panel.dataset.playTracked !== '1') {
-          panel.dataset.playTracked = '1';
-          track('voice_message_play');
-        }
-        window.clearTimeout(unlockTimer);
-        unlockTimer = window.setTimeout(() => unlockVoiceCta(modal), 1200);
-      });
-
-      audio.addEventListener('pause', () => {
-        play.textContent = '▶';
-        play.setAttribute('aria-label', getText().play);
-      });
-
-      audio.addEventListener('loadedmetadata', () => {
-        time.textContent = `0:00 / ${formatTime(audio.duration)}`;
-      });
-
-      audio.addEventListener('timeupdate', () => {
-        const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
-        const percent = duration ? Math.min(100, (audio.currentTime / duration) * 100) : 0;
-        progress.style.width = `${percent}%`;
-        time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(duration)}`;
-      });
-
-      audio.addEventListener('ended', () => {
-        play.textContent = '▶';
-        progress.style.width = '100%';
-        unlockVoiceCta(modal);
-        if (panel.dataset.completeTracked !== '1') {
-          panel.dataset.completeTracked = '1';
-          track('voice_message_complete');
-        }
-      });
-
-      cta.addEventListener('click', () => {
-        const listened = panel.dataset.playTracked === '1';
-        track('voice_cta_click', { listened });
-        ageFromVoicePending = true;
-      }, true);
-    }
+        <span class="anna-voice-badge"></span>
+      </div>
+      <div class="anna-voice-controls">
+        <button class="anna-voice-play" type="button" aria-label="">▶</button>
+        <div class="anna-voice-track" aria-hidden="true"><span class="anna-voice-progress"></span></div>
+        <span class="anna-voice-time">0:00</span>
+      </div>
+      <p class="anna-voice-hint"></p>
+      <audio class="anna-voice-audio" preload="metadata"></audio>
+    `;
+    cta.insertAdjacentElement('beforebegin', panel);
 
     const audio = panel.querySelector('.anna-voice-audio');
-    const expectedSource = audioFiles[getLocale()] || audioFiles['en-GB'];
-    if (audio.getAttribute('src') !== expectedSource) {
-      resetPanel(modal);
-      panel.dataset.playTracked = '0';
-      panel.dataset.completeTracked = '0';
-      audio.src = expectedSource;
-    }
+    const play = panel.querySelector('.anna-voice-play');
+    const progress = panel.querySelector('.anna-voice-progress');
+    const time = panel.querySelector('.anna-voice-time');
 
-    updatePanelCopy(modal);
+    audio.src = audioFiles[getLocale()] || audioFiles['en-GB'];
 
-    if (modal.dataset.voiceVisibleTracked !== '1') {
-      modal.dataset.voiceVisibleTracked = '1';
-      track('voice_message_visible');
-    }
+    play.addEventListener('click', async () => {
+      if (!audio.paused) {
+        audio.pause();
+        return;
+      }
+      try {
+        await audio.play();
+      } catch (_) {
+        play.textContent = '▶';
+        play.setAttribute('aria-label', getText().play);
+      }
+    });
+
+    audio.addEventListener('play', () => {
+      play.textContent = '❚❚';
+      play.setAttribute('aria-label', getText().pause);
+      if (panel.dataset.playTracked !== '1') {
+        panel.dataset.playTracked = '1';
+        track('voice_message_play');
+      }
+      window.clearTimeout(unlockTimer);
+      unlockTimer = window.setTimeout(unlockCta, 1200);
+    });
+
+    audio.addEventListener('pause', () => {
+      play.textContent = '▶';
+      play.setAttribute('aria-label', getText().play);
+    });
+
+    audio.addEventListener('loadedmetadata', () => {
+      time.textContent = `0:00 / ${formatTime(audio.duration)}`;
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
+      const percent = duration ? Math.min(100, (audio.currentTime / duration) * 100) : 0;
+      progress.style.width = `${percent}%`;
+      time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(duration)}`;
+    });
+
+    audio.addEventListener('ended', () => {
+      play.textContent = '▶';
+      progress.style.width = '100%';
+      unlockCta();
+      if (panel.dataset.completeTracked !== '1') {
+        panel.dataset.completeTracked = '1';
+        track('voice_message_complete');
+      }
+    });
+
+    cta.addEventListener('click', () => {
+      track('voice_cta_click', { listened: panel.dataset.playTracked === '1' });
+      ageFromVoicePending = true;
+    }, true);
+
+    updateCopy();
+    track('voice_message_visible');
+    return true;
   };
 
-  const syncModal = () => {
-    const modal = document.getElementById('profileDetailModal');
-    if (!modal) return;
-
-    if (!modal.open) {
-      resetPanel(modal);
-      modal.dataset.voiceVisibleTracked = '0';
-      return;
-    }
-
-    if (activeProfileIndex === 0) {
-      ensurePlayer(modal);
-    } else {
-      const panel = modal.querySelector('.anna-voice-panel');
-      if (panel) panel.hidden = true;
-      resetPanel(modal);
-    }
-  };
-
-  const openAnnaProfileFromVoiceNotification = (event) => {
+  const focusMainVoice = (event) => {
     const notification = event.target.closest('.anna-notification[data-event-type="voice"]');
     if (!notification || event.target.closest('.anna-notification-close')) return false;
 
@@ -275,56 +231,43 @@
     event.stopImmediatePropagation();
     notification.classList.remove('is-visible');
 
-    const annaCard = document.querySelector('.profile-card-premium[data-profile-index="0"], .profile-card-premium:first-child');
-    if (annaCard instanceof HTMLElement) {
-      activeProfileIndex = 0;
-      annaCard.click();
-      return true;
-    }
-    return false;
+    installPlayer();
+    const { phone, panel } = getElements();
+    phone?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    panel?.classList.add('voice-focus');
+    window.setTimeout(() => panel?.classList.remove('voice-focus'), 1500);
+    track('voice_notification_open_main_profile');
+    return true;
   };
 
   const initialise = () => {
-    document.addEventListener('click', (event) => {
-      if (openAnnaProfileFromVoiceNotification(event)) return;
+    if (!installPlayer()) {
+      const observer = new MutationObserver(() => {
+        if (installPlayer()) observer.disconnect();
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
 
-      const card = event.target.closest('.profile-card-premium');
-      if (card) activeProfileIndex = Number(card.dataset.profileIndex || 0);
-    }, true);
-
-    document.addEventListener('keydown', (event) => {
-      const card = event.target.closest?.('.profile-card-premium');
-      if (!card || (event.key !== 'Enter' && event.key !== ' ')) return;
-      activeProfileIndex = Number(card.dataset.profileIndex || 0);
-    }, true);
+    document.addEventListener('click', focusMainVoice, true);
 
     document.getElementById('languageSelect')?.addEventListener('change', () => {
-      const modal = document.getElementById('profileDetailModal');
-      if (!modal) return;
-      setTimeout(() => {
-        resetPanel(modal);
-        const panel = modal.querySelector('.anna-voice-panel');
-        if (panel) {
-          panel.dataset.playTracked = '0';
-          panel.dataset.completeTracked = '0';
-        }
-        ensurePlayer(modal);
+      window.setTimeout(() => {
+        installPlayer();
+        const { panel } = getElements();
+        if (!panel) return;
+        resetAudio();
+        panel.querySelector('.anna-voice-audio').src = audioFiles[getLocale()] || audioFiles['en-GB'];
+        updateCopy();
       }, 0);
     });
 
     new MutationObserver(() => {
-      syncModal();
       const ageModal = document.getElementById('ageGateModal');
       if (ageFromVoicePending && ageModal?.open) {
         ageFromVoicePending = false;
         track('age_modal_open_from_voice');
       }
-    }).observe(document.body, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['open']
-    });
+    }).observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['open'] });
   };
 
   if (document.readyState === 'loading') {
