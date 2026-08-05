@@ -33,112 +33,63 @@
     return labels[short] ? short : 'en-GB';
   };
 
-  const getLabel = () => {
-    const locale = normaliseLocale(
-      document.getElementById('languageSelect')?.value ||
-      document.documentElement.lang ||
-      navigator.language
-    );
-    return labels[locale] || labels['en-GB'];
-  };
-
-  let scheduled = false;
-  let phoneObserver = null;
-
-  const isPlainSpan = (node, className, text) => (
-    node instanceof HTMLSpanElement &&
-    node.classList.contains(className) &&
-    node.childNodes.length === 1 &&
-    node.firstChild?.nodeType === Node.TEXT_NODE &&
-    node.textContent === text
+  const getLocale = () => normaliseLocale(
+    document.getElementById('languageSelect')?.value ||
+    document.documentElement.lang ||
+    navigator.language
   );
 
-  const ensureSingleLabel = () => {
+  const render = () => {
     const cta = document.querySelector('.hero-invite .phone-card .phone-cta');
     if (!(cta instanceof HTMLAnchorElement)) return false;
 
-    const label = getLabel();
-    const first = cta.children[0];
-    const second = cta.children[1];
-    const clean = (
-      cta.children.length === 2 &&
-      cta.childNodes.length === 2 &&
-      isPlainSpan(first, 'phone-cta-copy', label) &&
-      isPlainSpan(second, 'phone-cta-arrow', '→')
-    );
+    const locale = getLocale();
+    const label = labels[locale] || labels['en-GB'];
 
-    cta.classList.add('js-affiliate');
+    cta.classList.add('js-affiliate', 'notranslate');
+    cta.setAttribute('translate', 'no');
+    cta.setAttribute('lang', locale);
     cta.dataset.rmcCtaOwner = 'reply';
 
     if (!cta.dataset.rmcOriginalHref) {
       cta.dataset.rmcOriginalHref = cta.getAttribute('href') || '/api/go?slot=phone-message';
     }
-    if (cta.getAttribute('href') !== cta.dataset.rmcOriginalHref) {
-      cta.setAttribute('href', cta.dataset.rmcOriginalHref);
-    }
+    cta.setAttribute('href', cta.dataset.rmcOriginalHref);
 
-    if (!clean) {
-      const copy = document.createElement('span');
-      copy.className = 'phone-cta-copy';
-      copy.textContent = label;
+    const copy = document.createElement('span');
+    copy.className = 'phone-cta-copy notranslate';
+    copy.setAttribute('translate', 'no');
+    copy.setAttribute('lang', locale);
+    copy.textContent = label;
 
-      const arrow = document.createElement('span');
-      arrow.className = 'phone-cta-arrow';
-      arrow.setAttribute('aria-hidden', 'true');
-      arrow.textContent = '→';
+    const arrow = document.createElement('span');
+    arrow.className = 'phone-cta-arrow notranslate';
+    arrow.setAttribute('translate', 'no');
+    arrow.setAttribute('aria-hidden', 'true');
+    arrow.textContent = '→';
 
-      cta.replaceChildren(copy, arrow);
-    }
-
+    cta.replaceChildren(copy, arrow);
     return true;
   };
 
-  const scheduleRepair = () => {
-    if (scheduled) return;
-    scheduled = true;
-    requestAnimationFrame(() => {
-      scheduled = false;
-      ensureSingleLabel();
+  const renderWhenReady = () => {
+    if (render()) return;
+    const observer = new MutationObserver(() => {
+      if (!render()) return;
+      observer.disconnect();
     });
+    observer.observe(document.body, { childList: true, subtree: true });
+    window.setTimeout(() => observer.disconnect(), 5000);
   };
 
-  const observePhone = () => {
-    const phone = document.querySelector('.hero-invite .phone-card');
-    if (!phone) return false;
-    phoneObserver?.disconnect();
-    phoneObserver = new MutationObserver(scheduleRepair);
-    phoneObserver.observe(phone, {
-      childList: true,
-      subtree: true,
-      characterData: true
-    });
-    ensureSingleLabel();
-    return true;
+  const refresh = () => {
+    window.setTimeout(render, 0);
+    window.setTimeout(render, 250);
+    window.setTimeout(render, 1000);
   };
 
-  const initialise = () => {
-    if (!observePhone()) {
-      const bodyObserver = new MutationObserver(() => {
-        if (!observePhone()) return;
-        bodyObserver.disconnect();
-      });
-      bodyObserver.observe(document.body, { childList: true, subtree: true });
-    }
-
-    document.getElementById('languageSelect')?.addEventListener('change', scheduleRepair);
-    new MutationObserver(scheduleRepair).observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['lang', 'dir']
-    });
-
-    window.setTimeout(scheduleRepair, 0);
-    window.setTimeout(scheduleRepair, 500);
-    window.setTimeout(scheduleRepair, 1500);
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initialise, { once: true });
-  } else {
-    initialise();
-  }
+  renderWhenReady();
+  document.getElementById('languageSelect')?.addEventListener('change', refresh);
+  window.addEventListener('pageshow', refresh);
+  window.setTimeout(render, 2500);
 })();
