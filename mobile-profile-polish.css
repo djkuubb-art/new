@@ -19,13 +19,43 @@
     box-shadow: 0 8px 22px rgba(0, 0, 0, .34) !important;
     backdrop-filter: blur(10px) !important;
     white-space: nowrap !important;
+
+    /* Hide proxy-modifiable DOM text. Only the single CSS label below is visible. */
+    font-size: 0 !important;
   }
 
-  /* The label is owned only by profile-preview.js. Do not generate a second copy in CSS. */
   .hero-invite .profile-preview-open-hint::before {
-    display: none !important;
-    content: none !important;
+    display: inline-block !important;
+    overflow: hidden !important;
+    color: #fff !important;
+    content: "Open profile";
+    font-size: .7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
   }
+
+  html[lang="en"] .hero-invite .profile-preview-open-hint::before,
+  html[lang^="en-"] .hero-invite .profile-preview-open-hint::before { content: "Open profile"; }
+  html[lang="de"] .hero-invite .profile-preview-open-hint::before { content: "Profil öffnen"; }
+  html[lang="nl"] .hero-invite .profile-preview-open-hint::before { content: "Profiel openen"; }
+  html[lang="fr"] .hero-invite .profile-preview-open-hint::before { content: "Ouvrir le profil"; }
+  html[lang="it"] .hero-invite .profile-preview-open-hint::before { content: "Apri il profilo"; }
+  html[lang="es"] .hero-invite .profile-preview-open-hint::before { content: "Abrir perfil"; }
+  html[lang="pt"] .hero-invite .profile-preview-open-hint::before { content: "Abrir perfil"; }
+  html[lang="pl"] .hero-invite .profile-preview-open-hint::before { content: "Otwórz profil"; }
+  html[lang="sv"] .hero-invite .profile-preview-open-hint::before { content: "Öppna profil"; }
+  html[lang="no"] .hero-invite .profile-preview-open-hint::before { content: "Åpne profil"; }
+  html[lang="da"] .hero-invite .profile-preview-open-hint::before { content: "Åbn profil"; }
+  html[lang="fi"] .hero-invite .profile-preview-open-hint::before { content: "Avaa profiili"; }
+  html[lang="el"] .hero-invite .profile-preview-open-hint::before { content: "Άνοιγμα προφίλ"; }
+  html[lang="hr"] .hero-invite .profile-preview-open-hint::before { content: "Otvori profil"; }
+  html[lang="sl"] .hero-invite .profile-preview-open-hint::before { content: "Odpri profil"; }
+  html[lang="sk"] .hero-invite .profile-preview-open-hint::before { content: "Otvoriť profil"; }
+  html[lang="cs"] .hero-invite .profile-preview-open-hint::before { content: "Otevřít profil"; }
+  html[lang="hu"] .hero-invite .profile-preview-open-hint::before { content: "Profil megnyitása"; }
+  html[lang="he"] .hero-invite .profile-preview-open-hint::before { content: "פתיחת הפרופיל"; }
 
   .hero-invite .profile-preview-open-hint::after {
     flex: 0 0 auto;
