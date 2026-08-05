@@ -25,6 +25,77 @@
     he: { nearby: 'באזור שלך', distance: (value) => `כ־${value} ק״מ` }
   };
 
+  const countryCityLocale = {
+    GB: 'en-GB', IE: 'en-GB', AU: 'en-GB', NZ: 'en-GB',
+    US: 'en-US', CA: 'en-US', SG: 'en-SG',
+    DE: 'de', AT: 'de', CH: 'de', NL: 'nl', BE: 'nl',
+    FR: 'fr', IT: 'it', ES: 'es', PT: 'pt', PL: 'pl',
+    SE: 'sv', NO: 'no', DK: 'da', FI: 'fi', GR: 'el', CY: 'el',
+    HR: 'hr', SI: 'sl', SK: 'sk', CZ: 'cs', HU: 'hu', IL: 'he'
+  };
+
+  const cityNames = {
+    pl: {
+      warsaw: 'Warszawa', cracow: 'Kraków', krakow: 'Kraków',
+      wroclaw: 'Wrocław', poznan: 'Poznań', gdansk: 'Gdańsk',
+      lodz: 'Łódź', bialystok: 'Białystok', rzeszow: 'Rzeszów',
+      czestochowa: 'Częstochowa', torun: 'Toruń', 'zielona gora': 'Zielona Góra'
+    },
+    de: {
+      munich: 'München', munchen: 'München', cologne: 'Köln', koln: 'Köln',
+      nuremberg: 'Nürnberg', nurnberg: 'Nürnberg', dusseldorf: 'Düsseldorf',
+      duesseldorf: 'Düsseldorf', hanover: 'Hannover', vienna: 'Wien',
+      zurich: 'Zürich', geneva: 'Genf', lucerne: 'Luzern'
+    },
+    nl: {
+      'the hague': 'Den Haag', hague: 'Den Haag', brussels: 'Brussel',
+      antwerp: 'Antwerpen', ghent: 'Gent', bruges: 'Brugge', liege: 'Luik'
+    },
+    fr: {
+      brussels: 'Bruxelles', antwerp: 'Anvers', ghent: 'Gand',
+      geneva: 'Genève', liege: 'Liège', marseilles: 'Marseille'
+    },
+    it: {
+      rome: 'Roma', milan: 'Milano', naples: 'Napoli', florence: 'Firenze',
+      turin: 'Torino', venice: 'Venezia', genoa: 'Genova', padua: 'Padova'
+    },
+    es: {
+      seville: 'Sevilla', malaga: 'Málaga', corunna: 'A Coruña',
+      'a coruna': 'A Coruña', 'palma de mallorca': 'Palma'
+    },
+    pt: { lisbon: 'Lisboa', oporto: 'Porto' },
+    sv: { gothenburg: 'Göteborg', malmo: 'Malmö' },
+    no: { tromso: 'Tromsø' },
+    da: { copenhagen: 'København' },
+    fi: { hyvinkaa: 'Hyvinkää', hameenlinna: 'Hämeenlinna', jarvenpaa: 'Järvenpää' },
+    el: {
+      athens: 'Αθήνα', thessaloniki: 'Θεσσαλονίκη', patras: 'Πάτρα',
+      heraklion: 'Ηράκλειο', larissa: 'Λάρισα', volos: 'Βόλος',
+      rhodes: 'Ρόδος', chania: 'Χανιά'
+    },
+    hr: { 'slavonski brod': 'Slavonski Brod' },
+    sl: { 'nova gorica': 'Nova Gorica' },
+    sk: {
+      kosice: 'Košice', presov: 'Prešov', zilina: 'Žilina',
+      'banska bystrica': 'Banská Bystrica', trencin: 'Trenčín'
+    },
+    cs: {
+      prague: 'Praha', pilsen: 'Plzeň', plzen: 'Plzeň',
+      'ceske budejovice': 'České Budějovice', 'hradec kralove': 'Hradec Králové'
+    },
+    hu: {
+      pecs: 'Pécs', gyor: 'Győr', szekesfehervar: 'Székesfehérvár',
+      nyiregyhaza: 'Nyíregyháza', bekescsaba: 'Békéscsaba'
+    },
+    he: {
+      'tel aviv': 'תל אביב', 'tel aviv yafo': 'תל אביב-יפו',
+      jerusalem: 'ירושלים', haifa: 'חיפה', beersheba: 'באר שבע',
+      'beer sheva': 'באר שבע', netanya: 'נתניה', ashdod: 'אשדוד',
+      asqelon: 'אשקלון', ashkelon: 'אשקלון', 'petah tikva': 'פתח תקווה',
+      'rishon lezion': 'ראשון לציון', holon: 'חולון', eilat: 'אילת'
+    }
+  };
+
   const normaliseLocale = (value = '') => {
     if (copy[value]) return value;
     const raw = String(value).replace('_', '-').toLowerCase();
@@ -40,6 +111,23 @@
     document.documentElement.lang ||
     navigator.language
   );
+
+  const normaliseCityKey = (value = '') => String(value)
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[’']/g, '')
+    .replace(/[-–—]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+
+  const localiseCity = (city) => {
+    const raw = String(city || '').trim();
+    if (!raw) return '';
+    const locale = countryCityLocale[state.country] || getLocale();
+    const names = cityNames[locale] || {};
+    return names[normaliseCityKey(raw)] || raw;
+  };
 
   const getStableDistanceKm = () => {
     try {
@@ -79,7 +167,8 @@
 
   const getDisplayCity = () => {
     const text = copy[getLocale()] || copy['en-GB'];
-    return state.city || getMarketFallbackCity() || text.nearby;
+    const source = state.city || getMarketFallbackCity();
+    return localiseCity(source) || text.nearby;
   };
 
   const formatDistance = () => {
