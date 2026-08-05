@@ -21,13 +21,10 @@
     white-space: nowrap !important;
   }
 
+  /* The label is owned only by profile-preview.js. Do not generate a second copy in CSS. */
   .hero-invite .profile-preview-open-hint::before {
-    overflow: hidden;
-    font-size: .7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: none !important;
+    content: none !important;
   }
 
   .hero-invite .profile-preview-open-hint::after {
@@ -100,25 +97,3 @@
     object-position: center 8% !important;
   }
 }
-
-/* Short, native mobile labels for the compact profile-entry pill. */
-html[lang="en"] .hero-invite .profile-preview-open-hint::before,
-html[lang^="en-"] .hero-invite .profile-preview-open-hint::before { content: "Full profile"; }
-html[lang="de"] .hero-invite .profile-preview-open-hint::before { content: "Ganzes Profil"; }
-html[lang="nl"] .hero-invite .profile-preview-open-hint::before { content: "Volledig profiel"; }
-html[lang="fr"] .hero-invite .profile-preview-open-hint::before { content: "Profil complet"; }
-html[lang="it"] .hero-invite .profile-preview-open-hint::before { content: "Profilo completo"; }
-html[lang="es"] .hero-invite .profile-preview-open-hint::before { content: "Perfil completo"; }
-html[lang="pt"] .hero-invite .profile-preview-open-hint::before { content: "Perfil completo"; }
-html[lang="pl"] .hero-invite .profile-preview-open-hint::before { content: "Pełny profil"; }
-html[lang="sv"] .hero-invite .profile-preview-open-hint::before { content: "Hela profilen"; }
-html[lang="no"] .hero-invite .profile-preview-open-hint::before { content: "Hele profilen"; }
-html[lang="da"] .hero-invite .profile-preview-open-hint::before { content: "Hele profilen"; }
-html[lang="fi"] .hero-invite .profile-preview-open-hint::before { content: "Koko profiili"; }
-html[lang="el"] .hero-invite .profile-preview-open-hint::before { content: "Πλήρες προφίλ"; }
-html[lang="hr"] .hero-invite .profile-preview-open-hint::before { content: "Cijeli profil"; }
-html[lang="sl"] .hero-invite .profile-preview-open-hint::before { content: "Celoten profil"; }
-html[lang="sk"] .hero-invite .profile-preview-open-hint::before { content: "Celý profil"; }
-html[lang="cs"] .hero-invite .profile-preview-open-hint::before { content: "Celý profil"; }
-html[lang="hu"] .hero-invite .profile-preview-open-hint::before { content: "Teljes profil"; }
-html[lang="he"] .hero-invite .profile-preview-open-hint::before { content: "הפרופיל המלא"; }
