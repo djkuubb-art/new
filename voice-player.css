@@ -144,6 +144,12 @@
   left: auto;
 }
 
+@media (max-width: 760px) {
+  .mobile-sticky {
+    display: none !important;
+  }
+}
+
 @media (max-width: 520px) {
   .anna-voice-panel {
     padding: 10px;
