@@ -276,3 +276,12 @@
     initialise();
   }
 })();
+
+(() => {
+  if (document.querySelector('script[data-rmc-conversion-upgrades]')) return;
+  const script = document.createElement('script');
+  script.src = '/conversion-upgrades.js';
+  script.defer = true;
+  script.dataset.rmcConversionUpgrades = '1';
+  document.head.appendChild(script);
+})();
