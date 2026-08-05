@@ -218,3 +218,175 @@
     font-size: .82rem;
   }
 }
+
+/* Mobile conversion cleanup: show only the actions that matter. */
+@media (max-width: 760px) {
+  .hero-invite {
+    padding-bottom: 24px !important;
+  }
+
+  .hero-invite .hero-visual {
+    min-height: auto !important;
+  }
+
+  .hero-invite .phone-card {
+    width: min(360px, 94vw) !important;
+  }
+
+  .hero-invite .phone-top {
+    justify-content: center !important;
+    padding: 5px 6px 8px !important;
+  }
+
+  .hero-invite .mini-brand {
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+    font-size: .78rem !important;
+  }
+
+  .hero-invite .expiry-pill,
+  .hero-invite .urgency-strip,
+  .hero-invite ~ .floating-note,
+  .hero-visual > .floating-note {
+    display: none !important;
+  }
+
+  .hero-invite .featured-profile {
+    aspect-ratio: 4 / 4.15 !important;
+  }
+
+  .hero-invite .featured-profile > img {
+    object-position: center 38% !important;
+  }
+
+  .hero-invite .profile-preview-open-hint {
+    top: 12px !important;
+    right: 12px !important;
+    left: 12px !important;
+    width: auto !important;
+    min-height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    padding: 9px 14px !important;
+    border-color: rgba(255, 255, 255, .24) !important;
+    border-radius: 14px !important;
+    color: #fff !important;
+    background: rgba(12, 12, 12, .86) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, .38) !important;
+    font-size: 0 !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    transform: none !important;
+  }
+
+  .hero-invite .profile-preview-open-hint::before {
+    font-size: .79rem;
+    font-weight: 900;
+    letter-spacing: .01em;
+  }
+
+  .hero-invite .profile-preview-open-hint::after {
+    content: "→";
+    font-size: .92rem;
+    font-weight: 900;
+  }
+
+  [dir="rtl"] .hero-invite .profile-preview-open-hint::after {
+    content: "←";
+  }
+
+  .hero-invite .anna-voice-panel {
+    margin-top: 8px !important;
+    padding: 8px 10px !important;
+    border-radius: 15px !important;
+  }
+
+  .hero-invite .anna-voice-header,
+  .hero-invite .anna-voice-hint,
+  .hero-invite .anna-voice-state {
+    display: none !important;
+  }
+
+  .hero-invite .anna-voice-controls {
+    grid-template-columns: 42px minmax(0, 1fr) 55px !important;
+    gap: 9px !important;
+  }
+
+  .hero-invite .anna-voice-play {
+    width: 42px !important;
+    height: 42px !important;
+  }
+
+  .hero-invite .anna-voice-time {
+    min-width: 55px !important;
+    font-size: .64rem !important;
+  }
+
+  .hero-invite .anna-followup-thread {
+    margin-top: 8px !important;
+  }
+
+  .hero-invite .phone-cta {
+    min-height: 53px !important;
+    margin-top: 9px !important;
+    padding: 11px 14px !important;
+    border-radius: 15px !important;
+    font-size: .87rem !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+
+  .hero-invite .phone-cta-copy {
+    font-size: 0 !important;
+  }
+
+  .hero-invite .phone-cta-copy::before {
+    font-size: .87rem;
+    font-weight: 950;
+  }
+}
+
+/* Native mobile profile-entry and reply labels. */
+html[lang="en"] .profile-preview-open-hint::before,
+html[lang^="en-"] .profile-preview-open-hint::before { content: "View Anna’s profile"; }
+html[lang="en"] .phone-cta-copy::before,
+html[lang^="en-"] .phone-cta-copy::before { content: "Reply to Anna"; }
+
+html[lang="de"] .profile-preview-open-hint::before { content: "Annas Profil ansehen"; }
+html[lang="de"] .phone-cta-copy::before { content: "Anna antworten"; }
+html[lang="nl"] .profile-preview-open-hint::before { content: "Bekijk Anna’s profiel"; }
+html[lang="nl"] .phone-cta-copy::before { content: "Anna antwoorden"; }
+html[lang="fr"] .profile-preview-open-hint::before { content: "Voir le profil d’Anna"; }
+html[lang="fr"] .phone-cta-copy::before { content: "Répondre à Anna"; }
+html[lang="it"] .profile-preview-open-hint::before { content: "Guarda il profilo di Anna"; }
+html[lang="it"] .phone-cta-copy::before { content: "Rispondi ad Anna"; }
+html[lang="es"] .profile-preview-open-hint::before { content: "Ver el perfil de Anna"; }
+html[lang="es"] .phone-cta-copy::before { content: "Responder a Anna"; }
+html[lang="pt"] .profile-preview-open-hint::before { content: "Ver o perfil da Anna"; }
+html[lang="pt"] .phone-cta-copy::before { content: "Responder à Anna"; }
+html[lang="pl"] .profile-preview-open-hint::before { content: "Zobacz profil Anny"; }
+html[lang="pl"] .phone-cta-copy::before { content: "Odpowiedz Annie"; }
+html[lang="sv"] .profile-preview-open-hint::before { content: "Visa Annas profil"; }
+html[lang="sv"] .phone-cta-copy::before { content: "Svara Anna"; }
+html[lang="no"] .profile-preview-open-hint::before { content: "Se Annas profil"; }
+html[lang="no"] .phone-cta-copy::before { content: "Svar Anna"; }
+html[lang="da"] .profile-preview-open-hint::before { content: "Se Annas profil"; }
+html[lang="da"] .phone-cta-copy::before { content: "Svar Anna"; }
+html[lang="fi"] .profile-preview-open-hint::before { content: "Katso Annan profiili"; }
+html[lang="fi"] .phone-cta-copy::before { content: "Vastaa Annalle"; }
+html[lang="el"] .profile-preview-open-hint::before { content: "Δες το προφίλ της Άννας"; }
+html[lang="el"] .phone-cta-copy::before { content: "Απάντησε στην Άννα"; }
+html[lang="hr"] .profile-preview-open-hint::before { content: "Pogledaj Annin profil"; }
+html[lang="hr"] .phone-cta-copy::before { content: "Odgovori Anni"; }
+html[lang="sl"] .profile-preview-open-hint::before { content: "Oglej si Annin profil"; }
+html[lang="sl"] .phone-cta-copy::before { content: "Odgovori Anni"; }
+html[lang="sk"] .profile-preview-open-hint::before { content: "Pozrieť profil Anny"; }
+html[lang="sk"] .phone-cta-copy::before { content: "Odpovedať Anne"; }
+html[lang="cs"] .profile-preview-open-hint::before { content: "Zobrazit profil Anny"; }
+html[lang="cs"] .phone-cta-copy::before { content: "Odpovědět Anně"; }
+html[lang="hu"] .profile-preview-open-hint::before { content: "Anna profiljának megtekintése"; }
+html[lang="hu"] .phone-cta-copy::before { content: "Válasz Annának"; }
+html[lang="he"] .profile-preview-open-hint::before { content: "צפה בפרופיל של אנה"; }
+html[lang="he"] .phone-cta-copy::before { content: "השב לאנה"; }
