@@ -23,6 +23,10 @@
     he: 'השב לאנה'
   };
 
+  const STYLE_ID = 'rmc-proxy-safe-cta-style';
+  let ctaObserver = null;
+  let repairQueued = false;
+
   const normaliseLocale = (value = '') => {
     if (labels[value]) return value;
     const raw = String(value).replace('_', '-').toLowerCase();
@@ -39,16 +43,62 @@
     navigator.language
   );
 
+  const injectStyle = () => {
+    if (document.getElementById(STYLE_ID)) return;
+    const style = document.createElement('style');
+    style.id = STYLE_ID;
+    style.textContent = `
+      .phone-cta.rmc-generated-label > .phone-cta-copy {
+        display: none !important;
+      }
+      .phone-cta.rmc-generated-label::before {
+        content: attr(data-rmc-label);
+        display: inline;
+      }
+      .phone-cta.rmc-generated-label::after {
+        content: '→';
+        display: inline;
+        flex: 0 0 auto;
+      }
+      [dir="rtl"] .phone-cta.rmc-generated-label::after {
+        content: '←';
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
+  const startObserving = (cta) => {
+    ctaObserver?.disconnect();
+    ctaObserver = new MutationObserver(() => {
+      if (repairQueued) return;
+      repairQueued = true;
+      requestAnimationFrame(() => {
+        repairQueued = false;
+        render();
+      });
+    });
+    ctaObserver.observe(cta, {
+      childList: true,
+      subtree: true,
+      characterData: true
+    });
+  };
+
   const render = () => {
     const cta = document.querySelector('.hero-invite .phone-card .phone-cta');
     if (!(cta instanceof HTMLAnchorElement)) return false;
 
+    ctaObserver?.disconnect();
+    injectStyle();
+
     const locale = getLocale();
     const label = labels[locale] || labels['en-GB'];
 
-    cta.classList.add('js-affiliate', 'notranslate');
+    cta.classList.add('js-affiliate', 'notranslate', 'rmc-generated-label');
     cta.setAttribute('translate', 'no');
     cta.setAttribute('lang', locale);
+    cta.setAttribute('aria-label', label);
+    cta.dataset.rmcLabel = label;
     cta.dataset.rmcCtaOwner = 'reply';
 
     if (!cta.dataset.rmcOriginalHref) {
@@ -56,30 +106,25 @@
     }
     cta.setAttribute('href', cta.dataset.rmcOriginalHref);
 
-    const copy = document.createElement('span');
-    copy.className = 'phone-cta-copy notranslate';
-    copy.setAttribute('translate', 'no');
-    copy.setAttribute('lang', locale);
-    copy.textContent = label;
+    const hiddenCopy = document.createElement('span');
+    hiddenCopy.className = 'phone-cta-copy notranslate';
+    hiddenCopy.setAttribute('translate', 'no');
+    hiddenCopy.setAttribute('aria-hidden', 'true');
+    hiddenCopy.textContent = '';
 
-    const arrow = document.createElement('span');
-    arrow.className = 'phone-cta-arrow notranslate';
-    arrow.setAttribute('translate', 'no');
-    arrow.setAttribute('aria-hidden', 'true');
-    arrow.textContent = '→';
-
-    cta.replaceChildren(copy, arrow);
+    cta.replaceChildren(hiddenCopy);
+    startObserving(cta);
     return true;
   };
 
   const renderWhenReady = () => {
     if (render()) return;
-    const observer = new MutationObserver(() => {
+    const bodyObserver = new MutationObserver(() => {
       if (!render()) return;
-      observer.disconnect();
+      bodyObserver.disconnect();
     });
-    observer.observe(document.body, { childList: true, subtree: true });
-    window.setTimeout(() => observer.disconnect(), 5000);
+    bodyObserver.observe(document.body, { childList: true, subtree: true });
+    window.setTimeout(() => bodyObserver.disconnect(), 5000);
   };
 
   const refresh = () => {
@@ -91,5 +136,4 @@
   renderWhenReady();
   document.getElementById('languageSelect')?.addEventListener('change', refresh);
   window.addEventListener('pageshow', refresh);
-  window.setTimeout(render, 2500);
 })();
