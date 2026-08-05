@@ -1,0 +1,156 @@
+.anna-voice-panel {
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 100% 0, rgba(242, 34, 75, .16), transparent 42%),
+    rgba(255, 255, 255, .035);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .04);
+}
+
+.anna-voice-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 11px;
+}
+
+.anna-voice-label {
+  min-width: 0;
+}
+
+.anna-voice-label strong {
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  font-size: .9rem;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.anna-voice-label span {
+  display: block;
+  margin-top: 2px;
+  color: rgba(255, 255, 255, .55);
+  font-size: .72rem;
+}
+
+.anna-voice-badge {
+  flex: 0 0 auto;
+  padding: 5px 8px;
+  border: 1px solid rgba(241, 35, 75, .28);
+  border-radius: 999px;
+  color: #ff6b88;
+  background: rgba(241, 35, 75, .1);
+  font-size: .67rem;
+  font-weight: 850;
+  letter-spacing: .035em;
+  text-transform: uppercase;
+}
+
+.anna-voice-controls {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 11px;
+}
+
+.anna-voice-play {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #f72b54, #cf0b36);
+  box-shadow: 0 10px 25px rgba(225, 22, 63, .28);
+  font-size: 1rem;
+  transition: transform .16s ease, filter .16s ease;
+}
+
+.anna-voice-play:hover {
+  filter: brightness(1.08);
+  transform: scale(1.035);
+}
+
+.anna-voice-play:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, .9);
+  outline-offset: 3px;
+}
+
+.anna-voice-track {
+  position: relative;
+  height: 7px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .11);
+}
+
+.anna-voice-progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff2e58, #ff7994);
+  transition: width .08s linear;
+}
+
+.anna-voice-time {
+  min-width: 62px;
+  color: rgba(255, 255, 255, .65);
+  font-variant-numeric: tabular-nums;
+  font-size: .72rem;
+  text-align: right;
+}
+
+.anna-voice-hint {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, .55);
+  font-size: .72rem;
+  line-height: 1.45;
+}
+
+.profile-detail-card.voice-cta-ready .profile-detail-cta {
+  animation: annaVoiceCtaPulse 1.25s ease 1;
+  box-shadow: 0 18px 40px rgba(225, 22, 63, .42), inset 0 1px 0 rgba(255, 255, 255, .2);
+}
+
+@keyframes annaVoiceCtaPulse {
+  0%, 100% { transform: scale(1); }
+  45% { transform: scale(1.025); }
+}
+
+[dir="rtl"] .anna-voice-time {
+  text-align: left;
+}
+
+[dir="rtl"] .anna-voice-progress {
+  right: 0;
+  left: auto;
+}
+
+@media (max-width: 520px) {
+  .anna-voice-panel {
+    padding: 13px;
+  }
+
+  .anna-voice-controls {
+    grid-template-columns: 42px minmax(0, 1fr) auto;
+    gap: 9px;
+  }
+
+  .anna-voice-play {
+    width: 42px;
+    height: 42px;
+  }
+
+  .anna-voice-time {
+    min-width: 54px;
+    font-size: .68rem;
+  }
+}
