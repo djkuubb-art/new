@@ -2,27 +2,27 @@
   const STORAGE_KEY = 'rmc_local_distance_km_v1';
 
   const copy = {
-    'en-GB': { nearby: 'Near you', distance: (value) => `about ${value} mi away` },
-    'en-US': { nearby: 'Near you', distance: (value) => `about ${value} mi away` },
-    'en-SG': { nearby: 'Near you', distance: (value) => `about ${value} km away` },
-    de: { nearby: 'In deiner Nähe', distance: (value) => `etwa ${value} km entfernt` },
-    nl: { nearby: 'Bij jou in de buurt', distance: (value) => `ongeveer ${value} km bij je vandaan` },
-    fr: { nearby: 'Près de chez vous', distance: (value) => `à environ ${value} km` },
-    it: { nearby: 'Nelle tue vicinanze', distance: (value) => `a circa ${value} km` },
-    es: { nearby: 'Cerca de ti', distance: (value) => `a unos ${value} km` },
-    pt: { nearby: 'Perto de ti', distance: (value) => `a cerca de ${value} km` },
-    pl: { nearby: 'W Twojej okolicy', distance: (value) => `około ${value} km od Ciebie` },
-    sv: { nearby: 'Nära dig', distance: (value) => `cirka ${value} km bort` },
-    no: { nearby: 'I nærheten av deg', distance: (value) => `omtrent ${value} km unna` },
-    da: { nearby: 'I nærheden af dig', distance: (value) => `ca. ${value} km væk` },
-    fi: { nearby: 'Lähellä sinua', distance: (value) => `noin ${value} km päässä` },
-    el: { nearby: 'Κοντά σου', distance: (value) => `περίπου ${value} χλμ. μακριά` },
-    hr: { nearby: 'U tvojoj blizini', distance: (value) => `oko ${value} km od tebe` },
-    sl: { nearby: 'V tvoji bližini', distance: (value) => `približno ${value} km stran` },
-    sk: { nearby: 'V tvojom okolí', distance: (value) => `približne ${value} km od teba` },
-    cs: { nearby: 'Ve vašem okolí', distance: (value) => `přibližně ${value} km od vás` },
-    hu: { nearby: 'A közeledben', distance: (value) => `körülbelül ${value} km-re` },
-    he: { nearby: 'באזור שלך', distance: (value) => `במרחק של כ־${value} ק״מ ממך` }
+    'en-GB': { nearby: 'Near you', distance: (value) => `about ${value} mi` },
+    'en-US': { nearby: 'Near you', distance: (value) => `about ${value} mi` },
+    'en-SG': { nearby: 'Near you', distance: (value) => `about ${value} km` },
+    de: { nearby: 'In deiner Nähe', distance: (value) => `ca. ${value} km` },
+    nl: { nearby: 'Bij jou in de buurt', distance: (value) => `ongeveer ${value} km` },
+    fr: { nearby: 'Près de chez vous', distance: (value) => `environ ${value} km` },
+    it: { nearby: 'Nelle tue vicinanze', distance: (value) => `circa ${value} km` },
+    es: { nearby: 'Cerca de ti', distance: (value) => `unos ${value} km` },
+    pt: { nearby: 'Perto de ti', distance: (value) => `cerca de ${value} km` },
+    pl: { nearby: 'W Twojej okolicy', distance: (value) => `około ${value} km` },
+    sv: { nearby: 'Nära dig', distance: (value) => `cirka ${value} km` },
+    no: { nearby: 'I nærheten av deg', distance: (value) => `omtrent ${value} km` },
+    da: { nearby: 'I nærheden af dig', distance: (value) => `ca. ${value} km` },
+    fi: { nearby: 'Lähellä sinua', distance: (value) => `noin ${value} km` },
+    el: { nearby: 'Κοντά σου', distance: (value) => `περίπου ${value} χλμ.` },
+    hr: { nearby: 'U tvojoj blizini', distance: (value) => `oko ${value} km` },
+    sl: { nearby: 'V tvoji bližini', distance: (value) => `približno ${value} km` },
+    sk: { nearby: 'V tvojom okolí', distance: (value) => `približne ${value} km` },
+    cs: { nearby: 'Ve vašem okolí', distance: (value) => `přibližně ${value} km` },
+    hu: { nearby: 'A közeledben', distance: (value) => `kb. ${value} km` },
+    he: { nearby: 'באזור שלך', distance: (value) => `כ־${value} ק״מ` }
   };
 
   const normaliseLocale = (value = '') => {
@@ -41,7 +41,7 @@
     navigator.language
   );
 
-  const randomDistanceKm = () => {
+  const getStableDistanceKm = () => {
     try {
       const saved = Number.parseInt(localStorage.getItem(STORAGE_KEY) || '', 10);
       if (Number.isInteger(saved) && saved >= 4 && saved <= 12) return saved;
@@ -64,7 +64,22 @@
   const state = {
     city: '',
     country: '',
-    distanceKm: randomDistanceKm()
+    distanceKm: getStableDistanceKm()
+  };
+
+  const getMarketFallbackCity = () => {
+    try {
+      if (typeof locales === 'undefined') return '';
+      const profile = locales[getLocale()]?.profiles?.[0];
+      return Array.isArray(profile) && typeof profile[1] === 'string' ? profile[1].trim() : '';
+    } catch (_) {
+      return '';
+    }
+  };
+
+  const getDisplayCity = () => {
+    const text = copy[getLocale()] || copy['en-GB'];
+    return state.city || getMarketFallbackCity() || text.nearby;
   };
 
   const formatDistance = () => {
@@ -80,39 +95,44 @@
     const style = document.createElement('style');
     style.id = 'rmc-local-profile-styles';
     style.textContent = `
-      .featured-profile .rmc-main-distance{white-space:nowrap}
-      @media(max-width:420px){.featured-profile .profile-overlay p{display:flex;flex-wrap:wrap;align-items:center;gap:0}.featured-profile .rmc-main-distance{white-space:normal}}
+      .featured-profile .rmc-main-location-line{display:flex;align-items:center;gap:5px;min-width:0;line-height:1.35}
+      .featured-profile .rmc-main-location-pin{flex:0 0 auto;font-size:.78rem}
+      .featured-profile .rmc-main-city{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+      .featured-profile .rmc-main-location-separator,.featured-profile .rmc-main-distance{flex:0 0 auto;white-space:nowrap}
+      @media(max-width:420px){
+        .featured-profile .rmc-main-location-line{gap:4px;font-size:.82rem}
+        .featured-profile .rmc-main-city{max-width:48vw}
+      }
     `;
     document.head.appendChild(style);
   };
 
   const render = () => {
     const line = document.querySelector('.hero-invite .featured-profile .profile-overlay p');
-    const cityNode = line?.querySelector('[data-profile="0-city"]');
-    const onlineNode = line?.querySelector('[data-i18n="online"]');
-    if (!line || !cityNode || !onlineNode) return false;
+    if (!line) return false;
 
-    const locale = getLocale();
-    const text = copy[locale] || copy['en-GB'];
-    cityNode.textContent = state.city || text.nearby;
+    const pin = document.createElement('span');
+    pin.className = 'rmc-main-location-pin';
+    pin.setAttribute('aria-hidden', 'true');
+    pin.textContent = '📍';
 
-    let separator = line.querySelector('[data-rmc-distance-separator]');
-    let distanceNode = line.querySelector('.rmc-main-distance');
+    const cityNode = document.createElement('span');
+    cityNode.className = 'rmc-main-city';
+    cityNode.textContent = getDisplayCity();
 
-    if (!separator) {
-      separator = document.createElement('span');
-      separator.dataset.rmcDistanceSeparator = '1';
-      separator.textContent = ' · ';
-      cityNode.insertAdjacentElement('afterend', separator);
-    }
+    const separator = document.createElement('span');
+    separator.className = 'rmc-main-location-separator';
+    separator.setAttribute('aria-hidden', 'true');
+    separator.textContent = '·';
 
-    if (!distanceNode) {
-      distanceNode = document.createElement('span');
-      distanceNode.className = 'rmc-main-distance';
-      separator.insertAdjacentElement('afterend', distanceNode);
-    }
-
+    const distanceNode = document.createElement('span');
+    distanceNode.className = 'rmc-main-distance';
     distanceNode.textContent = formatDistance();
+
+    line.className = `${line.className || ''} rmc-main-location-line`.trim();
+    line.removeAttribute('data-i18n');
+    line.replaceChildren(pin, cityNode, separator, distanceNode);
+    line.setAttribute('aria-label', `${cityNode.textContent}, ${distanceNode.textContent}`);
     return true;
   };
 
@@ -137,7 +157,8 @@
 
     document.getElementById('languageSelect')?.addEventListener('change', () => {
       window.setTimeout(render, 0);
-      window.setTimeout(render, 250);
+      window.setTimeout(render, 150);
+      window.setTimeout(render, 500);
     });
   };
 
