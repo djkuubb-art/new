@@ -1,0 +1,124 @@
+/* Final mobile polish for Anna's main card and full profile preview. */
+@media (max-width: 760px) {
+  /* Keep the profile entry visible without covering Anna's face. */
+  .hero-invite .profile-preview-open-hint {
+    top: auto !important;
+    right: auto !important;
+    bottom: 96px !important;
+    left: 16px !important;
+    width: auto !important;
+    max-width: calc(100% - 104px) !important;
+    min-height: 34px !important;
+    padding: 6px 11px !important;
+    justify-content: flex-start !important;
+    gap: 7px !important;
+    overflow: hidden !important;
+    border-color: rgba(255, 255, 255, .22) !important;
+    border-radius: 999px !important;
+    background: rgba(10, 10, 10, .76) !important;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, .34) !important;
+    backdrop-filter: blur(10px) !important;
+    white-space: nowrap !important;
+  }
+
+  .hero-invite .profile-preview-open-hint::before {
+    overflow: hidden;
+    font-size: .7rem !important;
+    font-weight: 850 !important;
+    line-height: 1 !important;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .hero-invite .profile-preview-open-hint::after {
+    flex: 0 0 auto;
+    font-size: .78rem !important;
+  }
+
+  /* The heart is a secondary action, so it should not compete with the main CTA. */
+  .hero-invite .heart-button {
+    width: 54px !important;
+    height: 54px !important;
+    font-size: 1.12rem !important;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, .3) !important;
+  }
+
+  /* Full profile: show Anna's face first and remove redundant status UI. */
+  .profile-preview-sheet {
+    grid-template-rows: clamp(286px, 42dvh, 380px) minmax(0, 1fr) !important;
+  }
+
+  .profile-preview-photo {
+    object-position: center 10% !important;
+  }
+
+  .profile-preview-online,
+  .profile-preview-handle {
+    display: none !important;
+  }
+
+  .profile-preview-photo-copy {
+    padding: 16px 16px 14px !important;
+  }
+
+  /* Keep voice, message and CTA together instead of pushing the CTA to the viewport bottom. */
+  .profile-preview-content {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: auto !important;
+    align-content: start !important;
+    gap: 9px !important;
+    overflow-y: auto !important;
+    padding: 10px 12px calc(14px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .profile-preview-voice {
+    order: 1 !important;
+  }
+
+  .profile-preview-message-box {
+    order: 2 !important;
+  }
+
+  .profile-preview-cta {
+    order: 3 !important;
+    position: static !important;
+    bottom: auto !important;
+    width: 100% !important;
+    min-height: 52px !important;
+    margin: 3px 0 0 !important;
+    box-shadow: 0 12px 30px rgba(229, 9, 20, .3) !important;
+  }
+}
+
+@media (max-width: 760px) and (max-height: 700px) {
+  .profile-preview-sheet {
+    grid-template-rows: 270px minmax(0, 1fr) !important;
+  }
+
+  .profile-preview-photo {
+    object-position: center 8% !important;
+  }
+}
+
+/* Short, native mobile labels for the compact profile-entry pill. */
+html[lang="en"] .hero-invite .profile-preview-open-hint::before,
+html[lang^="en-"] .hero-invite .profile-preview-open-hint::before { content: "Full profile"; }
+html[lang="de"] .hero-invite .profile-preview-open-hint::before { content: "Ganzes Profil"; }
+html[lang="nl"] .hero-invite .profile-preview-open-hint::before { content: "Volledig profiel"; }
+html[lang="fr"] .hero-invite .profile-preview-open-hint::before { content: "Profil complet"; }
+html[lang="it"] .hero-invite .profile-preview-open-hint::before { content: "Profilo completo"; }
+html[lang="es"] .hero-invite .profile-preview-open-hint::before { content: "Perfil completo"; }
+html[lang="pt"] .hero-invite .profile-preview-open-hint::before { content: "Perfil completo"; }
+html[lang="pl"] .hero-invite .profile-preview-open-hint::before { content: "Pełny profil"; }
+html[lang="sv"] .hero-invite .profile-preview-open-hint::before { content: "Hela profilen"; }
+html[lang="no"] .hero-invite .profile-preview-open-hint::before { content: "Hele profilen"; }
+html[lang="da"] .hero-invite .profile-preview-open-hint::before { content: "Hele profilen"; }
+html[lang="fi"] .hero-invite .profile-preview-open-hint::before { content: "Koko profiili"; }
+html[lang="el"] .hero-invite .profile-preview-open-hint::before { content: "Πλήρες προφίλ"; }
+html[lang="hr"] .hero-invite .profile-preview-open-hint::before { content: "Cijeli profil"; }
+html[lang="sl"] .hero-invite .profile-preview-open-hint::before { content: "Celoten profil"; }
+html[lang="sk"] .hero-invite .profile-preview-open-hint::before { content: "Celý profil"; }
+html[lang="cs"] .hero-invite .profile-preview-open-hint::before { content: "Celý profil"; }
+html[lang="hu"] .hero-invite .profile-preview-open-hint::before { content: "Teljes profil"; }
+html[lang="he"] .hero-invite .profile-preview-open-hint::before { content: "הפרופיל המלא"; }
