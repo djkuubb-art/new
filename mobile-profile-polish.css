@@ -1,3 +1,11 @@
+/* The profile-preview label text is owned only by profile-preview.js. */
+.hero-invite .profile-preview-open-hint::before,
+.hero-invite .profile-preview-open-hint::after {
+  display: none !important;
+  visibility: hidden !important;
+  content: none !important;
+}
+
 /* Final mobile polish for Anna's main card and full profile preview. */
 @media (max-width: 760px) {
   /* Keep the profile entry visible without covering Anna's face. */
@@ -18,72 +26,12 @@
     background: rgba(10, 10, 10, .76) !important;
     box-shadow: 0 8px 22px rgba(0, 0, 0, .34) !important;
     backdrop-filter: blur(10px) !important;
-    white-space: nowrap !important;
-
-    /* Hide direct DOM text. Only the single CSS label below is visible. */
-    color: transparent !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-    text-shadow: none !important;
-  }
-
-  /* Proxies may inject translated spans after BFCache/browser back. Never show them. */
-  .hero-invite .profile-preview-open-hint > *,
-  .hero-invite .profile-preview-open-hint * {
-    display: none !important;
-    visibility: hidden !important;
-    width: 0 !important;
-    height: 0 !important;
-    max-width: 0 !important;
-    max-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    color: transparent !important;
-    font-size: 0 !important;
-    line-height: 0 !important;
-  }
-
-  .hero-invite .profile-preview-open-hint::before {
-    display: inline-block !important;
-    visibility: visible !important;
-    overflow: hidden !important;
     color: #fff !important;
-    content: "Open profile";
     font-size: .7rem !important;
     font-weight: 850 !important;
     line-height: 1 !important;
-    text-overflow: ellipsis !important;
     text-shadow: none !important;
     white-space: nowrap !important;
-  }
-
-  html[lang="en"] .hero-invite .profile-preview-open-hint::before,
-  html[lang^="en-"] .hero-invite .profile-preview-open-hint::before { content: "Open profile"; }
-  html[lang="de"] .hero-invite .profile-preview-open-hint::before { content: "Profil öffnen"; }
-  html[lang="nl"] .hero-invite .profile-preview-open-hint::before { content: "Profiel openen"; }
-  html[lang="fr"] .hero-invite .profile-preview-open-hint::before { content: "Ouvrir le profil"; }
-  html[lang="it"] .hero-invite .profile-preview-open-hint::before { content: "Apri il profilo"; }
-  html[lang="es"] .hero-invite .profile-preview-open-hint::before { content: "Abrir perfil"; }
-  html[lang="pt"] .hero-invite .profile-preview-open-hint::before { content: "Abrir perfil"; }
-  html[lang="pl"] .hero-invite .profile-preview-open-hint::before { content: "Otwórz profil"; }
-  html[lang="sv"] .hero-invite .profile-preview-open-hint::before { content: "Öppna profil"; }
-  html[lang="no"] .hero-invite .profile-preview-open-hint::before { content: "Åpne profil"; }
-  html[lang="da"] .hero-invite .profile-preview-open-hint::before { content: "Åbn profil"; }
-  html[lang="fi"] .hero-invite .profile-preview-open-hint::before { content: "Avaa profiili"; }
-  html[lang="el"] .hero-invite .profile-preview-open-hint::before { content: "Άνοιγμα προφίλ"; }
-  html[lang="hr"] .hero-invite .profile-preview-open-hint::before { content: "Otvori profil"; }
-  html[lang="sl"] .hero-invite .profile-preview-open-hint::before { content: "Odpri profil"; }
-  html[lang="sk"] .hero-invite .profile-preview-open-hint::before { content: "Otvoriť profil"; }
-  html[lang="cs"] .hero-invite .profile-preview-open-hint::before { content: "Otevřít profil"; }
-  html[lang="hu"] .hero-invite .profile-preview-open-hint::before { content: "Profil megnyitása"; }
-  html[lang="he"] .hero-invite .profile-preview-open-hint::before { content: "פתיחת הפרופיל"; }
-
-  /* Never allow another visible pseudo-label from an older stylesheet. */
-  .hero-invite .profile-preview-open-hint::after {
-    display: none !important;
-    visibility: hidden !important;
-    content: none !important;
   }
 
   /* The heart is a secondary action, so it should not compete with the main CTA. */
