@@ -63,7 +63,9 @@ module.exports = async function handler(req, res) {
   if (contentLength > 8192) return res.status(413).json({ error: 'Payload too large' });
 
   const supabaseUrl = String(process.env.SUPABASE_URL || '').replace(/\/$/, '');
-  const serviceKey = String(process.env.SUPABASE_SERVICE_ROLE_KEY || '');
+  const serviceKey = String(
+    process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  );
   if (!supabaseUrl || !serviceKey) {
     return res.status(503).json({ error: 'Analytics database is not configured' });
   }
