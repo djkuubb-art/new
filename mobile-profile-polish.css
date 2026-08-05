@@ -1,3 +1,11 @@
+/* The profile-preview label text is owned only by profile-preview.js. */
+.hero-invite .profile-preview-open-hint::before,
+.hero-invite .profile-preview-open-hint::after {
+  display: none !important;
+  visibility: hidden !important;
+  content: none !important;
+}
+
 /* Final mobile polish for Anna's main card and full profile preview. */
 @media (max-width: 760px) {
   /* Keep the profile entry visible without covering Anna's face. */
@@ -24,14 +32,6 @@
     line-height: 1 !important;
     text-shadow: none !important;
     white-space: nowrap !important;
-  }
-
-  /* profile-preview.js is the only owner of this label. */
-  .hero-invite .profile-preview-open-hint::before,
-  .hero-invite .profile-preview-open-hint::after {
-    display: none !important;
-    visibility: hidden !important;
-    content: none !important;
   }
 
   /* The heart is a secondary action, so it should not compete with the main CTA. */
