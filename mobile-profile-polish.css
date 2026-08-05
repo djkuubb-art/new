@@ -11,7 +11,7 @@
     min-height: 34px !important;
     padding: 6px 11px !important;
     justify-content: flex-start !important;
-    gap: 7px !important;
+    gap: 0 !important;
     overflow: hidden !important;
     border-color: rgba(255, 255, 255, .22) !important;
     border-radius: 999px !important;
@@ -20,12 +20,33 @@
     backdrop-filter: blur(10px) !important;
     white-space: nowrap !important;
 
-    /* Hide proxy-modifiable DOM text. Only the single CSS label below is visible. */
+    /* Hide direct DOM text. Only the single CSS label below is visible. */
+    color: transparent !important;
     font-size: 0 !important;
+    line-height: 0 !important;
+    text-shadow: none !important;
+  }
+
+  /* Proxies may inject translated spans after BFCache/browser back. Never show them. */
+  .hero-invite .profile-preview-open-hint > *,
+  .hero-invite .profile-preview-open-hint * {
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+    height: 0 !important;
+    max-width: 0 !important;
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
   }
 
   .hero-invite .profile-preview-open-hint::before {
     display: inline-block !important;
+    visibility: visible !important;
     overflow: hidden !important;
     color: #fff !important;
     content: "Open profile";
@@ -33,6 +54,7 @@
     font-weight: 850 !important;
     line-height: 1 !important;
     text-overflow: ellipsis !important;
+    text-shadow: none !important;
     white-space: nowrap !important;
   }
 
@@ -57,9 +79,11 @@
   html[lang="hu"] .hero-invite .profile-preview-open-hint::before { content: "Profil megnyitása"; }
   html[lang="he"] .hero-invite .profile-preview-open-hint::before { content: "פתיחת הפרופיל"; }
 
+  /* Never allow another visible pseudo-label from an older stylesheet. */
   .hero-invite .profile-preview-open-hint::after {
-    flex: 0 0 auto;
-    font-size: .78rem !important;
+    display: none !important;
+    visibility: hidden !important;
+    content: none !important;
   }
 
   /* The heart is a secondary action, so it should not compete with the main CTA. */
