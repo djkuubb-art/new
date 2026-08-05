@@ -257,3 +257,13 @@
     initialise();
   }
 })();
+
+window.addEventListener('click', (event) => {
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+  const cta = target.closest('.js-affiliate');
+  if (!cta || typeof window.rmcTrack !== 'function') return;
+  const slot = cta.dataset.slot || cta.getAttribute('data-slot') || 'unknown';
+  window.rmcTrack('cta_click', { slot });
+  window.rmcTrack('age_gate_open', { slot });
+}, true);
