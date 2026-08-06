@@ -385,6 +385,10 @@ window.addEventListener('click', (event) => {
       if (typeof setLocale === 'function') {
         setLocale(document.documentElement.lang || 'en-GB', { persist: false });
       }
+
+      const inviteName = document.querySelector('.invite-preview strong')?.textContent?.split(',')[0]?.trim() || 'Anna';
+      const heroHeading = document.querySelector('.featured-profile .profile-overlay h2');
+      if (heroHeading) heroHeading.textContent = `${inviteName}, 41`;
     } catch (_) {}
   };
 
