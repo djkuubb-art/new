@@ -174,3 +174,8 @@
     font-size: .63rem;
   }
 }
+
+/* Keep the funnel simple: one text message on the main card, no duplicate text inside the opened profile. */
+.profile-preview-message-box {
+  display: none !important;
+}
