@@ -25,15 +25,6 @@
     he: { nearby: 'באזור שלך', distance: (value) => `כ־${value} ק״מ` }
   };
 
-  const countryCityLocale = {
-    GB: 'en-GB', IE: 'en-GB', AU: 'en-GB', NZ: 'en-GB',
-    US: 'en-US', CA: 'en-US', SG: 'en-SG',
-    DE: 'de', AT: 'de', CH: 'de', NL: 'nl', BE: 'nl',
-    FR: 'fr', IT: 'it', ES: 'es', PT: 'pt', PL: 'pl',
-    SE: 'sv', NO: 'no', DK: 'da', FI: 'fi', GR: 'el', CY: 'el',
-    HR: 'hr', SI: 'sl', SK: 'sk', CZ: 'cs', HU: 'hu', IL: 'he'
-  };
-
   const cityNames = {
     pl: {
       warsaw: 'Warszawa', cracow: 'Kraków', krakow: 'Kraków',
@@ -42,52 +33,62 @@
       czestochowa: 'Częstochowa', torun: 'Toruń', 'zielona gora': 'Zielona Góra'
     },
     de: {
+      warsaw: 'Warschau', cracow: 'Krakau', krakow: 'Krakau',
       munich: 'München', munchen: 'München', cologne: 'Köln', koln: 'Köln',
       nuremberg: 'Nürnberg', nurnberg: 'Nürnberg', dusseldorf: 'Düsseldorf',
       duesseldorf: 'Düsseldorf', hanover: 'Hannover', vienna: 'Wien',
       zurich: 'Zürich', geneva: 'Genf', lucerne: 'Luzern'
     },
     nl: {
+      warsaw: 'Warschau', cracow: 'Krakau', krakow: 'Krakau',
       'the hague': 'Den Haag', hague: 'Den Haag', brussels: 'Brussel',
       antwerp: 'Antwerpen', ghent: 'Gent', bruges: 'Brugge', liege: 'Luik'
     },
     fr: {
+      warsaw: 'Varsovie', cracow: 'Cracovie', krakow: 'Cracovie',
       brussels: 'Bruxelles', antwerp: 'Anvers', ghent: 'Gand',
       geneva: 'Genève', liege: 'Liège', marseilles: 'Marseille'
     },
     it: {
+      warsaw: 'Varsavia', cracow: 'Cracovia', krakow: 'Cracovia',
       rome: 'Roma', milan: 'Milano', naples: 'Napoli', florence: 'Firenze',
       turin: 'Torino', venice: 'Venezia', genoa: 'Genova', padua: 'Padova'
     },
     es: {
+      warsaw: 'Varsovia', cracow: 'Cracovia', krakow: 'Cracovia',
       seville: 'Sevilla', malaga: 'Málaga', corunna: 'A Coruña',
       'a coruna': 'A Coruña', 'palma de mallorca': 'Palma'
     },
-    pt: { lisbon: 'Lisboa', oporto: 'Porto' },
-    sv: { gothenburg: 'Göteborg', malmo: 'Malmö' },
-    no: { tromso: 'Tromsø' },
-    da: { copenhagen: 'København' },
-    fi: { hyvinkaa: 'Hyvinkää', hameenlinna: 'Hämeenlinna', jarvenpaa: 'Järvenpää' },
+    pt: { warsaw: 'Varsóvia', cracow: 'Cracóvia', krakow: 'Cracóvia', lisbon: 'Lisboa', oporto: 'Porto' },
+    sv: { warsaw: 'Warszawa', cracow: 'Kraków', krakow: 'Kraków', gothenburg: 'Göteborg', malmo: 'Malmö' },
+    no: { warsaw: 'Warszawa', cracow: 'Kraków', krakow: 'Kraków', tromso: 'Tromsø' },
+    da: { warsaw: 'Warszawa', cracow: 'Kraków', krakow: 'Kraków', copenhagen: 'København' },
+    fi: { warsaw: 'Varsova', cracow: 'Krakova', krakow: 'Krakova', hyvinkaa: 'Hyvinkää', hameenlinna: 'Hämeenlinna', jarvenpaa: 'Järvenpää' },
     el: {
+      warsaw: 'Βαρσοβία', cracow: 'Κρακοβία', krakow: 'Κρακοβία',
       athens: 'Αθήνα', thessaloniki: 'Θεσσαλονίκη', patras: 'Πάτρα',
       heraklion: 'Ηράκλειο', larissa: 'Λάρισα', volos: 'Βόλος',
       rhodes: 'Ρόδος', chania: 'Χανιά'
     },
-    hr: { 'slavonski brod': 'Slavonski Brod' },
-    sl: { 'nova gorica': 'Nova Gorica' },
+    hr: { warsaw: 'Varšava', cracow: 'Krakov', krakow: 'Krakov', 'slavonski brod': 'Slavonski Brod' },
+    sl: { warsaw: 'Varšava', cracow: 'Krakov', krakow: 'Krakov', 'nova gorica': 'Nova Gorica' },
     sk: {
+      warsaw: 'Varšava', cracow: 'Krakov', krakow: 'Krakov',
       kosice: 'Košice', presov: 'Prešov', zilina: 'Žilina',
       'banska bystrica': 'Banská Bystrica', trencin: 'Trenčín'
     },
     cs: {
+      warsaw: 'Varšava', cracow: 'Krakov', krakow: 'Krakov',
       prague: 'Praha', pilsen: 'Plzeň', plzen: 'Plzeň',
       'ceske budejovice': 'České Budějovice', 'hradec kralove': 'Hradec Králové'
     },
     hu: {
+      warsaw: 'Varsó', cracow: 'Krakkó', krakow: 'Krakkó',
       pecs: 'Pécs', gyor: 'Győr', szekesfehervar: 'Székesfehérvár',
       nyiregyhaza: 'Nyíregyháza', bekescsaba: 'Békéscsaba'
     },
     he: {
+      warsaw: 'ורשה', cracow: 'קרקוב', krakow: 'קרקוב',
       'tel aviv': 'תל אביב', 'tel aviv yafo': 'תל אביב-יפו',
       jerusalem: 'ירושלים', haifa: 'חיפה', beersheba: 'באר שבע',
       'beer sheva': 'באר שבע', netanya: 'נתניה', ashdod: 'אשדוד',
@@ -124,8 +125,7 @@
   const localiseCity = (city) => {
     const raw = String(city || '').trim();
     if (!raw) return '';
-    const locale = countryCityLocale[state.country] || getLocale();
-    const names = cityNames[locale] || {};
+    const names = cityNames[getLocale()] || {};
     return names[normaliseCityKey(raw)] || raw;
   };
 
@@ -179,6 +179,12 @@
     return text.distance(value);
   };
 
+  const syncProfilePreviewLocation = () => {
+    const location = document.querySelector('.profile-preview-location');
+    if (!location) return;
+    location.textContent = `${getDisplayCity()} · ${formatDistance()}`;
+  };
+
   const injectStyles = () => {
     if (document.getElementById('rmc-local-profile-styles')) return;
     const style = document.createElement('style');
@@ -222,6 +228,15 @@
     line.removeAttribute('data-i18n');
     line.replaceChildren(pin, cityNode, separator, distanceNode);
     line.setAttribute('aria-label', `${cityNode.textContent}, ${distanceNode.textContent}`);
+
+    window.rmcLocalLocation = {
+      city: cityNode.textContent,
+      distance: distanceNode.textContent,
+      country: state.country,
+      locale: getLocale()
+    };
+
+    syncProfilePreviewLocation();
     return true;
   };
 
@@ -246,9 +261,14 @@
 
     document.getElementById('languageSelect')?.addEventListener('change', () => {
       window.setTimeout(render, 0);
-      window.setTimeout(render, 150);
-      window.setTimeout(render, 500);
+      window.setTimeout(render, 120);
     });
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element) || !target.closest('.profile-preview-trigger')) return;
+      window.setTimeout(syncProfilePreviewLocation, 0);
+    }, true);
   };
 
   if (document.readyState === 'loading') {
