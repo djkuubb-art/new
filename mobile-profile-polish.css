@@ -1,4 +1,4 @@
-/* The profile-preview label text is owned only by profile-preview.js. */
+/* Mobile-first cleanup for the main Anna card and profile sheet. */
 .hero-invite .profile-preview-open-hint::before,
 .hero-invite .profile-preview-open-hint::after {
   display: none !important;
@@ -6,43 +6,243 @@
   content: none !important;
 }
 
-/* Final mobile polish for Anna's main card and full profile preview. */
 @media (max-width: 760px) {
-  /* Keep the profile entry visible without covering Anna's face. */
-  .hero-invite .profile-preview-open-hint {
-    top: auto !important;
-    right: auto !important;
-    bottom: 96px !important;
-    left: 16px !important;
-    width: auto !important;
-    max-width: calc(100% - 104px) !important;
-    min-height: 34px !important;
-    padding: 6px 11px !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
-    overflow: hidden !important;
-    border-color: rgba(255, 255, 255, .22) !important;
-    border-radius: 999px !important;
-    background: rgba(10, 10, 10, .76) !important;
-    box-shadow: 0 8px 22px rgba(0, 0, 0, .34) !important;
-    backdrop-filter: blur(10px) !important;
-    color: #fff !important;
-    font-size: .7rem !important;
-    font-weight: 850 !important;
-    line-height: 1 !important;
-    text-shadow: none !important;
-    white-space: nowrap !important;
+  body {
+    background:
+      radial-gradient(circle at 100% 7%, rgba(229, 9, 20, .11), transparent 25%),
+      linear-gradient(180deg, #050505 0%, #090909 48%, #050505 100%) !important;
   }
 
-  /* The heart is a secondary action, so it should not compete with the main CTA. */
+  .site-header {
+    width: calc(100% - 20px) !important;
+    min-height: 62px !important;
+    gap: 10px !important;
+  }
+
+  .brand {
+    gap: 8px !important;
+    font-size: 1.02rem !important;
+    letter-spacing: -.025em !important;
+  }
+
+  .brand-mark {
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 20px rgba(229, 9, 20, .24) !important;
+  }
+
+  .language-picker {
+    gap: 6px !important;
+    min-height: 42px !important;
+    padding: 7px 10px !important;
+    border-color: rgba(255, 255, 255, .15) !important;
+    background: rgba(11, 11, 11, .9) !important;
+  }
+
+  .language-picker select {
+    max-width: 92px !important;
+    font-size: .84rem !important;
+  }
+
+  .hero-invite.shell {
+    width: 100% !important;
+    padding: 10px 10px 22px !important;
+  }
+
+  .hero-invite .hero-visual {
+    width: 100% !important;
+    min-height: 0 !important;
+  }
+
+  .hero-invite .phone-card {
+    width: 100% !important;
+    max-width: 420px !important;
+    padding: 8px !important;
+    border-color: rgba(255, 255, 255, .11) !important;
+    border-radius: 24px !important;
+    background: linear-gradient(180deg, rgba(17, 17, 17, .98), rgba(10, 10, 10, .99)) !important;
+    box-shadow: 0 18px 46px rgba(0, 0, 0, .46), 0 0 0 1px rgba(229, 9, 20, .035) !important;
+  }
+
+  /* The page header already carries the brand; repeating it inside the card made mobile feel cramped. */
+  .hero-invite .phone-top {
+    display: none !important;
+  }
+
+  .hero-invite .featured-profile {
+    height: clamp(280px, 82vw, 340px) !important;
+    aspect-ratio: auto !important;
+    border-radius: 20px !important;
+  }
+
+  .hero-invite .featured-profile > img {
+    object-position: center 36% !important;
+  }
+
+  .hero-invite .featured-profile::after {
+    inset: 43% 0 0 !important;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .94)) !important;
+  }
+
+  .hero-invite .profile-overlay {
+    align-items: flex-end !important;
+    padding: 54px 14px 13px !important;
+  }
+
+  .hero-invite .profile-overlay h2 {
+    font-size: 1.48rem !important;
+    line-height: 1.02 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  .hero-invite .profile-overlay p {
+    margin-top: 4px !important;
+    font-size: .78rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .hero-invite .online-dot {
+    width: 6px !important;
+    height: 6px !important;
+    margin-right: 5px !important;
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, .15) !important;
+  }
+
   .hero-invite .heart-button {
-    width: 54px !important;
-    height: 54px !important;
-    font-size: 1.12rem !important;
-    box-shadow: 0 10px 24px rgba(0, 0, 0, .3) !important;
+    width: 46px !important;
+    height: 46px !important;
+    border-color: rgba(255, 255, 255, .3) !important;
+    font-size: 1rem !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .3) !important;
   }
 
-  /* Full profile: show Anna's face first and remove redundant status UI. */
+  .hero-invite .voice-pill {
+    left: 12px !important;
+    bottom: 66px !important;
+    max-width: calc(100% - 82px) !important;
+    min-height: 34px !important;
+    gap: 6px !important;
+    padding: 7px 9px !important;
+    border-color: rgba(255, 255, 255, .18) !important;
+    background: rgba(8, 8, 9, .8) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .32) !important;
+  }
+
+  [dir="rtl"] .hero-invite .voice-pill {
+    right: 12px !important;
+    left: auto !important;
+  }
+
+  .hero-invite .voice-pill__icon {
+    flex-basis: 20px !important;
+    width: 20px !important;
+    height: 20px !important;
+    font-size: .58rem !important;
+  }
+
+  .hero-invite .voice-pill__label {
+    font-size: .68rem !important;
+    font-weight: 820 !important;
+  }
+
+  .hero-invite .voice-pill__time {
+    font-size: .61rem !important;
+  }
+
+  .hero-invite .voice-pill__lock {
+    display: none !important;
+  }
+
+  /* The full image remains tappable, so a second profile label only adds visual noise. */
+  .hero-invite .profile-preview-open-hint {
+    display: none !important;
+  }
+
+  .hero-invite .mini-message {
+    grid-template-columns: 36px minmax(0, 1fr) auto !important;
+    align-items: start !important;
+    gap: 9px !important;
+    margin: 8px 2px 0 !important;
+    padding: 10px !important;
+    border-color: rgba(255, 255, 255, .08) !important;
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, .035) !important;
+  }
+
+  .hero-invite .avatar-small,
+  .hero-invite .avatar-small img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .hero-invite .mini-message p {
+    min-width: 0 !important;
+    margin: 0 !important;
+    color: rgba(255, 255, 255, .68) !important;
+    font-size: .75rem !important;
+    line-height: 1.32 !important;
+    text-align: left !important;
+  }
+
+  [dir="rtl"] .hero-invite .mini-message p {
+    text-align: right !important;
+  }
+
+  .hero-invite .mini-message strong {
+    color: #fff !important;
+    font-size: .77rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-invite .mini-message p > span {
+    display: -webkit-box !important;
+    overflow: hidden !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+  }
+
+  .hero-invite .message-time {
+    margin-top: 1px !important;
+    font-size: .61rem !important;
+    line-height: 1 !important;
+  }
+
+  .hero-invite .phone-cta {
+    min-height: 50px !important;
+    margin: 8px 2px 2px !important;
+    padding: 10px 14px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 10px 24px rgba(229, 9, 20, .24), inset 0 1px 0 rgba(255, 255, 255, .12) !important;
+    font-size: .85rem !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+
+  .trust-strip {
+    width: calc(100% - 20px) !important;
+    gap: 7px !important;
+    margin: 8px auto 42px !important;
+    padding: 0 !important;
+  }
+
+  .trust-item {
+    min-height: 48px !important;
+    gap: 10px !important;
+    padding: 10px 14px !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, .025) !important;
+  }
+
+  .trust-icon {
+    font-size: 1rem !important;
+  }
+
+  .trust-item strong {
+    font-size: .8rem !important;
+  }
+
+  /* Full profile sheet: keep the important actions together and scroll naturally. */
   .profile-preview-sheet {
     grid-template-rows: clamp(286px, 42dvh, 380px) minmax(0, 1fr) !important;
   }
@@ -60,7 +260,6 @@
     padding: 16px 16px 14px !important;
   }
 
-  /* Keep voice, message and CTA together instead of pushing the CTA to the viewport bottom. */
   .profile-preview-content {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) !important;
@@ -90,7 +289,46 @@
   }
 }
 
+@media (max-width: 390px) {
+  .site-header {
+    width: calc(100% - 16px) !important;
+  }
+
+  .brand {
+    font-size: .96rem !important;
+  }
+
+  .brand-mark {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  .language-picker {
+    padding-inline: 8px !important;
+  }
+
+  .language-picker select {
+    max-width: 78px !important;
+  }
+
+  .hero-invite.shell {
+    padding-inline: 8px !important;
+  }
+
+  .hero-invite .featured-profile {
+    height: clamp(276px, 80vw, 312px) !important;
+  }
+
+  .hero-invite .profile-overlay h2 {
+    font-size: 1.4rem !important;
+  }
+}
+
 @media (max-width: 760px) and (max-height: 700px) {
+  .hero-invite .featured-profile {
+    height: clamp(260px, 76vw, 300px) !important;
+  }
+
   .profile-preview-sheet {
     grid-template-rows: 270px minmax(0, 1fr) !important;
   }
