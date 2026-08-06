@@ -1,4 +1,4 @@
-# HeartMatch multilingual affiliate landing.
+# RealMeetClub multilingual affiliate landing
 
 Static Vercel landing page with native dictionary-based translations, country/language detection and a central affiliate redirect.
 
