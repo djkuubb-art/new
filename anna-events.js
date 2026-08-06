@@ -6,27 +6,27 @@
   const MOBILE_QUERY = '(max-width: 760px)';
 
   const copy = {
-    'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'Are you avoiding me? I’ve been waiting all morning for your reply...', voice: 'Sent you a voice note' },
-    'en-US': { name: 'Anna', recently: 'Just now', followUp: 'Are you avoiding me? I’ve been waiting all morning to hear back from you...', voice: 'Sent you a voice message' },
-    'en-SG': { name: 'Anna', recently: 'Just now', followUp: 'Are you avoiding me? I’ve been waiting all morning for your reply...', voice: 'Sent you a voice message' },
-    de: { name: 'Anna', recently: 'Gerade eben', followUp: 'Gehst du mir aus dem Weg? Ich warte schon seit heute Morgen auf deine Antwort...', voice: 'Hat dir eine Sprachnachricht geschickt' },
-    nl: { name: 'Anna', recently: 'Zojuist', followUp: 'Ontwijk je me? Ik wacht al sinds vanochtend op je reactie...', voice: 'Heeft je een spraakbericht gestuurd' },
-    fr: { name: 'Anna', recently: 'À l’instant', followUp: 'Vous m’évitez ? J’attends votre réponse depuis ce matin...', voice: 'Vous a envoyé un message vocal' },
-    it: { name: 'Anna', recently: 'Proprio ora', followUp: 'Mi stai evitando? Aspetto una tua risposta da stamattina...', voice: 'Ti ha inviato un messaggio vocale' },
-    es: { name: 'Anna', recently: 'Ahora mismo', followUp: '¿Me estás evitando? Llevo toda la mañana esperando tu respuesta...', voice: 'Te ha enviado un mensaje de voz' },
-    pt: { name: 'Anna', recently: 'Agora mesmo', followUp: 'Estás a evitar-me? Estou à espera da tua resposta desde esta manhã...', voice: 'Enviou-te uma mensagem de voz' },
-    pl: { name: 'Anna', recently: 'Przed chwilą', followUp: 'Unikasz mnie? Czekam od rana na odpowiedź...', voice: 'Wysłała Ci wiadomość głosową' },
-    sv: { name: 'Anna', recently: 'Precis nu', followUp: 'Undviker du mig? Jag har väntat på ditt svar hela morgonen...', voice: 'Har skickat ett röstmeddelande till dig' },
-    no: { name: 'Anna', recently: 'Akkurat nå', followUp: 'Unngår du meg? Jeg har ventet på svar fra deg hele morgenen...', voice: 'Har sendt deg en talemelding' },
-    da: { name: 'Anna', recently: 'Lige nu', followUp: 'Undgår du mig? Jeg har ventet på dit svar hele morgenen...', voice: 'Har sendt dig en talebesked' },
-    fi: { name: 'Anna', recently: 'Juuri nyt', followUp: 'Vältteletkö minua? Olen odottanut vastaustasi koko aamun...', voice: 'Lähetti sinulle ääniviestin' },
-    el: { name: 'Άννα', recently: 'Μόλις τώρα', followUp: 'Με αποφεύγεις; Περιμένω την απάντησή σου από το πρωί...', voice: 'Σου έστειλε φωνητικό μήνυμα' },
-    hr: { name: 'Anna', recently: 'Upravo sada', followUp: 'Izbjegavaš me? Od jutros čekam tvoj odgovor...', voice: 'Poslala ti je glasovnu poruku' },
-    sl: { name: 'Anna', recently: 'Pravkar', followUp: 'Se me izogibaš? Že od jutra čakam na tvoj odgovor...', voice: 'Poslala ti je glasovno sporočilo' },
-    sk: { name: 'Anna', recently: 'Práve teraz', followUp: 'Vyhýbaš sa mi? Od rána čakám na tvoju odpoveď...', voice: 'Poslala ti hlasovú správu' },
-    cs: { name: 'Anna', recently: 'Právě teď', followUp: 'Vyhýbáš se mi? Od rána čekám na tvoji odpověď...', voice: 'Poslala ti hlasovou zprávu' },
-    hu: { name: 'Anna', recently: 'Épp most', followUp: 'Kerülsz engem? Reggel óta várom a válaszod...', voice: 'Hangüzenetet küldött neked' },
-    he: { name: 'אנה', recently: 'עכשיו', followUp: 'אתה מתחמק ממני? אני מחכה לתשובה שלך מאז הבוקר...', voice: 'שלחה לך הודעה קולית' }
+    'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'You really didn’t like my lingerie photo? I can see you didn’t even click to look at it. That makes me sad :(', voice: 'Sent you a voice note' },
+    'en-US': { name: 'Anna', recently: 'Just now', followUp: 'You really didn’t like my lingerie photo? I can see you didn’t even click to look at it. That makes me sad :(', voice: 'Sent you a voice message' },
+    'en-SG': { name: 'Anna', recently: 'Just now', followUp: 'You really didn’t like my lingerie photo? I can see you didn’t even click to look at it. That makes me sad :(', voice: 'Sent you a voice message' },
+    de: { name: 'Anna', recently: 'Gerade eben', followUp: 'Hat dir mein Foto in Dessous wirklich nicht gefallen? Ich sehe, dass du nicht einmal darauf geklickt hast, um es anzusehen. Das macht mich traurig :(', voice: 'Hat dir eine Sprachnachricht geschickt' },
+    nl: { name: 'Anna', recently: 'Zojuist', followUp: 'Vond je mijn foto in lingerie echt niet leuk? Ik zie dat je niet eens hebt geklikt om hem te bekijken. Daar word ik verdrietig van :(', voice: 'Heeft je een spraakbericht gestuurd' },
+    fr: { name: 'Anna', recently: 'À l’instant', followUp: 'Ma photo en lingerie ne vous a vraiment pas plu ? Je vois que vous n’avez même pas cliqué pour la regarder. Ça me rend triste :(', voice: 'Vous a envoyé un message vocal' },
+    it: { name: 'Anna', recently: 'Proprio ora', followUp: 'Davvero non ti è piaciuta la mia foto in lingerie? Vedo che non hai nemmeno cliccato per guardarla. Mi rende triste :(', voice: 'Ti ha inviato un messaggio vocale' },
+    es: { name: 'Anna', recently: 'Ahora mismo', followUp: '¿De verdad no te gustó mi foto en lencería? Veo que ni siquiera hiciste clic para verla. Me pone triste :(', voice: 'Te ha enviado un mensaje de voz' },
+    pt: { name: 'Anna', recently: 'Agora mesmo', followUp: 'Não gostaste mesmo da minha foto em lingerie? Vejo que nem sequer clicaste para a ver. Fico triste :(', voice: 'Enviou-te uma mensagem de voz' },
+    pl: { name: 'Anna', recently: 'Przed chwilą', followUp: 'Naprawdę moje zdjęcie w bieliźnie Ci się nie spodobało? Widzę, że nawet nie kliknąłeś, żeby je zobaczyć. Smutno mi :(', voice: 'Wysłała Ci wiadomość głosową' },
+    sv: { name: 'Anna', recently: 'Precis nu', followUp: 'Gillade du verkligen inte min bild i underkläder? Jag ser att du inte ens klickade för att titta på den. Det gör mig ledsen :(', voice: 'Har skickat ett röstmeddelande till dig' },
+    no: { name: 'Anna', recently: 'Akkurat nå', followUp: 'Likte du virkelig ikke bildet mitt i undertøy? Jeg ser at du ikke engang klikket for å se på det. Det gjør meg trist :(', voice: 'Har sendt deg en talemelding' },
+    da: { name: 'Anna', recently: 'Lige nu', followUp: 'Kunne du virkelig ikke lide mit billede i undertøj? Jeg kan se, at du ikke engang klikkede for at se det. Det gør mig ked af det :(', voice: 'Har sendt dig en talebesked' },
+    fi: { name: 'Anna', recently: 'Juuri nyt', followUp: 'Etkö todella pitänyt kuvastani alusvaatteissa? Näen, ettet edes klikannut katsoaksesi sitä. Se tekee minut surulliseksi :(', voice: 'Lähetti sinulle ääniviestin' },
+    el: { name: 'Άννα', recently: 'Μόλις τώρα', followUp: 'Δεν σου άρεσε πραγματικά η φωτογραφία μου με εσώρουχα; Βλέπω ότι δεν πάτησες καν για να τη δεις. Με στενοχωρεί :(', voice: 'Σου έστειλε φωνητικό μήνυμα' },
+    hr: { name: 'Anna', recently: 'Upravo sada', followUp: 'Zar ti se stvarno nije svidjela moja fotografija u donjem rublju? Vidim da nisi ni kliknuo da je pogledaš. To me rastužuje :(', voice: 'Poslala ti je glasovnu poruku' },
+    sl: { name: 'Anna', recently: 'Pravkar', followUp: 'Ti moja fotografija v spodnjem perilu res ni bila všeč? Vidim, da nisi niti kliknil, da bi jo pogledal. To me žalosti :(', voice: 'Poslala ti je glasovno sporočilo' },
+    sk: { name: 'Anna', recently: 'Práve teraz', followUp: 'Naozaj sa ti nepáčila moja fotka v spodnej bielizni? Vidím, že si ani neklikol, aby si si ju pozrel. Je mi z toho smutno :(', voice: 'Poslala ti hlasovú správu' },
+    cs: { name: 'Anna', recently: 'Právě teď', followUp: 'Opravdu se ti nelíbila moje fotka ve spodním prádle? Vidím, že jsi ani neklikl, abys se na ni podíval. Je mi z toho smutno :(', voice: 'Poslala ti hlasovou zprávu' },
+    hu: { name: 'Anna', recently: 'Épp most', followUp: 'Tényleg nem tetszett a fehérneműs képem? Látom, még csak rá sem kattintottál, hogy megnézd. Ez elszomorít :(', voice: 'Hangüzenetet küldött neked' },
+    he: { name: 'אנה', recently: 'עכשיו', followUp: 'באמת לא אהבת את התמונה שלי בהלבשה תחתונה? אני רואה שאפילו לא לחצת כדי לראות אותה. זה מעציב אותי :(', voice: 'שלחה לך הודעה קולית' }
   };
 
   const normaliseLocale = (value = '') => {
