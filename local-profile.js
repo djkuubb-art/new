@@ -267,3 +267,128 @@ window.addEventListener('click', (event) => {
   window.rmcTrack('cta_click', { slot });
   window.rmcTrack('age_gate_open', { slot });
 }, true);
+
+(() => {
+  const PHOTOS = [
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/a2da64a7-ee33-4baf-a2d6-e20504f45b50_ekpe66.png',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/2d4b618b-607f-454d-b3f5-daf793df0644_dzkv1u.png',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785864718/1gb_le1u9j.png',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785981205/013_Liebe_kennt_kein_Alter_reel_source_rxzx1f.jpg',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785981205/025_Liebe_kennt_kein_Alter_reel_source_hvq5pi.jpg',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785981205/023_Liebe_kennt_kein_Alter_reel_source_bxx7nc.jpg',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785981205/014_Liebe_kennt_kein_Alter_reel_source_x1vp0y.jpg',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785981205/011_Liebe_kennt_kein_Alter_reel_source_lb20vs.jpg',
+    'https://res.cloudinary.com/r8lomm2b/image/upload/v1785981205/004_Liebe_kennt_kein_Alter_reel_source_xisg7k.jpg'
+  ];
+
+  const AGES = [41, 44, 42, 47, 52, 43, 49, 46, 54];
+  const FALLBACK_NAMES = ['Anna', 'Claire', 'Emma', 'Laura', 'Sophie', 'Julia', 'Maria', 'Nicole', 'Elena'];
+
+  const EXTRA_PROFILES = {
+    'en-GB': [['Laura', 'Bristol'], ['Sophie', 'Leeds'], ['Julia', 'Liverpool'], ['Maria', 'Glasgow'], ['Nicole', 'Sheffield'], ['Elena', 'Nottingham']],
+    'en-US': [['Laura', 'Phoenix'], ['Sophie', 'Seattle'], ['Julia', 'Denver'], ['Maria', 'Orlando'], ['Nicole', 'San Diego'], ['Elena', 'Boston']],
+    'en-SG': [['Laura', 'Woodlands'], ['Sophie', 'Bedok'], ['Julia', 'Punggol'], ['Maria', 'Clementi'], ['Nicole', 'Bishan'], ['Elena', 'Toa Payoh']],
+    de: [['Laura', 'München'], ['Sophie', 'Frankfurt'], ['Julia', 'Düsseldorf'], ['Maria', 'Stuttgart'], ['Nicole', 'Leipzig'], ['Elena', 'Dortmund']],
+    nl: [['Laura', 'Eindhoven'], ['Sophie', 'Groningen'], ['Julia', 'Haarlem'], ['Maria', 'Breda'], ['Nicole', 'Nijmegen'], ['Elena', 'Maastricht']],
+    fr: [['Laura', 'Toulouse'], ['Sophie', 'Nice'], ['Julia', 'Lille'], ['Maria', 'Nantes'], ['Nicole', 'Strasbourg'], ['Elena', 'Montpellier']],
+    it: [['Laura', 'Milano'], ['Sofia', 'Torino'], ['Giulia', 'Bologna'], ['Maria', 'Firenze'], ['Nicole', 'Genova'], ['Elena', 'Verona']],
+    es: [['Laura', 'Madrid'], ['Sofía', 'Barcelona'], ['Julia', 'Valencia'], ['María', 'Sevilla'], ['Nicole', 'Málaga'], ['Elena', 'Bilbao']],
+    pt: [['Laura', 'Lisboa'], ['Sofia', 'Porto'], ['Júlia', 'Braga'], ['Maria', 'Coimbra'], ['Nicole', 'Faro'], ['Elena', 'Aveiro']],
+    pl: [['Laura', 'Warszawa'], ['Zofia', 'Kraków'], ['Julia', 'Wrocław'], ['Maria', 'Poznań'], ['Natalia', 'Gdańsk'], ['Elżbieta', 'Łódź']],
+    sv: [['Laura', 'Stockholm'], ['Sofia', 'Göteborg'], ['Julia', 'Malmö'], ['Maria', 'Uppsala'], ['Nicole', 'Västerås'], ['Elena', 'Örebro']],
+    no: [['Laura', 'Oslo'], ['Sofia', 'Bergen'], ['Julia', 'Trondheim'], ['Maria', 'Stavanger'], ['Nicole', 'Tromsø'], ['Elena', 'Kristiansand']],
+    da: [['Laura', 'København'], ['Sofie', 'Aarhus'], ['Julia', 'Odense'], ['Maria', 'Aalborg'], ['Nicole', 'Esbjerg'], ['Elena', 'Randers']],
+    fi: [['Laura', 'Helsinki'], ['Sofia', 'Tampere'], ['Julia', 'Turku'], ['Maria', 'Oulu'], ['Nicole', 'Espoo'], ['Elena', 'Jyväskylä']],
+    el: [['Λάουρα', 'Αθήνα'], ['Σοφία', 'Θεσσαλονίκη'], ['Τζούλια', 'Πάτρα'], ['Μαρία', 'Ηράκλειο'], ['Νικόλ', 'Λάρισα'], ['Έλενα', 'Βόλος']],
+    hr: [['Laura', 'Zagreb'], ['Sofija', 'Split'], ['Julija', 'Rijeka'], ['Marija', 'Osijek'], ['Nikolina', 'Zadar'], ['Elena', 'Pula']],
+    sl: [['Laura', 'Ljubljana'], ['Sofija', 'Maribor'], ['Julija', 'Koper'], ['Marija', 'Celje'], ['Nikolina', 'Kranj'], ['Elena', 'Novo mesto']],
+    sk: [['Laura', 'Bratislava'], ['Sofia', 'Košice'], ['Júlia', 'Prešov'], ['Mária', 'Žilina'], ['Nikola', 'Nitra'], ['Elena', 'Banská Bystrica']],
+    cs: [['Laura', 'Praha'], ['Sofie', 'Brno'], ['Julie', 'Ostrava'], ['Marie', 'Plzeň'], ['Nikola', 'Olomouc'], ['Elena', 'Liberec']],
+    hu: [['Laura', 'Budapest'], ['Zsófia', 'Debrecen'], ['Júlia', 'Szeged'], ['Mária', 'Pécs'], ['Nikolett', 'Győr'], ['Elena', 'Miskolc']],
+    he: [['לאורה', 'תל אביב'], ['סופיה', 'ירושלים'], ['יוליה', 'חיפה'], ['מרים', 'ראשון לציון'], ['ניקול', 'נתניה'], ['אלנה', 'באר שבע']]
+  };
+
+  const transformed = (url, width) => url.replace('/upload/', `/upload/f_auto,q_auto:good,c_fill,g_auto,ar_3:4,w_${width}/`);
+
+  const extendLocaleProfiles = () => {
+    if (typeof locales === 'undefined') return;
+    Object.entries(EXTRA_PROFILES).forEach(([localeCode, extras]) => {
+      const dictionary = locales[localeCode];
+      if (!dictionary || !Array.isArray(dictionary.profiles)) return;
+      dictionary.profiles = dictionary.profiles.slice(0, 3).concat(extras);
+    });
+  };
+
+  const updateCard = (card, index) => {
+    card.dataset.slot = `card-${index + 1}`;
+    card.removeAttribute('data-profile-index');
+    card.removeAttribute('data-lower-profile-ready');
+
+    const image = card.querySelector('.image-wrap > img');
+    if (image) {
+      image.src = transformed(PHOTOS[index], 480);
+      image.srcset = `${transformed(PHOTOS[index], 320)} 320w, ${transformed(PHOTOS[index], 480)} 480w, ${transformed(PHOTOS[index], 720)} 720w`;
+      image.alt = `Profile ${index + 1}`;
+      image.width = 480;
+      image.height = 640;
+      image.loading = 'lazy';
+      image.decoding = 'async';
+      image.fetchPriority = 'low';
+    }
+
+    const heading = card.querySelector('h3');
+    const oldName = heading?.querySelector('[data-profile]');
+    if (heading && oldName) {
+      const name = oldName.cloneNode(false);
+      name.dataset.profile = `${index}-name`;
+      name.textContent = FALLBACK_NAMES[index];
+      heading.replaceChildren(name, document.createTextNode(`, ${AGES[index]}`));
+    }
+
+    const distance = card.querySelector('[data-profile-distance]');
+    if (distance) distance.dataset.profileDistance = String(index);
+
+    const bio = card.querySelector('[data-profile-bio]');
+    if (bio) bio.dataset.profileBio = String(index);
+  };
+
+  const buildNineCards = () => {
+    const track = document.getElementById('profileSwipeTrack');
+    if (!track) return;
+
+    const existing = [...track.querySelectorAll('.profile-card-premium')];
+    if (existing.length < 3) return;
+
+    existing.slice(3).forEach((card) => card.remove());
+    const templates = existing.slice(0, 3);
+
+    for (let index = 0; index < 9; index += 1) {
+      const card = index < 3 ? templates[index] : templates[index % 3].cloneNode(true);
+      updateCard(card, index);
+      if (index >= 3) track.appendChild(card);
+    }
+
+    const dots = document.querySelector('.profile-swipe-dots');
+    if (dots) {
+      dots.replaceChildren(...Array.from({ length: 9 }, (_, index) => {
+        const dot = document.createElement('button');
+        dot.className = `profile-swipe-dot${index === 0 ? ' is-active' : ''}`;
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Profile ${index + 1}`);
+        return dot;
+      }));
+    }
+  };
+
+  const refreshNames = () => {
+    try {
+      if (typeof setLocale === 'function') {
+        setLocale(document.documentElement.lang || 'en-GB', { persist: false });
+      }
+    } catch (_) {}
+  };
+
+  extendLocaleProfiles();
+  buildNineCards();
+  refreshNames();
+})();
