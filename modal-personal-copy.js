@@ -230,3 +230,170 @@
     initialiseTracking();
   }
 })();
+
+(() => {
+  const DURATION_MS = 10 * 60 * 1000;
+  const DEADLINE_KEY = 'rmc_prominent_invite_deadline_v1';
+
+  const timerCopy = {
+    'en-GB': { label: 'This invitation expires permanently in', expired: 'Your invitation has expired', renew: 'Renew invitation' },
+    'en-US': { label: 'This invitation expires permanently in', expired: 'Your invitation has expired', renew: 'Renew invitation' },
+    'en-SG': { label: 'This invitation expires permanently in', expired: 'Your invitation has expired', renew: 'Renew invitation' },
+    de: { label: 'Diese Einladung verfällt endgültig in', expired: 'Deine Einladung ist abgelaufen', renew: 'Einladung erneuern' },
+    nl: { label: 'Deze uitnodiging verloopt definitief over', expired: 'Je uitnodiging is verlopen', renew: 'Uitnodiging vernieuwen' },
+    fr: { label: 'Cette invitation expire définitivement dans', expired: 'Votre invitation a expiré', renew: 'Renouveler l’invitation' },
+    it: { label: 'Questo invito scade definitivamente tra', expired: 'Il tuo invito è scaduto', renew: 'Rinnova l’invito' },
+    es: { label: 'Esta invitación caduca definitivamente en', expired: 'Tu invitación ha caducado', renew: 'Renovar invitación' },
+    pt: { label: 'Este convite expira definitivamente dentro de', expired: 'O teu convite expirou', renew: 'Renovar convite' },
+    pl: { label: 'Zaproszenie wygaśnie bezpowrotnie za', expired: 'Zaproszenie wygasło', renew: 'Odnów zaproszenie' },
+    sv: { label: 'Den här inbjudan upphör permanent om', expired: 'Din inbjudan har gått ut', renew: 'Förnya inbjudan' },
+    no: { label: 'Denne invitasjonen utløper permanent om', expired: 'Invitasjonen din har utløpt', renew: 'Forny invitasjonen' },
+    da: { label: 'Denne invitation udløber permanent om', expired: 'Din invitation er udløbet', renew: 'Forny invitationen' },
+    fi: { label: 'Tämä kutsu vanhenee lopullisesti', expired: 'Kutsusi on vanhentunut', renew: 'Uusi kutsu' },
+    el: { label: 'Αυτή η πρόσκληση λήγει οριστικά σε', expired: 'Η πρόσκλησή σου έληξε', renew: 'Ανανέωση πρόσκλησης' },
+    hr: { label: 'Ova pozivnica trajno istječe za', expired: 'Tvoja pozivnica je istekla', renew: 'Obnovi pozivnicu' },
+    sl: { label: 'To povabilo dokončno poteče čez', expired: 'Tvoje povabilo je poteklo', renew: 'Obnovi povabilo' },
+    sk: { label: 'Táto pozvánka definitívne vyprší o', expired: 'Tvoja pozvánka vypršala', renew: 'Obnoviť pozvánku' },
+    cs: { label: 'Tato pozvánka definitivně vyprší za', expired: 'Tvoje pozvánka vypršela', renew: 'Obnovit pozvánku' },
+    hu: { label: 'Ez a meghívó végleg lejár ennyi idő múlva', expired: 'A meghívód lejárt', renew: 'Meghívó megújítása' },
+    he: { label: 'ההזמנה הזו תפוג לצמיתות בעוד', expired: 'ההזמנה שלך פגה', renew: 'חידוש ההזמנה' }
+  };
+
+  const normaliseLocale = (value = '') => {
+    if (timerCopy[value]) return value;
+    const raw = String(value).replace('_', '-').toLowerCase();
+    if (raw.startsWith('en-us')) return 'en-US';
+    if (raw.startsWith('en-sg')) return 'en-SG';
+    if (raw.startsWith('en')) return 'en-GB';
+    const short = raw.split('-')[0];
+    return timerCopy[short] ? short : 'en-GB';
+  };
+
+  const getLocale = () => normaliseLocale(
+    document.getElementById('languageSelect')?.value ||
+    document.documentElement.lang ||
+    navigator.language
+  );
+
+  const getCopy = () => timerCopy[getLocale()] || timerCopy['en-GB'];
+
+  const readDeadline = () => {
+    try {
+      const saved = Number(sessionStorage.getItem(DEADLINE_KEY));
+      if (Number.isFinite(saved) && saved > 0) return saved;
+      const next = Date.now() + DURATION_MS;
+      sessionStorage.setItem(DEADLINE_KEY, String(next));
+      return next;
+    } catch (_) {
+      return Date.now() + DURATION_MS;
+    }
+  };
+
+  let deadline = readDeadline();
+
+  const saveDeadline = (value) => {
+    deadline = value;
+    try { sessionStorage.setItem(DEADLINE_KEY, String(value)); }
+    catch (_) {}
+  };
+
+  const injectStyles = () => {
+    if (document.getElementById('rmc-prominent-countdown-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'rmc-prominent-countdown-styles';
+    style.textContent = `
+      .phone-top .expiry-pill{display:none!important}
+      .rmc-invite-countdown{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:11px;margin:0 0 9px;padding:13px 14px;border:1px solid rgba(255,61,72,.34);border-radius:16px;background:linear-gradient(135deg,rgba(229,9,20,.16),rgba(255,255,255,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 9px 24px rgba(0,0,0,.18);color:#fff;overflow:hidden}
+      .rmc-invite-countdown::before{content:'';position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(#ff4a55,#b40009)}
+      .rmc-invite-countdown-icon{display:grid;width:34px;height:34px;place-items:center;border-radius:11px;background:rgba(229,9,20,.16);font-size:1rem;box-shadow:inset 0 0 0 1px rgba(255,70,80,.16)}
+      .rmc-invite-countdown-copy{min-width:0;text-align:left}
+      .rmc-invite-countdown-label{display:block;color:rgba(255,255,255,.82);font-size:.78rem;font-weight:760;line-height:1.25}
+      .rmc-invite-countdown-expired{display:none;color:#fff;font-size:.88rem;font-weight:850;line-height:1.2}
+      .rmc-invite-countdown-time{min-width:84px;color:#fff;font:950 1.65rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;letter-spacing:.025em;text-align:right;text-shadow:0 0 22px rgba(255,45,58,.22)}
+      .rmc-invite-countdown.is-urgent{border-color:rgba(255,72,83,.68);background:linear-gradient(135deg,rgba(229,9,20,.24),rgba(255,255,255,.03))}
+      .rmc-invite-countdown.is-urgent .rmc-invite-countdown-time{animation:rmcCountdownPulse 1.1s ease-in-out infinite}
+      .rmc-invite-countdown-renew{display:none;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:0;border-radius:11px;background:linear-gradient(135deg,#f01b27,#b5000a);box-shadow:0 8px 20px rgba(229,9,20,.24);color:#fff;font:850 .76rem/1.1 inherit;white-space:nowrap;cursor:pointer}
+      .rmc-invite-countdown-renew:focus-visible{outline:3px solid rgba(255,255,255,.9);outline-offset:2px}
+      .rmc-invite-countdown.is-expired{grid-template-columns:34px minmax(0,1fr) auto;border-color:rgba(255,63,75,.52);background:linear-gradient(135deg,rgba(229,9,20,.20),rgba(255,255,255,.025))}
+      .rmc-invite-countdown.is-expired .rmc-invite-countdown-label,.rmc-invite-countdown.is-expired .rmc-invite-countdown-time{display:none}
+      .rmc-invite-countdown.is-expired .rmc-invite-countdown-expired,.rmc-invite-countdown.is-expired .rmc-invite-countdown-renew{display:flex}
+      [dir='rtl'] .rmc-invite-countdown{direction:rtl}
+      [dir='rtl'] .rmc-invite-countdown-copy{text-align:right}
+      [dir='rtl'] .rmc-invite-countdown-time{direction:ltr;text-align:left}
+      @keyframes rmcCountdownPulse{50%{opacity:.72;transform:scale(1.035)}}
+      @media(max-width:760px){.hero-invite .rmc-invite-countdown{margin:0 0 8px;padding:12px 12px 12px 13px;border-radius:15px;grid-template-columns:32px minmax(0,1fr) auto;gap:9px}.hero-invite .rmc-invite-countdown-icon{width:32px;height:32px;border-radius:10px}.hero-invite .rmc-invite-countdown-label{font-size:.75rem}.hero-invite .rmc-invite-countdown-time{min-width:78px;font-size:1.52rem}.hero-invite .rmc-invite-countdown-renew{min-height:38px;padding:8px 11px;font-size:.73rem}}
+      @media(max-width:390px){.hero-invite .rmc-invite-countdown{grid-template-columns:30px minmax(0,1fr) auto;padding:11px 10px 11px 12px;gap:8px}.hero-invite .rmc-invite-countdown-icon{width:30px;height:30px}.hero-invite .rmc-invite-countdown-label{font-size:.70rem}.hero-invite .rmc-invite-countdown-time{min-width:71px;font-size:1.38rem}.hero-invite .rmc-invite-countdown-renew{padding-inline:9px;font-size:.68rem}}
+    `;
+    document.head.appendChild(style);
+  };
+
+  const ensurePanel = () => {
+    const phone = document.querySelector('.hero-invite .phone-card');
+    const featured = phone?.querySelector('.featured-profile');
+    if (!phone || !featured) return null;
+
+    let panel = phone.querySelector('.rmc-invite-countdown');
+    if (panel) return panel;
+
+    panel = document.createElement('div');
+    panel.className = 'rmc-invite-countdown';
+    panel.setAttribute('role', 'timer');
+    panel.setAttribute('aria-live', 'polite');
+    panel.innerHTML = `
+      <span class="rmc-invite-countdown-icon" aria-hidden="true">⏳</span>
+      <span class="rmc-invite-countdown-copy">
+        <span class="rmc-invite-countdown-label"></span>
+        <span class="rmc-invite-countdown-expired"></span>
+      </span>
+      <strong class="rmc-invite-countdown-time">10:00</strong>
+      <button class="rmc-invite-countdown-renew" type="button"></button>
+    `;
+    featured.insertAdjacentElement('beforebegin', panel);
+
+    panel.querySelector('.rmc-invite-countdown-renew').addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      saveDeadline(Date.now() + DURATION_MS);
+      updatePanel();
+      if (typeof window.rmcTrack === 'function') window.rmcTrack('invite_renewed', { slot: 'countdown' });
+      window.setTimeout(() => {
+        const opener = document.querySelector('.hero-invite .phone-cta.js-affiliate, .hero-invite .heart-button.js-affiliate, .js-affiliate');
+        opener?.click();
+      }, 40);
+    });
+
+    return panel;
+  };
+
+  const updatePanel = () => {
+    const panel = ensurePanel();
+    if (!panel) return;
+
+    const copy = getCopy();
+    const remaining = Math.max(0, Math.ceil((deadline - Date.now()) / 1000));
+    const minutes = String(Math.floor(remaining / 60)).padStart(2, '0');
+    const seconds = String(remaining % 60).padStart(2, '0');
+    const expired = remaining === 0;
+
+    panel.querySelector('.rmc-invite-countdown-label').textContent = copy.label;
+    panel.querySelector('.rmc-invite-countdown-expired').textContent = copy.expired;
+    panel.querySelector('.rmc-invite-countdown-renew').textContent = copy.renew;
+    panel.querySelector('.rmc-invite-countdown-time').textContent = `${minutes}:${seconds}`;
+    panel.classList.toggle('is-urgent', remaining > 0 && remaining <= 60);
+    panel.classList.toggle('is-expired', expired);
+  };
+
+  const initialise = () => {
+    injectStyles();
+    updatePanel();
+    window.setInterval(updatePanel, 1000);
+    document.addEventListener('visibilitychange', updatePanel);
+    document.getElementById('languageSelect')?.addEventListener('change', () => window.setTimeout(updatePanel, 0));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialise, { once: true });
+  } else {
+    initialise();
+  }
+})();
