@@ -1,26 +1,299 @@
 (() => {
   const localeCopy = {
-    'en-GB': { title: 'You’re very close.', text: 'Choose your age range. Next, you’ll complete a quick sign-up and continue to a conversation with Anna.', accountCta: 'Create account' },
-    'en-US': { title: 'You’re very close.', text: 'Choose your age range. Next, you’ll complete a quick sign-up and continue to a conversation with Anna.', accountCta: 'Create account' },
-    'en-SG': { title: 'You’re very close.', text: 'Choose your age range. Next, you’ll complete a quick sign-up and continue to a conversation with Anna.', accountCta: 'Create account' },
-    de: { title: 'Du bist ganz nah dran.', text: 'Wähle deine Altersgruppe. Im nächsten Schritt meldest du dich kurz an und kannst anschließend mit Anna chatten.', accountCta: 'Konto erstellen' },
-    nl: { title: 'Je bent er bijna.', text: 'Kies je leeftijdsgroep. Daarna maak je snel een account aan en kun je verder naar het gesprek met Anna.', accountCta: 'Account aanmaken' },
-    fr: { title: 'Vous y êtes presque.', text: 'Choisissez votre tranche d’âge. Vous passerez ensuite par une inscription rapide avant de poursuivre la conversation avec Anna.', accountCta: 'Créer un compte' },
-    it: { title: 'Ci sei quasi.', text: 'Scegli la tua fascia d’età. Nel passaggio successivo completerai una registrazione rapida e potrai continuare la conversazione con Anna.', accountCta: 'Crea un account' },
-    es: { title: 'Ya estás muy cerca.', text: 'Elige tu franja de edad. En el siguiente paso completarás un registro rápido y podrás continuar la conversación con Anna.', accountCta: 'Crear una cuenta' },
-    pt: { title: 'Estás quase lá.', text: 'Escolhe a tua faixa etária. No passo seguinte farás um registo rápido e poderás continuar a conversa com a Anna.', accountCta: 'Criar conta' },
-    pl: { title: 'Jesteś bardzo blisko.', text: 'Wybierz swój przedział wiekowy, a w następnym kroku przejdziesz do szybkiej rejestracji i rozmowy z Anną.', accountCta: 'Załóż konto' },
-    sv: { title: 'Du är nästan framme.', text: 'Välj din åldersgrupp. Därefter gör du en snabb registrering och kan fortsätta till samtalet med Anna.', accountCta: 'Skapa konto' },
-    no: { title: 'Du er nesten fremme.', text: 'Velg aldersgruppen din. Deretter fullfører du en rask registrering og kan fortsette til samtalen med Anna.', accountCta: 'Opprett konto' },
-    da: { title: 'Du er næsten fremme.', text: 'Vælg din aldersgruppe. Derefter gennemfører du en hurtig oprettelse og kan fortsætte til samtalen med Anna.', accountCta: 'Opret konto' },
-    fi: { title: 'Olet aivan lähellä.', text: 'Valitse ikäryhmäsi. Seuraavaksi teet nopean rekisteröitymisen ja voit jatkaa keskusteluun Annan kanssa.', accountCta: 'Luo tili' },
-    el: { title: 'Είσαι πολύ κοντά.', text: 'Επίλεξε την ηλικιακή σου ομάδα. Στο επόμενο βήμα θα κάνεις μια γρήγορη εγγραφή και θα συνεχίσεις στη συζήτηση με την Άννα.', accountCta: 'Δημιούργησε λογαριασμό' },
-    hr: { title: 'Još si samo korak do cilja.', text: 'Odaberi svoju dobnu skupinu. U sljedećem koraku brzo ćeš otvoriti račun i nastaviti razgovor s Annom.', accountCta: 'Otvori račun' },
-    sl: { title: 'Skoraj si že tam.', text: 'Izberi svojo starostno skupino. V naslednjem koraku se hitro registriraš in nadaljuješ pogovor z Anno.', accountCta: 'Ustvari račun' },
-    sk: { title: 'Si už veľmi blízko.', text: 'Vyber svoju vekovú skupinu. V ďalšom kroku sa rýchlo zaregistruješ a budeš môcť pokračovať v rozhovore s Annou.', accountCta: 'Vytvoriť účet' },
-    cs: { title: 'Jsi už velmi blízko.', text: 'Vyber svou věkovou skupinu. V dalším kroku se rychle zaregistruješ a budeš moci pokračovat v rozhovoru s Annou.', accountCta: 'Vytvořit účet' },
-    hu: { title: 'Már nagyon közel vagy.', text: 'Válaszd ki a korcsoportodat. A következő lépésben gyorsan regisztrálsz, majd folytathatod a beszélgetést Annával.', accountCta: 'Fiók létrehozása' },
-    he: { title: 'אתה ממש קרוב.', text: 'בחר את קבוצת הגיל שלך. בשלב הבא תבצע הרשמה מהירה ותוכל להמשיך לשיחה עם אנה.', accountCta: 'פתיחת חשבון' }
+    'en-GB': {
+      badge: 'FINAL STEP',
+      title: 'Anna can only receive messages from verified users',
+      confirm: 'Confirm your age so you can reply to her.',
+      note: 'In the next step, you’ll create a short profile and enter your email address. It only takes a moment.',
+      ageYoung: 'I’m 18–44',
+      ageOlder: 'I’m 45+',
+      profileStep: 'Anna’s profile',
+      verifyStep: 'Verification',
+      privacyAria: 'Private access',
+      profileAria: 'Quick profile',
+      verifiedAria: 'Verified access',
+      accountCta: 'Create account'
+    },
+    'en-US': {
+      badge: 'FINAL STEP',
+      title: 'Anna can only receive messages from verified users',
+      confirm: 'Confirm your age so you can reply to her.',
+      note: 'In the next step, you’ll create a short profile and enter your email address. It only takes a moment.',
+      ageYoung: 'I’m 18–44',
+      ageOlder: 'I’m 45+',
+      profileStep: 'Anna’s profile',
+      verifyStep: 'Verification',
+      privacyAria: 'Private access',
+      profileAria: 'Quick profile',
+      verifiedAria: 'Verified access',
+      accountCta: 'Create account'
+    },
+    'en-SG': {
+      badge: 'FINAL STEP',
+      title: 'Anna can only receive messages from verified users',
+      confirm: 'Confirm your age so you can reply to her.',
+      note: 'In the next step, you’ll create a short profile and enter your email address. It only takes a moment.',
+      ageYoung: 'I’m 18–44',
+      ageOlder: 'I’m 45+',
+      profileStep: 'Anna’s profile',
+      verifyStep: 'Verification',
+      privacyAria: 'Private access',
+      profileAria: 'Quick profile',
+      verifiedAria: 'Verified access',
+      accountCta: 'Create account'
+    },
+    de: {
+      badge: 'LETZTER SCHRITT',
+      title: 'Anna kann Nachrichten nur von verifizierten Nutzern empfangen',
+      confirm: 'Bestätige dein Alter, damit du ihr antworten kannst.',
+      note: 'Im nächsten Schritt erstellst du ein kurzes Profil und gibst deine E-Mail-Adresse an. Das dauert nur einen Moment.',
+      ageYoung: 'Ich bin 18–44',
+      ageOlder: 'Ich bin 45+',
+      profileStep: 'Annas Profil',
+      verifyStep: 'Verifizierung',
+      privacyAria: 'Diskreter Zugang',
+      profileAria: 'Kurzes Profil',
+      verifiedAria: 'Verifizierter Zugang',
+      accountCta: 'Konto erstellen'
+    },
+    nl: {
+      badge: 'LAATSTE STAP',
+      title: 'Anna kan alleen berichten ontvangen van geverifieerde gebruikers',
+      confirm: 'Bevestig je leeftijd om haar te kunnen antwoorden.',
+      note: 'In de volgende stap maak je kort een profiel aan en vul je je e-mailadres in. Dat duurt maar even.',
+      ageYoung: 'Ik ben 18–44',
+      ageOlder: 'Ik ben 45+',
+      profileStep: 'Anna’s profiel',
+      verifyStep: 'Verificatie',
+      privacyAria: 'Discrete toegang',
+      profileAria: 'Kort profiel',
+      verifiedAria: 'Geverifieerde toegang',
+      accountCta: 'Account aanmaken'
+    },
+    fr: {
+      badge: 'DERNIÈRE ÉTAPE',
+      title: 'Anna ne peut recevoir des messages que d’utilisateurs vérifiés',
+      confirm: 'Confirmez votre âge pour pouvoir lui répondre.',
+      note: 'À l’étape suivante, vous créerez un court profil et indiquerez votre adresse e-mail. Cela ne prendra qu’un instant.',
+      ageYoung: 'J’ai entre 18 et 44 ans',
+      ageOlder: 'J’ai 45 ans ou plus',
+      profileStep: 'Profil d’Anna',
+      verifyStep: 'Vérification',
+      privacyAria: 'Accès discret',
+      profileAria: 'Profil rapide',
+      verifiedAria: 'Accès vérifié',
+      accountCta: 'Créer un compte'
+    },
+    it: {
+      badge: 'ULTIMO PASSAGGIO',
+      title: 'Anna può ricevere messaggi solo da utenti verificati',
+      confirm: 'Conferma la tua età per poterle rispondere.',
+      note: 'Nel passaggio successivo creerai un breve profilo e inserirai il tuo indirizzo e-mail. Ci vorrà solo un attimo.',
+      ageYoung: 'Ho 18–44 anni',
+      ageOlder: 'Ho 45 anni o più',
+      profileStep: 'Profilo di Anna',
+      verifyStep: 'Verifica',
+      privacyAria: 'Accesso discreto',
+      profileAria: 'Profilo rapido',
+      verifiedAria: 'Accesso verificato',
+      accountCta: 'Crea un account'
+    },
+    es: {
+      badge: 'ÚLTIMO PASO',
+      title: 'Anna solo puede recibir mensajes de usuarios verificados',
+      confirm: 'Confirma tu edad para poder responderle.',
+      note: 'En el siguiente paso crearás un perfil breve e indicarás tu correo electrónico. Solo te llevará un momento.',
+      ageYoung: 'Tengo entre 18 y 44 años',
+      ageOlder: 'Tengo 45 años o más',
+      profileStep: 'Perfil de Anna',
+      verifyStep: 'Verificación',
+      privacyAria: 'Acceso discreto',
+      profileAria: 'Perfil rápido',
+      verifiedAria: 'Acceso verificado',
+      accountCta: 'Crear una cuenta'
+    },
+    pt: {
+      badge: 'ÚLTIMO PASSO',
+      title: 'A Anna só pode receber mensagens de utilizadores verificados',
+      confirm: 'Confirma a tua idade para lhe poderes responder.',
+      note: 'No passo seguinte, vais criar um perfil rápido e indicar o teu endereço de e-mail. Leva apenas um momento.',
+      ageYoung: 'Tenho entre 18 e 44 anos',
+      ageOlder: 'Tenho 45 anos ou mais',
+      profileStep: 'Perfil da Anna',
+      verifyStep: 'Verificação',
+      privacyAria: 'Acesso discreto',
+      profileAria: 'Perfil rápido',
+      verifiedAria: 'Acesso verificado',
+      accountCta: 'Criar conta'
+    },
+    pl: {
+      badge: 'OSTATNI KROK',
+      title: 'Anna może otrzymywać wiadomości tylko od zweryfikowanych użytkowników',
+      confirm: 'Potwierdź swój wiek, żeby móc jej odpowiedzieć.',
+      note: 'W następnym kroku utworzysz krótki profil i podasz adres e-mail. Zajmie to tylko chwilę.',
+      ageYoung: 'Mam 18–44',
+      ageOlder: 'Mam 45+',
+      profileStep: 'Profil Anny',
+      verifyStep: 'Weryfikacja',
+      privacyAria: 'Dyskretny dostęp',
+      profileAria: 'Krótki profil',
+      verifiedAria: 'Zweryfikowany dostęp',
+      accountCta: 'Załóż konto'
+    },
+    sv: {
+      badge: 'SISTA STEGET',
+      title: 'Anna kan bara ta emot meddelanden från verifierade användare',
+      confirm: 'Bekräfta din ålder för att kunna svara henne.',
+      note: 'I nästa steg skapar du en kort profil och anger din e-postadress. Det tar bara ett ögonblick.',
+      ageYoung: 'Jag är 18–44',
+      ageOlder: 'Jag är 45+',
+      profileStep: 'Annas profil',
+      verifyStep: 'Verifiering',
+      privacyAria: 'Diskret åtkomst',
+      profileAria: 'Snabb profil',
+      verifiedAria: 'Verifierad åtkomst',
+      accountCta: 'Skapa konto'
+    },
+    no: {
+      badge: 'SISTE STEG',
+      title: 'Anna kan bare motta meldinger fra verifiserte brukere',
+      confirm: 'Bekreft alderen din for å kunne svare henne.',
+      note: 'I neste steg oppretter du en kort profil og oppgir e-postadressen din. Det tar bare et øyeblikk.',
+      ageYoung: 'Jeg er 18–44',
+      ageOlder: 'Jeg er 45+',
+      profileStep: 'Annas profil',
+      verifyStep: 'Verifisering',
+      privacyAria: 'Diskré tilgang',
+      profileAria: 'Kort profil',
+      verifiedAria: 'Verifisert tilgang',
+      accountCta: 'Opprett konto'
+    },
+    da: {
+      badge: 'SIDSTE TRIN',
+      title: 'Anna kan kun modtage beskeder fra verificerede brugere',
+      confirm: 'Bekræft din alder for at kunne svare hende.',
+      note: 'I næste trin opretter du en kort profil og angiver din e-mailadresse. Det tager kun et øjeblik.',
+      ageYoung: 'Jeg er 18–44',
+      ageOlder: 'Jeg er 45+',
+      profileStep: 'Annas profil',
+      verifyStep: 'Verificering',
+      privacyAria: 'Diskret adgang',
+      profileAria: 'Kort profil',
+      verifiedAria: 'Verificeret adgang',
+      accountCta: 'Opret konto'
+    },
+    fi: {
+      badge: 'VIIMEINEN VAIHE',
+      title: 'Anna voi vastaanottaa viestejä vain vahvistetuilta käyttäjiltä',
+      confirm: 'Vahvista ikäsi, jotta voit vastata hänelle.',
+      note: 'Seuraavassa vaiheessa luot lyhyen profiilin ja annat sähköpostiosoitteesi. Se vie vain hetken.',
+      ageYoung: 'Olen 18–44-vuotias',
+      ageOlder: 'Olen vähintään 45-vuotias',
+      profileStep: 'Annan profiili',
+      verifyStep: 'Vahvistus',
+      privacyAria: 'Huomaamaton pääsy',
+      profileAria: 'Lyhyt profiili',
+      verifiedAria: 'Vahvistettu pääsy',
+      accountCta: 'Luo tili'
+    },
+    el: {
+      badge: 'ΤΕΛΕΥΤΑΙΟ ΒΗΜΑ',
+      title: 'Η Άννα μπορεί να λαμβάνει μηνύματα μόνο από επαληθευμένους χρήστες',
+      confirm: 'Επιβεβαίωσε την ηλικία σου για να μπορέσεις να της απαντήσεις.',
+      note: 'Στο επόμενο βήμα θα δημιουργήσεις ένα σύντομο προφίλ και θα δώσεις τη διεύθυνση email σου. Θα πάρει μόνο μια στιγμή.',
+      ageYoung: 'Είμαι 18–44',
+      ageOlder: 'Είμαι 45+',
+      profileStep: 'Προφίλ της Άννας',
+      verifyStep: 'Επαλήθευση',
+      privacyAria: 'Διακριτική πρόσβαση',
+      profileAria: 'Σύντομο προφίλ',
+      verifiedAria: 'Επαληθευμένη πρόσβαση',
+      accountCta: 'Δημιούργησε λογαριασμό'
+    },
+    hr: {
+      badge: 'POSLJEDNJI KORAK',
+      title: 'Anna može primati poruke samo od verificiranih korisnika',
+      confirm: 'Potvrdi svoju dob kako bi joj mogao odgovoriti.',
+      note: 'U sljedećem koraku izradit ćeš kratak profil i unijeti svoju e-mail adresu. Trebat će ti samo trenutak.',
+      ageYoung: 'Imam 18–44 godine',
+      ageOlder: 'Imam 45+ godina',
+      profileStep: 'Annin profil',
+      verifyStep: 'Verifikacija',
+      privacyAria: 'Diskretan pristup',
+      profileAria: 'Kratak profil',
+      verifiedAria: 'Verificiran pristup',
+      accountCta: 'Otvori račun'
+    },
+    sl: {
+      badge: 'ZADNJI KORAK',
+      title: 'Anna lahko prejema sporočila samo od preverjenih uporabnikov',
+      confirm: 'Potrdi svojo starost, da ji boš lahko odgovoril.',
+      note: 'V naslednjem koraku boš ustvaril kratek profil in vnesel svoj e-poštni naslov. Vzelo ti bo le trenutek.',
+      ageYoung: 'Star sem 18–44 let',
+      ageOlder: 'Star sem 45+ let',
+      profileStep: 'Annin profil',
+      verifyStep: 'Preverjanje',
+      privacyAria: 'Diskreten dostop',
+      profileAria: 'Kratek profil',
+      verifiedAria: 'Preverjen dostop',
+      accountCta: 'Ustvari račun'
+    },
+    sk: {
+      badge: 'POSLEDNÝ KROK',
+      title: 'Anna môže prijímať správy iba od overených používateľov',
+      confirm: 'Potvrď svoj vek, aby si jej mohol odpovedať.',
+      note: 'V ďalšom kroku si vytvoríš krátky profil a zadáš svoju e-mailovú adresu. Zaberie to len chvíľu.',
+      ageYoung: 'Mám 18–44 rokov',
+      ageOlder: 'Mám 45+ rokov',
+      profileStep: 'Profil Anny',
+      verifyStep: 'Overenie',
+      privacyAria: 'Diskrétny prístup',
+      profileAria: 'Krátky profil',
+      verifiedAria: 'Overený prístup',
+      accountCta: 'Vytvoriť účet'
+    },
+    cs: {
+      badge: 'POSLEDNÍ KROK',
+      title: 'Anna může přijímat zprávy pouze od ověřených uživatelů',
+      confirm: 'Potvrď svůj věk, abys jí mohl odpovědět.',
+      note: 'V dalším kroku si vytvoříš krátký profil a zadáš svou e-mailovou adresu. Zabere to jen chvilku.',
+      ageYoung: 'Je mi 18–44 let',
+      ageOlder: 'Je mi 45+ let',
+      profileStep: 'Profil Anny',
+      verifyStep: 'Ověření',
+      privacyAria: 'Diskrétní přístup',
+      profileAria: 'Krátký profil',
+      verifiedAria: 'Ověřený přístup',
+      accountCta: 'Vytvořit účet'
+    },
+    hu: {
+      badge: 'UTOLSÓ LÉPÉS',
+      title: 'Anna csak ellenőrzött felhasználóktól fogadhat üzeneteket',
+      confirm: 'Erősítsd meg az életkorodat, hogy válaszolhass neki.',
+      note: 'A következő lépésben létrehozol egy rövid profilt, és megadod az e-mail-címedet. Csak egy pillanat.',
+      ageYoung: '18–44 éves vagyok',
+      ageOlder: '45+ éves vagyok',
+      profileStep: 'Anna profilja',
+      verifyStep: 'Ellenőrzés',
+      privacyAria: 'Diszkrét hozzáférés',
+      profileAria: 'Rövid profil',
+      verifiedAria: 'Ellenőrzött hozzáférés',
+      accountCta: 'Fiók létrehozása'
+    },
+    he: {
+      badge: 'שלב אחרון',
+      title: 'אנה יכולה לקבל הודעות רק ממשתמשים מאומתים',
+      confirm: 'אמת את גילך כדי שתוכל להשיב לה.',
+      note: 'בשלב הבא תיצור פרופיל קצר ותזין כתובת אימייל. זה ייקח רק רגע.',
+      ageYoung: 'אני בן 18–44',
+      ageOlder: 'אני בן 45 ומעלה',
+      profileStep: 'הפרופיל של אנה',
+      verifyStep: 'אימות',
+      privacyAria: 'גישה דיסקרטית',
+      profileAria: 'פרופיל קצר',
+      verifiedAria: 'גישה מאומתת',
+      accountCta: 'פתיחת חשבון'
+    }
   };
 
   const normaliseLocale = (value = '') => {
@@ -39,17 +312,475 @@
     navigator.language
   );
 
+  const getCopy = () => localeCopy[getLocale()] || localeCopy['en-GB'];
+
   const setText = (node, value) => {
     if (node && node.textContent !== value) node.textContent = value;
   };
 
-  const applyPersonalCopy = () => {
-    const current = localeCopy[getLocale()] || localeCopy['en-GB'];
+  const injectStyles = () => {
+    if (document.getElementById('rmc-age-gate-v2-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'rmc-age-gate-v2-styles';
+    style.textContent = `
+      #ageGateModal.rmc-age-gate-v2{
+        width:min(500px,calc(100vw - 24px))!important;
+        max-width:500px!important;
+        max-height:calc(100dvh - 24px)!important;
+        border:1px solid rgba(255,255,255,.12)!important;
+        border-radius:26px!important;
+        background:
+          radial-gradient(circle at 50% -12%,rgba(229,9,20,.22),transparent 34%),
+          linear-gradient(155deg,#1a1a1d,#09090a 72%)!important;
+        box-shadow:0 34px 110px rgba(0,0,0,.74)!important;
+        overflow:hidden auto!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-shell{
+        padding:27px 26px 22px!important;
+        text-align:center!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-shell::before{
+        height:3px!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-icon{
+        display:none!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-close{
+        top:12px!important;
+        right:12px!important;
+        width:34px!important;
+        height:34px!important;
+        z-index:5!important;
+      }
+      [dir="rtl"] #ageGateModal.rmc-age-gate-v2 .age-gate-close{
+        right:auto!important;
+        left:12px!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-badge{
+        padding:6px 10px!important;
+        border-color:rgba(229,9,20,.42)!important;
+        background:rgba(229,9,20,.12)!important;
+        color:#ff7078!important;
+        font-size:.67rem!important;
+        font-weight:950!important;
+        letter-spacing:.105em!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:7px;
+        margin:13px auto 12px;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar-photo{
+        position:relative;
+        width:62px;
+        height:62px;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar-photo img{
+        width:62px;
+        height:62px;
+        object-fit:cover;
+        object-position:center 22%;
+        border:2px solid rgba(255,255,255,.86);
+        border-radius:50%;
+        box-shadow:0 11px 30px rgba(0,0,0,.34),0 0 0 5px rgba(229,9,20,.10);
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-modal-verified{
+        position:absolute;
+        right:-2px;
+        bottom:0;
+        display:grid;
+        width:21px;
+        height:21px;
+        place-items:center;
+        border:2px solid #111;
+        border-radius:50%;
+        background:#e50914;
+        color:#fff;
+        font-size:.68rem;
+        font-weight:1000;
+        box-shadow:0 4px 12px rgba(229,9,20,.34);
+      }
+      [dir="rtl"] #ageGateModal.rmc-age-gate-v2 .rmc-modal-verified{
+        right:auto;
+        left:-2px;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar-name{
+        color:rgba(255,255,255,.82);
+        font-size:.72rem;
+        font-weight:850;
+        letter-spacing:.01em;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-title{
+        max-width:430px!important;
+        margin:0 auto 9px!important;
+        color:#fff!important;
+        font-size:clamp(1.28rem,4.4vw,1.72rem)!important;
+        line-height:1.13!important;
+        letter-spacing:-.025em!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-age-confirm{
+        margin:0 auto 8px;
+        max-width:405px;
+        color:#fff;
+        font-size:.96rem;
+        font-weight:850;
+        line-height:1.35;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-text{
+        margin:0 auto!important;
+        max-width:410px!important;
+        color:#9d9da3!important;
+        font-size:.81rem!important;
+        font-style:italic!important;
+        line-height:1.45!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-progress{
+        display:block!important;
+        margin:15px 0 14px!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-progress::before,
+      #ageGateModal.rmc-age-gate-v2 .age-gate-progress::after{
+        display:none!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-progress-track{
+        position:relative;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        align-items:center;
+        width:min(270px,82%);
+        margin:0 auto 6px;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-progress-track::before{
+        content:'';
+        position:absolute;
+        top:50%;
+        left:25%;
+        right:25%;
+        height:2px;
+        transform:translateY(-50%);
+        background:linear-gradient(90deg,#e50914,#ff4a54);
+        box-shadow:0 0 10px rgba(229,9,20,.22);
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-progress-dot{
+        position:relative;
+        z-index:1;
+        display:grid;
+        width:18px;
+        height:18px;
+        place-items:center;
+        justify-self:center;
+        border:2px solid #111;
+        border-radius:50%;
+        background:#e50914;
+        color:#fff;
+        font-size:.56rem;
+        font-weight:1000;
+        box-shadow:0 0 0 3px rgba(229,9,20,.13);
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-progress-labels{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+        color:#77777e;
+        font-size:.63rem;
+        font-weight:800;
+        line-height:1.2;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-progress-labels span:last-child{
+        color:#bdbdc2;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-options{
+        display:grid!important;
+        grid-template-columns:1fr 1fr!important;
+        gap:10px!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-option{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:space-between!important;
+        gap:10px!important;
+        min-height:62px!important;
+        padding:12px 15px!important;
+        border-radius:16px!important;
+        font-size:1rem!important;
+        font-weight:950!important;
+        letter-spacing:-.01em!important;
+        text-align:left!important;
+      }
+      [dir="rtl"] #ageGateModal.rmc-age-gate-v2 .age-option{
+        text-align:right!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-option .rmc-age-arrow{
+        flex:0 0 auto;
+        font-size:1.18rem;
+        opacity:.92;
+      }
+      [dir="rtl"] #ageGateModal.rmc-age-gate-v2 .age-option .rmc-age-arrow{
+        transform:scaleX(-1);
+      }
+      #ageGateModal.rmc-age-gate-v2 .age-gate-secure{
+        display:flex!important;
+        align-items:center!important;
+        justify-content:center!important;
+        gap:9px!important;
+        margin:13px 0 0!important;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-trust-icon{
+        display:grid;
+        width:31px;
+        height:31px;
+        place-items:center;
+        border:1px solid rgba(255,255,255,.09);
+        border-radius:10px;
+        background:rgba(255,255,255,.035);
+        color:#8e8e94;
+        font-size:.78rem;
+      }
+      #ageGateModal.rmc-age-gate-v2 .rmc-trust-icon:last-child{
+        color:#ff6b74;
+        border-color:rgba(229,9,20,.20);
+        background:rgba(229,9,20,.06);
+      }
+      @media(max-width:640px){
+        #ageGateModal.rmc-age-gate-v2{
+          width:calc(100vw - 14px)!important;
+          max-height:calc(100dvh - 14px)!important;
+          border-radius:22px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-shell{
+          padding:23px 14px 16px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-close{
+          top:10px!important;
+          right:10px!important;
+          width:32px!important;
+          height:32px!important;
+        }
+        [dir="rtl"] #ageGateModal.rmc-age-gate-v2 .age-gate-close{
+          right:auto!important;
+          left:10px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-badge{
+          font-size:.62rem!important;
+          padding:5px 9px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar{
+          margin:11px auto 10px;
+          gap:6px;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar-photo,
+        #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar-photo img{
+          width:56px;
+          height:56px;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-title{
+          max-width:360px!important;
+          margin-bottom:7px!important;
+          font-size:1.2rem!important;
+          line-height:1.16!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-age-confirm{
+          max-width:360px;
+          margin-bottom:7px;
+          font-size:.88rem;
+          line-height:1.34;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-text{
+          max-width:360px!important;
+          font-size:.75rem!important;
+          line-height:1.42!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-progress{
+          margin:13px 0 12px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-progress-track{
+          width:min(240px,82%);
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-progress-labels{
+          font-size:.59rem;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-options{
+          grid-template-columns:1fr!important;
+          gap:8px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-option{
+          min-height:54px!important;
+          padding:10px 14px!important;
+          border-radius:14px!important;
+          font-size:.94rem!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-secure{
+          margin-top:11px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-trust-icon{
+          width:29px;
+          height:29px;
+          border-radius:9px;
+          font-size:.73rem;
+        }
+      }
+      @media(max-width:390px){
+        #ageGateModal.rmc-age-gate-v2 .age-gate-shell{
+          padding-inline:12px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-title{
+          font-size:1.13rem!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-age-confirm{
+          font-size:.84rem;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-text{
+          font-size:.72rem!important;
+        }
+      }
+      @media(max-height:650px) and (max-width:640px){
+        #ageGateModal.rmc-age-gate-v2 .age-gate-shell{
+          padding-top:18px!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar{
+          margin:8px auto;
+        }
+        #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar-photo,
+        #ageGateModal.rmc-age-gate-v2 .rmc-modal-avatar-photo img{
+          width:50px;
+          height:50px;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-title{
+          font-size:1.08rem!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-gate-progress{
+          margin:10px 0!important;
+        }
+        #ageGateModal.rmc-age-gate-v2 .age-option{
+          min-height:49px!important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
+  const ensureStructure = () => {
     const modal = document.getElementById('ageGateModal');
+    if (!modal) return null;
+
+    modal.classList.add('rmc-age-gate-v2');
+
+    const shell = modal.querySelector('.age-gate-shell');
+    const badge = modal.querySelector('.age-gate-badge');
+    const title = modal.querySelector('.age-gate-title');
+    const text = modal.querySelector('.age-gate-text');
+    const progress = modal.querySelector('.age-gate-progress');
+    const options = [...modal.querySelectorAll('.age-option')];
+    const secure = modal.querySelector('.age-gate-secure');
+    if (!shell || !badge || !title || !text || !progress || options.length < 2 || !secure) return modal;
+
+    let avatar = modal.querySelector('.rmc-modal-avatar');
+    if (!avatar) {
+      avatar = document.createElement('div');
+      avatar.className = 'rmc-modal-avatar';
+      avatar.innerHTML = `
+        <span class="rmc-modal-avatar-photo">
+          <img alt="Anna" width="62" height="62" decoding="async">
+          <span class="rmc-modal-verified" aria-hidden="true">✓</span>
+        </span>
+        <span class="rmc-modal-avatar-name">Anna, 41</span>
+      `;
+      badge.insertAdjacentElement('afterend', avatar);
+    }
+
+    let confirm = modal.querySelector('.rmc-age-confirm');
+    if (!confirm) {
+      confirm = document.createElement('p');
+      confirm.className = 'rmc-age-confirm';
+      title.insertAdjacentElement('afterend', confirm);
+    }
+
+    if (!progress.querySelector('.rmc-progress-track')) {
+      progress.innerHTML = `
+        <div class="rmc-progress-track" aria-hidden="true">
+          <span class="rmc-progress-dot">✓</span>
+          <span class="rmc-progress-dot">2</span>
+        </div>
+        <div class="rmc-progress-labels">
+          <span class="rmc-profile-step"></span>
+          <span class="rmc-verify-step"></span>
+        </div>
+      `;
+    }
+
+    options.forEach((option) => {
+      let label = option.querySelector('.rmc-age-label');
+      if (!label) {
+        label = document.createElement('span');
+        label.className = 'rmc-age-label';
+      }
+      let arrow = option.querySelector('.rmc-age-arrow');
+      if (!arrow) {
+        arrow = document.createElement('span');
+        arrow.className = 'rmc-age-arrow';
+        arrow.setAttribute('aria-hidden', 'true');
+        arrow.textContent = '→';
+      }
+      option.replaceChildren(label, arrow);
+    });
+
+    if (!secure.querySelector('.rmc-trust-icon')) {
+      secure.innerHTML = `
+        <span class="rmc-trust-icon rmc-trust-private" aria-hidden="true">🔒</span>
+        <span class="rmc-trust-icon rmc-trust-profile" aria-hidden="true">👤</span>
+        <span class="rmc-trust-icon rmc-trust-verified" aria-hidden="true">✓</span>
+      `;
+    }
+
+    const heroImage = document.querySelector('.hero-invite .featured-profile img');
+    const modalImage = avatar.querySelector('img');
+    if (modalImage && heroImage?.src) {
+      modalImage.src = heroImage.src;
+      modalImage.alt = 'Anna';
+    }
+
+    return modal;
+  };
+
+  const applyPersonalCopy = () => {
+    injectStyles();
+    const modal = ensureStructure();
+    const current = getCopy();
 
     if (modal) {
+      setText(modal.querySelector('.age-gate-badge'), current.badge);
       setText(modal.querySelector('.age-gate-title'), current.title);
-      setText(modal.querySelector('.age-gate-text'), current.text);
+      setText(modal.querySelector('.rmc-age-confirm'), current.confirm);
+      setText(modal.querySelector('.age-gate-text'), current.note);
+      setText(modal.querySelector('.rmc-profile-step'), current.profileStep);
+      setText(modal.querySelector('.rmc-verify-step'), current.verifyStep);
+
+      const options = modal.querySelectorAll('.age-option');
+      setText(options[0]?.querySelector('.rmc-age-label'), current.ageYoung);
+      setText(options[1]?.querySelector('.rmc-age-label'), current.ageOlder);
+      if (options[0]) options[0].setAttribute('aria-label', current.ageYoung);
+      if (options[1]) options[1].setAttribute('aria-label', current.ageOlder);
+
+      const privateIcon = modal.querySelector('.rmc-trust-private');
+      const profileIcon = modal.querySelector('.rmc-trust-profile');
+      const verifiedIcon = modal.querySelector('.rmc-trust-verified');
+      if (privateIcon) {
+        privateIcon.removeAttribute('aria-hidden');
+        privateIcon.setAttribute('aria-label', current.privacyAria);
+        privateIcon.setAttribute('title', current.privacyAria);
+      }
+      if (profileIcon) {
+        profileIcon.removeAttribute('aria-hidden');
+        profileIcon.setAttribute('aria-label', current.profileAria);
+        profileIcon.setAttribute('title', current.profileAria);
+      }
+      if (verifiedIcon) {
+        verifiedIcon.removeAttribute('aria-hidden');
+        verifiedIcon.setAttribute('aria-label', current.verifiedAria);
+        verifiedIcon.setAttribute('title', current.verifiedAria);
+      }
     }
 
     const stickyCopy = document.querySelector('.mobile-sticky [data-role="sticky-account-copy"], .mobile-sticky span:first-child');
@@ -60,17 +791,21 @@
     }
   };
 
+  const scheduleApply = () => {
+    window.setTimeout(applyPersonalCopy, 0);
+    window.setTimeout(applyPersonalCopy, 60);
+  };
+
   const initialise = () => {
     applyPersonalCopy();
 
-    document.addEventListener('click', (event) => {
+    window.addEventListener('click', (event) => {
       if (!event.target.closest('.js-affiliate')) return;
-      window.setTimeout(applyPersonalCopy, 0);
+      scheduleApply();
     }, true);
 
-    document.getElementById('languageSelect')?.addEventListener('change', () => {
-      window.setTimeout(applyPersonalCopy, 0);
-    });
+    document.getElementById('languageSelect')?.addEventListener('change', scheduleApply);
+    window.addEventListener('pageshow', scheduleApply);
   };
 
   if (document.readyState === 'loading') {
@@ -197,7 +932,7 @@
       const ageOption = event.target.closest('.age-option');
       if (ageOption) {
         send('age_selected', {
-          age_range: ageOption.textContent?.trim() || '',
+          age_range: ageOption.querySelector('.rmc-age-label')?.textContent?.trim() || ageOption.textContent?.trim() || '',
           slot: 'age-gate'
         }, true);
         return;
