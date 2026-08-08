@@ -113,3 +113,13 @@
 
   window.setTimeout(reveal, 1800);
 })();
+
+// Load the exit-intent recovery module without changing the established script order in index.html.
+(() => {
+  if (document.querySelector('script[data-rmc-exit-intent]')) return;
+  const script = document.createElement('script');
+  script.src = '/exit-intent.js?v=20260808-1';
+  script.async = true;
+  script.dataset.rmcExitIntent = '1';
+  document.head.appendChild(script);
+})();
