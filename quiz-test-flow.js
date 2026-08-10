@@ -123,3 +123,13 @@
   script.dataset.rmcExitIntent = '1';
   document.head.appendChild(script);
 })();
+
+// Replace unreliable IP-city labels with the detected country while keeping the existing distance.
+(() => {
+  if (document.querySelector('script[data-rmc-country-location]')) return;
+  const script = document.createElement('script');
+  script.src = '/country-location.js?v=20260810-1';
+  script.async = true;
+  script.dataset.rmcCountryLocation = '1';
+  document.head.appendChild(script);
+})();
