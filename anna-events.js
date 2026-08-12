@@ -1,5 +1,5 @@
 (() => {
-  const ANNA_IMAGE = 'https://res.cloudinary.com/r8lomm2b/image/upload/f_auto,q_auto:eco,c_fill,g_face,w_112,h_112/v1785806218/5_1_casfeq.png';
+  const ANNA_IMAGE = 'https://res.cloudinary.com/r8lomm2b/image/upload/f_auto,q_auto:eco,c_fill,g_face,w_112,h_112/v1786503770/649512796_2188384444902616_8179669464349222324_n_uioy36.jpg';
   const SESSION_KEY = 'rmc_anna_voice_notice_seen_v1';
   const FIRST_DELAY_MS = 8000;
   const VISIBLE_MS = 5200;
