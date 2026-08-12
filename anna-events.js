@@ -1,9 +1,63 @@
 (() => {
-  const ANNA_IMAGE = 'https://res.cloudinary.com/r8lomm2b/image/upload/f_auto,q_auto:eco,c_fill,g_face,w_112,h_112/v1786503770/649512796_2188384444902616_8179669464349222324_n_uioy36.jpg';
+  const ANNA_ASSET = 'v1786503770/649512796_2188384444902616_8179669464349222324_n_uioy36.jpg';
+  const ANNA_CLOUD = 'https://res.cloudinary.com/r8lomm2b/image/upload';
+  const ANNA_IMAGE = `${ANNA_CLOUD}/f_auto,q_auto:eco,c_fill,g_face,w_112,h_112/${ANNA_ASSET}`;
   const SESSION_KEY = 'rmc_anna_voice_notice_seen_v1';
   const FIRST_DELAY_MS = 8000;
   const VISIBLE_MS = 5200;
   const MOBILE_QUERY = '(max-width: 760px)';
+
+  const annaUrl = (transform) => `${ANNA_CLOUD}/${transform}/${ANNA_ASSET}`;
+
+  const syncAnnaImages = () => {
+    const setImage = (image, src, srcset = '') => {
+      if (!(image instanceof HTMLImageElement)) return;
+      if (image.src !== src) image.src = src;
+      if (srcset) {
+        if (image.srcset !== srcset) image.srcset = srcset;
+      } else if (image.hasAttribute('srcset')) {
+        image.removeAttribute('srcset');
+      }
+    };
+
+    setImage(
+      document.querySelector('.invite-avatar img'),
+      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_160,h_160')
+    );
+
+    const heroSrc = annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_540,h_735');
+    const heroSrcset = [
+      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_360,h_490')} 360w`,
+      `${heroSrc} 540w`,
+      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_720,h_980')} 720w`
+    ].join(', ');
+    setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc, heroSrcset);
+
+    setImage(
+      document.querySelector('.hero-invite .avatar-small img'),
+      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_96,h_96')
+    );
+
+    const firstProfile = document.querySelector('.premium-profiles .profile-card-premium:first-child .image-wrap > img');
+    const cardSrc = annaUrl('f_auto,q_auto:good,c_fill,g_auto,ar_3:4,w_480');
+    const cardSrcset = [
+      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,ar_3:4,w_320')} 320w`,
+      `${cardSrc} 480w`,
+      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,ar_3:4,w_720')} 720w`
+    ].join(', ');
+    setImage(firstProfile, cardSrc, cardSrcset);
+    if (firstProfile) firstProfile.alt = 'Anna profile';
+
+    setImage(
+      document.querySelector('.final-avatar-1 img'),
+      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_80,h_80')
+    );
+
+    setImage(
+      document.querySelector('.anna-notification-avatar img'),
+      ANNA_IMAGE
+    );
+  };
 
   const copy = {
     'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'You really didn’t like my lingerie photo? I can see you didn’t even click to look at it. That makes me sad :(', voice: 'Sent you a voice note' },
@@ -50,6 +104,16 @@
   let showTimer = 0;
   let hideTimer = 0;
   let notification = null;
+  let syncQueued = false;
+
+  const queueAnnaImageSync = () => {
+    if (syncQueued) return;
+    syncQueued = true;
+    requestAnimationFrame(() => {
+      syncQueued = false;
+      syncAnnaImages();
+    });
+  };
 
   const hasBeenSeen = () => {
     try { return sessionStorage.getItem(SESSION_KEY) === '1'; }
@@ -127,6 +191,7 @@
 
     region.appendChild(notification);
     document.body.appendChild(region);
+    queueAnnaImageSync();
     return notification;
   };
 
@@ -144,6 +209,7 @@
     if (text) text.textContent = current.voice;
     if (time) time.textContent = current.recently;
     if (image) image.alt = current.name;
+    queueAnnaImageSync();
   };
 
   const scheduleNotification = (delay = FIRST_DELAY_MS) => {
@@ -170,6 +236,7 @@
 
   const updateLanguage = () => {
     applyFollowUp();
+    queueAnnaImageSync();
     if (notification?.classList.contains('is-visible')) renderNotification();
   };
 
@@ -186,6 +253,10 @@
 
   const initialise = () => {
     applyFollowUp();
+    syncAnnaImages();
+
+    const domObserver = new MutationObserver(queueAnnaImageSync);
+    domObserver.observe(document.body, { childList: true, subtree: true });
 
     document.getElementById('languageSelect')?.addEventListener('change', () => {
       window.setTimeout(updateLanguage, 0);
@@ -206,6 +277,10 @@
       createNotification();
       scheduleNotification();
     }
+
+    window.setTimeout(syncAnnaImages, 0);
+    window.setTimeout(syncAnnaImages, 250);
+    window.setTimeout(syncAnnaImages, 1000);
   };
 
   if (document.readyState === 'loading') {
