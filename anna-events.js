@@ -7,6 +7,13 @@
   const VISIBLE_MS = 5200;
   const MOBILE_QUERY = '(max-width: 760px)';
 
+  const LOWER_PROFILE_NAME = {
+    'en-GB': 'Natalie', 'en-US': 'Jessica', 'en-SG': 'Diana',
+    de: 'Sabine', nl: 'Saskia', fr: 'Nathalie', it: 'Giulia', es: 'Lucía', pt: 'Marta', pl: 'Karolina',
+    sv: 'Johanna', no: 'Silje', da: 'Mette', fi: 'Sari', el: 'Αλεξάνδρα', hr: 'Kristina', sl: 'Katarina',
+    sk: 'Jana', cs: 'Jana', hu: 'Katalin', he: 'דנה'
+  };
+
   const annaUrl = (transform) => `${ANNA_CLOUD}/${transform}/${ANNA_ASSET}`;
 
   const syncAnnaImages = () => {
@@ -36,21 +43,6 @@
     setImage(
       document.querySelector('.hero-invite .avatar-small img'),
       annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_96,h_96')
-    );
-
-    const firstProfile = document.querySelector('.premium-profiles .profile-card-premium:first-child .image-wrap > img');
-    const cardSrc = annaUrl('f_auto,q_auto:good,c_fill,g_auto,ar_3:4,w_480');
-    const cardSrcset = [
-      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,ar_3:4,w_320')} 320w`,
-      `${cardSrc} 480w`,
-      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,ar_3:4,w_720')} 720w`
-    ].join(', ');
-    setImage(firstProfile, cardSrc, cardSrcset);
-    if (firstProfile) firstProfile.alt = 'Anna profile';
-
-    setImage(
-      document.querySelector('.final-avatar-1 img'),
-      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_80,h_80')
     );
 
     setImage(
@@ -99,6 +91,28 @@
     navigator.language
   );
 
+  const syncLowerProfilesWithoutAnna = () => {
+    const firstCard = document.querySelector('#profileSwipeTrack .profile-card-premium:first-child');
+    if (!firstCard) return;
+
+    const replacementName = LOWER_PROFILE_NAME[getLocale()] || LOWER_PROFILE_NAME['en-GB'];
+    const name = firstCard.querySelector('[data-gallery-name], [data-profile="0-name"]');
+    if (name && name.textContent !== replacementName) name.textContent = replacementName;
+
+    const image = firstCard.querySelector('.image-wrap > img');
+    if (image instanceof HTMLImageElement && image.src.includes(ANNA_ASSET)) {
+      image.src = '/images/profiles/profile-01.svg';
+      image.removeAttribute('srcset');
+      image.alt = 'Profile photo';
+    }
+
+    const finalAvatar = document.querySelector('.final-avatar-1 img');
+    if (finalAvatar instanceof HTMLImageElement && finalAvatar.src.includes(ANNA_ASSET)) {
+      finalAvatar.src = '/images/profiles/profile-01.svg';
+      finalAvatar.removeAttribute('srcset');
+    }
+  };
+
   const getCurrentCopy = () => copy[getLocale()] || copy['en-GB'];
   const mobileMedia = window.matchMedia(MOBILE_QUERY);
   let showTimer = 0;
@@ -106,12 +120,17 @@
   let notification = null;
   let syncQueued = false;
 
+  const syncUi = () => {
+    syncAnnaImages();
+    syncLowerProfilesWithoutAnna();
+  };
+
   const queueAnnaImageSync = () => {
     if (syncQueued) return;
     syncQueued = true;
     requestAnimationFrame(() => {
       syncQueued = false;
-      syncAnnaImages();
+      syncUi();
     });
   };
 
@@ -253,10 +272,10 @@
 
   const initialise = () => {
     applyFollowUp();
-    syncAnnaImages();
+    syncUi();
 
     const domObserver = new MutationObserver(queueAnnaImageSync);
-    domObserver.observe(document.body, { childList: true, subtree: true });
+    domObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
 
     document.getElementById('languageSelect')?.addEventListener('change', () => {
       window.setTimeout(updateLanguage, 0);
@@ -278,9 +297,10 @@
       scheduleNotification();
     }
 
-    window.setTimeout(syncAnnaImages, 0);
-    window.setTimeout(syncAnnaImages, 250);
-    window.setTimeout(syncAnnaImages, 1000);
+    window.setTimeout(syncUi, 0);
+    window.setTimeout(syncUi, 250);
+    window.setTimeout(syncUi, 1000);
+    window.setTimeout(syncUi, 2000);
   };
 
   if (document.readyState === 'loading') {
