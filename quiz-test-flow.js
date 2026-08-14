@@ -238,3 +238,89 @@
     initialise();
   }
 })();
+
+// Native main message from Anna for each supported locale.
+(() => {
+  const MESSAGE = {
+    'en-GB': 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…',
+    'en-US': 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…',
+    'en-SG': 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…',
+    de: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …',
+    nl: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal niets van je horen…',
+    fr: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…',
+    it: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…',
+    es: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…',
+    pt: 'Que tal encontrarmo-nos esta semana? Já começo a achar que não estás interessado, porque não me escreves…',
+    pl: 'Co powiesz na spotkanie w tym tygodniu? Chyba nie jesteś zainteresowany, bo nie piszesz…',
+    sv: 'Vad säger du om att ses någon gång den här veckan? Jag börjar tro att du inte är intresserad eftersom du inte skriver…',
+    no: 'Hva sier du til å møtes en gang denne uka? Jeg begynner å tro at du ikke er interessert siden du ikke skriver…',
+    da: 'Hvad siger du til, at vi ses en dag i denne uge? Jeg begynder at tro, at du ikke er interesseret, når du ikke skriver…',
+    fi: 'Mitä jos nähtäisiin tällä viikolla? Alan jo ajatella, ettet ole kiinnostunut, kun et kirjoita…',
+    el: 'Τι λες να βρεθούμε κάποια μέρα αυτή την εβδομάδα; Αρχίζω να πιστεύω ότι δεν ενδιαφέρεσαι, αφού δεν μου γράφεις…',
+    hr: 'Što kažeš da se vidimo ovaj tjedan? Počinjem misliti da nisi zainteresiran jer mi se uopće ne javljaš…',
+    sl: 'Kaj praviš, da se dobiva enkrat ta teden? Začenjam misliti, da te ne zanima, ker mi nič ne pišeš…',
+    sk: 'Čo povieš na to, keby sme sa niekedy tento týždeň stretli? Začínam si myslieť, že nemáš záujem, keď mi vôbec nepíšeš…',
+    cs: 'Co říkáš na to, že bychom se někdy tento týden potkali? Začínám si myslet, že nemáš zájem, když mi vůbec nepíšeš…',
+    hu: 'Mit szólnál, ha találkoznánk valamikor a héten? Kezdem azt hinni, hogy nem is érdekellek, mert egyáltalán nem írsz…',
+    he: 'מה דעתך שניפגש השבוע? אני מתחילה לחשוב שאתה לא באמת בעניין, כי אתה בכלל לא כותב לי…'
+  };
+
+  const normaliseLocale = (value = '') => {
+    const raw = String(value).replace('_', '-').toLowerCase();
+    if (raw.startsWith('en-us')) return 'en-US';
+    if (raw.startsWith('en-sg')) return 'en-SG';
+    if (raw.startsWith('en')) return 'en-GB';
+    const short = raw.split('-')[0];
+    return MESSAGE[short] ? short : 'en-GB';
+  };
+
+  const getLocale = () => normaliseLocale(
+    document.getElementById('languageSelect')?.value ||
+    document.documentElement.lang ||
+    navigator.language
+  );
+
+  let queued = false;
+  let textObserver = null;
+
+  const sync = () => {
+    const node = document.querySelector('.invite-preview [data-i18n="invitePreview"], .invite-preview [data-role="anna-main-message"], .invite-preview p');
+    if (!node) return false;
+
+    const message = MESSAGE[getLocale()] || MESSAGE['en-GB'];
+    if (node.textContent !== message) node.textContent = message;
+    node.removeAttribute('data-i18n');
+    node.setAttribute('data-role', 'anna-main-message');
+
+    if (!textObserver) {
+      textObserver = new MutationObserver(queueSync);
+      textObserver.observe(node, { childList: true, subtree: true, characterData: true });
+    }
+    return true;
+  };
+
+  const queueSync = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      sync();
+    });
+  };
+
+  const initialise = () => {
+    sync();
+    document.getElementById('languageSelect')?.addEventListener('change', queueSync);
+    new MutationObserver(queueSync).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+    [0, 100, 300, 900, 1800].forEach((delay) => window.setTimeout(sync, delay));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialise, { once: true });
+  } else {
+    initialise();
+  }
+})();
