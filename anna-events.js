@@ -1,55 +1,12 @@
 (() => {
   const ANNA_ASSET = 'v1785806218/5_1_casfeq.png';
   const ANNA_CLOUD = 'https://res.cloudinary.com/r8lomm2b/image/upload';
-  const ANNA_IMAGE = `${ANNA_CLOUD}/f_auto,q_auto:eco,c_fill,g_face,w_112,h_112/${ANNA_ASSET}`;
   const SESSION_KEY = 'rmc_anna_voice_notice_seen_v1';
   const FIRST_DELAY_MS = 8000;
   const VISIBLE_MS = 5200;
   const MOBILE_QUERY = '(max-width: 760px)';
 
-  const LOWER_PROFILE_NAME = {
-    'en-GB': 'Natalie', 'en-US': 'Jessica', 'en-SG': 'Diana',
-    de: 'Sabine', nl: 'Saskia', fr: 'Nathalie', it: 'Giulia', es: 'Lucía', pt: 'Marta', pl: 'Karolina',
-    sv: 'Johanna', no: 'Silje', da: 'Mette', fi: 'Sari', el: 'Αλεξάνδρα', hr: 'Kristina', sl: 'Katarina',
-    sk: 'Jana', cs: 'Jana', hu: 'Katalin', he: 'דנה'
-  };
-
   const annaUrl = (transform) => `${ANNA_CLOUD}/${transform}/${ANNA_ASSET}`;
-
-  const syncAnnaImages = () => {
-    const setImage = (image, src, srcset = '') => {
-      if (!(image instanceof HTMLImageElement)) return;
-      if (image.src !== src) image.src = src;
-      if (srcset) {
-        if (image.srcset !== srcset) image.srcset = srcset;
-      } else if (image.hasAttribute('srcset')) {
-        image.removeAttribute('srcset');
-      }
-    };
-
-    setImage(
-      document.querySelector('.invite-avatar img'),
-      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_160,h_160')
-    );
-
-    const heroSrc = annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_540,h_735');
-    const heroSrcset = [
-      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_360,h_490')} 360w`,
-      `${heroSrc} 540w`,
-      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_720,h_980')} 720w`
-    ].join(', ');
-    setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc, heroSrcset);
-
-    setImage(
-      document.querySelector('.hero-invite .avatar-small img'),
-      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_96,h_96')
-    );
-
-    setImage(
-      document.querySelector('.anna-notification-avatar img'),
-      ANNA_IMAGE
-    );
-  };
 
   const copy = {
     'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice note' },
@@ -91,47 +48,50 @@
     navigator.language
   );
 
-  const syncLowerProfilesWithoutAnna = () => {
-    const firstCard = document.querySelector('#profileSwipeTrack .profile-card-premium:first-child');
-    if (!firstCard) return;
-
-    const replacementName = LOWER_PROFILE_NAME[getLocale()] || LOWER_PROFILE_NAME['en-GB'];
-    const name = firstCard.querySelector('[data-gallery-name], [data-profile="0-name"]');
-    if (name && name.textContent !== replacementName) name.textContent = replacementName;
-
-    const image = firstCard.querySelector('.image-wrap > img');
-    if (image instanceof HTMLImageElement && image.src.includes(ANNA_ASSET)) {
-      image.src = '/images/profiles/profile-01.svg';
-      image.removeAttribute('srcset');
-      image.alt = 'Profile photo';
-    }
-
-    const finalAvatar = document.querySelector('.final-avatar-1 img');
-    if (finalAvatar instanceof HTMLImageElement && finalAvatar.src.includes(ANNA_ASSET)) {
-      finalAvatar.src = '/images/profiles/profile-01.svg';
-      finalAvatar.removeAttribute('srcset');
-    }
-  };
-
   const getCurrentCopy = () => copy[getLocale()] || copy['en-GB'];
   const mobileMedia = window.matchMedia(MOBILE_QUERY);
+  let notification = null;
   let showTimer = 0;
   let hideTimer = 0;
-  let notification = null;
-  let syncQueued = false;
 
-  const syncUi = () => {
-    syncAnnaImages();
-    syncLowerProfilesWithoutAnna();
+  const syncAnnaImages = () => {
+    const setImage = (image, src, srcset = '') => {
+      if (!(image instanceof HTMLImageElement)) return;
+      if (image.getAttribute('src') !== src) image.src = src;
+      if (srcset) {
+        if (image.getAttribute('srcset') !== srcset) image.srcset = srcset;
+      } else if (image.hasAttribute('srcset')) {
+        image.removeAttribute('srcset');
+      }
+    };
+
+    setImage(
+      document.querySelector('.invite-avatar img'),
+      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_160,h_160')
+    );
+
+    const heroSrc = annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_540,h_735');
+    const heroSrcset = [
+      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_360,h_490')} 360w`,
+      `${heroSrc} 540w`,
+      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_720,h_980')} 720w`
+    ].join(', ');
+    setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc, heroSrcset);
+
+    setImage(
+      document.querySelector('.hero-invite .avatar-small img'),
+      annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_96,h_96')
+    );
   };
 
-  const queueAnnaImageSync = () => {
-    if (syncQueued) return;
-    syncQueued = true;
-    requestAnimationFrame(() => {
-      syncQueued = false;
-      syncUi();
-    });
+  const applyFollowUp = () => {
+    const node = document.querySelector('.mini-message [data-i18n="messagePreview"], .mini-message [data-role="anna-follow-up"], .mini-message p span:last-child');
+    if (!node) return;
+
+    const message = getCurrentCopy().followUp;
+    if (node.textContent !== message) node.textContent = message;
+    node.removeAttribute('data-i18n');
+    node.setAttribute('data-role', 'anna-follow-up');
   };
 
   const hasBeenSeen = () => {
@@ -142,14 +102,6 @@
   const markSeen = () => {
     try { sessionStorage.setItem(SESSION_KEY, '1'); }
     catch (_) {}
-  };
-
-  const applyFollowUp = () => {
-    const node = document.querySelector('.mini-message [data-i18n="messagePreview"], .mini-message [data-role="anna-follow-up"], .mini-message p span:last-child');
-    if (!node) return;
-    node.removeAttribute('data-i18n');
-    node.setAttribute('data-role', 'anna-follow-up');
-    node.textContent = getCurrentCopy().followUp;
   };
 
   const hideNotification = () => {
@@ -173,7 +125,7 @@
     notification.style.setProperty('--anna-visible-time', `${VISIBLE_MS}ms`);
     notification.innerHTML = `
       <span class="anna-notification-avatar">
-        <img src="${ANNA_IMAGE}" alt="Anna" width="112" height="112" loading="lazy" decoding="async" />
+        <img src="${annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_112,h_112')}" alt="Anna" width="112" height="112" loading="lazy" decoding="async" />
         <span class="anna-notification-icon" aria-hidden="true">▶</span>
       </span>
       <span class="anna-notification-copy">
@@ -184,22 +136,18 @@
       <button class="anna-notification-close" type="button" aria-label="Close">×</button>
     `;
 
-    const openAnnaFlow = () => {
+    notification.addEventListener('click', (event) => {
+      if (event.target.closest('.anna-notification-close')) return;
       markSeen();
       hideNotification();
       const heroCta = document.querySelector('.hero-actions .js-affiliate');
       if (heroCta instanceof HTMLElement) heroCta.click();
-    };
-
-    notification.addEventListener('click', (event) => {
-      if (event.target.closest('.anna-notification-close')) return;
-      openAnnaFlow();
     });
 
     notification.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter' && event.key !== ' ') return;
       event.preventDefault();
-      openAnnaFlow();
+      notification.click();
     });
 
     notification.querySelector('.anna-notification-close')?.addEventListener('click', (event) => {
@@ -210,52 +158,45 @@
 
     region.appendChild(notification);
     document.body.appendChild(region);
-    queueAnnaImageSync();
     return notification;
   };
 
   const renderNotification = () => {
-    const current = getCurrentCopy();
     const node = createNotification();
     if (!node) return;
 
+    const current = getCurrentCopy();
     const title = node.querySelector('strong');
     const text = node.querySelector('p');
     const time = node.querySelector('.anna-notification-time');
     const image = node.querySelector('img');
 
-    if (title) title.textContent = `${current.name}, 41`;
-    if (text) text.textContent = current.voice;
-    if (time) time.textContent = current.recently;
-    if (image) image.alt = current.name;
-    queueAnnaImageSync();
+    if (title && title.textContent !== `${current.name}, 41`) title.textContent = `${current.name}, 41`;
+    if (text && text.textContent !== current.voice) text.textContent = current.voice;
+    if (time && time.textContent !== current.recently) time.textContent = current.recently;
+    if (image && image.alt !== current.name) image.alt = current.name;
   };
 
   const scheduleNotification = (delay = FIRST_DELAY_MS) => {
     window.clearTimeout(showTimer);
     if (mobileMedia.matches || hasBeenSeen()) return;
-    showTimer = window.setTimeout(showNotification, delay);
+    showTimer = window.setTimeout(() => {
+      if (document.hidden || document.querySelector('dialog[open]')) {
+        scheduleNotification(2500);
+        return;
+      }
+
+      renderNotification();
+      if (!notification) return;
+      markSeen();
+      requestAnimationFrame(() => notification?.classList.add('is-visible'));
+      hideTimer = window.setTimeout(hideNotification, VISIBLE_MS);
+    }, delay);
   };
 
-  const showNotification = () => {
-    window.clearTimeout(showTimer);
-    if (mobileMedia.matches || hasBeenSeen()) return;
-
-    if (document.hidden || document.querySelector('dialog[open]')) {
-      scheduleNotification(2500);
-      return;
-    }
-
-    renderNotification();
-    if (!notification) return;
-    markSeen();
-    requestAnimationFrame(() => notification?.classList.add('is-visible'));
-    hideTimer = window.setTimeout(hideNotification, VISIBLE_MS);
-  };
-
-  const updateLanguage = () => {
+  const refresh = () => {
+    syncAnnaImages();
     applyFollowUp();
-    queueAnnaImageSync();
     if (notification?.classList.contains('is-visible')) renderNotification();
   };
 
@@ -271,20 +212,13 @@
   };
 
   const initialise = () => {
-    applyFollowUp();
-    syncUi();
-
-    const domObserver = new MutationObserver(() => {
-      applyFollowUp();
-      queueAnnaImageSync();
-    });
-    domObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+    refresh();
 
     document.getElementById('languageSelect')?.addEventListener('change', () => {
-      window.setTimeout(updateLanguage, 0);
+      window.setTimeout(refresh, 0);
     });
 
-    new MutationObserver(() => window.setTimeout(updateLanguage, 0)).observe(document.documentElement, {
+    new MutationObserver(() => window.setTimeout(refresh, 0)).observe(document.documentElement, {
       attributes: true,
       attributeFilter: ['lang', 'dir']
     });
@@ -295,15 +229,10 @@
       mobileMedia.addListener(handleViewportChange);
     }
 
-    if (!mobileMedia.matches && !hasBeenSeen()) {
-      createNotification();
-      scheduleNotification();
-    }
+    if (!mobileMedia.matches && !hasBeenSeen()) scheduleNotification();
 
-    window.setTimeout(updateLanguage, 0);
-    window.setTimeout(updateLanguage, 250);
-    window.setTimeout(updateLanguage, 1000);
-    window.setTimeout(updateLanguage, 2000);
+    // One delayed refresh is enough for late locale/profile initialisation.
+    window.setTimeout(refresh, 300);
   };
 
   if (document.readyState === 'loading') {
