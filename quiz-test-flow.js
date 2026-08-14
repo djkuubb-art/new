@@ -133,3 +133,108 @@
   script.dataset.rmcCountryLocation = '1';
   document.head.appendChild(script);
 })();
+
+// Keep the first profile in the lower gallery clearly separate from the main Anna profile.
+(() => {
+  const LOWER_PROFILE = {
+    'en-GB': ['Natalie', 47],
+    'en-US': ['Jessica', 47],
+    'en-SG': ['Diana', 47],
+    de: ['Sabine', 47],
+    nl: ['Saskia', 47],
+    fr: ['Nathalie', 47],
+    it: ['Giulia', 47],
+    es: ['Lucía', 47],
+    pt: ['Marta', 47],
+    pl: ['Karolina', 47],
+    sv: ['Johanna', 47],
+    no: ['Silje', 47],
+    da: ['Mette', 47],
+    fi: ['Sari', 47],
+    el: ['Αλεξάνδρα', 47],
+    hr: ['Kristina', 47],
+    sl: ['Katarina', 47],
+    sk: ['Jana', 47],
+    cs: ['Jana', 47],
+    hu: ['Katalin', 47],
+    he: ['דנה', 47]
+  };
+
+  const normaliseLocale = (value = '') => {
+    const raw = String(value).replace('_', '-').toLowerCase();
+    if (raw.startsWith('en-us')) return 'en-US';
+    if (raw.startsWith('en-sg')) return 'en-SG';
+    if (raw.startsWith('en')) return 'en-GB';
+    const short = raw.split('-')[0];
+    return LOWER_PROFILE[short] ? short : 'en-GB';
+  };
+
+  const getLocale = () => normaliseLocale(
+    document.getElementById('languageSelect')?.value ||
+    document.documentElement.lang ||
+    navigator.language
+  );
+
+  let queued = false;
+  const sync = () => {
+    const card = document.querySelector('#profileSwipeTrack .profile-card-premium:first-child');
+    if (!card) return;
+
+    const [profileName, profileAge] = LOWER_PROFILE[getLocale()] || LOWER_PROFILE['en-GB'];
+    const name = card.querySelector('[data-gallery-name], [data-profile="0-name"]');
+    if (name && name.textContent !== profileName) name.textContent = profileName;
+
+    const age = card.querySelector('[data-gallery-age]');
+    if (age) {
+      if (age.textContent !== String(profileAge)) age.textContent = String(profileAge);
+    } else {
+      const heading = card.querySelector('h3');
+      if (heading) {
+        [...heading.childNodes]
+          .filter((node) => node.nodeType === Node.TEXT_NODE)
+          .forEach((node) => {
+            const next = node.textContent.replace(/\b41\b/g, String(profileAge));
+            if (next !== node.textContent) node.textContent = next;
+          });
+      }
+    }
+
+    const image = card.querySelector('.image-wrap > img');
+    if (image instanceof HTMLImageElement) image.alt = 'Profile photo';
+  };
+
+  const queueSync = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      sync();
+    });
+  };
+
+  const initialise = () => {
+    sync();
+    const track = document.getElementById('profileSwipeTrack');
+    if (track) {
+      new MutationObserver(queueSync).observe(track, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    }
+
+    document.getElementById('languageSelect')?.addEventListener('change', queueSync);
+    new MutationObserver(queueSync).observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['lang']
+    });
+
+    [0, 250, 900, 1900, 2600].forEach((delay) => window.setTimeout(sync, delay));
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialise, { once: true });
+  } else {
+    initialise();
+  }
+})();
