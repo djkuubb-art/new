@@ -52,27 +52,27 @@
   };
 
   const copy = {
-    'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'You really didn’t like my lingerie photo? I can see you didn’t even click to look at it. That makes me sad :(', voice: 'Sent you a voice note' },
-    'en-US': { name: 'Anna', recently: 'Just now', followUp: 'You really didn’t like my lingerie photo? I can see you didn’t even click to look at it. That makes me sad :(', voice: 'Sent you a voice message' },
-    'en-SG': { name: 'Anna', recently: 'Just now', followUp: 'You really didn’t like my lingerie photo? I can see you didn’t even click to look at it. That makes me sad :(', voice: 'Sent you a voice message' },
-    de: { name: 'Anna', recently: 'Gerade eben', followUp: 'Hat dir mein Foto in Dessous wirklich nicht gefallen? Ich sehe, dass du nicht einmal darauf geklickt hast, um es anzusehen. Das macht mich traurig :(', voice: 'Hat dir eine Sprachnachricht geschickt' },
-    nl: { name: 'Anna', recently: 'Zojuist', followUp: 'Vond je mijn foto in lingerie echt niet leuk? Ik zie dat je niet eens hebt geklikt om hem te bekijken. Daar word ik verdrietig van :(', voice: 'Heeft je een spraakbericht gestuurd' },
-    fr: { name: 'Anna', recently: 'À l’instant', followUp: 'Ma photo en lingerie ne vous a vraiment pas plu ? Je vois que vous n’avez même pas cliqué pour la regarder. Ça me rend triste :(', voice: 'Vous a envoyé un message vocal' },
-    it: { name: 'Anna', recently: 'Proprio ora', followUp: 'Davvero non ti è piaciuta la mia foto in lingerie? Vedo che non hai nemmeno cliccato per guardarla. Mi rende triste :(', voice: 'Ti ha inviato un messaggio vocale' },
-    es: { name: 'Anna', recently: 'Ahora mismo', followUp: '¿De verdad no te gustó mi foto en lencería? Veo que ni siquiera hiciste clic para verla. Me pone triste :(', voice: 'Te ha enviado un mensaje de voz' },
-    pt: { name: 'Anna', recently: 'Agora mesmo', followUp: 'Não gostaste mesmo da minha foto em lingerie? Vejo que nem sequer clicaste para a ver. Fico triste :(', voice: 'Enviou-te uma mensagem de voz' },
-    pl: { name: 'Anna', recently: 'Przed chwilą', followUp: 'Naprawdę moje zdjęcie w bieliźnie Ci się nie spodobało? Widzę, że nawet nie kliknąłeś, żeby je zobaczyć. Smutno mi :(', voice: 'Wysłała Ci wiadomość głosową' },
-    sv: { name: 'Anna', recently: 'Precis nu', followUp: 'Gillade du verkligen inte min bild i underkläder? Jag ser att du inte ens klickade för att titta på den. Det gör mig ledsen :(', voice: 'Har skickat ett röstmeddelande till dig' },
-    no: { name: 'Anna', recently: 'Akkurat nå', followUp: 'Likte du virkelig ikke bildet mitt i undertøy? Jeg ser at du ikke engang klikket for å se på det. Det gjør meg trist :(', voice: 'Har sendt deg en talemelding' },
-    da: { name: 'Anna', recently: 'Lige nu', followUp: 'Kunne du virkelig ikke lide mit billede i undertøj? Jeg kan se, at du ikke engang klikkede for at se det. Det gør mig ked af det :(', voice: 'Har sendt dig en talebesked' },
-    fi: { name: 'Anna', recently: 'Juuri nyt', followUp: 'Etkö todella pitänyt kuvastani alusvaatteissa? Näen, ettet edes klikannut katsoaksesi sitä. Se tekee minut surulliseksi :(', voice: 'Lähetti sinulle ääniviestin' },
-    el: { name: 'Άννα', recently: 'Μόλις τώρα', followUp: 'Δεν σου άρεσε πραγματικά η φωτογραφία μου με εσώρουχα; Βλέπω ότι δεν πάτησες καν για να τη δεις. Με στενοχωρεί :(', voice: 'Σου έστειλε φωνητικό μήνυμα' },
-    hr: { name: 'Anna', recently: 'Upravo sada', followUp: 'Zar ti se stvarno nije svidjela moja fotografija u donjem rublju? Vidim da nisi ni kliknuo da je pogledaš. To me rastužuje :(', voice: 'Poslala ti je glasovnu poruku' },
-    sl: { name: 'Anna', recently: 'Pravkar', followUp: 'Ti moja fotografija v spodnjem perilu res ni bila všeč? Vidim, da nisi niti kliknil, da bi jo pogledal. To me žalosti :(', voice: 'Poslala ti je glasovno sporočilo' },
-    sk: { name: 'Anna', recently: 'Práve teraz', followUp: 'Naozaj sa ti nepáčila moja fotka v spodnej bielizni? Vidím, že si ani neklikol, aby si si ju pozrel. Je mi z toho smutno :(', voice: 'Poslala ti hlasovú správu' },
-    cs: { name: 'Anna', recently: 'Právě teď', followUp: 'Opravdu se ti nelíbila moje fotka ve spodním prádle? Vidím, že jsi ani neklikl, abys se na ni podíval. Je mi z toho smutno :(', voice: 'Poslala ti hlasovou zprávu' },
-    hu: { name: 'Anna', recently: 'Épp most', followUp: 'Tényleg nem tetszett a fehérneműs képem? Látom, még csak rá sem kattintottál, hogy megnézd. Ez elszomorít :(', voice: 'Hangüzenetet küldött neked' },
-    he: { name: 'אנה', recently: 'עכשיו', followUp: 'באמת לא אהבת את התמונה שלי בהלבשה תחתונה? אני רואה שאפילו לא לחצת כדי לראות אותה. זה מעציב אותי :(', voice: 'שלחה לך הודעה קולית' }
+    'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice note' },
+    'en-US': { name: 'Anna', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
+    'en-SG': { name: 'Anna', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
+    de: { name: 'Anna', recently: 'Gerade eben', followUp: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …', voice: 'Hat dir eine Sprachnachricht geschickt' },
+    nl: { name: 'Anna', recently: 'Zojuist', followUp: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal niets van je horen…', voice: 'Heeft je een spraakbericht gestuurd' },
+    fr: { name: 'Anna', recently: 'À l’instant', followUp: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…', voice: 'Vous a envoyé un message vocal' },
+    it: { name: 'Anna', recently: 'Proprio ora', followUp: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…', voice: 'Ti ha inviato un messaggio vocale' },
+    es: { name: 'Anna', recently: 'Ahora mismo', followUp: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…', voice: 'Te ha enviado un mensaje de voz' },
+    pt: { name: 'Anna', recently: 'Agora mesmo', followUp: 'Que tal encontrarmo-nos esta semana? Já começo a achar que não estás interessado, porque não me escreves…', voice: 'Enviou-te uma mensagem de voz' },
+    pl: { name: 'Anna', recently: 'Przed chwilą', followUp: 'Co powiesz na spotkanie w tym tygodniu? Chyba nie jesteś zainteresowany, bo nie piszesz…', voice: 'Wysłała Ci wiadomość głosową' },
+    sv: { name: 'Anna', recently: 'Precis nu', followUp: 'Vad säger du om att ses någon gång den här veckan? Jag börjar tro att du inte är intresserad eftersom du inte skriver…', voice: 'Har skickat ett röstmeddelande till dig' },
+    no: { name: 'Anna', recently: 'Akkurat nå', followUp: 'Hva sier du til å møtes en gang denne uka? Jeg begynner å tro at du ikke er interessert siden du ikke skriver…', voice: 'Har sendt deg en talemelding' },
+    da: { name: 'Anna', recently: 'Lige nu', followUp: 'Hvad siger du til, at vi ses en dag i denne uge? Jeg begynder at tro, at du ikke er interesseret, når du ikke skriver…', voice: 'Har sendt dig en talebesked' },
+    fi: { name: 'Anna', recently: 'Juuri nyt', followUp: 'Mitä jos nähtäisiin tällä viikolla? Alan jo ajatella, ettet ole kiinnostunut, kun et kirjoita…', voice: 'Lähetti sinulle ääniviestin' },
+    el: { name: 'Άννα', recently: 'Μόλις τώρα', followUp: 'Τι λες να βρεθούμε κάποια μέρα αυτή την εβδομάδα; Αρχίζω να πιστεύω ότι δεν ενδιαφέρεσαι, αφού δεν μου γράφεις…', voice: 'Σου έστειλε φωνητικό μήνυμα' },
+    hr: { name: 'Anna', recently: 'Upravo sada', followUp: 'Što kažeš da se vidimo ovaj tjedan? Počinjem misliti da nisi zainteresiran jer mi se uopće ne javljaš…', voice: 'Poslala ti je glasovnu poruku' },
+    sl: { name: 'Anna', recently: 'Pravkar', followUp: 'Kaj praviš, da se dobiva enkrat ta teden? Začenjam misliti, da te ne zanima, ker mi nič ne pišeš…', voice: 'Poslala ti je glasovno sporočilo' },
+    sk: { name: 'Anna', recently: 'Práve teraz', followUp: 'Čo povieš na to, keby sme sa niekedy tento týždeň stretli? Začínam si myslieť, že nemáš záujem, keď mi vôbec nepíšeš…', voice: 'Poslala ti hlasovú správu' },
+    cs: { name: 'Anna', recently: 'Právě teď', followUp: 'Co říkáš na to, že bychom se někdy tento týden potkali? Začínám si myslet, že nemáš zájem, když mi vůbec nepíšeš…', voice: 'Poslala ti hlasovou zprávu' },
+    hu: { name: 'Anna', recently: 'Épp most', followUp: 'Mit szólnál, ha találkoznánk valamikor a héten? Kezdem azt hinni, hogy nem is érdekellek, mert egyáltalán nem írsz…', voice: 'Hangüzenetet küldött neked' },
+    he: { name: 'אנה', recently: 'עכשיו', followUp: 'מה דעתך שניפגש השבוע? אני מתחילה לחשוב שאתה לא באמת בעניין, כי אתה בכלל לא כותב לי…', voice: 'שלחה לך הודעה קולית' }
   };
 
   const normaliseLocale = (value = '') => {
@@ -145,7 +145,7 @@
   };
 
   const applyFollowUp = () => {
-    const node = document.querySelector('.mini-message [data-i18n="messagePreview"], .mini-message p span:last-child');
+    const node = document.querySelector('.mini-message [data-i18n="messagePreview"], .mini-message [data-role="anna-follow-up"], .mini-message p span:last-child');
     if (!node) return;
     node.removeAttribute('data-i18n');
     node.setAttribute('data-role', 'anna-follow-up');
@@ -274,7 +274,10 @@
     applyFollowUp();
     syncUi();
 
-    const domObserver = new MutationObserver(queueAnnaImageSync);
+    const domObserver = new MutationObserver(() => {
+      applyFollowUp();
+      queueAnnaImageSync();
+    });
     domObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
 
     document.getElementById('languageSelect')?.addEventListener('change', () => {
@@ -297,10 +300,10 @@
       scheduleNotification();
     }
 
-    window.setTimeout(syncUi, 0);
-    window.setTimeout(syncUi, 250);
-    window.setTimeout(syncUi, 1000);
-    window.setTimeout(syncUi, 2000);
+    window.setTimeout(updateLanguage, 0);
+    window.setTimeout(updateLanguage, 250);
+    window.setTimeout(updateLanguage, 1000);
+    window.setTimeout(updateLanguage, 2000);
   };
 
   if (document.readyState === 'loading') {
