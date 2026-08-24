@@ -4,11 +4,11 @@
   "rewrites": [
     {
       "source": "^/(uk|gb|ie|au|nz|us|ca|sg|de|at|ch|nl|be|fr|it|es|pt|pl|se|no|dk|fi|gr|cy|hr|si|sk|cz|hu|il)$",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "^/(uk|gb|ie|au|nz|us|ca|sg|de|at|ch|nl|be|fr|it|es|pt|pl|se|no|dk|fi|gr|cy|hr|si|sk|cz|hu|il)/(post|reel|story)$",
-      "destination": "/index.html"
+      "destination": "/"
     }
   ],
   "headers": [
