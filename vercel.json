@@ -8,6 +8,24 @@
   ],
   "headers": [
     {
+      "source": "/:market/post",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow, noarchive" }
+      ]
+    },
+    {
+      "source": "/:market/reel",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow, noarchive" }
+      ]
+    },
+    {
+      "source": "/:market/story",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, follow, noarchive" }
+      ]
+    },
+    {
       "source": "/analytics",
       "headers": [
         { "key": "Cache-Control", "value": "private, no-store, no-cache, max-age=0, must-revalidate" },
