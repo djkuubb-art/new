@@ -10,12 +10,14 @@
   };
 
   const VALID_SOURCES = new Set(['post', 'reel', 'story']);
+  const AU_TEST_PROFILES = new Set(['natalie', 'melissa', 'rachel', 'claire']);
   const parts = location.pathname.toLowerCase().split('/').filter(Boolean);
   const market = parts[0] || '';
   const locale = MARKET_LOCALE[market];
   if (!locale) return;
 
   const source = VALID_SOURCES.has(parts[1]) ? parts[1] : 'direct';
+  const profileKey = new URLSearchParams(location.search).get('p')?.toLowerCase() || '';
 
   window.__rmcMarketContext = Object.freeze({ market, locale, source });
   document.documentElement.dataset.market = market;
@@ -45,6 +47,23 @@
       document.addEventListener('DOMContentLoaded', () => window.setTimeout(cleanInjectedLang, 0), { once: true });
     } else {
       window.setTimeout(cleanInjectedLang, 0);
+    }
+  }
+
+  // Two-day manual AU test: only these explicit links swap the featured woman.
+  if (market === 'au' && AU_TEST_PROFILES.has(profileKey)) {
+    const loadProfileTest = () => {
+      if (document.querySelector('script[data-rmc-au-profile-test]')) return;
+      const script = document.createElement('script');
+      script.src = '/au-profile-test.js?v=20260825-1';
+      script.dataset.rmcAuProfileTest = '1';
+      document.head.appendChild(script);
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadProfileTest, { once: true });
+    } else {
+      loadProfileTest();
     }
   }
 })();
