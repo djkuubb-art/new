@@ -28,7 +28,6 @@
     sessionStorage.setItem('rmc-source', source);
   } catch (_) {}
 
-  // Force the market locale for this visit without permanently changing the user's saved preference.
   const url = new URL(location.href);
   const hadLang = url.searchParams.has('lang');
   if (!hadLang) {
@@ -50,12 +49,11 @@
     }
   }
 
-  // Two-day manual AU test: only these explicit links swap the featured woman.
   if (market === 'au' && AU_TEST_PROFILES.has(profileKey)) {
     const loadProfileTest = () => {
       if (document.querySelector('script[data-rmc-au-profile-test]')) return;
       const script = document.createElement('script');
-      script.src = '/au-profile-test.js?v=20260825-1';
+      script.src = '/au-profile-test.js?v=20260825-3';
       script.dataset.rmcAuProfileTest = '1';
       document.head.appendChild(script);
     };
@@ -68,7 +66,6 @@
   }
 })();
 
-// Vercel Web Analytics for the static landing page.
 (() => {
   window.va = window.va || function () {
     (window.vaq = window.vaq || []).push(arguments);
