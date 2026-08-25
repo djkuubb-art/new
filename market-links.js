@@ -48,3 +48,18 @@
     }
   }
 })();
+
+// Vercel Web Analytics for the static landing page.
+(() => {
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
+
+  if (document.querySelector('script[data-vercel-analytics]')) return;
+
+  const script = document.createElement('script');
+  script.defer = true;
+  script.src = '/_vercel/insights/script.js';
+  script.dataset.vercelAnalytics = 'true';
+  document.head.appendChild(script);
+})();
