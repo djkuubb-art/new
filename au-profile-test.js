@@ -1,9 +1,9 @@
 (() => {
   const PROFILES = Object.freeze({
-    natalie: { name: 'Natalie', age: 44, image: '/images/test-au/natalie.jpg' },
-    melissa: { name: 'Melissa', age: 43, image: '/images/test-au/melissa.jpg' },
-    rachel: { name: 'Rachel', age: 47, image: '/images/test-au/rachel.jpg' },
-    claire: { name: 'Claire', age: 45, image: '/images/test-au/claire.jpg' }
+    natalie: { name: 'Natalie', age: 44, image: '/images/profiles/au/natalie.svg?v=20260825-2' },
+    melissa: { name: 'Melissa', age: 43, image: '/images/profiles/au/melissa.svg?v=20260825-2' },
+    rachel: { name: 'Rachel', age: 47, image: '/images/profiles/au/rachel.svg?v=20260825-2' },
+    claire: { name: 'Claire', age: 45, image: '/images/test-au/claire.jpg?v=20260825-2' }
   });
 
   const parts = location.pathname.toLowerCase().split('/').filter(Boolean);
@@ -62,7 +62,6 @@
   };
 
   const sync = () => {
-    // Main profile imagery only. Lower gallery is intentionally excluded.
     [
       document.querySelector('.invite-avatar img'),
       document.querySelector('.hero-invite .featured-profile > img'),
@@ -87,7 +86,6 @@
       if (notificationName.textContent !== wanted) notificationName.textContent = wanted;
     }
 
-    // Replace Anna only inside main-profile UI; never touch the lower gallery.
     replaceAnnaText(document.querySelector('.personal-invite'));
     replaceAnnaText(document.querySelector('.phone-card'));
     replaceAnnaText(document.querySelector('.anna-notification'));
@@ -126,7 +124,6 @@
       window.setTimeout(sync, 350);
     });
 
-    // Cover late profile/localisation scripts and the delayed desktop voice notice.
     [0, 120, 350, 800, 1600, 3200, 8100, 8600, 9500].forEach((delay) => {
       window.setTimeout(sync, delay);
     });
