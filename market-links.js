@@ -118,34 +118,20 @@
   const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
   if (isAuProfileTest) return;
 
-  const image540 = 'https://res.cloudinary.com/r8lomm2b/image/upload/f_auto,q_auto:good,c_fill,g_auto,w_540,h_735/v1787781200/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277_nrkewz.jpg';
-  const image360 = 'https://res.cloudinary.com/r8lomm2b/image/upload/f_auto,q_auto:good,c_fill,g_auto,w_360,h_490/v1787781200/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277_nrkewz.jpg';
-  const image720 = 'https://res.cloudinary.com/r8lomm2b/image/upload/f_auto,q_auto:good,c_fill,g_auto,w_720,h_980/v1787781200/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277_nrkewz.jpg';
-  const srcset = `${image360} 360w, ${image540} 540w, ${image720} 720w`;
+  const NEW_ANNA_IMAGE = 'https://res.cloudinary.com/r8lomm2b/image/upload/v1787781200/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277_nrkewz.jpg';
 
-  const syncMainAnnaPhoto = () => {
+  const applyAnnaPhoto = () => {
     const image = document.querySelector('.hero-invite .featured-profile > img');
     if (!image) return;
-    if (image.getAttribute('src') !== image540) image.setAttribute('src', image540);
-    if (image.getAttribute('srcset') !== srcset) image.setAttribute('srcset', srcset);
-    image.setAttribute('sizes', '(max-width: 760px) calc(100vw - 64px), 420px');
-    image.setAttribute('alt', 'Anna profile');
+    image.removeAttribute('srcset');
+    image.removeAttribute('sizes');
+    image.src = NEW_ANNA_IMAGE;
+    image.alt = 'Anna profile';
   };
 
-  const initialise = () => {
-    syncMainAnnaPhoto();
-    const image = document.querySelector('.hero-invite .featured-profile > img');
-    if (image) {
-      new MutationObserver(syncMainAnnaPhoto).observe(image, {
-        attributes: true,
-        attributeFilter: ['src', 'srcset', 'sizes']
-      });
-    }
-  };
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initialise, { once: true });
+  if (document.readyState === 'complete') {
+    applyAnnaPhoto();
   } else {
-    initialise();
+    window.addEventListener('load', applyAnnaPhoto, { once: true });
   }
 })();
