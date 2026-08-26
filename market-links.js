@@ -79,3 +79,35 @@
   script.dataset.vercelAnalytics = 'true';
   document.head.appendChild(script);
 })();
+
+(() => {
+  const stripMainProfileAge = () => {
+    const heading = document.querySelector('.hero-invite .featured-profile .profile-overlay h2');
+    if (!heading) return;
+    const current = (heading.textContent || '').trim();
+    const next = current.replace(/\s*,\s*\d+\s*$/, '').trim();
+    if (next && current !== next) heading.textContent = next;
+  };
+
+  const initialise = () => {
+    stripMainProfileAge();
+    const heading = document.querySelector('.hero-invite .featured-profile .profile-overlay h2');
+    if (heading) {
+      new MutationObserver(stripMainProfileAge).observe(heading, {
+        childList: true,
+        subtree: true,
+        characterData: true
+      });
+    }
+    document.getElementById('languageSelect')?.addEventListener('change', () => {
+      window.setTimeout(stripMainProfileAge, 0);
+      window.setTimeout(stripMainProfileAge, 250);
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initialise, { once: true });
+  } else {
+    initialise();
+  }
+})();
