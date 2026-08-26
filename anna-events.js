@@ -1,5 +1,6 @@
 (() => {
   const ANNA_ASSET = 'v1785806218/5_1_casfeq.png';
+  const ANNA_HERO_ASSET = 'v1787781200/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277_nrkewz.jpg';
   const ANNA_CLOUD = 'https://res.cloudinary.com/r8lomm2b/image/upload';
   const SESSION_KEY = 'rmc_anna_voice_notice_seen_v1';
   const FIRST_DELAY_MS = 8000;
@@ -7,6 +8,10 @@
   const MOBILE_QUERY = '(max-width: 760px)';
 
   const annaUrl = (transform) => `${ANNA_CLOUD}/${transform}/${ANNA_ASSET}`;
+  const annaHeroUrl = (transform) => `${ANNA_CLOUD}/${transform}/${ANNA_HERO_ASSET}`;
+  const pathname = location.pathname.toLowerCase();
+  const testProfile = new URLSearchParams(location.search).get('p')?.toLowerCase() || '';
+  const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
 
   const copy = {
     'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice note' },
@@ -70,13 +75,15 @@
       annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_160,h_160')
     );
 
-    const heroSrc = annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_540,h_735');
-    const heroSrcset = [
-      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_360,h_490')} 360w`,
-      `${heroSrc} 540w`,
-      `${annaUrl('f_auto,q_auto:good,c_fill,g_auto,w_720,h_980')} 720w`
-    ].join(', ');
-    setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc, heroSrcset);
+    if (!isAuProfileTest) {
+      const heroSrc = annaHeroUrl('f_auto,q_auto:good,c_fill,g_auto,w_540,h_735');
+      const heroSrcset = [
+        `${annaHeroUrl('f_auto,q_auto:good,c_fill,g_auto,w_360,h_490')} 360w`,
+        `${heroSrc} 540w`,
+        `${annaHeroUrl('f_auto,q_auto:good,c_fill,g_auto,w_720,h_980')} 720w`
+      ].join(', ');
+      setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc, heroSrcset);
+    }
 
     setImage(
       document.querySelector('.hero-invite .avatar-small img'),
