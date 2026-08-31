@@ -1,6 +1,11 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "git": {
+    "deploymentEnabled": {
+      "cloudflare-migration": false
+    }
+  },
   "rewrites": [
     { "source": "/:market/post", "destination": "/" },
     { "source": "/:market/reel", "destination": "/" },
