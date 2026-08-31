@@ -1,4 +1,28 @@
 (() => {
+  const isLegacyAnalyticsRequest = (input) => {
+    try {
+      const value = input instanceof Request ? input.url : String(input || '');
+      return new URL(value, location.origin).pathname === '/api/track';
+    } catch (_) {
+      return false;
+    }
+  };
+
+  const originalFetch = window.fetch.bind(window);
+  window.fetch = (input, init) => {
+    if (isLegacyAnalyticsRequest(input)) {
+      return Promise.resolve(new Response(null, { status: 204 }));
+    }
+    return originalFetch(input, init);
+  };
+
+  if (navigator.sendBeacon) {
+    const originalSendBeacon = navigator.sendBeacon.bind(navigator);
+    navigator.sendBeacon = (url, data) => isLegacyAnalyticsRequest(url) || originalSendBeacon(url, data);
+  }
+})();
+
+(() => {
   const MARKET_LOCALE = {
     uk: 'en-GB', gb: 'en-GB', ie: 'en-GB', au: 'en-GB', nz: 'en-GB',
     us: 'en-US', ca: 'en-US', sg: 'en-SG',
@@ -64,20 +88,6 @@
       loadProfileTest();
     }
   }
-})();
-
-(() => {
-  window.va = window.va || function () {
-    (window.vaq = window.vaq || []).push(arguments);
-  };
-
-  if (document.querySelector('script[data-vercel-analytics]')) return;
-
-  const script = document.createElement('script');
-  script.defer = true;
-  script.src = '/_vercel/insights/script.js';
-  script.dataset.vercelAnalytics = 'true';
-  document.head.appendChild(script);
 })();
 
 (() => {
