@@ -1,0 +1,4 @@
+# Keep social campaign URLs on the landing page without redirecting the browser.
+/:market/post / 200
+/:market/reel / 200
+/:market/story / 200
