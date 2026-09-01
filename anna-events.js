@@ -1,7 +1,7 @@
 (() => {
-  const ANNA_ASSET = 'v1785806218/5_1_casfeq.png';
-  const ANNA_HERO_ASSET = 'v1787781200/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277_nrkewz.jpg';
-  const ANNA_CLOUD = 'https://res.cloudinary.com/r8lomm2b/image/upload';
+  const ANNA_ASSET = 'v1788273455/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277.jpg';
+  const ANNA_HERO_ASSET = 'v1788273455/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277.jpg';
+  const ANNA_CLOUD = 'https://res.cloudinary.com/cbsmrwea/image/upload';
   const SESSION_KEY = 'rmc_anna_voice_notice_seen_v1';
   const FIRST_DELAY_MS = 8000;
   const VISIBLE_MS = 5200;
