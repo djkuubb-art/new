@@ -1,16 +1,14 @@
 (() => {
-  const ANNA_ASSET = 'v1788273455/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277.jpg';
-  const ANNA_HERO_ASSET = 'v1788273455/grok-image-eb4ab127-955d-4d72-8798-0a93df4c4277.jpg';
-  const ANNA_CLOUD = 'https://res.cloudinary.com/cbsmrwea/image/upload';
+  const ANNA_IMAGE_URL = '/api/anna-image?v=1788273455';
   const SESSION_KEY = 'rmc_anna_voice_notice_seen_v1';
   const FIRST_DELAY_MS = 8000;
   const VISIBLE_MS = 5200;
   const MOBILE_QUERY = '(max-width: 760px)';
 
-  // Use the original uploaded asset directly. Transform URLs for this Cloudinary
-  // asset were intermittently failing after page initialisation.
-  const annaUrl = (_transform) => `${ANNA_CLOUD}/${ANNA_ASSET}`;
-  const annaHeroUrl = (_transform) => `${ANNA_CLOUD}/${ANNA_HERO_ASSET}`;
+  // Always use the same-origin image proxy. It retries the Cloudinary fetch
+  // server-side and Vercel caches the successful image response.
+  const annaUrl = (_transform) => ANNA_IMAGE_URL;
+  const annaHeroUrl = (_transform) => ANNA_IMAGE_URL;
   const pathname = location.pathname.toLowerCase();
   const testProfile = new URLSearchParams(location.search).get('p')?.toLowerCase() || '';
   const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
@@ -20,7 +18,7 @@
     'en-US': { name: 'Anna', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
     'en-SG': { name: 'Anna', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
     de: { name: 'Anna', recently: 'Gerade eben', followUp: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …', voice: 'Hat dir eine Sprachnachricht geschickt' },
-    nl: { name: 'Anna', recently: 'Zojuist', followUp: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal niets van je horen…', voice: 'Heeft je een spraakbericht gestuurd' },
+    nl: { name: 'Anna', recently: 'Zojuist', followUp: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal nichts van je hören…', voice: 'Heeft je een spraakbericht gestuurd' },
     fr: { name: 'Anna', recently: 'À l’instant', followUp: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…', voice: 'Vous a envoyé un message vocal' },
     it: { name: 'Anna', recently: 'Proprio ora', followUp: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…', voice: 'Ti ha inviato un messaggio vocale' },
     es: { name: 'Anna', recently: 'Ahora mismo', followUp: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…', voice: 'Te ha enviado un mensaje de voz' },
@@ -78,7 +76,6 @@
     );
 
     if (!isAuProfileTest) {
-      // Keep one direct URL here too; do not let srcset trigger a transformed asset.
       const heroSrc = annaHeroUrl('f_auto,q_auto:good,c_fill,g_auto,w_540,h_735');
       setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc);
     }
@@ -236,7 +233,6 @@
 
     if (!mobileMedia.matches && !hasBeenSeen()) scheduleNotification();
 
-    // One delayed refresh is enough for late locale/profile initialisation.
     window.setTimeout(refresh, 300);
   };
 
