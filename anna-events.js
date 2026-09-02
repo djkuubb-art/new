@@ -7,8 +7,10 @@
   const VISIBLE_MS = 5200;
   const MOBILE_QUERY = '(max-width: 760px)';
 
-  const annaUrl = (transform) => `${ANNA_CLOUD}/${transform}/${ANNA_ASSET}`;
-  const annaHeroUrl = (transform) => `${ANNA_CLOUD}/${transform}/${ANNA_HERO_ASSET}`;
+  // Use the original uploaded asset directly. Transform URLs for this Cloudinary
+  // asset were intermittently failing after page initialisation.
+  const annaUrl = (_transform) => `${ANNA_CLOUD}/${ANNA_ASSET}`;
+  const annaHeroUrl = (_transform) => `${ANNA_CLOUD}/${ANNA_HERO_ASSET}`;
   const pathname = location.pathname.toLowerCase();
   const testProfile = new URLSearchParams(location.search).get('p')?.toLowerCase() || '';
   const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
@@ -76,13 +78,9 @@
     );
 
     if (!isAuProfileTest) {
+      // Keep one direct URL here too; do not let srcset trigger a transformed asset.
       const heroSrc = annaHeroUrl('f_auto,q_auto:good,c_fill,g_auto,w_540,h_735');
-      const heroSrcset = [
-        `${annaHeroUrl('f_auto,q_auto:good,c_fill,g_auto,w_360,h_490')} 360w`,
-        `${heroSrc} 540w`,
-        `${annaHeroUrl('f_auto,q_auto:good,c_fill,g_auto,w_720,h_980')} 720w`
-      ].join(', ');
-      setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc, heroSrcset);
+      setImage(document.querySelector('.hero-invite .featured-profile > img'), heroSrc);
     }
 
     setImage(
