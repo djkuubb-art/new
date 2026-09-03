@@ -1,5 +1,5 @@
 (() => {
-  const JULIE_IMAGE = '/julie-main.png?v=20260903-3';
+  const JULIE_IMAGE = '/julie-main.jpg?v=20260903-4';
   const JULIE_NAME = 'Julie';
   const JULIE_AGE = '41';
 
@@ -153,7 +153,7 @@
       if (
         src.includes('/api/anna-image') ||
         /\/anna\.jpg(?:\?|$)/i.test(src) ||
-        /\/julie-main\.jpg(?:\?|$)/i.test(src) ||
+        /\/julie-main\.(?:jpg|png)(?:\?|$)/i.test(src) ||
         /anna/i.test(alt)
       ) {
         setImage(img, alt ? replaceName(alt) : '');
