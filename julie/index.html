@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#fff7fb" />
+  <meta name="robots" content="index,follow" />
+  <title>RealMeetClub — Julie</title>
+  <style>
+    html,body{margin:0;min-height:100%;background:#fff7fb;font-family:Arial,sans-serif}
+    body{display:grid;place-items:center;color:#7d315c}
+    .julie-loader{display:flex;align-items:center;gap:10px;font-size:14px}
+    .julie-loader i{width:20px;height:20px;border:2px solid #e7bfd4;border-top-color:#9b3b70;border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <div class="julie-loader"><i></i><span>Loading Julie’s profile…</span></div>
+  <script>
+    (async () => {
+      const response = await fetch('/', { cache: 'no-store', credentials: 'same-origin' });
+      if (!response.ok) throw new Error(`Unable to load base page: ${response.status}`);
+      let html = await response.text();
+
+      html = html.replace('<title>RealMeetClub — Meet someone genuine</title>', '<title>RealMeetClub — Julie</title>');
+      html = html.replace('content="https://realmeetclub.com/"', 'content="https://realmeetclub.com/julie"');
+      html = html.replaceAll('https://realmeetclub.com/5_1_casfeq.webp?v=20260902', 'https://realmeetclub.com/julie-main.jpg?v=20260903-1');
+      html = html.replaceAll('/api/anna-image?v=1788273455', '/julie-main.jpg?v=20260903-1');
+      html = html.replace('<script src="/market-links.js" defer></' + 'script>', '');
+      html = html.replace('</head>', '<style id="julie-prepaint">body{visibility:hidden!important}</style></head>');
+      html = html.replace('</body>', '<script src="/julie-profile.js?v=20260903-2" defer></' + 'script><script>setTimeout(()=>{document.getElementById("julie-prepaint")?.remove();document.body.style.visibility="visible"},2500)</' + 'script></body>');
+
+      document.open();
+      document.write(html);
+      document.close();
+    })().catch((error) => {
+      console.error(error);
+      document.body.innerHTML = '<p style="padding:24px;text-align:center">The profile could not be loaded. Please refresh the page.</p>';
+    });
+  </script>
+</body>
+</html>
