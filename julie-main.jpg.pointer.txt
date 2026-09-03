@@ -1,0 +1,1 @@
+This placeholder exists only to keep the Julie asset commit isolated.
