@@ -117,6 +117,7 @@
   const pathname = location.pathname.toLowerCase();
   const testProfile = new URLSearchParams(location.search).get('p')?.toLowerCase() || '';
   const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
+  const isJulieProfile = pathname === '/julie' || pathname === '/julie/';
 
   const ANNA_IMAGE = `/anna.jpg?v=${ASSET_VERSION}`;
   const LOWER_PROFILE_IMAGES = [
@@ -140,7 +141,7 @@
   };
 
   const applyLocalPhotos = () => {
-    if (!isAuProfileTest) {
+    if (!isAuProfileTest && !isJulieProfile) {
       setLocalImage(document.querySelector('.invite-avatar img'), ANNA_IMAGE, 'Anna');
       setLocalImage(document.querySelector('.hero-invite .featured-profile > img'), ANNA_IMAGE, 'Anna profile');
       setLocalImage(document.querySelector('.hero-invite .avatar-small img'), ANNA_IMAGE);
