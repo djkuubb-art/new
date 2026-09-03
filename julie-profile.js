@@ -1,5 +1,5 @@
 (() => {
-  const JULIE_IMAGE = '/julie-main.jpg?v=20260903-4';
+  const JULIE_IMAGE = '/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png?v=20260903-5';
   const JULIE_NAME = 'Julie';
   const JULIE_AGE = '41';
 
