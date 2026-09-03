@@ -1,7 +1,6 @@
 (() => {
-  const JULIE_IMAGE = '/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png?v=20260903-5';
+  const JULIE_IMAGE = '/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png?v=20260903-6';
   const JULIE_NAME = 'Julie';
-  const JULIE_AGE = '41';
 
   const replyLabels = {
     'en-GB': 'Reply to Julie',
@@ -28,6 +27,8 @@
   };
 
   const replacements = [
+    [/\bJulie\s*,\s*\d+\b/g, JULIE_NAME],
+    [/\bAnna\s*,\s*\d+\b/g, JULIE_NAME],
     [/Anna’s/g, 'Julie’s'],
     [/Anna's/g, "Julie's"],
     [/Annas/g, 'Julies'],
@@ -76,6 +77,19 @@
     if (alt) img.alt = alt;
   };
 
+  const ensureCropStyle = () => {
+    if (document.getElementById('julie-crop-style')) return;
+    const style = document.createElement('style');
+    style.id = 'julie-crop-style';
+    style.textContent = `
+      .hero-invite .featured-profile > img {
+        object-fit: cover !important;
+        object-position: center top !important;
+      }
+    `;
+    document.head.appendChild(style);
+  };
+
   const replaceVisibleText = () => {
     if (!document.body) return;
     const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
@@ -90,19 +104,17 @@
   const enforceHeroTitle = () => {
     const heading = document.querySelector('.hero-invite .featured-profile .profile-overlay h2');
     if (!heading) return;
+
     const name = heading.querySelector('[data-profile="0-name"]');
     if (name && name.textContent !== JULIE_NAME) name.textContent = JULIE_NAME;
 
-    const textNodes = [...heading.childNodes].filter((node) => node.nodeType === Node.TEXT_NODE);
-    let ageFound = false;
-    for (const node of textNodes) {
-      if (/\d+/.test(node.nodeValue || '')) {
-        ageFound = true;
-        const next = (node.nodeValue || '').replace(/,?\s*\d+/, `, ${JULIE_AGE}`);
-        if (next !== node.nodeValue) node.nodeValue = next;
+    [...heading.childNodes].forEach((node) => {
+      if (node.nodeType === Node.TEXT_NODE && /\d+/.test(node.nodeValue || '')) {
+        node.nodeValue = (node.nodeValue || '').replace(/,?\s*\d+/g, '');
       }
-    }
-    if (!ageFound) heading.append(document.createTextNode(`, ${JULIE_AGE}`));
+    });
+
+    heading.querySelectorAll('[data-profile="0-age"]').forEach((el) => el.remove());
   };
 
   const enforceReplyCta = () => {
@@ -123,16 +135,17 @@
   };
 
   const enforce = () => {
+    ensureCropStyle();
     replaceVisibleText();
 
     document.querySelectorAll('[data-profile="0-name"]').forEach((el) => {
       if (el.textContent !== JULIE_NAME) el.textContent = JULIE_NAME;
     });
 
+    document.querySelectorAll('[data-profile="0-age"]').forEach((el) => el.remove());
+
     const inviteName = document.querySelector('.invite-preview strong');
-    if (inviteName && inviteName.textContent !== `${JULIE_NAME}, ${JULIE_AGE}`) {
-      inviteName.textContent = `${JULIE_NAME}, ${JULIE_AGE}`;
-    }
+    if (inviteName && inviteName.textContent !== JULIE_NAME) inviteName.textContent = JULIE_NAME;
 
     const messageName = document.querySelector('.mini-message strong');
     if (messageName && messageName.textContent !== JULIE_NAME) messageName.textContent = JULIE_NAME;
