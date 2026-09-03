@@ -21,7 +21,7 @@
       const response = await fetch('/', { cache: 'no-store', credentials: 'same-origin' });
       if (!response.ok) throw new Error(`Unable to load base page: ${response.status}`);
       let html = await response.text();
-      const julieImage = 'https://realmeetclub.com/julie-main.jpg?v=20260903-4';
+      const julieImage = 'https://github.com/djkuubb-art/new/blob/main/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png';
       const julieImagePath = '/julie-main.jpg?v=20260903-4';
 
       html = html.replace('<title>RealMeetClub — Meet someone genuine</title>', '<title>RealMeetClub — Julie</title>');
