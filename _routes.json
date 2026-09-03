@@ -1,0 +1,5 @@
+{
+  "version": 1,
+  "include": ["/api/geo", "/api/go", "/api/anna-image"],
+  "exclude": []
+}
