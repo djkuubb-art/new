@@ -1,0 +1,4 @@
+# Match Vercel rewrites for social campaign URLs while keeping the browser URL unchanged.
+/:market/post / 200
+/:market/reel / 200
+/:market/story / 200
