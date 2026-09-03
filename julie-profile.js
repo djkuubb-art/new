@@ -1,7 +1,31 @@
 (() => {
-  const JULIE_IMAGE = '/julie-main.jpg?v=20260903-1';
+  const JULIE_IMAGE = '/julie-main.png?v=20260903-3';
   const JULIE_NAME = 'Julie';
   const JULIE_AGE = '41';
+
+  const replyLabels = {
+    'en-GB': 'Reply to Julie',
+    'en-US': 'Reply to Julie',
+    'en-SG': 'Reply to Julie',
+    de: 'Julie antworten',
+    nl: 'Julie antwoorden',
+    fr: 'Répondre à Julie',
+    it: 'Rispondi a Julie',
+    es: 'Responder a Julie',
+    pt: 'Responder à Julie',
+    pl: 'Odpowiedz Julii',
+    sv: 'Svara Julie',
+    no: 'Svar Julie',
+    da: 'Svar Julie',
+    fi: 'Vastaa Julielle',
+    el: 'Απάντησε στην Τζούλι',
+    hr: 'Odgovori Julie',
+    sl: 'Odgovori Julie',
+    sk: 'Odpíš Julie',
+    cs: 'Odepiš Julii',
+    hu: 'Válaszolj Julie-nak',
+    he: "השב לג'ולי"
+  };
 
   const replacements = [
     [/Anna’s/g, 'Julie’s'],
@@ -21,6 +45,22 @@
     [/אנה/g, "ג'ולי"],
     [/\bAnna\b/g, JULIE_NAME]
   ];
+
+  const normaliseLocale = (value = '') => {
+    if (replyLabels[value]) return value;
+    const raw = String(value).replace('_', '-').toLowerCase();
+    if (raw.startsWith('en-us')) return 'en-US';
+    if (raw.startsWith('en-sg')) return 'en-SG';
+    if (raw.startsWith('en')) return 'en-GB';
+    const short = raw.split('-')[0];
+    return replyLabels[short] ? short : 'en-GB';
+  };
+
+  const getLocale = () => normaliseLocale(
+    document.getElementById('languageSelect')?.value ||
+    document.documentElement.lang ||
+    navigator.language
+  );
 
   const replaceName = (value = '') => {
     let next = String(value);
@@ -65,6 +105,23 @@
     if (!ageFound) heading.append(document.createTextNode(`, ${JULIE_AGE}`));
   };
 
+  const enforceReplyCta = () => {
+    const cta = document.querySelector('.hero-invite .phone-card .phone-cta');
+    if (!(cta instanceof HTMLAnchorElement)) return;
+    const locale = getLocale();
+    const label = replyLabels[locale] || replyLabels['en-GB'];
+
+    cta.classList.add('notranslate', 'rmc-generated-label');
+    cta.setAttribute('translate', 'no');
+    cta.setAttribute('lang', locale);
+    cta.setAttribute('aria-label', label);
+    cta.dataset.rmcLabel = label;
+    cta.dataset.rmcCtaOwner = 'reply-julie';
+
+    const copy = cta.querySelector('.phone-cta-copy');
+    if (copy) copy.textContent = '';
+  };
+
   const enforce = () => {
     replaceVisibleText();
 
@@ -81,6 +138,7 @@
     if (messageName && messageName.textContent !== JULIE_NAME) messageName.textContent = JULIE_NAME;
 
     enforceHeroTitle();
+    enforceReplyCta();
 
     setImage(document.querySelector('.invite-avatar img'), JULIE_NAME);
     setImage(document.querySelector('.featured-profile > img'), `${JULIE_NAME} profile`);
@@ -92,7 +150,12 @@
     document.querySelectorAll('img').forEach((img) => {
       const src = img.getAttribute('src') || '';
       const alt = img.getAttribute('alt') || '';
-      if (src.includes('/api/anna-image') || /\/anna\.jpg(?:\?|$)/i.test(src) || /anna/i.test(alt)) {
+      if (
+        src.includes('/api/anna-image') ||
+        /\/anna\.jpg(?:\?|$)/i.test(src) ||
+        /\/julie-main\.jpg(?:\?|$)/i.test(src) ||
+        /anna/i.test(alt)
+      ) {
         setImage(img, alt ? replaceName(alt) : '');
       }
     });
@@ -130,6 +193,7 @@
       setTimeout(queue, 0);
       setTimeout(queue, 150);
       setTimeout(queue, 500);
+      setTimeout(queue, 1200);
     }
   });
 
@@ -139,8 +203,8 @@
     childList: true,
     characterData: true,
     attributes: true,
-    attributeFilter: ['src', 'srcset', 'sizes', 'alt', 'aria-label']
+    attributeFilter: ['src', 'srcset', 'sizes', 'alt', 'aria-label', 'data-rmc-label', 'lang']
   });
 
-  [50, 150, 400, 900, 1800, 3500, 9000].forEach((delay) => setTimeout(queue, delay));
+  [50, 150, 400, 900, 1200, 1800, 3500, 9000].forEach((delay) => setTimeout(queue, delay));
 })();
