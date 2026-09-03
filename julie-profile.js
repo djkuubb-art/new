@@ -1,5 +1,5 @@
 (() => {
-  const JULIE_IMAGE = '/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png?v=20260903-6';
+  const JULIE_IMAGE = '/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png?v=20260903-7';
   const JULIE_NAME = 'Julie';
 
   const replyLabels = {
@@ -90,9 +90,10 @@
     document.head.appendChild(style);
   };
 
-  const replaceVisibleText = () => {
-    if (!document.body) return;
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const replaceHeroText = () => {
+    const hero = document.querySelector('.hero-invite');
+    if (!hero) return;
+    const walker = document.createTreeWalker(hero, NodeFilter.SHOW_TEXT);
     let node;
     while ((node = walker.nextNode())) {
       const current = node.nodeValue || '';
@@ -135,45 +136,32 @@
   };
 
   const enforce = () => {
-    ensureCropStyle();
-    replaceVisibleText();
+    const hero = document.querySelector('.hero-invite');
+    if (!hero) return;
 
-    document.querySelectorAll('[data-profile="0-name"]').forEach((el) => {
+    ensureCropStyle();
+    replaceHeroText();
+
+    hero.querySelectorAll('[data-profile="0-name"]').forEach((el) => {
       if (el.textContent !== JULIE_NAME) el.textContent = JULIE_NAME;
     });
 
-    document.querySelectorAll('[data-profile="0-age"]').forEach((el) => el.remove());
+    hero.querySelectorAll('[data-profile="0-age"]').forEach((el) => el.remove());
 
-    const inviteName = document.querySelector('.invite-preview strong');
+    const inviteName = hero.querySelector('.invite-preview strong');
     if (inviteName && inviteName.textContent !== JULIE_NAME) inviteName.textContent = JULIE_NAME;
 
-    const messageName = document.querySelector('.mini-message strong');
+    const messageName = hero.querySelector('.mini-message strong');
     if (messageName && messageName.textContent !== JULIE_NAME) messageName.textContent = JULIE_NAME;
 
     enforceHeroTitle();
     enforceReplyCta();
 
-    setImage(document.querySelector('.invite-avatar img'), JULIE_NAME);
-    setImage(document.querySelector('.featured-profile > img'), `${JULIE_NAME} profile`);
-    setImage(document.querySelector('.mini-message .avatar-small img'));
-    setImage(document.querySelector('[data-slot="card-1"] img'), `${JULIE_NAME} profile`);
-    setImage(document.querySelector('.anna-notification-avatar img'), JULIE_NAME);
-    setImage(document.querySelector('.profile-preview-photo'), `${JULIE_NAME} profile`);
+    setImage(hero.querySelector('.invite-avatar img'), JULIE_NAME);
+    setImage(hero.querySelector('.featured-profile > img'), `${JULIE_NAME} profile`);
+    setImage(hero.querySelector('.mini-message .avatar-small img'));
 
-    document.querySelectorAll('img').forEach((img) => {
-      const src = img.getAttribute('src') || '';
-      const alt = img.getAttribute('alt') || '';
-      if (
-        src.includes('/api/anna-image') ||
-        /\/anna\.jpg(?:\?|$)/i.test(src) ||
-        /\/julie-main\.(?:jpg|png)(?:\?|$)/i.test(src) ||
-        /anna/i.test(alt)
-      ) {
-        setImage(img, alt ? replaceName(alt) : '');
-      }
-    });
-
-    document.querySelectorAll('[aria-label]').forEach((el) => {
+    hero.querySelectorAll('[aria-label]').forEach((el) => {
       const current = el.getAttribute('aria-label') || '';
       const next = replaceName(current);
       if (next !== current) el.setAttribute('aria-label', next);
