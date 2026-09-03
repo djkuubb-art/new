@@ -21,8 +21,8 @@
       const response = await fetch('/', { cache: 'no-store', credentials: 'same-origin' });
       if (!response.ok) throw new Error(`Unable to load base page: ${response.status}`);
       let html = await response.text();
-      const julieImage = 'https://github.com/djkuubb-art/new/blob/main/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png';
-      const julieImagePath = '/julie-main.jpg?v=20260903-4';
+      const julieImage = 'https://realmeetclub.com/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png?v=20260903-5';
+      const julieImagePath = '/julie/ChatGPT%20Image%203%20wrz%202026%2C%2020_48_36.png?v=20260903-5';
 
       html = html.replace('<title>RealMeetClub — Meet someone genuine</title>', '<title>RealMeetClub — Julie</title>');
       html = html.replace('content="https://realmeetclub.com/"', 'content="https://realmeetclub.com/julie"');
@@ -30,7 +30,7 @@
       html = html.replaceAll('/api/anna-image?v=1788273455', julieImagePath);
       html = html.replace('<script src="/market-links.js" defer></' + 'script>', '');
       html = html.replace('</head>', '<style id="julie-prepaint">body{visibility:hidden!important}</style></head>');
-      html = html.replace('</body>', '<script src="/julie-profile.js?v=20260903-4" defer></' + 'script><script>setTimeout(()=>{document.getElementById("julie-prepaint")?.remove();document.body.style.visibility="visible"},2500)</' + 'script></body>');
+      html = html.replace('</body>', '<script src="/julie-profile.js?v=20260903-5" defer></' + 'script><script>setTimeout(()=>{document.getElementById("julie-prepaint")?.remove();document.body.style.visibility="visible"},2500)</' + 'script></body>');
 
       document.open();
       document.write(html);
