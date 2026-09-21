@@ -9,7 +9,7 @@
 @media (max-width: 760px) {
   body {
     background:
-      radial-gradient(circle at 100% 7%, rgba(229, 9, 20, .11), transparent 25%),
+      radial-gradient(circle at 100% 7%, rgba(239, 101, 150, .11), transparent 25%),
       linear-gradient(180deg, #050505 0%, #090909 48%, #050505 100%) !important;
   }
 
@@ -29,7 +29,7 @@
     width: 36px !important;
     height: 36px !important;
     border-radius: 12px !important;
-    box-shadow: 0 8px 20px rgba(229, 9, 20, .24) !important;
+    box-shadow: 0 8px 20px rgba(239, 101, 150, .24) !important;
   }
 
   .language-picker {
@@ -62,7 +62,7 @@
     border-color: rgba(255, 255, 255, .11) !important;
     border-radius: 24px !important;
     background: linear-gradient(180deg, rgba(17, 17, 17, .98), rgba(10, 10, 10, .99)) !important;
-    box-shadow: 0 18px 46px rgba(0, 0, 0, .46), 0 0 0 1px rgba(229, 9, 20, .035) !important;
+    box-shadow: 0 18px 46px rgba(0, 0, 0, .46), 0 0 0 1px rgba(239, 101, 150, .035) !important;
   }
 
   /* The page header already carries the brand; repeating it inside the card made mobile feel cramped. */
@@ -106,7 +106,7 @@
     width: 6px !important;
     height: 6px !important;
     margin-right: 5px !important;
-    box-shadow: 0 0 0 3px rgba(229, 9, 20, .15) !important;
+    box-shadow: 0 0 0 3px rgba(239, 101, 150, .15) !important;
   }
 
   .hero-invite .heart-button {
@@ -213,7 +213,7 @@
     margin: 8px 2px 2px !important;
     padding: 10px 14px !important;
     border-radius: 15px !important;
-    box-shadow: 0 10px 24px rgba(229, 9, 20, .24), inset 0 1px 0 rgba(255, 255, 255, .12) !important;
+    box-shadow: 0 10px 24px rgba(239, 101, 150, .24), inset 0 1px 0 rgba(255, 255, 255, .12) !important;
     font-size: .85rem !important;
     letter-spacing: 0 !important;
     text-transform: none !important;
@@ -285,7 +285,7 @@
     width: 100% !important;
     min-height: 52px !important;
     margin: 3px 0 0 !important;
-    box-shadow: 0 12px 30px rgba(229, 9, 20, .3) !important;
+    box-shadow: 0 12px 30px rgba(239, 101, 150, .3) !important;
   }
 }
 
