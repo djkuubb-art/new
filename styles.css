@@ -194,7 +194,7 @@ dialog p { color: var(--muted); }
   .button-white { width: 100%; }
   .site-footer { padding-bottom: 95px; grid-template-columns: 1fr; gap: 16px; }
   .site-footer p { grid-column: auto; grid-row: auto; }
-  .mobile-sticky { position: fixed; z-index: 10; display: flex; align-items: center; justify-content: space-between; left: 12px; right: 12px; bottom: 10px; min-height: 56px; padding: 0 20px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 16px; color: white; background: linear-gradient(135deg, #ee6797, #9f0008); font-weight: 850; box-shadow: 0 15px 38px rgba(239, 101, 150, .36); }
+  .mobile-sticky { position: fixed; z-index: 10; display: flex; align-items: center; justify-content: space-between; left: 12px; right: 12px; bottom: 10px; min-height: 56px; padding: 0 20px; border: 1px solid rgba(255, 255, 255, .12); border-radius: 16px; color: white; background: linear-gradient(135deg, #ee6797, #b94373); font-weight: 850; box-shadow: 0 15px 38px rgba(239, 101, 150, .36); }
 }
 
 
@@ -233,5 +233,45 @@ dialog p { color: var(--muted); }
     border-radius: 15px;
     font-size: .71rem;
     line-height: 1.25;
+  }
+}
+
+
+/* Maria sticky CTA attention */
+@media (max-width: 720px) {
+  .mobile-sticky {
+    animation: rmcStickyBreath 5.2s ease-in-out 1.5s infinite;
+    will-change: transform, box-shadow;
+  }
+
+  .mobile-sticky > span:last-child {
+    display: inline-block;
+    animation: rmcStickyArrow 5.2s ease-in-out 1.5s infinite;
+    will-change: transform;
+  }
+
+  @keyframes rmcStickyBreath {
+    0%, 5%, 18%, 100% {
+      transform: translateY(0) scale(1);
+      box-shadow: 0 15px 38px rgba(239, 101, 150, .36);
+    }
+    10% {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow:
+        0 18px 44px rgba(239, 101, 150, .48),
+        0 0 0 6px rgba(239, 101, 150, .10);
+    }
+  }
+
+  @keyframes rmcStickyArrow {
+    0%, 5%, 18%, 100% { transform: translateX(0); }
+    10% { transform: translateX(4px); }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-sticky,
+  .mobile-sticky > span:last-child {
+    animation: none !important;
   }
 }
