@@ -2,111 +2,111 @@
   const REDIRECT_DELAY_MS = 1400;
 
   const COPY = {
-    'en-GB': {
-      title: 'Check your email after signing up 📩',
-      body: 'After creating your account, you’ll receive an email with an activation link. Tap it to confirm your account and continue.',
-      loading: 'Taking you to the next step…'
-    },
-    'en-US': {
-      title: 'Check your email after signing up 📩',
-      body: 'After creating your account, you’ll get an email with an activation link. Tap it to confirm your account and continue.',
-      loading: 'Taking you to the next step…'
-    },
-    'en-SG': {
-      title: 'Check your email after signing up 📩',
-      body: 'After creating your account, you’ll receive an email with an activation link. Tap it to confirm your account and continue.',
-      loading: 'Taking you to the next step…'
-    },
-    de: {
-      title: 'Prüfe nach der Anmeldung deine E-Mails 📩',
-      body: 'Nach der Kontoerstellung erhältst du eine E-Mail mit einem Aktivierungslink. Tippe darauf, um dein Konto zu bestätigen und fortzufahren.',
-      loading: 'Du wirst weitergeleitet…'
-    },
-    nl: {
-      title: 'Controleer na je registratie je e-mail 📩',
-      body: 'Na het aanmaken van je account ontvang je een e-mail met een activatielink. Tik erop om je account te bevestigen en verder te gaan.',
-      loading: 'Je wordt doorgestuurd…'
-    },
-    fr: {
-      title: 'Vérifiez vos e-mails après l’inscription 📩',
-      body: 'Après avoir créé votre compte, vous recevrez un e-mail avec un lien d’activation. Cliquez dessus pour confirmer votre compte et continuer.',
-      loading: 'Redirection en cours…'
-    },
-    it: {
-      title: 'Controlla l’e-mail dopo la registrazione 📩',
-      body: 'Dopo aver creato l’account riceverai un’e-mail con un link di attivazione. Aprilo per confermare l’account e continuare.',
-      loading: 'Ti stiamo reindirizzando…'
-    },
-    es: {
-      title: 'Revisa tu correo después de registrarte 📩',
-      body: 'Después de crear tu cuenta recibirás un correo con un enlace de activación. Ábrelo para confirmar tu cuenta y continuar.',
-      loading: 'Te estamos redirigiendo…'
-    },
-    pt: {
-      title: 'Verifica o teu e-mail depois do registo 📩',
-      body: 'Depois de criares a conta, vais receber um e-mail com um link de ativação. Abre-o para confirmares a conta e continuares.',
-      loading: 'A encaminhar-te…'
-    },
-    pl: {
-      title: 'Sprawdź e-mail po rejestracji 📩',
-      body: 'Po utworzeniu konta dostaniesz wiadomość z linkiem aktywacyjnym. Kliknij go, żeby potwierdzić konto i przejść dalej.',
-      loading: 'Przenosimy Cię dalej…'
-    },
-    sv: {
-      title: 'Kolla din e-post efter registreringen 📩',
-      body: 'När du har skapat ditt konto får du ett mejl med en aktiveringslänk. Tryck på den för att bekräfta kontot och fortsätta.',
-      loading: 'Du skickas vidare…'
-    },
-    no: {
-      title: 'Sjekk e-posten etter registrering 📩',
-      body: 'Etter at du har opprettet kontoen, får du en e-post med en aktiveringslenke. Trykk på den for å bekrefte kontoen og fortsette.',
-      loading: 'Sender deg videre…'
-    },
-    da: {
-      title: 'Tjek din e-mail efter tilmelding 📩',
-      body: 'Når du har oprettet din konto, modtager du en e-mail med et aktiveringslink. Tryk på det for at bekræfte kontoen og fortsætte.',
-      loading: 'Sender dig videre…'
-    },
-    fi: {
-      title: 'Tarkista sähköpostisi rekisteröitymisen jälkeen 📩',
-      body: 'Kun olet luonut tilin, saat sähköpostin, jossa on aktivointilinkki. Napauta sitä vahvistaaksesi tilisi ja jatkaaksesi.',
-      loading: 'Siirryt seuraavaan vaiheeseen…'
-    },
-    el: {
-      title: 'Έλεγξε το email σου μετά την εγγραφή 📩',
-      body: 'Αφού δημιουργήσεις λογαριασμό, θα λάβεις email με έναν σύνδεσμο ενεργοποίησης. Πάτησέ τον για να επιβεβαιώσεις τον λογαριασμό σου και να συνεχίσεις.',
-      loading: 'Σε μεταφέρουμε στο επόμενο βήμα…'
-    },
-    hr: {
-      title: 'Provjeri e-mail nakon registracije 📩',
-      body: 'Nakon izrade računa dobit ćeš e-mail s poveznicom za aktivaciju. Otvori je kako bi potvrdio račun i nastavio.',
-      loading: 'Preusmjeravamo te dalje…'
-    },
-    sl: {
-      title: 'Po registraciji preveri e-pošto 📩',
-      body: 'Ko ustvariš račun, boš prejel e-pošto s povezavo za aktivacijo. Odpri jo, potrdi račun in nadaljuj.',
-      loading: 'Preusmerjamo te naprej…'
-    },
-    sk: {
-      title: 'Po registrácii skontroluj e-mail 📩',
-      body: 'Po vytvorení účtu dostaneš e-mail s aktivačným odkazom. Klikni naň, potvrď účet a pokračuj.',
-      loading: 'Presmerujeme ťa ďalej…'
-    },
-    cs: {
-      title: 'Po registraci zkontroluj e-mail 📩',
-      body: 'Po vytvoření účtu dostaneš e-mail s aktivačním odkazem. Klikni na něj, potvrď účet a pokračuj.',
-      loading: 'Přesměrováváme tě dál…'
-    },
-    hu: {
-      title: 'Regisztráció után nézd meg az e-mailed 📩',
-      body: 'A fiók létrehozása után kapsz egy e-mailt aktiváló linkkel. Kattints rá a fiókod megerősítéséhez és a folytatáshoz.',
-      loading: 'Továbbirányítunk…'
-    },
-    he: {
-      title: 'בדוק את האימייל אחרי ההרשמה 📩',
-      body: 'לאחר יצירת החשבון יישלח אליך אימייל עם קישור להפעלה. לחץ עליו כדי לאשר את החשבון ולהמשיך.',
-      loading: 'מעבירים אותך לשלב הבא…'
-    }
+      "en-GB": {
+          "title": "A quick verification",
+          "body": "In a moment, you’ll see a few verification questions. Answer them, and you’ll get access to sending messages and viewing photos.",
+          "loading": "Preparing the verification questions…"
+      },
+      "en-US": {
+          "title": "A quick verification",
+          "body": "In a moment, you’ll see a few verification questions. Answer them, and you’ll get access to sending messages and viewing photos.",
+          "loading": "Preparing the verification questions…"
+      },
+      "en-SG": {
+          "title": "A quick verification",
+          "body": "In a moment, you’ll see a few verification questions. Answer them, and you’ll get access to sending messages and viewing photos.",
+          "loading": "Preparing the verification questions…"
+      },
+      "de": {
+          "title": "Kurze Verifizierung",
+          "body": "Gleich siehst du ein paar Verifizierungsfragen. Beantworte sie, danach erhältst du Zugriff auf das Versenden von Nachrichten und das Ansehen von Fotos.",
+          "loading": "Die Verifizierungsfragen werden vorbereitet…"
+      },
+      "nl": {
+          "title": "Korte verificatie",
+          "body": "Zo meteen krijg je een paar verificatievragen te zien. Beantwoord ze en daarna krijg je toegang tot het versturen van berichten en het bekijken van foto’s.",
+          "loading": "De verificatievragen worden klaargezet…"
+      },
+      "fr": {
+          "title": "Vérification rapide",
+          "body": "Dans un instant, vous verrez quelques questions de vérification. Répondez-y, puis vous pourrez envoyer des messages et voir les photos.",
+          "loading": "Préparation des questions de vérification…"
+      },
+      "it": {
+          "title": "Verifica rapida",
+          "body": "Tra poco vedrai alcune domande di verifica. Rispondi e poi potrai inviare messaggi e vedere le foto.",
+          "loading": "Preparazione delle domande di verifica…"
+      },
+      "es": {
+          "title": "Verificación rápida",
+          "body": "En un momento verás unas preguntas de verificación. Respóndelas y después tendrás acceso a enviar mensajes y ver fotos.",
+          "loading": "Preparando las preguntas de verificación…"
+      },
+      "pt": {
+          "title": "Verificação rápida",
+          "body": "Daqui a pouco vais ver algumas perguntas de verificação. Responde-lhes e depois terás acesso ao envio de mensagens e à visualização de fotos.",
+          "loading": "A preparar as perguntas de verificação…"
+      },
+      "pl": {
+          "title": "Krótka weryfikacja",
+          "body": "Za chwilę zobaczysz kilka pytań weryfikacyjnych. Odpowiedz na nie, po czym otrzymasz dostęp do wysyłania wiadomości i oglądania zdjęć.",
+          "loading": "Przygotowujemy pytania weryfikacyjne…"
+      },
+      "sv": {
+          "title": "Snabb verifiering",
+          "body": "Om en liten stund får du se några verifieringsfrågor. Svara på dem så får du sedan tillgång till att skicka meddelanden och visa bilder.",
+          "loading": "Förbereder verifieringsfrågorna…"
+      },
+      "no": {
+          "title": "Rask verifisering",
+          "body": "Om et øyeblikk får du se noen verifiseringsspørsmål. Svar på dem, så får du tilgang til å sende meldinger og se bilder.",
+          "loading": "Forbereder verifiseringsspørsmålene…"
+      },
+      "da": {
+          "title": "Hurtig verificering",
+          "body": "Om et øjeblik får du vist nogle verificeringsspørgsmål. Besvar dem, så får du adgang til at sende beskeder og se billeder.",
+          "loading": "Forbereder verificeringsspørgsmålene…"
+      },
+      "fi": {
+          "title": "Nopea vahvistus",
+          "body": "Hetken kuluttua näet muutaman vahvistuskysymyksen. Vastaa niihin, niin saat pääsyn viestien lähettämiseen ja kuvien katseluun.",
+          "loading": "Valmistellaan vahvistuskysymyksiä…"
+      },
+      "el": {
+          "title": "Γρήγορη επαλήθευση",
+          "body": "Σε λίγο θα δεις μερικές ερωτήσεις επαλήθευσης. Απάντησέ τες και μετά θα αποκτήσεις πρόσβαση στην αποστολή μηνυμάτων και στην προβολή φωτογραφιών.",
+          "loading": "Ετοιμάζουμε τις ερωτήσεις επαλήθευσης…"
+      },
+      "hr": {
+          "title": "Brza provjera",
+          "body": "Za trenutak ćeš vidjeti nekoliko pitanja za provjeru. Odgovori na njih, nakon čega ćeš dobiti pristup slanju poruka i pregledavanju fotografija.",
+          "loading": "Pripremamo pitanja za provjeru…"
+      },
+      "sl": {
+          "title": "Hitra verifikacija",
+          "body": "Čez trenutek boš videl nekaj vprašanj za preverjanje. Odgovori nanje, nato pa boš dobil dostop do pošiljanja sporočil in ogledovanja fotografij.",
+          "loading": "Pripravljamo vprašanja za preverjanje…"
+      },
+      "sk": {
+          "title": "Rýchle overenie",
+          "body": "O chvíľu uvidíš niekoľko overovacích otázok. Odpovedz na ne a potom získaš prístup k odosielaniu správ a prezeraniu fotografií.",
+          "loading": "Pripravujeme overovacie otázky…"
+      },
+      "cs": {
+          "title": "Rychlé ověření",
+          "body": "Za chvíli uvidíš několik ověřovacích otázek. Odpověz na ně a poté získáš přístup k posílání zpráv a prohlížení fotek.",
+          "loading": "Připravujeme ověřovací otázky…"
+      },
+      "hu": {
+          "title": "Gyors ellenőrzés",
+          "body": "Hamarosan néhány ellenőrző kérdést fogsz látni. Válaszolj rájuk, ezután hozzáférsz az üzenetküldéshez és a fényképek megtekintéséhez.",
+          "loading": "Az ellenőrző kérdések előkészítése…"
+      },
+      "he": {
+          "title": "אימות קצר",
+          "body": "בעוד רגע יוצגו לך כמה שאלות אימות. לאחר שתענה עליהן, תקבל גישה לשליחת הודעות ולצפייה בתמונות.",
+          "loading": "מכינים את שאלות האימות…"
+      }
   };
 
   const normaliseLocale = (value = '') => {
@@ -161,7 +161,7 @@
     overlay.setAttribute('aria-atomic', 'true');
     overlay.innerHTML = `
       <div class="rmc-email-card">
-        <div class="rmc-email-icon" aria-hidden="true">✉️</div>
+        <div class="rmc-email-icon" aria-hidden="true">✓</div>
         <h2 class="rmc-email-title"></h2>
         <p class="rmc-email-body"></p>
         <p class="rmc-email-status"></p>
