@@ -187,12 +187,11 @@
 
   const getFacebookContextType = () => {
     const params = new URLSearchParams(location.search);
+    const querySource = String(params.get('source') || params.get('src') || params.get('from') || '').toLowerCase();
     const explicit = String(
+      querySource ||
       window.__rmcMarketContext?.source ||
       document.documentElement.dataset.source ||
-      params.get('source') ||
-      params.get('src') ||
-      params.get('from') ||
       ''
     ).toLowerCase();
 
