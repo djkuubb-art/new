@@ -118,7 +118,7 @@
 (() => {
   if (document.querySelector('script[data-rmc-exit-intent]')) return;
   const script = document.createElement('script');
-  script.src = '/exit-intent.js?v=20260921-milf3';
+  script.src = '/exit-intent.js?v=20260921-markets1';
   script.async = true;
   script.dataset.rmcExitIntent = '1';
   document.head.appendChild(script);
@@ -128,7 +128,7 @@
 (() => {
   if (document.querySelector('script[data-rmc-country-location]')) return;
   const script = document.createElement('script');
-  script.src = '/country-location.js?v=20260810-1';
+  script.src = '/country-location.js?v=20260921-markets1';
   script.async = true;
   script.dataset.rmcCountryLocation = '1';
   document.head.appendChild(script);
