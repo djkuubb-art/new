@@ -3,7 +3,7 @@
     'en-GB': 'GB', 'en-US': 'US', 'en-SG': 'SG',
     de: 'DE', nl: 'NL', fr: 'FR', it: 'IT', es: 'ES', pt: 'PT', pl: 'PL',
     sv: 'SE', no: 'NO', da: 'DK', fi: 'FI', el: 'GR', hr: 'HR', sl: 'SI',
-    sk: 'SK', cs: 'CZ', hu: 'HU', he: 'IL'
+    sk: 'SK', cs: 'CZ', hu: 'HU', bg: 'BG', ro: 'RO', et: 'EE', lt: 'LT', lv: 'LV', uk: 'UA', he: 'IL'
   };
 
   const normaliseLocale = (value = '') => {
