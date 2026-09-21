@@ -6,7 +6,7 @@
     nl: 'nl', be: 'nl',
     fr: 'fr', it: 'it', es: 'es', pt: 'pt', pl: 'pl',
     se: 'sv', no: 'no', dk: 'da', fi: 'fi',
-    gr: 'el', cy: 'el', hr: 'hr', si: 'sl', sk: 'sk', cz: 'cs', hu: 'hu', il: 'he'
+    gr: 'el', cy: 'el', hr: 'hr', si: 'sl', sk: 'sk', cz: 'cs', hu: 'hu', bg: 'bg', ro: 'ro', ee: 'et', lt: 'lt', lv: 'lv', ua: 'uk', il: 'he'
   };
 
   const VALID_SOURCES = new Set(['post', 'reel', 'story']);

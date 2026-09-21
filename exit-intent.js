@@ -24,6 +24,12 @@
     sk: { kicker: 'EŠTE JEDNA VEC', title: 'Skôr než odídeš…', lead: (name) => `${name} má pre teba ešte jednu správu`, message: 'Ešte niečo… naozaj mi nechceš odpovedať? 😊', cta: () => 'Pozri si správu', leave: 'Nie, ďakujem', close: 'Zavrieť' },
     cs: { kicker: 'JEŠTĚ JEDNA VĚC', title: 'Než odejdeš…', lead: (name) => `${name} pro tebe má ještě jednu zprávu`, message: 'Ještě něco… opravdu mi nechceš odpovědět? 😊', cta: () => 'Zobrazit zprávu', leave: 'Ne, děkuji', close: 'Zavřít' },
     hu: { kicker: 'MÉG VALAMI', title: 'Mielőtt elmész…', lead: (name) => `${name} még egy üzenetet hagyott neked`, message: 'Még valami… tényleg nem akarsz válaszolni nekem? 😊', cta: () => 'Üzenet megnyitása', leave: 'Nem, köszönöm', close: 'Bezárás' },
+    bg: { kicker: 'ОЩЕ НЕЩО', title: 'Преди да си тръгнеш…', lead: (name) => `${name} има още едно съобщение за теб`, message: 'Само още нещо… наистина ли не искаш да ми отговориш? 😊', cta: () => 'Виж съобщението', leave: 'Не, благодаря', close: 'Затвори' },
+    ro: { kicker: 'ÎNCĂ CEVA', title: 'Înainte să pleci…', lead: (name) => `${name} mai are un mesaj pentru tine`, message: 'Încă ceva… chiar nu vrei să-mi răspunzi? 😊', cta: () => 'Vezi mesajul', leave: 'Nu, mulțumesc', close: 'Închide' },
+    et: { kicker: 'VEEL ÜKS ASI', title: 'Enne kui lahkud…', lead: (name) => `${name}l on sulle veel üks sõnum`, message: 'Veel üks asi… kas sa tõesti ei taha mulle vastata? 😊', cta: () => 'Vaata sõnumit', leave: 'Ei, aitäh', close: 'Sulge' },
+    lt: { kicker: 'DAR VIENAS DALYKAS', title: 'Prieš išeidamas…', lead: (name) => `${name} turi tau dar vieną žinutę`, message: 'Dar vienas dalykas… ar tikrai nenori man atsakyti? 😊', cta: () => 'Peržiūrėti žinutę', leave: 'Ne, ačiū', close: 'Uždaryti' },
+    lv: { kicker: 'VĒL VIENA LIETA', title: 'Pirms aizej…', lead: (name) => `${name} tev ir vēl viena ziņa`, message: 'Vēl viena lieta… vai tiešām nevēlies man atbildēt? 😊', cta: () => 'Apskatīt ziņu', leave: 'Nē, paldies', close: 'Aizvērt' },
+    uk: { kicker: 'ЩЕ ДЕЩО', title: 'Перш ніж ти підеш…', lead: (name) => `${name} має для тебе ще одне повідомлення`, message: 'Ще дещо… ти справді не хочеш мені відповісти? 😊', cta: () => 'Переглянути повідомлення', leave: 'Ні, дякую', close: 'Закрити' },
     he: { kicker: 'עוד משהו קטן', title: 'רגע לפני שאתה יוצא…', lead: (name) => `ל${name} יש עוד הודעה בשבילך`, message: 'רק עוד דבר אחד… אתה באמת לא רוצה לענות לי? 😊', cta: () => 'הצג את ההודעה', leave: 'לא, תודה', close: 'סגור' }
   };
 

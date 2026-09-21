@@ -8,6 +8,8 @@
     hu: '/audio/hu.mp3', he: '/audio/he.mp3'
   };
 
+  const NO_VOICE_LOCALES = new Set(['bg', 'ro', 'et', 'lt', 'lv', 'uk']);
+
   const copy = {
     'en-GB': { open:'Open profile', close:'Close profile', online:'Online now', about:'About me', voice:'Voice message', play:'Play', pause:'Pause', last:'Latest message', message:'I don’t think I’ve told you the most important thing yet…', cta:'Open conversation', label:'Maria’s profile' },
     'en-US': { open:'Open profile', close:'Close profile', online:'Online now', about:'About me', voice:'Voice message', play:'Play', pause:'Pause', last:'Latest message', message:'I don’t think I’ve told you the most important thing yet…', cta:'Open conversation', label:'Maria’s profile' },
@@ -29,6 +31,12 @@
     sk: { open:'Otvoriť profil', close:'Zavrieť profil', online:'Práve online', about:'O mne', voice:'Hlasová správa', play:'Prehrať', pause:'Pozastaviť', last:'Posledná správa', message:'Myslím, že som ti ešte nepovedala to najdôležitejšie…', cta:'Otvoriť rozhovor', label:'Profil Márie' },
     cs: { open:'Otevřít profil', close:'Zavřít profil', online:'Právě online', about:'O mně', voice:'Hlasová zpráva', play:'Přehrát', pause:'Pozastavit', last:'Poslední zpráva', message:'Myslím, že jsem ti ještě neřekla to nejdůležitější…', cta:'Otevřít konverzaci', label:'Profil Marie' },
     hu: { open:'Profil megnyitása', close:'Profil bezárása', online:'Most online', about:'Rólam', voice:'Hangüzenet', play:'Lejátszás', pause:'Szünet', last:'Legutóbbi üzenet', message:'Azt hiszem, a legfontosabbat még nem is mondtam el neked…', cta:'Beszélgetés megnyitása', label:'Mária profilja' },
+    bg: { open:'Отвори профила', close:'Затвори профила', online:'Онлайн сега', about:'За мен', voice:'Гласово съобщение', play:'Пусни', pause:'Пауза', last:'Последно съобщение', message:'Мисля, че още не съм ти казала най-важното…', cta:'Отвори разговора', label:'Профилът на Мария' },
+    ro: { open:'Deschide profilul', close:'Închide profilul', online:'Online acum', about:'Despre mine', voice:'Mesaj vocal', play:'Redă', pause:'Pauză', last:'Ultimul mesaj', message:'Cred că încă nu ți-am spus cel mai important lucru…', cta:'Deschide conversația', label:'Profilul Mariei' },
+    et: { open:'Ava profiil', close:'Sulge profiil', online:'Praegu võrgus', about:'Minust', voice:'Häälsõnum', play:'Esita', pause:'Paus', last:'Viimane sõnum', message:'Ma vist pole sulle veel kõige tähtsamat asja öelnud…', cta:'Ava vestlus', label:'Maria profiil' },
+    lt: { open:'Atidaryti profilį', close:'Uždaryti profilį', online:'Dabar prisijungusi', about:'Apie mane', voice:'Balso žinutė', play:'Leisti', pause:'Pristabdyti', last:'Paskutinė žinutė', message:'Manau, dar nepasakiau tau svarbiausio dalyko…', cta:'Atidaryti pokalbį', label:'Marijos profilis' },
+    lv: { open:'Atvērt profilu', close:'Aizvērt profilu', online:'Tiešsaistē tagad', about:'Par mani', voice:'Balss ziņa', play:'Atskaņot', pause:'Pauze', last:'Pēdējā ziņa', message:'Man šķiet, ka vēl neesmu pateikusi tev pašu svarīgāko…', cta:'Atvērt sarunu', label:'Marijas profils' },
+    uk: { open:'Відкрити профіль', close:'Закрити профіль', online:'Зараз онлайн', about:'Про мене', voice:'Голосове повідомлення', play:'Відтворити', pause:'Пауза', last:'Останнє повідомлення', message:'Здається, я ще не сказала тобі найважливішого…', cta:'Відкрити розмову', label:'Профіль Марії' },
     he: { open:'פתיחת הפרופיל', close:'סגירת הפרופיל', online:'מחוברת עכשיו', about:'קצת עליי', voice:'הודעה קולית', play:'השמעה', pause:'השהיה', last:'ההודעה האחרונה', message:'נראה לי שעוד לא סיפרתי לך את הדבר הכי חשוב…', cta:'פתיחת השיחה', label:'הפרופיל של מריה' }
   };
 
@@ -113,6 +121,9 @@
     overlay.querySelector('.profile-preview-location').textContent = [profile.city, profile.distance].filter(Boolean).join(' · ');
     overlay.querySelector('.profile-preview-about-label').textContent = text.about;
     overlay.querySelector('.profile-preview-bio').textContent = profile.bio;
+    const noVoice = NO_VOICE_LOCALES.has(getLocale());
+    const voiceSection = overlay.querySelector('.profile-preview-voice');
+    if (voiceSection) voiceSection.hidden = noVoice;
     overlay.querySelector('.profile-preview-voice-label').textContent = text.voice;
     overlay.querySelector('.profile-preview-last-label').textContent = text.last;
     overlay.querySelector('.profile-preview-message').textContent = text.message;
@@ -205,7 +216,7 @@
     document.body.appendChild(overlay);
     sheet = overlay.querySelector('.profile-preview-sheet');
     audio = overlay.querySelector('.profile-preview-audio');
-    audio.src = audioFiles[getLocale()] || audioFiles['en-GB'];
+    if (!NO_VOICE_LOCALES.has(getLocale())) audio.src = audioFiles[getLocale()] || audioFiles['en-GB'];
 
     overlay.addEventListener('click', (event) => {
       if (event.target.closest('[data-profile-preview-close]')) close();

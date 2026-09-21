@@ -22,6 +22,12 @@
     sk: { nearby: 'V tvojom okolí', distance: (value) => `približne ${value} km` },
     cs: { nearby: 'Ve vašem okolí', distance: (value) => `přibližně ${value} km` },
     hu: { nearby: 'A közeledben', distance: (value) => `kb. ${value} km` },
+    bg: { nearby: 'Близо до теб', distance: (value) => `около ${value} км` },
+    ro: { nearby: 'În apropierea ta', distance: (value) => `aprox. ${value} km` },
+    et: { nearby: 'Sinu lähedal', distance: (value) => `umbes ${value} km` },
+    lt: { nearby: 'Netoli tavęs', distance: (value) => `apie ${value} km` },
+    lv: { nearby: 'Tavā tuvumā', distance: (value) => `apm. ${value} km` },
+    uk: { nearby: 'Поруч із тобою', distance: (value) => `приблизно ${value} км` },
     he: { nearby: 'באזור שלך', distance: (value) => `כ־${value} ק״מ` }
   };
 
@@ -87,6 +93,12 @@
       pecs: 'Pécs', gyor: 'Győr', szekesfehervar: 'Székesfehérvár',
       nyiregyhaza: 'Nyíregyháza', bekescsaba: 'Békéscsaba'
     },
+    bg: { sofia: 'София', plovdiv: 'Пловдив', varna: 'Варна', burgas: 'Бургас', ruse: 'Русе' },
+    ro: { bucharest: 'București', bucuresti: 'București', 'cluj-napoca': 'Cluj-Napoca', cluj: 'Cluj-Napoca', iasi: 'Iași', timisoara: 'Timișoara', constanta: 'Constanța' },
+    et: { tallinn: 'Tallinn', tartu: 'Tartu', parnu: 'Pärnu', narva: 'Narva' },
+    lt: { vilnius: 'Vilnius', kaunas: 'Kaunas', klaipeda: 'Klaipėda', siauliai: 'Šiauliai', panevezys: 'Panevėžys' },
+    lv: { riga: 'Rīga', daugavpils: 'Daugavpils', liepaja: 'Liepāja', jelgava: 'Jelgava', jurmala: 'Jūrmala' },
+    uk: { kyiv: 'Київ', kiev: 'Київ', lviv: 'Львів', odesa: 'Одеса', odessa: 'Одеса', kharkiv: 'Харків', dnipro: 'Дніпро' },
     he: {
       warsaw: 'ורשה', cracow: 'קרקוב', krakow: 'קרקוב',
       'tel aviv': 'תל אביב', 'tel aviv yafo': 'תל אביב-יפו',

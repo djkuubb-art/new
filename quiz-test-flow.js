@@ -6,14 +6,14 @@
     DE: 'de', AT: 'de', CH: 'de', NL: 'nl', BE: 'nl',
     FR: 'fr', IT: 'it', ES: 'es', PT: 'pt', PL: 'pl',
     SE: 'sv', NO: 'no', DK: 'da', FI: 'fi', GR: 'el', CY: 'el',
-    HR: 'hr', SI: 'sl', SK: 'sk', CZ: 'cs', HU: 'hu', IL: 'he'
+    HR: 'hr', SI: 'sl', SK: 'sk', CZ: 'cs', HU: 'hu', BG: 'bg', RO: 'ro', EE: 'et', LT: 'lt', LV: 'lv', UA: 'uk', IL: 'he'
   };
 
   const LOCALE_ALIAS = {
     en: 'en-GB', 'en-gb': 'en-GB', 'en-us': 'en-US', 'en-sg': 'en-SG',
     de: 'de', nl: 'nl', fr: 'fr', it: 'it', es: 'es', pt: 'pt', pl: 'pl',
     sv: 'sv', no: 'no', nb: 'no', nn: 'no', da: 'da', fi: 'fi', el: 'el',
-    hr: 'hr', sl: 'sl', sk: 'sk', cs: 'cs', hu: 'hu', he: 'he', iw: 'he'
+    hr: 'hr', sl: 'sl', sk: 'sk', cs: 'cs', hu: 'hu', bg: 'bg', ro: 'ro', et: 'et', lt: 'lt', lv: 'lv', uk: 'uk', ua: 'uk', he: 'he', iw: 'he'
   };
 
   const normaliseLocale = (value) => {
@@ -118,7 +118,7 @@
 (() => {
   if (document.querySelector('script[data-rmc-exit-intent]')) return;
   const script = document.createElement('script');
-  script.src = '/exit-intent.js?v=20260921-milf3';
+  script.src = '/exit-intent.js?v=20260921-markets1';
   script.async = true;
   script.dataset.rmcExitIntent = '1';
   document.head.appendChild(script);
@@ -128,7 +128,7 @@
 (() => {
   if (document.querySelector('script[data-rmc-country-location]')) return;
   const script = document.createElement('script');
-  script.src = '/country-location.js?v=20260810-1';
+  script.src = '/country-location.js?v=20260921-markets1';
   script.async = true;
   script.dataset.rmcCountryLocation = '1';
   document.head.appendChild(script);
@@ -157,6 +157,12 @@
     sk: ['Jana', 47],
     cs: ['Jana', 47],
     hu: ['Katalin', 47],
+    bg: ['Елена', 47],
+    ro: ['Andreea', 47],
+    et: ['Kadri', 47],
+    lt: ['Ieva', 47],
+    lv: ['Laura', 47],
+    uk: ['Олена', 47],
     he: ['דנה', 47]
   };
 
@@ -262,6 +268,12 @@
     sk: 'V noci som plakala. Som naozaj taká škaredá, že mi nenapíšeš ani ahoj?',
     cs: 'V noci jsem plakala. Jsem opravdu tak ošklivá, že mi nenapíšeš ani ahoj?',
     hu: 'Éjjel sírtam. Tényleg olyan csúnya vagyok, hogy még annyit sem írsz nekem, hogy szia?',
+    bg: 'Плаках през нощта. Наистина ли съм толкова грозна, че дори няма да ми напишеш „здрасти“?',
+    ro: 'Am plâns azi-noapte. Sunt chiar atât de urâtă încât nici măcar nu-mi scrii „bună”?',
+    et: 'Nutsin öösel. Kas ma olen tõesti nii kole, et sa ei kirjuta mulle isegi „tere“?',
+    lt: 'Naktį verkiau. Ar tikrai esu tokia negraži, kad net neparašysi man „labas“?',
+    lv: 'Naktī raudāju. Vai tiešām esmu tik neglīta, ka tu man pat neuzrakstīsi “sveika”?',
+    uk: 'Я плакала вночі. Невже я настільки негарна, що ти навіть не напишеш мені «привіт»?',
     he: 'בכיתי בלילה. אני באמת כל כך מכוערת שאתה אפילו לא כותב לי היי?'
   };
 
