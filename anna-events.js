@@ -34,6 +34,12 @@
     sk: { name: 'Mária', recently: 'Práve teraz', followUp: 'V noci som plakala. Som naozaj taká škaredá, že mi nenapíšeš ani ahoj?', voice: 'Poslala ti hlasovú správu' },
     cs: { name: 'Marie', recently: 'Právě teď', followUp: 'V noci jsem plakala. Jsem opravdu tak ošklivá, že mi nenapíšeš ani ahoj?', voice: 'Poslala ti hlasovou zprávu' },
     hu: { name: 'Mária', recently: 'Épp most', followUp: 'Éjjel sírtam. Tényleg olyan csúnya vagyok, hogy még annyit sem írsz nekem, hogy szia?', voice: 'Hangüzenetet küldött neked' },
+    bg: { name: 'Мария', recently: 'Току-що', followUp: 'Плаках през нощта. Наистина ли съм толкова грозна, че дори няма да ми напишеш „здрасти“?', voice: '' },
+    ro: { name: 'Maria', recently: 'Chiar acum', followUp: 'Am plâns azi-noapte. Sunt chiar atât de urâtă încât nici măcar nu-mi scrii „bună”?', voice: '' },
+    et: { name: 'Maria', recently: 'Just praegu', followUp: 'Nutsin öösel. Kas ma olen tõesti nii kole, et sa ei kirjuta mulle isegi „tere“?', voice: '' },
+    lt: { name: 'Marija', recently: 'Ką tik', followUp: 'Naktį verkiau. Ar tikrai esu tokia negraži, kad net neparašysi man „labas“?', voice: '' },
+    lv: { name: 'Marija', recently: 'Tikko', followUp: 'Naktī raudāju. Vai tiešām esmu tik neglīta, ka tu man pat neuzrakstīsi “sveika”?', voice: '' },
+    uk: { name: 'Марія', recently: 'Щойно', followUp: 'Я плакала вночі. Невже я настільки негарна, що ти навіть не напишеш мені «привіт»?', voice: '' },
     he: { name: 'מריה', recently: 'עכשיו', followUp: 'בכיתי בלילה. אני באמת כל כך מכוערת שאתה אפילו לא כותב לי היי?', voice: 'שלחה לך הודעה קולית' }
   };
 
@@ -54,6 +60,7 @@
   );
 
   const getCurrentCopy = () => copy[getLocale()] || copy['en-GB'];
+  const NO_VOICE_LOCALES = new Set(['bg', 'ro', 'et', 'lt', 'lv', 'uk']);
   const mobileMedia = window.matchMedia(MOBILE_QUERY);
   let notification = null;
   let showTimer = 0;
@@ -112,6 +119,7 @@
   };
 
   const createNotification = () => {
+    if (NO_VOICE_LOCALES.has(getLocale())) return null;
     if (mobileMedia.matches || notification) return notification;
 
     const region = document.createElement('div');
@@ -181,7 +189,7 @@
 
   const scheduleNotification = (delay = FIRST_DELAY_MS) => {
     window.clearTimeout(showTimer);
-    if (mobileMedia.matches || hasBeenSeen()) return;
+    if (NO_VOICE_LOCALES.has(getLocale()) || mobileMedia.matches || hasBeenSeen()) return;
     showTimer = window.setTimeout(() => {
       if (document.hidden || document.querySelector('dialog[open]')) {
         scheduleNotification(2500);
@@ -199,6 +207,13 @@
   const refresh = () => {
     syncAnnaImages();
     applyFollowUp();
+    if (NO_VOICE_LOCALES.has(getLocale())) {
+      window.clearTimeout(showTimer);
+      hideNotification();
+      notification?.parentElement?.remove();
+      notification = null;
+      return;
+    }
     if (notification?.classList.contains('is-visible')) renderNotification();
   };
 
