@@ -12,7 +12,7 @@
       privacyAria: 'Private access',
       profileAria: 'Quick profile',
       verifiedAria: 'Verified access',
-      accountCta: 'Create account'
+      accountCta: 'Reply to Maria'
     },
     'en-US': {
       badge: 'FINAL STEP',
@@ -26,7 +26,7 @@
       privacyAria: 'Private access',
       profileAria: 'Quick profile',
       verifiedAria: 'Verified access',
-      accountCta: 'Create account'
+      accountCta: 'Reply to Maria'
     },
     'en-SG': {
       badge: 'FINAL STEP',
@@ -40,7 +40,7 @@
       privacyAria: 'Private access',
       profileAria: 'Quick profile',
       verifiedAria: 'Verified access',
-      accountCta: 'Create account'
+      accountCta: 'Reply to Maria'
     },
     de: {
       badge: 'LETZTER SCHRITT',
@@ -54,7 +54,7 @@
       privacyAria: 'Diskreter Zugang',
       profileAria: 'Kurzes Profil',
       verifiedAria: 'Verifizierter Zugang',
-      accountCta: 'Konto erstellen'
+      accountCta: 'Maria antworten'
     },
     nl: {
       badge: 'LAATSTE STAP',
@@ -68,7 +68,7 @@
       privacyAria: 'Discrete toegang',
       profileAria: 'Kort profiel',
       verifiedAria: 'Geverifieerde toegang',
-      accountCta: 'Account aanmaken'
+      accountCta: 'Maria antwoorden'
     },
     fr: {
       badge: 'DERNIÈRE ÉTAPE',
@@ -82,7 +82,7 @@
       privacyAria: 'Accès discret',
       profileAria: 'Profil rapide',
       verifiedAria: 'Accès vérifié',
-      accountCta: 'Créer un compte'
+      accountCta: 'Répondre à Marie'
     },
     it: {
       badge: 'ULTIMO PASSAGGIO',
@@ -96,7 +96,7 @@
       privacyAria: 'Accesso discreto',
       profileAria: 'Profilo rapido',
       verifiedAria: 'Accesso verificato',
-      accountCta: 'Crea un account'
+      accountCta: 'Rispondi a Maria'
     },
     es: {
       badge: 'ÚLTIMO PASO',
@@ -110,7 +110,7 @@
       privacyAria: 'Acceso discreto',
       profileAria: 'Perfil rápido',
       verifiedAria: 'Acceso verificado',
-      accountCta: 'Crear una cuenta'
+      accountCta: 'Responder a María'
     },
     pt: {
       badge: 'ÚLTIMO PASSO',
@@ -124,7 +124,7 @@
       privacyAria: 'Acesso discreto',
       profileAria: 'Perfil rápido',
       verifiedAria: 'Acesso verificado',
-      accountCta: 'Criar conta'
+      accountCta: 'Responder à Maria'
     },
     pl: {
       badge: 'OSTATNI KROK',
@@ -138,7 +138,7 @@
       privacyAria: 'Dyskretny dostęp',
       profileAria: 'Krótki profil',
       verifiedAria: 'Zweryfikowany dostęp',
-      accountCta: 'Załóż konto'
+      accountCta: 'Odpowiedz Marii'
     },
     sv: {
       badge: 'SISTA STEGET',
@@ -152,7 +152,7 @@
       privacyAria: 'Diskret åtkomst',
       profileAria: 'Snabb profil',
       verifiedAria: 'Verifierad åtkomst',
-      accountCta: 'Skapa konto'
+      accountCta: 'Svara Maria'
     },
     no: {
       badge: 'SISTE STEG',
@@ -166,7 +166,7 @@
       privacyAria: 'Diskré tilgang',
       profileAria: 'Kort profil',
       verifiedAria: 'Verifisert tilgang',
-      accountCta: 'Opprett konto'
+      accountCta: 'Svar Maria'
     },
     da: {
       badge: 'SIDSTE TRIN',
@@ -180,7 +180,7 @@
       privacyAria: 'Diskret adgang',
       profileAria: 'Kort profil',
       verifiedAria: 'Verificeret adgang',
-      accountCta: 'Opret konto'
+      accountCta: 'Svar Maria'
     },
     fi: {
       badge: 'VIIMEINEN VAIHE',
@@ -194,7 +194,7 @@
       privacyAria: 'Huomaamaton pääsy',
       profileAria: 'Lyhyt profiili',
       verifiedAria: 'Vahvistettu pääsy',
-      accountCta: 'Luo tili'
+      accountCta: 'Vastaa Marialle'
     },
     el: {
       badge: 'ΤΕΛΕΥΤΑΙΟ ΒΗΜΑ',
@@ -208,7 +208,7 @@
       privacyAria: 'Διακριτική πρόσβαση',
       profileAria: 'Σύντομο προφίλ',
       verifiedAria: 'Επαληθευμένη πρόσβαση',
-      accountCta: 'Δημιούργησε λογαριασμό'
+      accountCta: 'Απάντησε στη Μαρία'
     },
     hr: {
       badge: 'POSLJEDNJI KORAK',
@@ -222,7 +222,7 @@
       privacyAria: 'Diskretan pristup',
       profileAria: 'Kratak profil',
       verifiedAria: 'Verificiran pristup',
-      accountCta: 'Otvori račun'
+      accountCta: 'Odgovori Mariji'
     },
     sl: {
       badge: 'ZADNJI KORAK',
@@ -236,7 +236,7 @@
       privacyAria: 'Diskreten dostop',
       profileAria: 'Kratek profil',
       verifiedAria: 'Preverjen dostop',
-      accountCta: 'Ustvari račun'
+      accountCta: 'Odgovori Mariji'
     },
     sk: {
       badge: 'POSLEDNÝ KROK',
@@ -250,7 +250,7 @@
       privacyAria: 'Diskrétny prístup',
       profileAria: 'Krátky profil',
       verifiedAria: 'Overený prístup',
-      accountCta: 'Vytvoriť účet'
+      accountCta: 'Odpíš Márii'
     },
     cs: {
       badge: 'POSLEDNÍ KROK',
@@ -264,7 +264,7 @@
       privacyAria: 'Diskrétní přístup',
       profileAria: 'Krátký profil',
       verifiedAria: 'Ověřený přístup',
-      accountCta: 'Vytvořit účet'
+      accountCta: 'Odepiš Marii'
     },
     hu: {
       badge: 'UTOLSÓ LÉPÉS',
@@ -278,7 +278,7 @@
       privacyAria: 'Diszkrét hozzáférés',
       profileAria: 'Rövid profil',
       verifiedAria: 'Ellenőrzött hozzáférés',
-      accountCta: 'Fiók létrehozása'
+      accountCta: 'Válaszolj Máriának'
     },
     he: {
       badge: 'שלב אחרון',
@@ -292,7 +292,7 @@
       privacyAria: 'גישה דיסקרטית',
       profileAria: 'פרופיל קצר',
       verifiedAria: 'גישה מאומתת',
-      accountCta: 'פתיחת חשבון'
+      accountCta: 'השב למריה'
     }
   };
 
