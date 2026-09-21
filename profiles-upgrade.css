@@ -189,8 +189,8 @@
 
 .profile-card-premium:hover .profile-primary-action,
 .profile-card-premium:focus-visible .profile-primary-action {
-  border-color: rgba(255, 62, 91, .55);
-  background: rgba(229, 9, 20, .82);
+  border-color: rgba(255, 137, 177, .55);
+  background: rgba(239, 101, 150, .82);
 }
 
 .profile-swipe-dots,
@@ -211,7 +211,7 @@
 .profile-swipe-dot.is-active {
   width: 24px;
   border-radius: 999px;
-  background: #ee2248;
+  background: #ef6596;
 }
 
 .journey-section {
@@ -220,7 +220,7 @@
   border-top: 1px solid rgba(255, 255, 255, .06);
   border-bottom: 1px solid rgba(255, 255, 255, .06);
   background:
-    radial-gradient(circle at 50% 0, rgba(229, 9, 20, .075), transparent 36%),
+    radial-gradient(circle at 50% 0, rgba(239, 101, 150, .075), transparent 36%),
     rgba(255, 255, 255, .012);
 }
 
@@ -243,7 +243,7 @@
   z-index: 0;
   height: 1px;
   content: "";
-  background: linear-gradient(90deg, transparent, rgba(255, 65, 79, .38), rgba(255, 65, 79, .38), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 139, 179, .38), rgba(255, 139, 179, .38), transparent);
 }
 
 .journey-step {
@@ -263,11 +263,11 @@
   display: grid;
   place-items: center;
   margin: 0 0 20px;
-  border: 1px solid rgba(255, 80, 94, .4);
+  border: 1px solid rgba(255, 149, 186, .4);
   border-radius: 50%;
   color: #fff;
-  background: linear-gradient(145deg, #f22638, #a70009);
-  box-shadow: 0 12px 28px rgba(229, 9, 20, .25);
+  background: linear-gradient(145deg, #ef6596, #b94373);
+  box-shadow: 0 12px 28px rgba(239, 101, 150, .25);
   font-size: 1.02rem;
   font-weight: 950;
 }
@@ -353,7 +353,7 @@
   border: 1px solid rgba(255, 255, 255, .15);
   border-radius: 999px;
   color: #fff;
-  background: #e50914;
+  background: #ef6596;
   font-size: .68rem;
   font-weight: 900;
 }
@@ -750,7 +750,7 @@
     left: 26px;
     width: 1px;
     height: auto;
-    background: linear-gradient(180deg, transparent, rgba(255, 65, 79, .42), rgba(255, 65, 79, .42), transparent);
+    background: linear-gradient(180deg, transparent, rgba(255, 139, 179, .42), rgba(255, 139, 179, .42), transparent);
   }
 
   [dir="rtl"] .journey-grid::before {
