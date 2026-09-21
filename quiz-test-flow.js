@@ -118,7 +118,7 @@
 (() => {
   if (document.querySelector('script[data-rmc-exit-intent]')) return;
   const script = document.createElement('script');
-  script.src = '/exit-intent.js?v=20260808-1';
+  script.src = '/exit-intent.js?v=20260921-milf3';
   script.async = true;
   script.dataset.rmcExitIntent = '1';
   document.head.appendChild(script);
