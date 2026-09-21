@@ -119,7 +119,7 @@
   const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
   const isJulieProfile = pathname === '/julie' || pathname === '/julie/';
 
-  const ANNA_IMAGE = `/anna.jpg?v=${ASSET_VERSION}`;
+  const ANNA_IMAGE = '/pobrane%20(1).jpg?v=20260921-maria4';
   const LOWER_PROFILE_IMAGES = [
     `/2.jpg?v=${ASSET_VERSION}`,
     `/4.jpg?v=${ASSET_VERSION}`,
@@ -142,10 +142,10 @@
 
   const applyLocalPhotos = () => {
     if (!isAuProfileTest && !isJulieProfile) {
-      setLocalImage(document.querySelector('.invite-avatar img'), ANNA_IMAGE, 'Anna');
-      setLocalImage(document.querySelector('.hero-invite .featured-profile > img'), ANNA_IMAGE, 'Anna profile');
+      setLocalImage(document.querySelector('.invite-avatar img'), ANNA_IMAGE, 'Maria');
+      setLocalImage(document.querySelector('.hero-invite .featured-profile > img'), ANNA_IMAGE, 'Maria profile');
       setLocalImage(document.querySelector('.hero-invite .avatar-small img'), ANNA_IMAGE);
-      setLocalImage(document.querySelector('.anna-notification-avatar img'), ANNA_IMAGE, 'Anna');
+      setLocalImage(document.querySelector('.anna-notification-avatar img'), ANNA_IMAGE, 'Maria');
       setLocalImage(document.querySelector('.profile-preview-photo'), ANNA_IMAGE);
     }
 
