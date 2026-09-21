@@ -476,6 +476,97 @@ const languageAliasMap = {
   hr: 'hr', sl: 'sl', sk: 'sk', cs: 'cs', hu: 'hu', bg: 'bg', ro: 'ro', et: 'et', lt: 'lt', lv: 'lv', uk: 'uk', ua: 'uk', he: 'he', iw: 'he'
 };
 
+const countryLocaleCandidates = {
+  GB: ['en-GB'], IE: ['en-GB'], AU: ['en-GB'], NZ: ['en-GB'],
+  US: ['en-US'], CA: ['en-US', 'fr'], SG: ['en-SG'],
+  DE: ['de'], AT: ['de'], CH: ['de', 'fr', 'it'],
+  NL: ['nl'], BE: ['nl', 'fr', 'de'],
+  FR: ['fr'], IT: ['it'], ES: ['es'], PT: ['pt'], PL: ['pl'],
+  SE: ['sv'], NO: ['no'], DK: ['da'], FI: ['fi'],
+  GR: ['el'], CY: ['el'], HR: ['hr'], SI: ['sl'], SK: ['sk'], CZ: ['cs'],
+  HU: ['hu'], BG: ['bg'], RO: ['ro'], EE: ['et'], LT: ['lt'], LV: ['lv'],
+  UA: ['uk'], IL: ['he']
+};
+
+function browserLocaleForCountry(input, country) {
+  if (!input) return null;
+  const raw = String(input).replace('_', '-').toLowerCase();
+  const base = raw.split('-')[0];
+
+  if (base === 'en') {
+    if (country === 'US' || country === 'CA') return 'en-US';
+    if (country === 'SG') return 'en-SG';
+    return 'en-GB';
+  }
+
+  return languageAliasMap[raw] || languageAliasMap[base] || null;
+}
+
+function regionLocale(country, region) {
+  const value = String(region || '').trim().toUpperCase();
+  if (!value) return null;
+
+  if (country === 'CA') {
+    if (value === 'QC' || value.includes('QUEBEC') || value.includes('QUÉBEC')) return 'fr';
+    return null;
+  }
+
+  if (country === 'BE') {
+    if (
+      value === 'BRU' || value.includes('BRUSSEL') || value.includes('BRUXEL') ||
+      value === 'WBR' || value === 'WHT' || value === 'WLG' || value === 'WLX' || value === 'WNA' ||
+      value.includes('WALLON') || value.includes('HAINAUT') || value.includes('LIÈGE') ||
+      value.includes('LIEGE') || value.includes('NAMUR') || value.includes('LUXEMBOURG')
+    ) return 'fr';
+
+    if (
+      value === 'VAN' || value === 'VBR' || value === 'VLI' || value === 'VOV' || value === 'VWV' ||
+      value.includes('VLAAND') || value.includes('FLANDER') || value.includes('ANTWERP') ||
+      value.includes('LIMBURG') || value.includes('OOST-VLAANDER') || value.includes('WEST-VLAANDER')
+    ) return 'nl';
+
+    return null;
+  }
+
+  if (country === 'CH') {
+    if (value === 'TI' || value.includes('TICINO')) return 'it';
+
+    if (
+      value === 'GE' || value === 'VD' || value === 'NE' || value === 'JU' ||
+      value.includes('GENEVA') || value.includes('GENÈVE') || value.includes('VAUD') ||
+      value.includes('NEUCH') || value.includes('JURA')
+    ) return 'fr';
+
+    return 'de';
+  }
+
+  return null;
+}
+
+function chooseAutomaticLocale(data = {}) {
+  const country = String(data.country || '').toUpperCase();
+  const allowed = countryLocaleCandidates[country] || [];
+  const browserLocales = navigator.languages?.length ? navigator.languages : [navigator.language];
+
+  for (const browserLocale of browserLocales) {
+    const matched = browserLocaleForCountry(browserLocale, country);
+    if (matched && allowed.includes(matched)) return matched;
+  }
+
+  const regional = regionLocale(country, data.region);
+  if (regional && allowed.includes(regional)) return regional;
+
+  const countryDefault = countryLocaleMap[country];
+  if (countryDefault) return countryDefault;
+
+  for (const browserLocale of browserLocales) {
+    const matched = browserLocaleForCountry(browserLocale, country);
+    if (matched) return matched;
+  }
+
+  return 'en-GB';
+}
+
 const select = document.getElementById('languageSelect');
 const modal = document.getElementById('legalModal');
 const modalTitle = document.getElementById('modalTitle');
@@ -561,18 +652,11 @@ async function detectInitialLocale() {
     const response = await fetch('/api/geo', { headers: { accept: 'application/json' } });
     if (response.ok) {
       const data = await response.json();
-      const geoLocale = countryLocaleMap[String(data.country || '').toUpperCase()];
-      if (geoLocale) return { code: geoLocale, persist: false };
+      return { code: chooseAutomaticLocale(data), persist: false };
     }
   } catch (_) {}
 
-  const browserLocales = navigator.languages?.length ? navigator.languages : [navigator.language];
-  for (const browserLocale of browserLocales) {
-    const matched = normaliseLocale(browserLocale);
-    if (matched) return { code: matched, persist: false };
-  }
-
-  return { code: 'en-GB', persist: false };
+  return { code: chooseAutomaticLocale({}), persist: false };
 }
 
 select.addEventListener('change', () => {

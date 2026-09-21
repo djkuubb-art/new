@@ -10,6 +10,7 @@
   };
 
   const VALID_SOURCES = new Set(['post', 'reel', 'story', 'comment']);
+  const MULTILINGUAL_AUTO_MARKETS = new Set(['be', 'ch', 'ca']);
   const AU_TEST_PROFILES = new Set(['natalie', 'melissa', 'rachel', 'claire']);
   const parts = location.pathname.toLowerCase().split('/').filter(Boolean);
   const market = parts[0] || '';
@@ -32,7 +33,7 @@
 
   const url = new URL(location.href);
   const hadLang = url.searchParams.has('lang');
-  if (!hadLang) {
+  if (!hadLang && !MULTILINGUAL_AUTO_MARKETS.has(market)) {
     url.searchParams.set('lang', locale);
     history.replaceState(history.state, '', `${url.pathname}${url.search}${url.hash}`);
 
