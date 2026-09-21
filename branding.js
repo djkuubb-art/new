@@ -238,10 +238,7 @@
 
   const syncFacebookContext = (phone, cta) => {
     let strip = phone.querySelector('.fb-context-strip');
-    const type = getFacebookContextType();
-
     const locale = getLocale();
-    const text = facebookContextCopy[locale] || facebookContextCopy['en-GB'];
 
     if (!strip) {
       strip = document.createElement('div');
@@ -250,10 +247,9 @@
       cta.insertAdjacentElement('beforebegin', strip);
     }
 
-    strip.dataset.context = type || 'direct';
-    strip.querySelector('.fb-context-copy').textContent = type
-      ? (text[type] || text.facebook)
-      : (directContextCopy[locale] || directContextCopy['en-GB']);
+    strip.dataset.context = 'reply';
+    strip.querySelector('.fb-context-copy').textContent =
+      directContextCopy[locale] || directContextCopy['en-GB'];
   };
 
   const injectStyles = () => {
