@@ -14,27 +14,27 @@
   const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
 
   const copy = {
-    'en-GB': { name: 'Maria', recently: 'Just now', followUp: 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice note' },
-    'en-US': { name: 'Maria', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
-    'en-SG': { name: 'Maria', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
-    de: { name: 'Maria', recently: 'Gerade eben', followUp: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …', voice: 'Hat dir eine Sprachnachricht geschickt' },
+    'en-GB': { name: 'Maria', recently: 'Just now', followUp: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', voice: 'Sent you a voice note' },
+    'en-US': { name: 'Maria', recently: 'Just now', followUp: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', voice: 'Sent you a voice message' },
+    'en-SG': { name: 'Maria', recently: 'Just now', followUp: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', voice: 'Sent you a voice message' },
+    de: { name: 'Maria', recently: 'Gerade eben', followUp: 'Ich habe letzte Nacht geweint. Bin ich wirklich so hässlich, dass du mir nicht mal Hallo schreibst?', voice: 'Hat dir eine Sprachnachricht geschickt' },
     nl: { name: 'Maria', recently: 'Zojuist', followUp: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal nichts van je hören…', voice: 'Heeft je een spraakbericht gestuurd' },
-    fr: { name: 'Marie', recently: 'À l’instant', followUp: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…', voice: 'Vous a envoyé un message vocal' },
-    it: { name: 'Maria', recently: 'Proprio ora', followUp: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…', voice: 'Ti ha inviato un messaggio vocale' },
-    es: { name: 'María', recently: 'Ahora mismo', followUp: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…', voice: 'Te ha enviado un mensaje de voz' },
-    pt: { name: 'Maria', recently: 'Agora mesmo', followUp: 'Que tal encontrarmo-nos esta semana? Já começo a achar que não estás interessado, porque não me escreves…', voice: 'Enviou-te uma mensagem de voz' },
-    pl: { name: 'Maria', recently: 'Przed chwilą', followUp: 'Co powiesz na spotkanie w tym tygodniu? Chyba nie jesteś zainteresowany, bo nie piszesz…', voice: 'Wysłała Ci wiadomość głosową' },
-    sv: { name: 'Maria', recently: 'Precis nu', followUp: 'Vad säger du om att ses någon gång den här veckan? Jag börjar tro att du inte är intresserad eftersom du inte skriver…', voice: 'Har skickat ett röstmeddelande till dig' },
-    no: { name: 'Maria', recently: 'Akkurat nå', followUp: 'Hva sier du til å møtes en gang denne uka? Jeg begynner å tro at du ikke er interessert siden du ikke skriver…', voice: 'Har sendt deg en talemelding' },
-    da: { name: 'Maria', recently: 'Lige nu', followUp: 'Hvad siger du til, at vi ses en dag i denne uge? Jeg begynder at tro, at du ikke er interesseret, når du ikke skriver…', voice: 'Har sendt dig en talebesked' },
-    fi: { name: 'Maria', recently: 'Juuri nyt', followUp: 'Mitä jos nähtäisiin tällä viikolla? Alan jo ajatella, ettet ole kiinnostunut, kun et kirjoita…', voice: 'Lähetti sinulle ääniviestin' },
-    el: { name: 'Μαρία', recently: 'Μόλις τώρα', followUp: 'Τι λες να βρεθούμε κάποια μέρα αυτή την εβδομάδα; Αρχίζω να πιστεύω ότι δεν ενδιαφέρεσαι, αφού δεν μου γράφεις…', voice: 'Σου έστειλε φωνητικό μήνυμα' },
-    hr: { name: 'Marija', recently: 'Upravo sada', followUp: 'Što kažeš da se vidimo ovaj tjedan? Počinjem misliti da nisi zainteresiran jer mi se uopće ne javljaš…', voice: 'Poslala ti je glasovnu poruku' },
-    sl: { name: 'Marija', recently: 'Pravkar', followUp: 'Kaj praviš, da se dobiva enkrat ta teden? Začenjam misliti, da te ne zanima, ker mi nič ne pišeš…', voice: 'Poslala ti je glasovno sporočilo' },
-    sk: { name: 'Mária', recently: 'Práve teraz', followUp: 'Čo povieš na to, keby sme sa niekedy tento týždeň stretli? Začínam si myslieť, že nemáš záujem, keď mi vôbec nepíšeš…', voice: 'Poslala ti hlasovú správu' },
-    cs: { name: 'Marie', recently: 'Právě teď', followUp: 'Co říkáš na to, že bychom se někdy tento týden potkali? Začínám si myslet, že nemáš zájem, když mi vůbec nepíšeš…', voice: 'Poslala ti hlasovou zprávu' },
-    hu: { name: 'Mária', recently: 'Épp most', followUp: 'Mit szólnál, ha találkoznánk valamikor a héten? Kezdem azt hinni, hogy nem is érdekellek, mert egyáltalán nem írsz…', voice: 'Hangüzenetet küldött neked' },
-    he: { name: 'מריה', recently: 'עכשיו', followUp: 'מה דעתך שניפגש השבוע? אני מתחילה לחשוב שאתה לא באמת בעניין, כי אתה בכלל לא כותב לי…', voice: 'שלחה לך הודעה קולית' }
+    fr: { name: 'Marie', recently: 'À l’instant', followUp: 'J’ai pleuré cette nuit. Je suis vraiment si moche que tu ne peux même pas me dire bonjour ?', voice: 'Vous a envoyé un message vocal' },
+    it: { name: 'Maria', recently: 'Proprio ora', followUp: 'Ho pianto stanotte. Sono davvero così brutta che non mi scrivi neanche ciao?', voice: 'Ti ha inviato un messaggio vocale' },
+    es: { name: 'María', recently: 'Ahora mismo', followUp: 'Anoche lloré. ¿De verdad soy tan fea que ni siquiera me dices hola?', voice: 'Te ha enviado un mensaje de voz' },
+    pt: { name: 'Maria', recently: 'Agora mesmo', followUp: 'Chorei esta noite. Sou assim tão feia que nem sequer me dizes olá?', voice: 'Enviou-te uma mensagem de voz' },
+    pl: { name: 'Maria', recently: 'Przed chwilą', followUp: 'Płakałam w nocy. Jestem tak brzydka, że nawet nie napiszesz mi cześć?', voice: 'Wysłała Ci wiadomość głosową' },
+    sv: { name: 'Maria', recently: 'Precis nu', followUp: 'Jag grät i natt. Är jag verkligen så ful att du inte ens skriver hej till mig?', voice: 'Har skickat ett röstmeddelande till dig' },
+    no: { name: 'Maria', recently: 'Akkurat nå', followUp: 'Jeg gråt i natt. Er jeg virkelig så stygg at du ikke engang skriver hei til meg?', voice: 'Har sendt deg en talemelding' },
+    da: { name: 'Maria', recently: 'Lige nu', followUp: 'Jeg græd i nat. Er jeg virkelig så grim, at du ikke engang skriver hej til mig?', voice: 'Har sendt dig en talebesked' },
+    fi: { name: 'Maria', recently: 'Juuri nyt', followUp: 'Itkin viime yönä. Olenko oikeasti niin ruma, ettet edes kirjoita minulle hei?', voice: 'Lähetti sinulle ääniviestin' },
+    el: { name: 'Μαρία', recently: 'Μόλις τώρα', followUp: 'Έκλαψα χθες το βράδυ. Είμαι στ’ αλήθεια τόσο άσχημη που δεν μου γράφεις ούτε ένα «γεια»;', voice: 'Σου έστειλε φωνητικό μήνυμα' },
+    hr: { name: 'Marija', recently: 'Upravo sada', followUp: 'Plakala sam noćas. Zar sam stvarno toliko ružna da mi nećeš ni napisati bok?', voice: 'Poslala ti je glasovnu poruku' },
+    sl: { name: 'Marija', recently: 'Pravkar', followUp: 'Ponoči sem jokala. Sem res tako grda, da mi ne napišeš niti živjo?', voice: 'Poslala ti je glasovno sporočilo' },
+    sk: { name: 'Mária', recently: 'Práve teraz', followUp: 'V noci som plakala. Som naozaj taká škaredá, že mi nenapíšeš ani ahoj?', voice: 'Poslala ti hlasovú správu' },
+    cs: { name: 'Marie', recently: 'Právě teď', followUp: 'V noci jsem plakala. Jsem opravdu tak ošklivá, že mi nenapíšeš ani ahoj?', voice: 'Poslala ti hlasovou zprávu' },
+    hu: { name: 'Mária', recently: 'Épp most', followUp: 'Éjjel sírtam. Tényleg olyan csúnya vagyok, hogy még annyit sem írsz nekem, hogy szia?', voice: 'Hangüzenetet küldött neked' },
+    he: { name: 'מריה', recently: 'עכשיו', followUp: 'בכיתי בלילה. אני באמת כל כך מכוערת שאתה אפילו לא כותב לי היי?', voice: 'שלחה לך הודעה קולית' }
   };
 
   const normaliseLocale = (value = '') => {
