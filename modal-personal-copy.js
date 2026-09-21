@@ -393,7 +393,7 @@
         border:1px solid rgba(255,255,255,.12)!important;
         border-radius:26px!important;
         background:
-          radial-gradient(circle at 50% -12%,rgba(229,9,20,.22),transparent 34%),
+          radial-gradient(circle at 50% -12%,rgba(239,101,150,.22),transparent 34%),
           linear-gradient(155deg,#1a1a1d,#09090a 72%)!important;
         box-shadow:0 34px 110px rgba(0,0,0,.74)!important;
         overflow:hidden auto!important;
@@ -403,11 +403,11 @@
       #ageGateModal.rmc-age-gate-v3 .age-gate-icon{display:none!important}
       #ageGateModal.rmc-age-gate-v3 .age-gate-close{top:12px!important;right:12px!important;width:34px!important;height:34px!important;z-index:5!important}
       [dir="rtl"] #ageGateModal.rmc-age-gate-v3 .age-gate-close{right:auto!important;left:12px!important}
-      #ageGateModal.rmc-age-gate-v3 .age-gate-badge{padding:6px 10px!important;border-color:rgba(229,9,20,.42)!important;background:rgba(229,9,20,.12)!important;color:#ff7078!important;font-size:.67rem!important;font-weight:950!important;letter-spacing:.105em!important}
+      #ageGateModal.rmc-age-gate-v3 .age-gate-badge{padding:6px 10px!important;border-color:rgba(239,101,150,.42)!important;background:rgba(239,101,150,.12)!important;color:#ff7078!important;font-size:.67rem!important;font-weight:950!important;letter-spacing:.105em!important}
       #ageGateModal.rmc-age-gate-v3 .rmc-modal-avatar{display:flex;flex-direction:column;align-items:center;gap:7px;margin:13px auto 12px}
       #ageGateModal.rmc-age-gate-v3 .rmc-modal-avatar-photo{position:relative;width:62px;height:62px}
-      #ageGateModal.rmc-age-gate-v3 .rmc-modal-avatar-photo img{width:62px;height:62px;object-fit:cover;object-position:center 22%;border:2px solid rgba(255,255,255,.86);border-radius:50%;box-shadow:0 11px 30px rgba(0,0,0,.34),0 0 0 5px rgba(229,9,20,.10)}
-      #ageGateModal.rmc-age-gate-v3 .rmc-modal-verified{position:absolute;right:-2px;bottom:0;display:grid;width:21px;height:21px;place-items:center;border:2px solid #111;border-radius:50%;background:#e50914;color:#fff;font-size:.68rem;font-weight:1000;box-shadow:0 4px 12px rgba(229,9,20,.34)}
+      #ageGateModal.rmc-age-gate-v3 .rmc-modal-avatar-photo img{width:62px;height:62px;object-fit:cover;object-position:center 22%;border:2px solid rgba(255,255,255,.86);border-radius:50%;box-shadow:0 11px 30px rgba(0,0,0,.34),0 0 0 5px rgba(239,101,150,.10)}
+      #ageGateModal.rmc-age-gate-v3 .rmc-modal-verified{position:absolute;right:-2px;bottom:0;display:grid;width:21px;height:21px;place-items:center;border:2px solid #111;border-radius:50%;background:#ef6596;color:#fff;font-size:.68rem;font-weight:1000;box-shadow:0 4px 12px rgba(239,101,150,.34)}
       [dir="rtl"] #ageGateModal.rmc-age-gate-v3 .rmc-modal-verified{right:auto;left:-2px}
       #ageGateModal.rmc-age-gate-v3 .rmc-modal-avatar-name{color:rgba(255,255,255,.82);font-size:.72rem;font-weight:850;letter-spacing:.01em}
       #ageGateModal.rmc-age-gate-v3 .age-gate-title{max-width:430px!important;margin:0 auto 9px!important;color:#fff!important;font-size:clamp(1.28rem,4.4vw,1.72rem)!important;line-height:1.13!important;letter-spacing:-.025em!important}
@@ -416,8 +416,8 @@
       #ageGateModal.rmc-age-gate-v3 .age-gate-progress{display:block!important;margin:15px 0 14px!important}
       #ageGateModal.rmc-age-gate-v3 .age-gate-progress::before,#ageGateModal.rmc-age-gate-v3 .age-gate-progress::after{display:none!important}
       #ageGateModal.rmc-age-gate-v3 .rmc-progress-track{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:center;width:min(270px,82%);margin:0 auto 6px}
-      #ageGateModal.rmc-age-gate-v3 .rmc-progress-track::before{content:'';position:absolute;top:50%;left:25%;right:25%;height:2px;transform:translateY(-50%);background:linear-gradient(90deg,#e50914,#ff4a54);box-shadow:0 0 10px rgba(229,9,20,.22)}
-      #ageGateModal.rmc-age-gate-v3 .rmc-progress-dot{position:relative;z-index:1;display:grid;width:18px;height:18px;place-items:center;justify-self:center;border:2px solid #111;border-radius:50%;background:#e50914;color:#fff;font-size:.56rem;font-weight:1000;box-shadow:0 0 0 3px rgba(229,9,20,.13)}
+      #ageGateModal.rmc-age-gate-v3 .rmc-progress-track::before{content:'';position:absolute;top:50%;left:25%;right:25%;height:2px;transform:translateY(-50%);background:linear-gradient(90deg,#ef6596,#ff4a54);box-shadow:0 0 10px rgba(239,101,150,.22)}
+      #ageGateModal.rmc-age-gate-v3 .rmc-progress-dot{position:relative;z-index:1;display:grid;width:18px;height:18px;place-items:center;justify-self:center;border:2px solid #111;border-radius:50%;background:#ef6596;color:#fff;font-size:.56rem;font-weight:1000;box-shadow:0 0 0 3px rgba(239,101,150,.13)}
       #ageGateModal.rmc-age-gate-v3 .rmc-progress-labels{display:grid;grid-template-columns:1fr 1fr;gap:10px;color:#77777e;font-size:.63rem;font-weight:800;line-height:1.2}
       #ageGateModal.rmc-age-gate-v3 .rmc-progress-labels span:last-child{color:#bdbdc2}
       #ageGateModal.rmc-age-gate-v3 .age-gate-options{display:grid!important;grid-template-columns:1fr 1fr!important;gap:10px!important}
@@ -427,7 +427,7 @@
       [dir="rtl"] #ageGateModal.rmc-age-gate-v3 .age-option .rmc-age-arrow{transform:scaleX(-1)}
       #ageGateModal.rmc-age-gate-v3 .age-gate-secure{display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;margin:13px 0 0!important}
       #ageGateModal.rmc-age-gate-v3 .rmc-trust-icon{display:grid;width:31px;height:31px;place-items:center;border:1px solid rgba(255,255,255,.09);border-radius:10px;background:rgba(255,255,255,.035);color:#8e8e94;font-size:.78rem}
-      #ageGateModal.rmc-age-gate-v3 .rmc-trust-icon:last-child{color:#ff6b74;border-color:rgba(229,9,20,.20);background:rgba(229,9,20,.06)}
+      #ageGateModal.rmc-age-gate-v3 .rmc-trust-icon:last-child{color:#ff6b74;border-color:rgba(239,101,150,.20);background:rgba(239,101,150,.06)}
       @media(max-width:640px){
         #ageGateModal.rmc-age-gate-v3{width:calc(100vw - 14px)!important;max-height:calc(100dvh - 14px)!important;border-radius:22px!important}
         #ageGateModal.rmc-age-gate-v3 .age-gate-shell{padding:23px 14px 16px!important}
@@ -860,18 +860,18 @@
     style.id = 'rmc-prominent-countdown-styles';
     style.textContent = `
       .phone-top .expiry-pill{display:none!important}
-      .rmc-invite-countdown{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:11px;margin:0 0 9px;padding:13px 14px;border:1px solid rgba(255,61,72,.34);border-radius:16px;background:linear-gradient(135deg,rgba(229,9,20,.16),rgba(255,255,255,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 9px 24px rgba(0,0,0,.18);color:#fff;overflow:hidden}
+      .rmc-invite-countdown{position:relative;display:grid;grid-template-columns:34px minmax(0,1fr) auto;align-items:center;gap:11px;margin:0 0 9px;padding:13px 14px;border:1px solid rgba(255,61,72,.34);border-radius:16px;background:linear-gradient(135deg,rgba(239,101,150,.16),rgba(255,255,255,.025));box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 9px 24px rgba(0,0,0,.18);color:#fff;overflow:hidden}
       .rmc-invite-countdown::before{content:'';position:absolute;inset:0 auto 0 0;width:3px;background:linear-gradient(#ff4a55,#b40009)}
-      .rmc-invite-countdown-icon{display:grid;width:34px;height:34px;place-items:center;border-radius:11px;background:rgba(229,9,20,.16);font-size:1rem;box-shadow:inset 0 0 0 1px rgba(255,70,80,.16)}
+      .rmc-invite-countdown-icon{display:grid;width:34px;height:34px;place-items:center;border-radius:11px;background:rgba(239,101,150,.16);font-size:1rem;box-shadow:inset 0 0 0 1px rgba(255,70,80,.16)}
       .rmc-invite-countdown-copy{min-width:0;text-align:left}
       .rmc-invite-countdown-label{display:block;color:rgba(255,255,255,.82);font-size:.78rem;font-weight:760;line-height:1.25}
       .rmc-invite-countdown-expired{display:none;color:#fff;font-size:.88rem;font-weight:850;line-height:1.2}
       .rmc-invite-countdown-time{min-width:84px;color:#fff;font:950 1.65rem/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-variant-numeric:tabular-nums;letter-spacing:.025em;text-align:right;text-shadow:0 0 22px rgba(255,45,58,.22)}
-      .rmc-invite-countdown.is-urgent{border-color:rgba(255,72,83,.68);background:linear-gradient(135deg,rgba(229,9,20,.24),rgba(255,255,255,.03))}
+      .rmc-invite-countdown.is-urgent{border-color:rgba(255,72,83,.68);background:linear-gradient(135deg,rgba(239,101,150,.24),rgba(255,255,255,.03))}
       .rmc-invite-countdown.is-urgent .rmc-invite-countdown-time{animation:rmcCountdownPulse 1.1s ease-in-out infinite}
-      .rmc-invite-countdown-renew{display:none;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:0;border-radius:11px;background:linear-gradient(135deg,#f01b27,#b5000a);box-shadow:0 8px 20px rgba(229,9,20,.24);color:#fff;font:850 .76rem/1.1 inherit;white-space:nowrap;cursor:pointer}
+      .rmc-invite-countdown-renew{display:none;align-items:center;justify-content:center;min-height:40px;padding:8px 13px;border:0;border-radius:11px;background:linear-gradient(135deg,#f01b27,#b5000a);box-shadow:0 8px 20px rgba(239,101,150,.24);color:#fff;font:850 .76rem/1.1 inherit;white-space:nowrap;cursor:pointer}
       .rmc-invite-countdown-renew:focus-visible{outline:3px solid rgba(255,255,255,.9);outline-offset:2px}
-      .rmc-invite-countdown.is-expired{grid-template-columns:34px minmax(0,1fr) auto;border-color:rgba(255,63,75,.52);background:linear-gradient(135deg,rgba(229,9,20,.20),rgba(255,255,255,.025))}
+      .rmc-invite-countdown.is-expired{grid-template-columns:34px minmax(0,1fr) auto;border-color:rgba(255,63,75,.52);background:linear-gradient(135deg,rgba(239,101,150,.20),rgba(255,255,255,.025))}
       .rmc-invite-countdown.is-expired .rmc-invite-countdown-label,.rmc-invite-countdown.is-expired .rmc-invite-countdown-time{display:none}
       .rmc-invite-countdown.is-expired .rmc-invite-countdown-expired,.rmc-invite-countdown.is-expired .rmc-invite-countdown-renew{display:flex}
       [dir='rtl'] .rmc-invite-countdown{direction:rtl}
