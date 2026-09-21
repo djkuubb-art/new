@@ -1,5 +1,5 @@
 (() => {
-  const ANNA_IMAGE_URL = '/api/anna-image?v=20260921-maria1';
+  const ANNA_IMAGE_URL = '/pobrane%20(1).jpg?v=20260921-maria2';
   const SESSION_KEY = 'rmc_anna_voice_notice_seen_v1';
   const FIRST_DELAY_MS = 8000;
   const VISIBLE_MS = 5200;
