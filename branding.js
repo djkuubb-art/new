@@ -99,6 +99,36 @@
       inviteLabel: 'Személyes meghívás Máriától', inviteTitle: 'Mária szeretne megismerni téged.', inviteText: 'Nyisd meg a profilját, és nézd meg, vajon összeillenétek-e.', invitePreview: 'Felkeltetted a figyelmemet, ezért gondoltam, rád köszönök 😊', inviteCta: 'Mária profiljának megtekintése', inviteNote: 'Diszkrét hozzáférés csak felnőtteknek',
       modalBadge: 'Utolsó lépés', modalTitle: 'Már csak egy lépés választ el azoktól, akik ugyanazt keresik, mint te.', modalText: 'Válaszd ki a korcsoportodat, és lépj tovább a hozzád leginkább illő profilokhoz.'
     },
+    bg: {
+      name: 'Мария', timerLabel: 'Изтича след', waiting: 'Мария чака отговора ти.', message: 'Плаках през нощта. Наистина ли съм толкова грозна, че дори няма да ми напишеш „здрасти“?', phoneCta: 'Отвори съобщението на Мария', expired: 'Последен шанс',
+      inviteLabel: 'Лична покана от Мария', inviteTitle: 'Мария иска да се запознае с теб.', inviteText: 'Отвори профила ѝ и виж дали си допадате.', invitePreview: 'Направи ми впечатление и реших да ти кажа здрасти 😊', inviteCta: 'Виж профила на Мария', inviteNote: 'Дискретен достъп само за пълнолетни',
+      modalBadge: 'Последна стъпка', modalTitle: 'Само на една стъпка си от хора, които търсят същото като теб.', modalText: 'Избери възрастовата си група, за да продължиш.'
+    },
+    ro: {
+      name: 'Maria', timerLabel: 'Expiră în', waiting: 'Maria așteaptă răspunsul tău.', message: 'Am plâns azi-noapte. Sunt chiar atât de urâtă încât nici măcar nu-mi scrii „bună”?', phoneCta: 'Deschide mesajul Mariei', expired: 'Ultima șansă',
+      inviteLabel: 'Invitație personală de la Maria', inviteTitle: 'Maria ar vrea să te cunoască.', inviteText: 'Deschide-i profilul și vezi dacă v-ați potrivi.', invitePreview: 'Mi-ai atras atenția și m-am gândit să-ți spun bună 😊', inviteCta: 'Vezi profilul Mariei', inviteNote: 'Acces discret doar pentru adulți',
+      modalBadge: 'Ultimul pas', modalTitle: 'Mai ai un singur pas până la persoane care caută același lucru ca tine.', modalText: 'Alege intervalul tău de vârstă pentru a continua.'
+    },
+    et: {
+      name: 'Maria', timerLabel: 'Aegub', waiting: 'Maria ootab sinu vastust.', message: 'Nutsin öösel. Kas ma olen tõesti nii kole, et sa ei kirjuta mulle isegi „tere“?', phoneCta: 'Ava Maria sõnum', expired: 'Viimane võimalus',
+      inviteLabel: 'Isiklik kutse Marialt', inviteTitle: 'Maria tahaks sinuga tuttavaks saada.', inviteText: 'Ava tema profiil ja vaata, kas te võiks sobida.', invitePreview: 'Sa jäid mulle silma ja mõtlesin, et ütlen tere 😊', inviteCta: 'Vaata Maria profiili', inviteNote: 'Diskreetne ligipääs ainult täiskasvanutele',
+      modalBadge: 'Viimane samm', modalTitle: 'Oled vaid ühe sammu kaugusel inimestest, kes otsivad sama mis sina.', modalText: 'Jätkamiseks vali oma vanuserühm.'
+    },
+    lt: {
+      name: 'Marija', timerLabel: 'Baigsis po', waiting: 'Marija laukia tavo atsakymo.', message: 'Naktį verkiau. Ar tikrai esu tokia negraži, kad net neparašysi man „labas“?', phoneCta: 'Atidaryk Marijos žinutę', expired: 'Paskutinė galimybė',
+      inviteLabel: 'Asmeninis Marijos kvietimas', inviteTitle: 'Marija norėtų su tavimi susipažinti.', inviteText: 'Atidaryk jos profilį ir pažiūrėk, ar galėtumėte tikti vienas kitam.', invitePreview: 'Patraukei mano dėmesį, todėl nusprendžiau parašyti labas 😊', inviteCta: 'Peržiūrėti Marijos profilį', inviteNote: 'Diskretiška prieiga tik suaugusiesiems',
+      modalBadge: 'Paskutinis žingsnis', modalTitle: 'Liko vos vienas žingsnis iki žmonių, ieškančių to paties kaip tu.', modalText: 'Pasirink savo amžiaus grupę ir tęsk.'
+    },
+    lv: {
+      name: 'Marija', timerLabel: 'Beidzas pēc', waiting: 'Marija gaida tavu atbildi.', message: 'Naktī raudāju. Vai tiešām esmu tik neglīta, ka tu man pat neuzrakstīsi “sveika”?', phoneCta: 'Atver Marijas ziņu', expired: 'Pēdējā iespēja',
+      inviteLabel: 'Personīgs uzaicinājums no Marijas', inviteTitle: 'Marija vēlētos ar tevi iepazīties.', inviteText: 'Atver viņas profilu un paskaties, vai jūs varētu saderēt.', invitePreview: 'Tu piesaistīji manu uzmanību, tāpēc nolēmu pateikt sveiks 😊', inviteCta: 'Apskatīt Marijas profilu', inviteNote: 'Diskrēta piekļuve tikai pieaugušajiem',
+      modalBadge: 'Pēdējais solis', modalTitle: 'Tevi šķir tikai viens solis no cilvēkiem, kuri meklē to pašu, ko tu.', modalText: 'Izvēlies savu vecuma grupu, lai turpinātu.'
+    },
+    uk: {
+      name: 'Марія', timerLabel: 'Закінчиться через', waiting: 'Марія чекає на твою відповідь.', message: 'Я плакала вночі. Невже я настільки негарна, що ти навіть не напишеш мені «привіт»?', phoneCta: 'Відкрити повідомлення Марії', expired: 'Останній шанс',
+      inviteLabel: 'Особисте запрошення від Марії', inviteTitle: 'Марія хотіла б познайомитися з тобою.', inviteText: 'Відкрий її профіль і подивись, чи можете ви підійти одне одному.', invitePreview: 'Ти привернув мою увагу, тож я вирішила написати привіт 😊', inviteCta: 'Переглянути профіль Марії', inviteNote: 'Дискретний доступ лише для повнолітніх',
+      modalBadge: 'Останній крок', modalTitle: 'Тебе відділяє лише один крок від людей, які шукають те саме, що й ти.', modalText: 'Обери свою вікову групу, щоб продовжити.'
+    },
     he: {
       name: 'מריה', timerLabel: 'יפוג בעוד', waiting: 'מריה מחכה לתשובה שלך.', message: 'בכיתי בלילה. אני באמת כל כך מכוערת שאתה אפילו לא כותב לי היי?', phoneCta: 'פתיחת ההודעה של מריה', expired: 'הזדמנות אחרונה',
       inviteLabel: 'הזמנה אישית ממריה', inviteTitle: 'מריה הייתה רוצה להכיר אותך.', inviteText: 'פתח את הפרופיל שלה ובדוק אם אולי יש ביניכם התאמה.', invitePreview: 'משכת את תשומת הלב שלי, אז חשבתי לומר שלום 😊', inviteCta: 'צפה בפרופיל של מריה', inviteNote: 'גישה דיסקרטית למבוגרים בלבד',
