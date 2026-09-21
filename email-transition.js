@@ -102,6 +102,36 @@
           "body": "Hamarosan néhány ellenőrző kérdést fogsz látni. Válaszolj rájuk, ezután hozzáférsz az üzenetküldéshez és a fényképek megtekintéséhez.",
           "loading": "Az ellenőrző kérdések előkészítése…"
       },
+      "bg": {
+          "title": "Кратка проверка",
+          "body": "След малко ще видиш няколко въпроса за проверка. Отговори им и ще получиш достъп до изпращане на съобщения и разглеждане на снимки.",
+          "loading": "Подготвяме въпросите за проверка…"
+      },
+      "ro": {
+          "title": "Verificare rapidă",
+          "body": "În câteva clipe vei vedea câteva întrebări de verificare. Răspunde la ele, apoi vei avea acces la trimiterea mesajelor și vizualizarea fotografiilor.",
+          "loading": "Pregătim întrebările de verificare…"
+      },
+      "et": {
+          "title": "Kiire kinnitamine",
+          "body": "Hetke pärast näed mõnda kinnitusküsimust. Vasta neile ja saad juurdepääsu sõnumite saatmisele ning fotode vaatamisele.",
+          "loading": "Valmistame kinnitusküsimusi ette…"
+      },
+      "lt": {
+          "title": "Greitas patvirtinimas",
+          "body": "Netrukus pamatysi kelis patvirtinimo klausimus. Atsakyk į juos ir galėsi siųsti žinutes bei peržiūrėti nuotraukas.",
+          "loading": "Ruošiame patvirtinimo klausimus…"
+      },
+      "lv": {
+          "title": "Ātra pārbaude",
+          "body": "Pēc brīža redzēsi dažus pārbaudes jautājumus. Atbildi uz tiem, un iegūsi piekļuvi ziņu sūtīšanai un fotoattēlu apskatei.",
+          "loading": "Sagatavojam pārbaudes jautājumus…"
+      },
+      "uk": {
+          "title": "Швидка перевірка",
+          "body": "За мить ти побачиш кілька запитань для перевірки. Відповідай на них, після чого отримаєш доступ до повідомлень і перегляду фотографій.",
+          "loading": "Готуємо запитання для перевірки…"
+      },
       "he": {
           "title": "אימות קצר",
           "body": "בעוד רגע יוצגו לך כמה שאלות אימות. לאחר שתענה עליהן, תקבל גישה לשליחת הודעות ולצפייה בתמונות.",
