@@ -132,11 +132,39 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: transform .18s ease, filter .18s ease;
+  animation: rmcCtaBreath 5.2s ease-in-out 1.5s infinite;
+  will-change: transform, box-shadow;
+}
+
+.phone-cta > span:last-child {
+  display: inline-block;
+  animation: rmcCtaArrow 5.2s ease-in-out 1.5s infinite;
+  will-change: transform;
+}
+
+@keyframes rmcCtaBreath {
+  0%, 5%, 18%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 14px 32px rgba(239, 101, 150, .28), inset 0 1px 0 rgba(255, 255, 255, .16);
+  }
+  10% {
+    transform: translateY(-1px) scale(1.025);
+    box-shadow:
+      0 17px 38px rgba(239, 101, 150, .40),
+      0 0 0 7px rgba(239, 101, 150, .10),
+      inset 0 1px 0 rgba(255, 255, 255, .20);
+  }
+}
+
+@keyframes rmcCtaArrow {
+  0%, 5%, 18%, 100% { transform: translateX(0); }
+  10% { transform: translateX(4px); }
 }
 
 .phone-cta:hover {
   filter: brightness(1.07);
-  transform: translateY(-1px);
+  animation-play-state: paused;
+  transform: translateY(-1px) scale(1.015);
 }
 
 .phone-cta:active {
@@ -390,3 +418,11 @@ html[lang="hu"] .profile-preview-open-hint::before { content: "Anna profiljának
 html[lang="hu"] .phone-cta-copy::before { content: "Válasz Annának"; }
 html[lang="he"] .profile-preview-open-hint::before { content: "צפה בפרופיל של אנה"; }
 html[lang="he"] .phone-cta-copy::before { content: "השב לאנה"; }
+
+
+@media (prefers-reduced-motion: reduce) {
+  .phone-cta,
+  .phone-cta > span:last-child {
+    animation: none !important;
+  }
+}
