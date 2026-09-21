@@ -14,27 +14,27 @@
   const isAuProfileTest = pathname.startsWith('/au/') && ['natalie', 'melissa', 'rachel', 'claire'].includes(testProfile);
 
   const copy = {
-    'en-GB': { name: 'Anna', recently: 'Just now', followUp: 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice note' },
-    'en-US': { name: 'Anna', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
-    'en-SG': { name: 'Anna', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
-    de: { name: 'Anna', recently: 'Gerade eben', followUp: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …', voice: 'Hat dir eine Sprachnachricht geschickt' },
-    nl: { name: 'Anna', recently: 'Zojuist', followUp: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal nichts van je hören…', voice: 'Heeft je een spraakbericht gestuurd' },
-    fr: { name: 'Anna', recently: 'À l’instant', followUp: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…', voice: 'Vous a envoyé un message vocal' },
-    it: { name: 'Anna', recently: 'Proprio ora', followUp: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…', voice: 'Ti ha inviato un messaggio vocale' },
-    es: { name: 'Anna', recently: 'Ahora mismo', followUp: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…', voice: 'Te ha enviado un mensaje de voz' },
-    pt: { name: 'Anna', recently: 'Agora mesmo', followUp: 'Que tal encontrarmo-nos esta semana? Já começo a achar que não estás interessado, porque não me escreves…', voice: 'Enviou-te uma mensagem de voz' },
-    pl: { name: 'Anna', recently: 'Przed chwilą', followUp: 'Co powiesz na spotkanie w tym tygodniu? Chyba nie jesteś zainteresowany, bo nie piszesz…', voice: 'Wysłała Ci wiadomość głosową' },
-    sv: { name: 'Anna', recently: 'Precis nu', followUp: 'Vad säger du om att ses någon gång den här veckan? Jag börjar tro att du inte är intresserad eftersom du inte skriver…', voice: 'Har skickat ett röstmeddelande till dig' },
-    no: { name: 'Anna', recently: 'Akkurat nå', followUp: 'Hva sier du til å møtes en gang denne uka? Jeg begynner å tro at du ikke er interessert siden du ikke skriver…', voice: 'Har sendt deg en talemelding' },
-    da: { name: 'Anna', recently: 'Lige nu', followUp: 'Hvad siger du til, at vi ses en dag i denne uge? Jeg begynder at tro, at du ikke er interesseret, når du ikke skriver…', voice: 'Har sendt dig en talebesked' },
-    fi: { name: 'Anna', recently: 'Juuri nyt', followUp: 'Mitä jos nähtäisiin tällä viikolla? Alan jo ajatella, ettet ole kiinnostunut, kun et kirjoita…', voice: 'Lähetti sinulle ääniviestin' },
-    el: { name: 'Άννα', recently: 'Μόλις τώρα', followUp: 'Τι λες να βρεθούμε κάποια μέρα αυτή την εβδομάδα; Αρχίζω να πιστεύω ότι δεν ενδιαφέρεσαι, αφού δεν μου γράφεις…', voice: 'Σου έστειλε φωνητικό μήνυμα' },
-    hr: { name: 'Anna', recently: 'Upravo sada', followUp: 'Što kažeš da se vidimo ovaj tjedan? Počinjem misliti da nisi zainteresiran jer mi se uopće ne javljaš…', voice: 'Poslala ti je glasovnu poruku' },
-    sl: { name: 'Anna', recently: 'Pravkar', followUp: 'Kaj praviš, da se dobiva enkrat ta teden? Začenjam misliti, da te ne zanima, ker mi nič ne pišeš…', voice: 'Poslala ti je glasovno sporočilo' },
-    sk: { name: 'Anna', recently: 'Práve teraz', followUp: 'Čo povieš na to, keby sme sa niekedy tento týždeň stretli? Začínam si myslieť, že nemáš záujem, keď mi vôbec nepíšeš…', voice: 'Poslala ti hlasovú správu' },
-    cs: { name: 'Anna', recently: 'Právě teď', followUp: 'Co říkáš na to, že bychom se někdy tento týden potkali? Začínám si myslet, že nemáš zájem, když mi vůbec nepíšeš…', voice: 'Poslala ti hlasovou zprávu' },
-    hu: { name: 'Anna', recently: 'Épp most', followUp: 'Mit szólnál, ha találkoznánk valamikor a héten? Kezdem azt hinni, hogy nem is érdekellek, mert egyáltalán nem írsz…', voice: 'Hangüzenetet küldött neked' },
-    he: { name: 'אנה', recently: 'עכשיו', followUp: 'מה דעתך שניפגש השבוע? אני מתחילה לחשוב שאתה לא באמת בעניין, כי אתה בכלל לא כותב לי…', voice: 'שלחה לך הודעה קולית' }
+    'en-GB': { name: 'Maria', recently: 'Just now', followUp: 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice note' },
+    'en-US': { name: 'Maria', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
+    'en-SG': { name: 'Maria', recently: 'Just now', followUp: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', voice: 'Sent you a voice message' },
+    de: { name: 'Maria', recently: 'Gerade eben', followUp: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …', voice: 'Hat dir eine Sprachnachricht geschickt' },
+    nl: { name: 'Maria', recently: 'Zojuist', followUp: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal nichts van je hören…', voice: 'Heeft je een spraakbericht gestuurd' },
+    fr: { name: 'Marie', recently: 'À l’instant', followUp: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…', voice: 'Vous a envoyé un message vocal' },
+    it: { name: 'Maria', recently: 'Proprio ora', followUp: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…', voice: 'Ti ha inviato un messaggio vocale' },
+    es: { name: 'María', recently: 'Ahora mismo', followUp: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…', voice: 'Te ha enviado un mensaje de voz' },
+    pt: { name: 'Maria', recently: 'Agora mesmo', followUp: 'Que tal encontrarmo-nos esta semana? Já começo a achar que não estás interessado, porque não me escreves…', voice: 'Enviou-te uma mensagem de voz' },
+    pl: { name: 'Maria', recently: 'Przed chwilą', followUp: 'Co powiesz na spotkanie w tym tygodniu? Chyba nie jesteś zainteresowany, bo nie piszesz…', voice: 'Wysłała Ci wiadomość głosową' },
+    sv: { name: 'Maria', recently: 'Precis nu', followUp: 'Vad säger du om att ses någon gång den här veckan? Jag börjar tro att du inte är intresserad eftersom du inte skriver…', voice: 'Har skickat ett röstmeddelande till dig' },
+    no: { name: 'Maria', recently: 'Akkurat nå', followUp: 'Hva sier du til å møtes en gang denne uka? Jeg begynner å tro at du ikke er interessert siden du ikke skriver…', voice: 'Har sendt deg en talemelding' },
+    da: { name: 'Maria', recently: 'Lige nu', followUp: 'Hvad siger du til, at vi ses en dag i denne uge? Jeg begynder at tro, at du ikke er interesseret, når du ikke skriver…', voice: 'Har sendt dig en talebesked' },
+    fi: { name: 'Maria', recently: 'Juuri nyt', followUp: 'Mitä jos nähtäisiin tällä viikolla? Alan jo ajatella, ettet ole kiinnostunut, kun et kirjoita…', voice: 'Lähetti sinulle ääniviestin' },
+    el: { name: 'Μαρία', recently: 'Μόλις τώρα', followUp: 'Τι λες να βρεθούμε κάποια μέρα αυτή την εβδομάδα; Αρχίζω να πιστεύω ότι δεν ενδιαφέρεσαι, αφού δεν μου γράφεις…', voice: 'Σου έστειλε φωνητικό μήνυμα' },
+    hr: { name: 'Marija', recently: 'Upravo sada', followUp: 'Što kažeš da se vidimo ovaj tjedan? Počinjem misliti da nisi zainteresiran jer mi se uopće ne javljaš…', voice: 'Poslala ti je glasovnu poruku' },
+    sl: { name: 'Marija', recently: 'Pravkar', followUp: 'Kaj praviš, da se dobiva enkrat ta teden? Začenjam misliti, da te ne zanima, ker mi nič ne pišeš…', voice: 'Poslala ti je glasovno sporočilo' },
+    sk: { name: 'Mária', recently: 'Práve teraz', followUp: 'Čo povieš na to, keby sme sa niekedy tento týždeň stretli? Začínam si myslieť, že nemáš záujem, keď mi vôbec nepíšeš…', voice: 'Poslala ti hlasovú správu' },
+    cs: { name: 'Marie', recently: 'Právě teď', followUp: 'Co říkáš na to, že bychom se někdy tento týden potkali? Začínám si myslet, že nemáš zájem, když mi vůbec nepíšeš…', voice: 'Poslala ti hlasovou zprávu' },
+    hu: { name: 'Mária', recently: 'Épp most', followUp: 'Mit szólnál, ha találkoznánk valamikor a héten? Kezdem azt hinni, hogy nem is érdekellek, mert egyáltalán nem írsz…', voice: 'Hangüzenetet küldött neked' },
+    he: { name: 'מריה', recently: 'עכשיו', followUp: 'מה דעתך שניפגש השבוע? אני מתחילה לחשוב שאתה לא באמת בעניין, כי אתה בכלל לא כותב לי…', voice: 'שלחה לך הודעה קולית' }
   };
 
   const normaliseLocale = (value = '') => {
@@ -127,7 +127,7 @@
     notification.style.setProperty('--anna-visible-time', `${VISIBLE_MS}ms`);
     notification.innerHTML = `
       <span class="anna-notification-avatar">
-        <img src="${annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_112,h_112')}" alt="Anna" width="112" height="112" loading="lazy" decoding="async" />
+        <img src="${annaUrl('f_auto,q_auto:eco,c_fill,g_face,w_112,h_112')}" alt="Maria" width="112" height="112" loading="lazy" decoding="async" />
         <span class="anna-notification-icon" aria-hidden="true">▶</span>
       </span>
       <span class="anna-notification-copy">

@@ -360,10 +360,10 @@
 
   const readHeroProfile = () => {
     const hero = document.querySelector('.hero-invite .featured-profile');
-    const heading = parseHeading(hero?.querySelector('.profile-overlay h2')?.textContent || 'Anna, 41');
+    const heading = parseHeading(hero?.querySelector('.profile-overlay h2')?.textContent || 'Maria, 41');
     const image = hero?.querySelector(':scope > img');
     return {
-      name: heading.name || 'Anna',
+      name: heading.name || 'Maria',
       age: heading.age || '41',
       src: image?.currentSrc || image?.src || '',
       srcset: image?.srcset || ''

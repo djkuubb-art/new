@@ -9,27 +9,27 @@
   };
 
   const copy = {
-    'en-GB': { title: 'Voice note from Anna', play: 'Play Anna’s voice note', pause: 'Pause Anna’s voice note', listened: 'Listened' },
-    'en-US': { title: 'Voice note from Anna', play: 'Play Anna’s voice note', pause: 'Pause Anna’s voice note', listened: 'Listened' },
-    'en-SG': { title: 'Voice note from Anna', play: 'Play Anna’s voice note', pause: 'Pause Anna’s voice note', listened: 'Listened' },
-    de: { title: 'Sprachnachricht von Anna', play: 'Annas Sprachnachricht abspielen', pause: 'Annas Sprachnachricht pausieren', listened: 'Angehört' },
-    nl: { title: 'Spraakbericht van Anna', play: 'Anna’s spraakbericht afspelen', pause: 'Anna’s spraakbericht pauzeren', listened: 'Beluisterd' },
-    fr: { title: 'Message vocal d’Anna', play: 'Écouter le message vocal d’Anna', pause: 'Mettre le message vocal en pause', listened: 'Écouté' },
-    it: { title: 'Messaggio vocale di Anna', play: 'Ascolta il messaggio vocale di Anna', pause: 'Metti in pausa il messaggio vocale', listened: 'Ascoltato' },
-    es: { title: 'Mensaje de voz de Anna', play: 'Escuchar el mensaje de voz de Anna', pause: 'Pausar el mensaje de voz', listened: 'Escuchado' },
-    pt: { title: 'Mensagem de voz da Anna', play: 'Ouvir a mensagem de voz da Anna', pause: 'Pausar a mensagem de voz', listened: 'Ouvida' },
-    pl: { title: 'Głosówka od Anny', play: 'Odtwórz głosówkę od Anny', pause: 'Wstrzymaj głosówkę od Anny', listened: 'Odsłuchano' },
-    sv: { title: 'Röstmeddelande från Anna', play: 'Spela Annas röstmeddelande', pause: 'Pausa Annas röstmeddelande', listened: 'Avlyssnat' },
-    no: { title: 'Talemelding fra Anna', play: 'Spill av talemeldingen fra Anna', pause: 'Sett talemeldingen på pause', listened: 'Avspilt' },
-    da: { title: 'Talebesked fra Anna', play: 'Afspil talebeskeden fra Anna', pause: 'Sæt talebeskeden på pause', listened: 'Aflyttet' },
-    fi: { title: 'Ääniviesti Annalta', play: 'Toista Annan ääniviesti', pause: 'Keskeytä Annan ääniviesti', listened: 'Kuunneltu' },
-    el: { title: 'Φωνητικό μήνυμα από την Άννα', play: 'Άκουσε το φωνητικό μήνυμα της Άννας', pause: 'Παύση φωνητικού μηνύματος', listened: 'Ακούστηκε' },
-    hr: { title: 'Glasovna poruka od Anne', play: 'Poslušaj Anninu glasovnu poruku', pause: 'Pauziraj glasovnu poruku', listened: 'Poslušano' },
-    sl: { title: 'Glasovno sporočilo od Anne', play: 'Predvajaj Annino glasovno sporočilo', pause: 'Začasno ustavi glasovno sporočilo', listened: 'Poslušano' },
-    sk: { title: 'Hlasová správa od Anny', play: 'Prehrať Anninu hlasovú správu', pause: 'Pozastaviť hlasovú správu', listened: 'Vypočuté' },
-    cs: { title: 'Hlasová zpráva od Anny', play: 'Přehrát Anninu hlasovou zprávu', pause: 'Pozastavit hlasovou zprávu', listened: 'Poslechnuto' },
-    hu: { title: 'Hangüzenet Annától', play: 'Anna hangüzenetének lejátszása', pause: 'Hangüzenet szüneteltetése', listened: 'Meghallgatva' },
-    he: { title: 'הודעה קולית מאנה', play: 'השמעת ההודעה הקולית של אנה', pause: 'השהיית ההודעה הקולית', listened: 'נשמע' }
+    'en-GB': { title: 'Voice note from Maria', play: 'Play Maria’s voice note', pause: 'Pause Maria’s voice note', listened: 'Listened' },
+    'en-US': { title: 'Voice note from Maria', play: 'Play Maria’s voice note', pause: 'Pause Maria’s voice note', listened: 'Listened' },
+    'en-SG': { title: 'Voice note from Maria', play: 'Play Maria’s voice note', pause: 'Pause Maria’s voice note', listened: 'Listened' },
+    de: { title: 'Sprachnachricht von Maria', play: 'Marias Sprachnachricht abspielen', pause: 'Marias Sprachnachricht pausieren', listened: 'Angehört' },
+    nl: { title: 'Spraakbericht van Maria', play: 'Maria’s spraakbericht afspelen', pause: 'Maria’s spraakbericht pauzeren', listened: 'Beluisterd' },
+    fr: { title: 'Message vocal de Marie', play: 'Écouter le message vocal de Marie', pause: 'Mettre le message vocal en pause', listened: 'Écouté' },
+    it: { title: 'Messaggio vocale di Maria', play: 'Ascolta il messaggio vocale di Maria', pause: 'Metti in pausa il messaggio vocale', listened: 'Ascoltato' },
+    es: { title: 'Mensaje de voz de María', play: 'Escuchar el mensaje de voz de María', pause: 'Pausar el mensaje de voz', listened: 'Escuchado' },
+    pt: { title: 'Mensagem de voz da Maria', play: 'Ouvir a mensagem de voz da Maria', pause: 'Pausar a mensagem de voz', listened: 'Ouvida' },
+    pl: { title: 'Głosówka od Marii', play: 'Odtwórz głosówkę od Marii', pause: 'Wstrzymaj głosówkę od Marii', listened: 'Odsłuchano' },
+    sv: { title: 'Röstmeddelande från Maria', play: 'Spela Marias röstmeddelande', pause: 'Pausa Marias röstmeddelande', listened: 'Avlyssnat' },
+    no: { title: 'Talemelding fra Maria', play: 'Spill av talemeldingen fra Maria', pause: 'Sett talemeldingen på pause', listened: 'Avspilt' },
+    da: { title: 'Talebesked fra Maria', play: 'Afspil talebeskeden fra Maria', pause: 'Sæt talebeskeden på pause', listened: 'Aflyttet' },
+    fi: { title: 'Ääniviesti Marialta', play: 'Toista Marian ääniviesti', pause: 'Keskeytä Marian ääniviesti', listened: 'Kuunneltu' },
+    el: { title: 'Φωνητικό μήνυμα από τη Μαρία', play: 'Άκουσε το φωνητικό μήνυμα της Μαρίας', pause: 'Παύση φωνητικού μηνύματος', listened: 'Ακούστηκε' },
+    hr: { title: 'Glasovna poruka od Marije', play: 'Poslušaj Marijinu glasovnu poruku', pause: 'Pauziraj glasovnu poruku', listened: 'Poslušano' },
+    sl: { title: 'Glasovno sporočilo od Marije', play: 'Predvajaj Marijino glasovno sporočilo', pause: 'Začasno ustavi glasovno sporočilo', listened: 'Poslušano' },
+    sk: { title: 'Hlasová správa od Márie', play: 'Prehrať Máriinu hlasovú správu', pause: 'Pozastaviť hlasovú správu', listened: 'Vypočuté' },
+    cs: { title: 'Hlasová zpráva od Marie', play: 'Přehrát Mariinu hlasovou zprávu', pause: 'Pozastavit hlasovou zprávu', listened: 'Poslechnuto' },
+    hu: { title: 'Hangüzenet Máriától', play: 'Mária hangüzenetének lejátszása', pause: 'Hangüzenet szüneteltetése', listened: 'Meghallgatva' },
+    he: { title: 'הודעה קולית ממריה', play: 'השמעת ההודעה הקולית של מריה', pause: 'השהיית ההודעה הקולית', listened: 'נשמע' }
   };
 
   let activeAudio = null;

@@ -302,7 +302,7 @@ window.addEventListener('click', (event) => {
   ];
 
   const AGES = [41, 44, 42, 47, 52, 43, 49, 46, 54];
-  const FALLBACK_NAMES = ['Anna', 'Claire', 'Emma', 'Laura', 'Sophie', 'Julia', 'Maria', 'Nicole', 'Elena'];
+  const FALLBACK_NAMES = ['Maria', 'Claire', 'Emma', 'Laura', 'Sophie', 'Julia', 'Maria', 'Nicole', 'Elena'];
 
   const EXTRA_PROFILES = {
     'en-GB': [['Laura', 'Bristol'], ['Sophie', 'Leeds'], ['Julia', 'Liverpool'], ['Maria', 'Glasgow'], ['Nicole', 'Sheffield'], ['Elena', 'Nottingham']],
@@ -406,7 +406,7 @@ window.addEventListener('click', (event) => {
         setLocale(document.documentElement.lang || 'en-GB', { persist: false });
       }
 
-      const inviteName = document.querySelector('.invite-preview strong')?.textContent?.split(',')[0]?.trim() || 'Anna';
+      const inviteName = document.querySelector('.invite-preview strong')?.textContent?.split(',')[0]?.trim() || 'Maria';
       const heroHeading = document.querySelector('.featured-profile .profile-overlay h2');
       if (heroHeading) heroHeading.textContent = `${inviteName}, 41`;
     } catch (_) {}
