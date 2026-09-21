@@ -14,7 +14,7 @@ const locales = {
     footerDisclaimer: '18+ only. Profiles shown on this page are illustrative. By continuing, you may be redirected to a third-party dating service.',
     privacyTitle: 'Privacy', privacyText: 'We use essential technical data to select the right language and measure visits. The dating service you open may have its own privacy policy.',
     termsTitle: 'Terms', termsText: 'This page is intended for adults only and may contain affiliate links. Illustrative profiles do not guarantee that a specific person is available.',
-    profiles: [['Sarah', 'London'], ['Claire', 'Manchester'], ['Emma', 'Birmingham']]
+    profiles: [['Maria', 'London'], ['Claire', 'Manchester'], ['Emma', 'Birmingham']]
   },
   'en-US': {
     name: 'English (US)', dir: 'ltr', metaTitle: 'HeartMatch — Meet someone genuine',
@@ -31,7 +31,7 @@ const locales = {
     footerDisclaimer: '18+ only. Profiles shown on this page are for illustration. By continuing, you may be redirected to a third-party dating service.',
     privacyTitle: 'Privacy', privacyText: 'We use essential technical data to choose the right language and measure visits. The dating service you open may have its own privacy policy.',
     termsTitle: 'Terms', termsText: 'This page is for adults only and may contain affiliate links. Illustrative profiles do not guarantee that a specific person is available.',
-    profiles: [['Lisa', 'Chicago'], ['Rachel', 'Austin'], ['Megan', 'Tampa']]
+    profiles: [['Maria', 'Chicago'], ['Rachel', 'Austin'], ['Megan', 'Tampa']]
   },
   'en-SG': {
     name: 'English (Singapore)', dir: 'ltr', metaTitle: 'HeartMatch — Meet someone genuine in Singapore',
@@ -48,7 +48,7 @@ const locales = {
     footerDisclaimer: '18+ only. Profiles shown on this page are illustrative. By continuing, you may be redirected to a third-party dating service.',
     privacyTitle: 'Privacy', privacyText: 'We use essential technical data to select the right language and measure visits. The dating service you open may have its own privacy policy.',
     termsTitle: 'Terms', termsText: 'This page is intended for adults only and may contain affiliate links. Illustrative profiles do not guarantee that a specific person is available.',
-    profiles: [['Michelle', 'Singapore'], ['Grace', 'Tampines'], ['Elaine', 'Jurong East']]
+    profiles: [['Maria', 'Singapore'], ['Grace', 'Tampines'], ['Elaine', 'Jurong East']]
   },
   de: {
     name: 'Deutsch', dir: 'ltr', metaTitle: 'HeartMatch — Lerne jemanden kennen, der es ehrlich meint',
@@ -65,7 +65,7 @@ const locales = {
     footerDisclaimer: 'Nur ab 18 Jahren. Die gezeigten Profile dienen als Beispiele. Beim Fortfahren kannst du zu einem externen Datingdienst weitergeleitet werden.',
     privacyTitle: 'Datenschutz', privacyText: 'Wir verwenden notwendige technische Daten, um die passende Sprache auszuwählen und Besuche zu messen. Der geöffnete Datingdienst kann eigene Datenschutzregeln haben.',
     termsTitle: 'Bedingungen', termsText: 'Diese Seite ist nur für Erwachsene bestimmt und kann Affiliate-Links enthalten. Beispielprofile garantieren nicht, dass eine bestimmte Person verfügbar ist.',
-    profiles: [['Sabine', 'Berlin'], ['Claudia', 'Hamburg'], ['Katja', 'Köln']]
+    profiles: [['Maria', 'Berlin'], ['Claudia', 'Hamburg'], ['Katja', 'Köln']]
   },
   nl: {
     name: 'Nederlands', dir: 'ltr', metaTitle: 'HeartMatch — Ontmoet iemand die het oprecht meent',
@@ -82,7 +82,7 @@ const locales = {
     footerDisclaimer: 'Alleen voor 18+. De getoonde profielen zijn illustratief. Als je doorgaat, kun je worden doorgestuurd naar een externe datingsite.',
     privacyTitle: 'Privacy', privacyText: 'We gebruiken noodzakelijke technische gegevens om de juiste taal te kiezen en bezoeken te meten. De datingsite die je opent kan een eigen privacybeleid hebben.',
     termsTitle: 'Voorwaarden', termsText: 'Deze pagina is alleen bedoeld voor volwassenen en kan affiliatelinks bevatten. Voorbeeldprofielen garanderen niet dat een specifieke persoon beschikbaar is.',
-    profiles: [['Sanne', 'Amsterdam'], ['Monique', 'Rotterdam'], ['Linda', 'Utrecht']]
+    profiles: [['Maria', 'Amsterdam'], ['Monique', 'Rotterdam'], ['Linda', 'Utrecht']]
   },
   fr: {
     name: 'Français', dir: 'ltr', metaTitle: 'HeartMatch — Faites une rencontre sincère',
@@ -99,7 +99,7 @@ const locales = {
     footerDisclaimer: 'Réservé aux personnes de 18 ans et plus. Les profils affichés sont illustratifs. En continuant, vous pouvez être redirigé vers un service de rencontre tiers.',
     privacyTitle: 'Confidentialité', privacyText: 'Nous utilisons les données techniques indispensables pour choisir la bonne langue et mesurer les visites. Le service de rencontre ouvert peut appliquer sa propre politique de confidentialité.',
     termsTitle: 'Conditions', termsText: 'Cette page est réservée aux adultes et peut contenir des liens affiliés. Les profils illustratifs ne garantissent pas qu’une personne précise soit disponible.',
-    profiles: [['Nathalie', 'Paris'], ['Sophie', 'Lyon'], ['Élodie', 'Bordeaux']]
+    profiles: [['Marie', 'Paris'], ['Sophie', 'Lyon'], ['Élodie', 'Bordeaux']]
   },
   it: {
     name: 'Italiano', dir: 'ltr', metaTitle: 'HeartMatch — Conosci qualcuno che fa sul serio',
@@ -116,7 +116,7 @@ const locales = {
     footerDisclaimer: 'Solo per maggiorenni. I profili mostrati sono illustrativi. Proseguendo potresti essere reindirizzato a un servizio di incontri esterno.',
     privacyTitle: 'Privacy', privacyText: 'Utilizziamo i dati tecnici essenziali per scegliere la lingua corretta e misurare le visite. Il servizio di incontri aperto può avere una propria informativa sulla privacy.',
     termsTitle: 'Condizioni', termsText: 'Questa pagina è destinata esclusivamente agli adulti e può contenere link affiliati. I profili illustrativi non garantiscono la disponibilità di una persona specifica.',
-    profiles: [['Monica', 'Milano'], ['Laura', 'Roma'], ['Elena', 'Torino']]
+    profiles: [['Maria', 'Milano'], ['Laura', 'Roma'], ['Elena', 'Torino']]
   },
   es: {
     name: 'Español', dir: 'ltr', metaTitle: 'HeartMatch — Conoce a alguien que busca algo de verdad',
@@ -133,7 +133,7 @@ const locales = {
     footerDisclaimer: 'Solo para mayores de 18 años. Los perfiles mostrados son ilustrativos. Al continuar, puedes ser redirigido a un servicio de citas externo.',
     privacyTitle: 'Privacidad', privacyText: 'Usamos los datos técnicos imprescindibles para elegir el idioma adecuado y medir las visitas. El servicio de citas que abras puede tener su propia política de privacidad.',
     termsTitle: 'Condiciones', termsText: 'Esta página es solo para adultos y puede contener enlaces de afiliado. Los perfiles ilustrativos no garantizan que una persona concreta esté disponible.',
-    profiles: [['Marta', 'Madrid'], ['Lucía', 'Valencia'], ['Carmen', 'Sevilla']]
+    profiles: [['María', 'Madrid'], ['Lucía', 'Valencia'], ['Carmen', 'Sevilla']]
   },
   pt: {
     name: 'Português', dir: 'ltr', metaTitle: 'HeartMatch — Conheça alguém que procura algo verdadeiro',
@@ -150,7 +150,7 @@ const locales = {
     footerDisclaimer: 'Apenas para maiores de 18 anos. Os perfis apresentados são ilustrativos. Ao continuar, poderá ser redirecionado para um serviço de encontros externo.',
     privacyTitle: 'Privacidade', privacyText: 'Usamos dados técnicos essenciais para selecionar o idioma correto e medir visitas. O serviço de encontros aberto poderá ter a sua própria política de privacidade.',
     termsTitle: 'Termos', termsText: 'Esta página destina-se apenas a adultos e pode conter ligações de afiliado. Os perfis ilustrativos não garantem que uma pessoa específica esteja disponível.',
-    profiles: [['Ana', 'Lisboa'], ['Sofia', 'Porto'], ['Teresa', 'Braga']]
+    profiles: [['Maria', 'Lisboa'], ['Sofia', 'Porto'], ['Teresa', 'Braga']]
   },
   pl: {
     name: 'Polski', dir: 'ltr', metaTitle: 'HeartMatch — Poznaj kogoś, kto szuka czegoś prawdziwego',
@@ -167,7 +167,7 @@ const locales = {
     footerDisclaimer: 'Tylko dla osób pełnoletnich. Pokazane profile mają charakter ilustracyjny. Po przejściu dalej możesz zostać przekierowany do zewnętrznego serwisu randkowego.',
     privacyTitle: 'Prywatność', privacyText: 'Używamy niezbędnych danych technicznych do wyboru właściwego języka i mierzenia odwiedzin. Otwarty serwis randkowy może mieć własną politykę prywatności.',
     termsTitle: 'Warunki', termsText: 'Strona jest przeznaczona wyłącznie dla dorosłych i może zawierać linki afiliacyjne. Profile ilustracyjne nie gwarantują dostępności konkretnej osoby.',
-    profiles: [['Anna', 'Warszawa'], ['Monika', 'Kraków'], ['Katarzyna', 'Wrocław']]
+    profiles: [['Maria', 'Warszawa'], ['Monika', 'Kraków'], ['Katarzyna', 'Wrocław']]
   },
   sv: {
     name: 'Svenska', dir: 'ltr', metaTitle: 'HeartMatch — Träffa någon som menar allvar',
@@ -184,7 +184,7 @@ const locales = {
     footerDisclaimer: 'Endast för personer över 18 år. Profilerna som visas är illustrativa. När du går vidare kan du omdirigeras till en extern dejtingtjänst.',
     privacyTitle: 'Integritet', privacyText: 'Vi använder nödvändiga tekniska uppgifter för att välja rätt språk och mäta besök. Dejtingtjänsten du öppnar kan ha en egen integritetspolicy.',
     termsTitle: 'Villkor', termsText: 'Sidan är endast avsedd för vuxna och kan innehålla affiliatelänkar. Illustrativa profiler garanterar inte att en viss person är tillgänglig.',
-    profiles: [['Anna', 'Stockholm'], ['Maria', 'Göteborg'], ['Sofia', 'Malmö']]
+    profiles: [['Maria', 'Stockholm'], ['Maria', 'Göteborg'], ['Sofia', 'Malmö']]
   },
   no: {
     name: 'Norsk', dir: 'ltr', metaTitle: 'HeartMatch — Møt noen som mener alvor',
@@ -201,7 +201,7 @@ const locales = {
     footerDisclaimer: 'Kun for personer over 18 år. Profilene som vises er illustrative. Når du går videre, kan du bli sendt til en ekstern datingtjeneste.',
     privacyTitle: 'Personvern', privacyText: 'Vi bruker nødvendige tekniske data for å velge riktig språk og måle besøk. Datingtjenesten du åpner kan ha sin egen personvernerklæring.',
     termsTitle: 'Vilkår', termsText: 'Siden er kun ment for voksne og kan inneholde affiliatelenker. Illustrative profiler garanterer ikke at en bestemt person er tilgjengelig.',
-    profiles: [['Linn', 'Oslo'], ['Camilla', 'Bergen'], ['Silje', 'Trondheim']]
+    profiles: [['Maria', 'Oslo'], ['Camilla', 'Bergen'], ['Silje', 'Trondheim']]
   },
   da: {
     name: 'Dansk', dir: 'ltr', metaTitle: 'HeartMatch — Mød en, der mener det seriøst',
@@ -218,7 +218,7 @@ const locales = {
     footerDisclaimer: 'Kun for personer over 18 år. De viste profiler er illustrative. Når du fortsætter, kan du blive sendt videre til en ekstern datingtjeneste.',
     privacyTitle: 'Privatliv', privacyText: 'Vi bruger nødvendige tekniske oplysninger til at vælge det rigtige sprog og måle besøg. Datingtjenesten, du åbner, kan have sin egen privatlivspolitik.',
     termsTitle: 'Vilkår', termsText: 'Denne side er kun beregnet til voksne og kan indeholde affiliatelinks. Illustrative profiler garanterer ikke, at en bestemt person er tilgængelig.',
-    profiles: [['Sofie', 'København'], ['Maja', 'Aarhus'], ['Louise', 'Odense']]
+    profiles: [['Maria', 'København'], ['Maja', 'Aarhus'], ['Louise', 'Odense']]
   },
   fi: {
     name: 'Suomi', dir: 'ltr', metaTitle: 'HeartMatch — Tapaa joku, joka etsii aitoa yhteyttä',
@@ -235,7 +235,7 @@ const locales = {
     footerDisclaimer: 'Vain täysi-ikäisille. Sivulla näkyvät profiilit ovat esimerkinomaisia. Jatkamalla saatat siirtyä ulkopuoliseen deittipalveluun.',
     privacyTitle: 'Tietosuoja', privacyText: 'Käytämme välttämättömiä teknisiä tietoja oikean kielen valintaan ja käyntien mittaamiseen. Avautuvalla deittipalvelulla voi olla oma tietosuojakäytäntönsä.',
     termsTitle: 'Ehdot', termsText: 'Sivu on tarkoitettu vain aikuisille ja voi sisältää kumppanuuslinkkejä. Esimerkkiprofiilit eivät takaa tietyn henkilön saatavuutta.',
-    profiles: [['Sanna', 'Helsinki'], ['Minna', 'Tampere'], ['Laura', 'Turku']]
+    profiles: [['Maria', 'Helsinki'], ['Minna', 'Tampere'], ['Laura', 'Turku']]
   },
   el: {
     name: 'Ελληνικά', dir: 'ltr', metaTitle: 'HeartMatch — Γνώρισε κάποιον που θέλει κάτι αληθινό',
@@ -269,7 +269,7 @@ const locales = {
     footerDisclaimer: 'Samo za punoljetne osobe. Prikazani profili služe kao ilustracija. Nastavkom možeš biti preusmjeren na vanjsku uslugu za upoznavanje.',
     privacyTitle: 'Privatnost', privacyText: 'Koristimo nužne tehničke podatke za odabir jezika i mjerenje posjeta. Usluga za upoznavanje koju otvoriš može imati vlastitu politiku privatnosti.',
     termsTitle: 'Uvjeti', termsText: 'Stranica je namijenjena samo odraslima i može sadržavati partnerske poveznice. Ilustrativni profili ne jamče dostupnost određene osobe.',
-    profiles: [['Ivana', 'Zagreb'], ['Marina', 'Split'], ['Ana', 'Rijeka']]
+    profiles: [['Marija', 'Zagreb'], ['Marina', 'Split'], ['Ana', 'Rijeka']]
   },
   sl: {
     name: 'Slovenščina', dir: 'ltr', metaTitle: 'HeartMatch — Spoznaj nekoga, ki si želi nekaj pristnega',
@@ -286,7 +286,7 @@ const locales = {
     footerDisclaimer: 'Samo za polnoletne. Prikazani profili so ilustrativni. Z nadaljevanjem si lahko preusmerjen na zunanjo storitev za zmenke.',
     privacyTitle: 'Zasebnost', privacyText: 'Uporabljamo nujne tehnične podatke za izbiro pravega jezika in merjenje obiskov. Odprta storitev za zmenke ima lahko svojo politiko zasebnosti.',
     termsTitle: 'Pogoji', termsText: 'Stran je namenjena samo odraslim in lahko vsebuje partnerske povezave. Ilustrativni profili ne zagotavljajo razpoložljivosti določene osebe.',
-    profiles: [['Maja', 'Ljubljana'], ['Nina', 'Maribor'], ['Petra', 'Celje']]
+    profiles: [['Marija', 'Ljubljana'], ['Nina', 'Maribor'], ['Petra', 'Celje']]
   },
   sk: {
     name: 'Slovenčina', dir: 'ltr', metaTitle: 'HeartMatch — Spoznaj niekoho, kto hľadá niečo úprimné',
@@ -303,7 +303,7 @@ const locales = {
     footerDisclaimer: 'Len pre osoby staršie ako 18 rokov. Zobrazené profily sú ilustračné. Pokračovaním môžeš byť presmerovaný na externú zoznamovaciu službu.',
     privacyTitle: 'Súkromie', privacyText: 'Používame nevyhnutné technické údaje na výber správneho jazyka a meranie návštev. Otvorená zoznamovacia služba môže mať vlastné zásady ochrany súkromia.',
     termsTitle: 'Podmienky', termsText: 'Táto stránka je určená len pre dospelých a môže obsahovať partnerské odkazy. Ilustračné profily nezaručujú dostupnosť konkrétnej osoby.',
-    profiles: [['Jana', 'Bratislava'], ['Lucia', 'Košice'], ['Martina', 'Žilina']]
+    profiles: [['Mária', 'Bratislava'], ['Lucia', 'Košice'], ['Martina', 'Žilina']]
   },
   cs: {
     name: 'Čeština', dir: 'ltr', metaTitle: 'HeartMatch — Poznej někoho, kdo hledá něco opravdového',
@@ -320,7 +320,7 @@ const locales = {
     footerDisclaimer: 'Pouze pro osoby starší 18 let. Zobrazené profily jsou ilustrační. Pokračováním můžeš být přesměrován na externí seznamovací službu.',
     privacyTitle: 'Soukromí', privacyText: 'Používáme nezbytné technické údaje k výběru správného jazyka a měření návštěv. Otevřená seznamovací služba může mít vlastní zásady ochrany soukromí.',
     termsTitle: 'Podmínky', termsText: 'Tato stránka je určena jen dospělým a může obsahovat partnerské odkazy. Ilustrační profily nezaručují dostupnost konkrétní osoby.',
-    profiles: [['Jana', 'Praha'], ['Lucie', 'Brno'], ['Petra', 'Ostrava']]
+    profiles: [['Marie', 'Praha'], ['Lucie', 'Brno'], ['Petra', 'Ostrava']]
   },
   hu: {
     name: 'Magyar', dir: 'ltr', metaTitle: 'HeartMatch — Ismerj meg valakit, aki őszinte kapcsolatra vágyik',
@@ -337,7 +337,7 @@ const locales = {
     footerDisclaimer: 'Kizárólag 18 éven felülieknek. A megjelenített profilok illusztrációk. A folytatással egy külső társkereső szolgáltatásra irányíthatunk át.',
     privacyTitle: 'Adatvédelem', privacyText: 'A megfelelő nyelv kiválasztásához és a látogatások méréséhez szükséges technikai adatokat használjuk. A megnyitott társkereső saját adatvédelmi szabályzattal rendelkezhet.',
     termsTitle: 'Feltételek', termsText: 'Az oldal kizárólag felnőtteknek szól, és partnerlinkeket tartalmazhat. Az illusztrációs profilok nem garantálják egy adott személy elérhetőségét.',
-    profiles: [['Katalin', 'Budapest'], ['Andrea', 'Debrecen'], ['Eszter', 'Szeged']]
+    profiles: [['Mária', 'Budapest'], ['Andrea', 'Debrecen'], ['Eszter', 'Szeged']]
   },
   he: {
     name: 'עברית', dir: 'rtl', metaTitle: 'HeartMatch — להכיר מישהי שמחפשת קשר אמיתי',
@@ -354,7 +354,7 @@ const locales = {
     footerDisclaimer: 'לגילאי 18 ומעלה בלבד. הפרופילים המוצגים הם להמחשה. בהמשך ייתכן שתועבר לשירות היכרויות חיצוני.',
     privacyTitle: 'פרטיות', privacyText: 'אנחנו משתמשים במידע טכני חיוני כדי לבחור את השפה המתאימה ולמדוד ביקורים. לשירות ההיכרויות שייפתח עשויה להיות מדיניות פרטיות משלו.',
     termsTitle: 'תנאים', termsText: 'העמוד מיועד למבוגרים בלבד ועשוי לכלול קישורי שותפים. פרופילים להמחשה אינם מבטיחים שאדם מסוים זמין.',
-    profiles: [['יעל', 'תל אביב'], ['מיכל', 'חיפה'], ['נועה', 'ירושלים']]
+    profiles: [['מריה', 'תל אביב'], ['מיכל', 'חיפה'], ['נועה', 'ירושלים']]
   }
 };
 
