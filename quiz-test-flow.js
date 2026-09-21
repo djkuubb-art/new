@@ -242,27 +242,27 @@
 // Native main message from Anna for each supported locale.
 (() => {
   const MESSAGE = {
-    'en-GB': 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…',
-    'en-US': 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…',
-    'en-SG': 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…',
-    de: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …',
-    nl: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal niets van je horen…',
-    fr: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…',
-    it: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…',
-    es: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…',
-    pt: 'Que tal encontrarmo-nos esta semana? Já começo a achar que não estás interessado, porque não me escreves…',
-    pl: 'Co powiesz na spotkanie w tym tygodniu? Chyba nie jesteś zainteresowany, bo nie piszesz…',
-    sv: 'Vad säger du om att ses någon gång den här veckan? Jag börjar tro att du inte är intresserad eftersom du inte skriver…',
-    no: 'Hva sier du til å møtes en gang denne uka? Jeg begynner å tro at du ikke er interessert siden du ikke skriver…',
-    da: 'Hvad siger du til, at vi ses en dag i denne uge? Jeg begynder at tro, at du ikke er interesseret, når du ikke skriver…',
-    fi: 'Mitä jos nähtäisiin tällä viikolla? Alan jo ajatella, ettet ole kiinnostunut, kun et kirjoita…',
-    el: 'Τι λες να βρεθούμε κάποια μέρα αυτή την εβδομάδα; Αρχίζω να πιστεύω ότι δεν ενδιαφέρεσαι, αφού δεν μου γράφεις…',
-    hr: 'Što kažeš da se vidimo ovaj tjedan? Počinjem misliti da nisi zainteresiran jer mi se uopće ne javljaš…',
-    sl: 'Kaj praviš, da se dobiva enkrat ta teden? Začenjam misliti, da te ne zanima, ker mi nič ne pišeš…',
-    sk: 'Čo povieš na to, keby sme sa niekedy tento týždeň stretli? Začínam si myslieť, že nemáš záujem, keď mi vôbec nepíšeš…',
-    cs: 'Co říkáš na to, že bychom se někdy tento týden potkali? Začínám si myslet, že nemáš zájem, když mi vůbec nepíšeš…',
-    hu: 'Mit szólnál, ha találkoznánk valamikor a héten? Kezdem azt hinni, hogy nem is érdekellek, mert egyáltalán nem írsz…',
-    he: 'מה דעתך שניפגש השבוע? אני מתחילה לחשוב שאתה לא באמת בעניין, כי אתה בכלל לא כותב לי…'
+    'en-GB': 'I cried last night. Am I really so ugly that you won’t even say hi to me?',
+    'en-US': 'I cried last night. Am I really so ugly that you won’t even say hi to me?',
+    'en-SG': 'I cried last night. Am I really so ugly that you won’t even say hi to me?',
+    de: 'Ich habe letzte Nacht geweint. Bin ich wirklich so hässlich, dass du mir nicht mal Hallo schreibst?',
+    nl: 'Ik heb vannacht gehuild. Ben ik echt zo lelijk dat je me niet eens hallo schrijft?',
+    fr: 'J’ai pleuré cette nuit. Je suis vraiment si moche que tu ne peux même pas me dire bonjour ?',
+    it: 'Ho pianto stanotte. Sono davvero così brutta che non mi scrivi neanche ciao?',
+    es: 'Anoche lloré. ¿De verdad soy tan fea que ni siquiera me dices hola?',
+    pt: 'Chorei esta noite. Sou assim tão feia que nem sequer me dizes olá?',
+    pl: 'Płakałam w nocy. Jestem tak brzydka, że nawet nie napiszesz mi cześć?',
+    sv: 'Jag grät i natt. Är jag verkligen så ful att du inte ens skriver hej till mig?',
+    no: 'Jeg gråt i natt. Er jeg virkelig så stygg at du ikke engang skriver hei til meg?',
+    da: 'Jeg græd i nat. Er jeg virkelig så grim, at du ikke engang skriver hej til mig?',
+    fi: 'Itkin viime yönä. Olenko oikeasti niin ruma, ettet edes kirjoita minulle hei?',
+    el: 'Έκλαψα χθες το βράδυ. Είμαι στ’ αλήθεια τόσο άσχημη που δεν μου γράφεις ούτε ένα «γεια»;',
+    hr: 'Plakala sam noćas. Zar sam stvarno toliko ružna da mi nećeš ni napisati bok?',
+    sl: 'Ponoči sem jokala. Sem res tako grda, da mi ne napišeš niti živjo?',
+    sk: 'V noci som plakala. Som naozaj taká škaredá, že mi nenapíšeš ani ahoj?',
+    cs: 'V noci jsem plakala. Jsem opravdu tak ošklivá, že mi nenapíšeš ani ahoj?',
+    hu: 'Éjjel sírtam. Tényleg olyan csúnya vagyok, hogy még annyit sem írsz nekem, hogy szia?',
+    he: 'בכיתי בלילה. אני באמת כל כך מכוערת שאתה אפילו לא כותב לי היי?'
   };
 
   const normaliseLocale = (value = '') => {
