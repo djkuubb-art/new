@@ -8,99 +8,99 @@
 
   const copy = {
     'en-GB': {
-      name: 'Maria', timerLabel: 'Expires in', waiting: 'Maria is waiting for your reply.', message: 'Fancy meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', phoneCta: 'Open Maria’s message', expired: 'Last chance',
+      name: 'Maria', timerLabel: 'Expires in', waiting: 'Maria is waiting for your reply.', message: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', phoneCta: 'Open Maria’s message', expired: 'Last chance',
       inviteLabel: 'Personal invitation from Maria', inviteTitle: 'Maria would like to get to know you.', inviteText: 'Open her profile and see whether you might be a good match.', invitePreview: 'I noticed you and thought I’d say hello 😊', inviteCta: 'View Maria’s profile', inviteNote: 'Discreet access for adults only',
       modalBadge: 'Final step', modalTitle: 'You’re one step away from meeting people looking for the same thing as you.', modalText: 'Select your age range to continue to the profiles best matched to you.'
     },
     'en-US': {
-      name: 'Maria', timerLabel: 'Expires in', waiting: 'Maria is waiting for your reply.', message: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', phoneCta: 'Open Maria’s message', expired: 'Last chance',
+      name: 'Maria', timerLabel: 'Expires in', waiting: 'Maria is waiting for your reply.', message: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', phoneCta: 'Open Maria’s message', expired: 'Last chance',
       inviteLabel: 'Personal invitation from Maria', inviteTitle: 'Maria would like to get to know you.', inviteText: 'Open her profile and see if the two of you might be a good match.', invitePreview: 'You caught my attention, so I thought I’d say hi 😊', inviteCta: 'View Maria’s profile', inviteNote: 'Discreet access for adults only',
       modalBadge: 'Final step', modalTitle: 'You’re one step away from meeting people who want the same kind of connection you do.', modalText: 'Select your age range to continue to the profiles that fit you best.'
     },
     'en-SG': {
-      name: 'Maria', timerLabel: 'Expires in', waiting: 'Maria is waiting for your reply.', message: 'How about meeting up sometime this week? I’m starting to think you’re not interested since you haven’t messaged me…', phoneCta: 'Open Maria’s message', expired: 'Last chance',
+      name: 'Maria', timerLabel: 'Expires in', waiting: 'Maria is waiting for your reply.', message: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', phoneCta: 'Open Maria’s message', expired: 'Last chance',
       inviteLabel: 'Personal invitation from Maria', inviteTitle: 'Maria would like to get to know you.', inviteText: 'Open her profile and see whether the two of you might click.', invitePreview: 'You caught my attention, so I thought I’d say hello 😊', inviteCta: 'View Maria’s profile', inviteNote: 'Discreet access for adults only',
       modalBadge: 'Final step', modalTitle: 'You’re one step away from meeting people looking for the same thing as you.', modalText: 'Select your age range to continue to the profiles best suited to you.'
     },
     de: {
-      name: 'Maria', timerLabel: 'Läuft ab in', waiting: 'Maria wartet auf deine Antwort.', message: 'Wie wäre es, wenn wir uns diese Woche treffen? Ich glaube langsam, du hast kein Interesse, weil du dich gar nicht meldest …', phoneCta: 'Marias Nachricht öffnen', expired: 'Letzte Chance',
+      name: 'Maria', timerLabel: 'Läuft ab in', waiting: 'Maria wartet auf deine Antwort.', message: 'Ich habe letzte Nacht geweint. Bin ich wirklich so hässlich, dass du mir nicht mal Hallo schreibst?', phoneCta: 'Marias Nachricht öffnen', expired: 'Letzte Chance',
       inviteLabel: 'Persönliche Einladung von Maria', inviteTitle: 'Maria würde dich gern kennenlernen.', inviteText: 'Öffne ihr Profil und schau, ob ihr zueinander passen könntet.', invitePreview: 'Du bist mir aufgefallen, deshalb wollte ich einfach mal Hallo sagen 😊', inviteCta: 'Marias Profil ansehen', inviteNote: 'Diskreter Zugang nur für Erwachsene',
       modalBadge: 'Letzter Schritt', modalTitle: 'Du bist nur noch einen Schritt davon entfernt, Menschen kennenzulernen, die dasselbe suchen wie du.', modalText: 'Wähle deine Altersgruppe, um zu den Profilen zu gelangen, die am besten zu dir passen.'
     },
     nl: {
-      name: 'Maria', timerLabel: 'Verloopt over', waiting: 'Maria wacht op je antwoord.', message: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal niets van je horen…', phoneCta: 'Open Maria’s bericht', expired: 'Laatste kans',
+      name: 'Maria', timerLabel: 'Verloopt over', waiting: 'Maria wacht op je antwoord.', message: 'Ik heb vannacht gehuild. Ben ik echt zo lelijk dat je me niet eens hallo schrijft?', phoneCta: 'Open Maria’s bericht', expired: 'Laatste kans',
       inviteLabel: 'Persoonlijke uitnodiging van Maria', inviteTitle: 'Maria wil je graag leren kennen.', inviteText: 'Open haar profiel en kijk of jullie misschien bij elkaar passen.', invitePreview: 'Je viel me op, dus ik dacht: ik zeg gewoon even hallo 😊', inviteCta: 'Bekijk Maria’s profiel', inviteNote: 'Discrete toegang, alleen voor volwassenen',
       modalBadge: 'Laatste stap', modalTitle: 'Je bent nog maar één stap verwijderd van mensen die hetzelfde zoeken als jij.', modalText: 'Kies je leeftijdsgroep om door te gaan naar de profielen die het beste bij je passen.'
     },
-    fr: { name: 'Marie', timerLabel: 'Expire dans', waiting: 'Marie attend votre réponse.', message: 'Ça te dirait qu’on se voie cette semaine ? Je commence à croire que ça ne t’intéresse pas, puisque tu ne m’écris pas…', phoneCta: 'Ouvrir le message de Marie', expired: 'Dernière chance',
+    fr: { name: 'Marie', timerLabel: 'Expire dans', waiting: 'Marie attend votre réponse.', message: 'J’ai pleuré cette nuit. Je suis vraiment si moche que tu ne peux même pas me dire bonjour ?', phoneCta: 'Ouvrir le message de Marie', expired: 'Dernière chance',
       inviteLabel: 'Invitation personnelle de Marie', inviteTitle: 'Marie aimerait faire votre connaissance.', inviteText: 'Ouvrez son profil et voyez si vous pourriez bien vous entendre.', invitePreview: 'Vous avez attiré mon attention, alors j’ai eu envie de vous dire bonjour 😊', inviteCta: 'Voir le profil de Marie', inviteNote: 'Accès discret réservé aux adultes',
       modalBadge: 'Dernière étape', modalTitle: 'Vous n’êtes plus qu’à une étape de rencontrer des personnes qui recherchent la même chose que vous.', modalText: 'Choisissez votre tranche d’âge pour accéder aux profils qui vous correspondent le mieux.'
     },
     it: {
-      name: 'Maria', timerLabel: 'Scade tra', waiting: 'Maria aspetta la tua risposta.', message: 'Che ne dici di vederci questa settimana? Comincio a pensare che non ti interessi, visto che non mi scrivi…', phoneCta: 'Apri il messaggio di Maria', expired: 'Ultima occasione',
+      name: 'Maria', timerLabel: 'Scade tra', waiting: 'Maria aspetta la tua risposta.', message: 'Ho pianto stanotte. Sono davvero così brutta che non mi scrivi neanche ciao?', phoneCta: 'Apri il messaggio di Maria', expired: 'Ultima occasione',
       inviteLabel: 'Invito personale da Maria', inviteTitle: 'Maria vorrebbe conoscerti.', inviteText: 'Apri il suo profilo e scopri se potreste essere compatibili.', invitePreview: 'Mi hai incuriosita e ho pensato di salutarti 😊', inviteCta: 'Guarda il profilo di Maria', inviteNote: 'Accesso discreto riservato agli adulti',
       modalBadge: 'Ultimo passaggio', modalTitle: 'Sei a un solo passo dal conoscere persone che cercano la tua stessa cosa.', modalText: 'Scegli la tua fascia d’età per continuare verso i profili più adatti a te.'
     },
-    es: { name: 'María', timerLabel: 'Caduca en', waiting: 'María espera tu respuesta.', message: '¿Qué te parece si nos vemos esta semana? Empiezo a pensar que no te interesa, porque no me escribes…', phoneCta: 'Abrir el mensaje de María', expired: 'Última oportunidad',
+    es: { name: 'María', timerLabel: 'Caduca en', waiting: 'María espera tu respuesta.', message: 'Anoche lloré. ¿De verdad soy tan fea que ni siquiera me dices hola?', phoneCta: 'Abrir el mensaje de María', expired: 'Última oportunidad',
       inviteLabel: 'Invitación personal de María', inviteTitle: 'A María le gustaría conocerte.', inviteText: 'Abre su perfil y comprueba si podríais encajar.', invitePreview: 'Me llamaste la atención y pensé en saludarte 😊', inviteCta: 'Ver el perfil de María', inviteNote: 'Acceso discreto solo para adultos',
       modalBadge: 'Último paso', modalTitle: 'Estás a un solo paso de conocer a personas que buscan lo mismo que tú.', modalText: 'Elige tu franja de edad para continuar a los perfiles que mejor encajan contigo.'
     },
     pt: {
-      name: 'Maria', timerLabel: 'Expira em', waiting: 'A Maria está à espera da tua resposta.', message: 'Que tal encontrarmo-nos esta semana? Já começo a achar que não estás interessado, porque não me escreves…', phoneCta: 'Abrir a mensagem da Maria', expired: 'Última oportunidade',
+      name: 'Maria', timerLabel: 'Expira em', waiting: 'A Maria está à espera da tua resposta.', message: 'Chorei esta noite. Sou assim tão feia que nem sequer me dizes olá?', phoneCta: 'Abrir a mensagem da Maria', expired: 'Última oportunidade',
       inviteLabel: 'Convite pessoal da Maria', inviteTitle: 'A Maria gostava de te conhecer.', inviteText: 'Abre o perfil dela e vê se poderão combinar.', invitePreview: 'Chamaste-me a atenção e pensei em dizer olá 😊', inviteCta: 'Ver o perfil da Maria', inviteNote: 'Acesso discreto apenas para adultos',
       modalBadge: 'Último passo', modalTitle: 'Estás a apenas um passo de conhecer pessoas que procuram o mesmo que tu.', modalText: 'Escolhe a tua faixa etária para continuares para os perfis mais indicados para ti.'
     },
     pl: {
-      name: 'Maria', timerLabel: 'Wygasa za', waiting: 'Maria czeka na Twoją odpowiedź.', message: 'Co powiesz na spotkanie w tym tygodniu? Chyba nie jesteś zainteresowany, bo nie piszesz…', phoneCta: 'Otwórz wiadomość Marii', expired: 'Ostatnia szansa',
+      name: 'Maria', timerLabel: 'Wygasa za', waiting: 'Maria czeka na Twoją odpowiedź.', message: 'Płakałam w nocy. Jestem tak brzydka, że nawet nie napiszesz mi cześć?', phoneCta: 'Otwórz wiadomość Marii', expired: 'Ostatnia szansa',
       inviteLabel: 'Osobiste zaproszenie od Marii', inviteTitle: 'Maria chciałaby Cię poznać.', inviteText: 'Otwórz jej profil i sprawdź, czy możecie do siebie pasować.', invitePreview: 'Zwróciłeś moją uwagę, więc pomyślałam, że się przywitam 😊', inviteCta: 'Zobacz profil Marii', inviteNote: 'Dyskretny dostęp tylko dla dorosłych',
       modalBadge: 'Ostatni krok', modalTitle: 'Jesteś o krok od poznania osób, które chcą tego samego co Ty.', modalText: 'Wybierz swój przedział wiekowy, aby przejść do najlepiej dopasowanych profili.'
     },
     sv: {
-      name: 'Maria', timerLabel: 'Går ut om', waiting: 'Maria väntar på ditt svar.', message: 'Vad säger du om att ses någon gång den här veckan? Jag börjar tro att du inte är intresserad eftersom du inte skriver…', phoneCta: 'Öppna Marias meddelande', expired: 'Sista chansen',
+      name: 'Maria', timerLabel: 'Går ut om', waiting: 'Maria väntar på ditt svar.', message: 'Jag grät i natt. Är jag verkligen så ful att du inte ens skriver hej till mig?', phoneCta: 'Öppna Marias meddelande', expired: 'Sista chansen',
       inviteLabel: 'Personlig inbjudan från Maria', inviteTitle: 'Maria skulle gärna vilja lära känna dig.', inviteText: 'Öppna hennes profil och se om ni kanske passar ihop.', invitePreview: 'Du fångade min uppmärksamhet, så jag tänkte säga hej 😊', inviteCta: 'Visa Marias profil', inviteNote: 'Diskret åtkomst endast för vuxna',
       modalBadge: 'Sista steget', modalTitle: 'Du är bara ett steg från att träffa personer som söker samma sak som du.', modalText: 'Välj din åldersgrupp för att gå vidare till de profiler som passar dig bäst.'
     },
     no: {
-      name: 'Maria', timerLabel: 'Utløper om', waiting: 'Maria venter på svaret ditt.', message: 'Hva sier du til å møtes en gang denne uka? Jeg begynner å tro at du ikke er interessert siden du ikke skriver…', phoneCta: 'Åpne Marias melding', expired: 'Siste sjanse',
+      name: 'Maria', timerLabel: 'Utløper om', waiting: 'Maria venter på svaret ditt.', message: 'Jeg gråt i natt. Er jeg virkelig så stygg at du ikke engang skriver hei til meg?', phoneCta: 'Åpne Marias melding', expired: 'Siste sjanse',
       inviteLabel: 'Personlig invitasjon fra Maria', inviteTitle: 'Maria vil gjerne bli kjent med deg.', inviteText: 'Åpne profilen hennes og se om dere kanskje passer sammen.', invitePreview: 'Du fanget oppmerksomheten min, så jeg tenkte å si hei 😊', inviteCta: 'Se Marias profil', inviteNote: 'Diskré tilgang kun for voksne',
       modalBadge: 'Siste steg', modalTitle: 'Du er bare ett steg unna å møte personer som ser etter det samme som deg.', modalText: 'Velg aldersgruppen din for å gå videre til profilene som passer deg best.'
     },
     da: {
-      name: 'Maria', timerLabel: 'Udløber om', waiting: 'Maria venter på dit svar.', message: 'Hvad siger du til, at vi ses en dag i denne uge? Jeg begynder at tro, at du ikke er interesseret, når du ikke skriver…', phoneCta: 'Åbn Marias besked', expired: 'Sidste chance',
+      name: 'Maria', timerLabel: 'Udløber om', waiting: 'Maria venter på dit svar.', message: 'Jeg græd i nat. Er jeg virkelig så grim, at du ikke engang skriver hej til mig?', phoneCta: 'Åbn Marias besked', expired: 'Sidste chance',
       inviteLabel: 'Personlig invitation fra Maria', inviteTitle: 'Maria vil gerne lære dig at kende.', inviteText: 'Åbn hendes profil og se, om I måske passer godt sammen.', invitePreview: 'Du fangede min opmærksomhed, så jeg tænkte, jeg ville sige hej 😊', inviteCta: 'Se Marias profil', inviteNote: 'Diskret adgang kun for voksne',
       modalBadge: 'Sidste trin', modalTitle: 'Du er kun ét trin fra at møde personer, der søger det samme som dig.', modalText: 'Vælg din aldersgruppe for at fortsætte til de profiler, der passer bedst til dig.'
     },
     fi: {
-      name: 'Maria', timerLabel: 'Vanhenee', waiting: 'Maria odottaa vastaustasi.', message: 'Mitä jos nähtäisiin tällä viikolla? Alan jo ajatella, ettet ole kiinnostunut, kun et kirjoita…', phoneCta: 'Avaa Marian viesti', expired: 'Viimeinen mahdollisuus',
+      name: 'Maria', timerLabel: 'Vanhenee', waiting: 'Maria odottaa vastaustasi.', message: 'Itkin viime yönä. Olenko oikeasti niin ruma, ettet edes kirjoita minulle hei?', phoneCta: 'Avaa Marian viesti', expired: 'Viimeinen mahdollisuus',
       inviteLabel: 'Henkilökohtainen kutsu Marialta', inviteTitle: 'Maria haluaisi tutustua sinuun.', inviteText: 'Avaa hänen profiilinsa ja katso, voisitteko sopia yhteen.', invitePreview: 'Kiinnitin sinuun huomiota, joten ajattelin tulla sanomaan hei 😊', inviteCta: 'Katso Marian profiili', inviteNote: 'Huomaamaton pääsy vain aikuisille',
       modalBadge: 'Viimeinen vaihe', modalTitle: 'Olet vain yhden vaiheen päässä ihmisistä, jotka etsivät samaa kuin sinä.', modalText: 'Valitse ikäryhmäsi ja jatka sinulle parhaiten sopiviin profiileihin.'
     },
-    el: { name: 'Μαρία', timerLabel: 'Λήγει σε', waiting: 'Η Μαρία περιμένει την απάντησή σου.', message: 'Τι λες να βρεθούμε κάποια μέρα αυτή την εβδομάδα; Αρχίζω να πιστεύω ότι δεν ενδιαφέρεσαι, αφού δεν μου γράφεις…', phoneCta: 'Άνοιξε το μήνυμα της Μαρίας', expired: 'Τελευταία ευκαιρία',
+    el: { name: 'Μαρία', timerLabel: 'Λήγει σε', waiting: 'Η Μαρία περιμένει την απάντησή σου.', message: 'Έκλαψα χθες το βράδυ. Είμαι στ’ αλήθεια τόσο άσχημη που δεν μου γράφεις ούτε ένα «γεια»;', phoneCta: 'Άνοιξε το μήνυμα της Μαρίας', expired: 'Τελευταία ευκαιρία',
       inviteLabel: 'Προσωπική πρόσκληση από τη Μαρία', inviteTitle: 'Η Μαρία θα ήθελε να σε γνωρίσει.', inviteText: 'Άνοιξε το προφίλ της και δες αν θα μπορούσατε να ταιριάξετε.', invitePreview: 'Μου τράβηξες την προσοχή και σκέφτηκα να σου πω ένα γεια 😊', inviteCta: 'Δες το προφίλ της Μαρίας', inviteNote: 'Διακριτική πρόσβαση μόνο για ενήλικες',
       modalBadge: 'Τελευταίο βήμα', modalTitle: 'Είσαι μόλις ένα βήμα πριν γνωρίσεις άτομα που αναζητούν το ίδιο με εσένα.', modalText: 'Επίλεξε την ηλικιακή σου ομάδα για να συνεχίσεις στα προφίλ που σου ταιριάζουν καλύτερα.'
     },
-    hr: { name: 'Marija', timerLabel: 'Istječe za', waiting: 'Marija čeka tvoj odgovor.', message: 'Što kažeš da se vidimo ovaj tjedan? Počinjem misliti da nisi zainteresiran jer mi se uopće ne javljaš…', phoneCta: 'Otvori Marijinu poruku', expired: 'Posljednja prilika',
+    hr: { name: 'Marija', timerLabel: 'Istječe za', waiting: 'Marija čeka tvoj odgovor.', message: 'Plakala sam noćas. Zar sam stvarno toliko ružna da mi nećeš ni napisati bok?', phoneCta: 'Otvori Marijinu poruku', expired: 'Posljednja prilika',
       inviteLabel: 'Osobni poziv od Marije', inviteTitle: 'Marija bi te voljela upoznati.', inviteText: 'Otvori njezin profil i provjeri biste li mogli odgovarati jedno drugome.', invitePreview: 'Privukao si mi pažnju pa sam pomislila da ti se javim 😊', inviteCta: 'Pogledaj Marijin profil', inviteNote: 'Diskretan pristup samo za odrasle',
       modalBadge: 'Posljednji korak', modalTitle: 'Samo te jedan korak dijeli od osoba koje traže isto što i ti.', modalText: 'Odaberi svoju dobnu skupinu i nastavi do profila koji ti najbolje odgovaraju.'
     },
-    sl: { name: 'Marija', timerLabel: 'Poteče čez', waiting: 'Marija čaka na tvoj odgovor.', message: 'Kaj praviš, da se dobiva enkrat ta teden? Začenjam misliti, da te ne zanima, ker mi nič ne pišeš…', phoneCta: 'Odpri Marijino sporočilo', expired: 'Zadnja priložnost',
+    sl: { name: 'Marija', timerLabel: 'Poteče čez', waiting: 'Marija čaka na tvoj odgovor.', message: 'Ponoči sem jokala. Sem res tako grda, da mi ne napišeš niti živjo?', phoneCta: 'Odpri Marijino sporočilo', expired: 'Zadnja priložnost',
       inviteLabel: 'Osebno povabilo Marije', inviteTitle: 'Marija bi te rada spoznala.', inviteText: 'Odpri njen profil in preveri, ali bi se lahko ujela.', invitePreview: 'Pritegnil si mojo pozornost, zato sem pomislila, da te pozdravim 😊', inviteCta: 'Poglej Marijin profil', inviteNote: 'Diskreten dostop samo za odrasle',
       modalBadge: 'Zadnji korak', modalTitle: 'Le še en korak te loči od ljudi, ki iščejo isto kot ti.', modalText: 'Izberi svojo starostno skupino in nadaljuj do profilov, ki ti najbolj ustrezajo.'
     },
-    sk: { name: 'Mária', timerLabel: 'Vyprší o', waiting: 'Mária čaká na tvoju odpoveď.', message: 'Čo povieš na to, keby sme sa niekedy tento týždeň stretli? Začínam si myslieť, že nemáš záujem, keď mi vôbec nepíšeš…', phoneCta: 'Otvoriť správu od Márie', expired: 'Posledná šanca',
+    sk: { name: 'Mária', timerLabel: 'Vyprší o', waiting: 'Mária čaká na tvoju odpoveď.', message: 'V noci som plakala. Som naozaj taká škaredá, že mi nenapíšeš ani ahoj?', phoneCta: 'Otvoriť správu od Márie', expired: 'Posledná šanca',
       inviteLabel: 'Osobná pozvánka od Márie', inviteTitle: 'Mária by ťa rada spoznala.', inviteText: 'Otvor jej profil a zisti, či by ste si mohli rozumieť.', invitePreview: 'Zaujal si ma, tak som si povedala, že ťa pozdravím 😊', inviteCta: 'Pozrieť profil Márie', inviteNote: 'Diskrétny prístup len pre dospelých',
       modalBadge: 'Posledný krok', modalTitle: 'Od ľudí, ktorí hľadajú to isté ako ty, ťa delí už len jeden krok.', modalText: 'Vyber svoju vekovú skupinu a pokračuj k profilom, ktoré sa k tebe hodia najviac.'
     },
-    cs: { name: 'Marie', timerLabel: 'Vyprší za', waiting: 'Marie čeká na tvoji odpověď.', message: 'Co říkáš na to, že bychom se někdy tento týden potkali? Začínám si myslet, že nemáš zájem, když mi vůbec nepíšeš…', phoneCta: 'Otevřít zprávu od Marie', expired: 'Poslední šance',
+    cs: { name: 'Marie', timerLabel: 'Vyprší za', waiting: 'Marie čeká na tvoji odpověď.', message: 'V noci jsem plakala. Jsem opravdu tak ošklivá, že mi nenapíšeš ani ahoj?', phoneCta: 'Otevřít zprávu od Marie', expired: 'Poslední šance',
       inviteLabel: 'Osobní pozvánka od Marie', inviteTitle: 'Marie by tě ráda poznala.', inviteText: 'Otevři její profil a zjisti, jestli byste si mohli rozumět.', invitePreview: 'Zaujal jsi mě, tak jsem si řekla, že tě pozdravím 😊', inviteCta: 'Zobrazit profil Marie', inviteNote: 'Diskrétní přístup pouze pro dospělé',
       modalBadge: 'Poslední krok', modalTitle: 'Od lidí, kteří hledají totéž co ty, tě dělí už jen jeden krok.', modalText: 'Vyber svou věkovou skupinu a pokračuj k profilům, které se k tobě hodí nejlépe.'
     },
-    hu: { name: 'Mária', timerLabel: 'Lejár ennyi idő múlva', waiting: 'Mária várja a válaszodat.', message: 'Mit szólnál, ha találkoznánk valamikor a héten? Kezdem azt hinni, hogy nem is érdekellek, mert egyáltalán nem írsz…', phoneCta: 'Mária üzenetének megnyitása', expired: 'Utolsó esély',
+    hu: { name: 'Mária', timerLabel: 'Lejár ennyi idő múlva', waiting: 'Mária várja a válaszodat.', message: 'Éjjel sírtam. Tényleg olyan csúnya vagyok, hogy még annyit sem írsz nekem, hogy szia?', phoneCta: 'Mária üzenetének megnyitása', expired: 'Utolsó esély',
       inviteLabel: 'Személyes meghívás Máriától', inviteTitle: 'Mária szeretne megismerni téged.', inviteText: 'Nyisd meg a profilját, és nézd meg, vajon összeillenétek-e.', invitePreview: 'Felkeltetted a figyelmemet, ezért gondoltam, rád köszönök 😊', inviteCta: 'Mária profiljának megtekintése', inviteNote: 'Diszkrét hozzáférés csak felnőtteknek',
       modalBadge: 'Utolsó lépés', modalTitle: 'Már csak egy lépés választ el azoktól, akik ugyanazt keresik, mint te.', modalText: 'Válaszd ki a korcsoportodat, és lépj tovább a hozzád leginkább illő profilokhoz.'
     },
     he: {
-      name: 'מריה', timerLabel: 'יפוג בעוד', waiting: 'מריה מחכה לתשובה שלך.', message: 'מה דעתך שניפגש השבוע? אני מתחילה לחשוב שאתה לא באמת בעניין, כי אתה בכלל לא כותב לי…', phoneCta: 'פתיחת ההודעה של מריה', expired: 'הזדמנות אחרונה',
+      name: 'מריה', timerLabel: 'יפוג בעוד', waiting: 'מריה מחכה לתשובה שלך.', message: 'בכיתי בלילה. אני באמת כל כך מכוערת שאתה אפילו לא כותב לי היי?', phoneCta: 'פתיחת ההודעה של מריה', expired: 'הזדמנות אחרונה',
       inviteLabel: 'הזמנה אישית ממריה', inviteTitle: 'מריה הייתה רוצה להכיר אותך.', inviteText: 'פתח את הפרופיל שלה ובדוק אם אולי יש ביניכם התאמה.', invitePreview: 'משכת את תשומת הלב שלי, אז חשבתי לומר שלום 😊', inviteCta: 'צפה בפרופיל של מריה', inviteNote: 'גישה דיסקרטית למבוגרים בלבד',
       modalBadge: 'השלב האחרון', modalTitle: 'נשאר לך רק צעד אחד כדי להכיר אנשים שמחפשים את אותו הדבר כמוך.', modalText: 'בחר את קבוצת הגיל שלך כדי להמשיך לפרופילים המתאימים לך ביותר.'
     }
