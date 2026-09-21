@@ -339,6 +339,108 @@ const locales = {
     termsTitle: 'Feltételek', termsText: 'Az oldal kizárólag felnőtteknek szól, és partnerlinkeket tartalmazhat. Az illusztrációs profilok nem garantálják egy adott személy elérhetőségét.',
     profiles: [['Mária', 'Budapest'], ['Andrea', 'Debrecen'], ['Eszter', 'Szeged']]
   },
+  bg: {
+    name: 'Български', dir: 'ltr', metaTitle: 'HeartMatch — Запознай се с човек, който търси нещо истинско',
+    eyebrow: 'Хора близо до теб са онлайн в момента', heroTitle: 'Запознай се с човек, който търси същото като теб.',
+    heroText: 'Истински разговори, местни профили и без безкрайно прелистване. Виж кой би искал да те опознае още днес.',
+    heroCta: 'Покажи хора наблизо', secondaryCta: 'Разгледай профилите', trustLocal: 'Местни профили', trustPrivate: 'Лично и дискретно', trustFast: 'Старт за минута',
+    liveNow: 'Онлайн сега', online: 'Онлайн', messagePreview: 'Здравей 😊 Профилът ти привлече вниманието ми.', now: 'сега', newMatch: 'Ново съвпадение', activeToday: 'Активна днес',
+    adultsOnly: 'само за пълнолетни', languages: 'кратка проверка', quickStart: 'съобщения и снимки след проверката', profilesKicker: 'Открий',
+    profilesTitle: 'Хора, които искат да се запознаят с някого нов', profilesText: 'Подборът се адаптира към езика и местоположението ти.', viewProfile: 'Виж профила',
+    howKicker: 'Лесно и дискретно', howTitle: 'Три стъпки до истински разговор', step1Title: 'Виж местни профили', step1Text: 'Показваме профили, подходящи за твоя език и регион.',
+    step2Title: 'Избери кой те интересува', step2Text: 'Отвори профил и реши спокойно.', step3Title: 'Започни разговор', step3Text: 'Едно обикновено „здравей“ може да е началото на нещо хубаво.',
+    finalKicker: 'Някой може вече да те чака', finalTitle: 'Виж кой е наблизо днес.', finalText: 'Отнема по-малко от минута да разгледаш.', finalCta: 'Покажи местни профили',
+    stickyCta: 'Виж профили наблизо', languageLabel: 'Език', privacy: 'Поверителност', terms: 'Условия',
+    footerDisclaimer: 'Само за пълнолетни. Показаните профили са илюстративни. При продължаване може да бъдеш пренасочен към външна услуга за запознанства.',
+    privacyTitle: 'Поверителност', privacyText: 'Използваме необходимите технически данни, за да изберем правилния език и да измерваме посещенията. Отворената услуга за запознанства може да има собствена политика за поверителност.',
+    termsTitle: 'Условия', termsText: 'Страницата е само за пълнолетни и може да съдържа партньорски връзки. Илюстративните профили не гарантират наличността на конкретен човек.',
+    profiles: [['Мария', 'София'], ['Елена', 'Пловдив'], ['Десислава', 'Варна']]
+  },
+  ro: {
+    name: 'Română', dir: 'ltr', metaTitle: 'HeartMatch — Cunoaște pe cineva care caută ceva real',
+    eyebrow: 'Persoane din apropierea ta sunt online acum', heroTitle: 'Cunoaște pe cineva care caută același lucru ca tine.',
+    heroText: 'Conversații reale, profiluri locale și fără glisări nesfârșite. Vezi cine ar vrea să te cunoască mai bine chiar azi.',
+    heroCta: 'Arată persoane din apropiere', secondaryCta: 'Vezi profilurile', trustLocal: 'Profiluri locale', trustPrivate: 'Privat și discret', trustFast: 'Începi într-un minut',
+    liveNow: 'Online acum', online: 'Online', messagePreview: 'Bună 😊 Profilul tău mi-a atras atenția.', now: 'acum', newMatch: 'Potrivire nouă', activeToday: 'Activă azi',
+    adultsOnly: 'doar pentru adulți', languages: 'verificare rapidă', quickStart: 'mesaje și fotografii după verificare', profilesKicker: 'Descoperă',
+    profilesTitle: 'Persoane care ar vrea să cunoască pe cineva nou', profilesText: 'Selecția se adaptează limbii și locației tale.', viewProfile: 'Vezi profilul',
+    howKicker: 'Simplu și discret', howTitle: 'Trei pași spre o conversație reală', step1Title: 'Vezi profiluri locale', step1Text: 'Îți arătăm profiluri potrivite limbii și regiunii tale.',
+    step2Title: 'Alege persoana care te interesează', step2Text: 'Deschide profilul și hotărăște în ritmul tău.', step3Title: 'Începe conversația', step3Text: 'Un simplu „bună” poate fi începutul a ceva frumos.',
+    finalKicker: 'Poate cineva te așteaptă deja', finalTitle: 'Vezi cine este disponibil în apropierea ta azi.', finalText: 'Durează mai puțin de un minut să arunci o privire.', finalCta: 'Arată profilurile locale',
+    stickyCta: 'Vezi profiluri din apropiere', languageLabel: 'Limbă', privacy: 'Confidențialitate', terms: 'Termeni',
+    footerDisclaimer: 'Doar pentru adulți. Profilurile afișate sunt ilustrative. Continuând, poți fi redirecționat către un serviciu extern de întâlniri.',
+    privacyTitle: 'Confidențialitate', privacyText: 'Folosim date tehnice esențiale pentru a selecta limba corectă și pentru a măsura vizitele. Serviciul de întâlniri deschis poate avea propria politică de confidențialitate.',
+    termsTitle: 'Termeni', termsText: 'Pagina este destinată exclusiv adulților și poate conține linkuri de afiliere. Profilurile ilustrative nu garantează disponibilitatea unei anumite persoane.',
+    profiles: [['Maria', 'București'], ['Andreea', 'Cluj-Napoca'], ['Elena', 'Iași']]
+  },
+  et: {
+    name: 'Eesti', dir: 'ltr', metaTitle: 'HeartMatch — Tutvu kellegagi, kes otsib midagi tõelist',
+    eyebrow: 'Sinu lähedal olevad inimesed on praegu võrgus', heroTitle: 'Tutvu kellegagi, kes otsib sama mis sina.',
+    heroText: 'Päris vestlused, kohalikud profiilid ja ei mingit lõputut kerimist. Vaata, kes tahaks sinuga juba täna tuttavaks saada.',
+    heroCta: 'Näita inimesi läheduses', secondaryCta: 'Sirvi profiile', trustLocal: 'Kohalikud profiilid', trustPrivate: 'Privaatne ja diskreetne', trustFast: 'Alusta minutiga',
+    liveNow: 'Praegu võrgus', online: 'Võrgus', messagePreview: 'Tere 😊 Sinu profiil jäi mulle silma.', now: 'praegu', newMatch: 'Uus sobivus', activeToday: 'Täna aktiivne',
+    adultsOnly: 'ainult täiskasvanutele', languages: 'kiire kinnitamine', quickStart: 'sõnumid ja fotod pärast kinnitamist', profilesKicker: 'Avasta',
+    profilesTitle: 'Inimesed, kes sooviksid tutvuda kellegi uuega', profilesText: 'Valik kohandub sinu keele ja asukohaga.', viewProfile: 'Vaata profiili',
+    howKicker: 'Lihtne ja diskreetne', howTitle: 'Kolm sammu päris vestluseni', step1Title: 'Vaata kohalikke profiile', step1Text: 'Näeme sulle sinu keele ja piirkonnaga sobivaid profiile.',
+    step2Title: 'Vali, kes sind huvitab', step2Text: 'Ava profiil ja otsusta omas tempos.', step3Title: 'Alusta vestlust', step3Text: 'Lihtne „tere“ võib olla millegi hea algus.',
+    finalKicker: 'Keegi võib sind juba oodata', finalTitle: 'Vaata, kes on täna sinu lähedal saadaval.', finalText: 'Ringivaatamine võtab alla minuti.', finalCta: 'Näita kohalikke profiile',
+    stickyCta: 'Vaata profiile läheduses', languageLabel: 'Keel', privacy: 'Privaatsus', terms: 'Tingimused',
+    footerDisclaimer: 'Ainult täiskasvanutele. Näidatud profiilid on illustratiivsed. Jätkates võidakse sind suunata välisele tutvumisteenusele.',
+    privacyTitle: 'Privaatsus', privacyText: 'Kasutame vajalikke tehnilisi andmeid õige keele valimiseks ja külastuste mõõtmiseks. Avatud tutvumisteenusel võib olla oma privaatsuspoliitika.',
+    termsTitle: 'Tingimused', termsText: 'Leht on mõeldud ainult täiskasvanutele ja võib sisaldada partnerlinke. Illustratiivsed profiilid ei taga konkreetse inimese kättesaadavust.',
+    profiles: [['Maria', 'Tallinn'], ['Kadri', 'Tartu'], ['Liis', 'Pärnu']]
+  },
+  lt: {
+    name: 'Lietuvių', dir: 'ltr', metaTitle: 'HeartMatch — Susipažink su žmogumi, ieškančiu tikro ryšio',
+    eyebrow: 'Žmonės netoli tavęs dabar yra prisijungę', heroTitle: 'Susipažink su žmogumi, kuris ieško to paties kaip tu.',
+    heroText: 'Tikri pokalbiai, vietiniai profiliai ir jokio begalinio braukymo. Pažiūrėk, kas norėtų su tavimi susipažinti jau šiandien.',
+    heroCta: 'Rodyti žmones netoliese', secondaryCta: 'Peržiūrėti profilius', trustLocal: 'Vietiniai profiliai', trustPrivate: 'Privačiai ir diskretiškai', trustFast: 'Pradėk per minutę',
+    liveNow: 'Dabar prisijungusi', online: 'Prisijungusi', messagePreview: 'Labas 😊 Tavo profilis patraukė mano dėmesį.', now: 'dabar', newMatch: 'Naujas sutapimas', activeToday: 'Aktyvi šiandien',
+    adultsOnly: 'tik suaugusiesiems', languages: 'greitas patvirtinimas', quickStart: 'žinutės ir nuotraukos po patvirtinimo', profilesKicker: 'Atrask',
+    profilesTitle: 'Žmonės, norintys susipažinti su kuo nors nauju', profilesText: 'Atranka pritaikoma pagal tavo kalbą ir vietovę.', viewProfile: 'Peržiūrėti profilį',
+    howKicker: 'Paprasta ir diskretiška', howTitle: 'Trys žingsniai iki tikro pokalbio', step1Title: 'Peržiūrėk vietinius profilius', step1Text: 'Rodome profilius, atitinkančius tavo kalbą ir regioną.',
+    step2Title: 'Pasirink, kas tave domina', step2Text: 'Atidaryk profilį ir nuspręsk neskubėdamas.', step3Title: 'Pradėk pokalbį', step3Text: 'Paprastas „labas“ gali būti kažko gero pradžia.',
+    finalKicker: 'Galbūt kažkas jau tavęs laukia', finalTitle: 'Pažiūrėk, kas šiandien yra netoliese.', finalText: 'Apsižvalgyti užtruks mažiau nei minutę.', finalCta: 'Rodyti vietinius profilius',
+    stickyCta: 'Žiūrėti profilius netoliese', languageLabel: 'Kalba', privacy: 'Privatumas', terms: 'Sąlygos',
+    footerDisclaimer: 'Tik suaugusiesiems. Rodomi profiliai yra iliustraciniai. Tęsiant gali būti nukreipta į išorinę pažinčių paslaugą.',
+    privacyTitle: 'Privatumas', privacyText: 'Naudojame būtinus techninius duomenis tinkamai kalbai parinkti ir apsilankymams matuoti. Atidaryta pažinčių paslauga gali turėti savo privatumo politiką.',
+    termsTitle: 'Sąlygos', termsText: 'Puslapis skirtas tik suaugusiesiems ir gali turėti partnerių nuorodų. Iliustraciniai profiliai negarantuoja konkretaus žmogaus prieinamumo.',
+    profiles: [['Marija', 'Vilnius'], ['Ieva', 'Kaunas'], ['Rūta', 'Klaipėda']]
+  },
+  lv: {
+    name: 'Latviešu', dir: 'ltr', metaTitle: 'HeartMatch — Iepazīsti kādu, kurš meklē īstu saikni',
+    eyebrow: 'Cilvēki tavā tuvumā šobrīd ir tiešsaistē', heroTitle: 'Iepazīsti kādu, kurš meklē to pašu, ko tu.',
+    heroText: 'Īstas sarunas, vietējie profili un nekādas bezgalīgas vilkšanas. Apskati, kura vēlētos tevi iepazīt jau šodien.',
+    heroCta: 'Rādīt cilvēkus tuvumā', secondaryCta: 'Apskatīt profilus', trustLocal: 'Vietējie profili', trustPrivate: 'Privāti un diskrēti', trustFast: 'Sāc minūtes laikā',
+    liveNow: 'Tiešsaistē tagad', online: 'Tiešsaistē', messagePreview: 'Sveiks 😊 Tavs profils piesaistīja manu uzmanību.', now: 'tagad', newMatch: 'Jauna saderība', activeToday: 'Aktīva šodien',
+    adultsOnly: 'tikai pieaugušajiem', languages: 'ātra pārbaude', quickStart: 'ziņas un foto pēc pārbaudes', profilesKicker: 'Atklāj',
+    profilesTitle: 'Cilvēki, kuri vēlētos iepazīt kādu jaunu', profilesText: 'Atlase pielāgojas tavai valodai un atrašanās vietai.', viewProfile: 'Apskatīt profilu',
+    howKicker: 'Vienkārši un diskrēti', howTitle: 'Trīs soļi līdz īstai sarunai', step1Title: 'Apskati vietējos profilus', step1Text: 'Rādām profilus, kas atbilst tavai valodai un reģionam.',
+    step2Title: 'Izvēlies, kura tevi interesē', step2Text: 'Atver profilu un izlem savā tempā.', step3Title: 'Sāc sarunu', step3Text: 'Vienkāršs „sveiks“ var būt sākums kam labam.',
+    finalKicker: 'Iespējams, kāda jau tevi gaida', finalTitle: 'Apskati, kas šodien ir tavā tuvumā.', finalText: 'Apskate aizņem mazāk nekā minūti.', finalCta: 'Rādīt vietējos profilus',
+    stickyCta: 'Apskatīt profilus tuvumā', languageLabel: 'Valoda', privacy: 'Privātums', terms: 'Noteikumi',
+    footerDisclaimer: 'Tikai pieaugušajiem. Parādītie profili ir ilustratīvi. Turpinot, vari tikt novirzīts uz ārēju iepazīšanās pakalpojumu.',
+    privacyTitle: 'Privātums', privacyText: 'Izmantojam nepieciešamos tehniskos datus, lai izvēlētos pareizo valodu un mērītu apmeklējumus. Atvērtajam iepazīšanās pakalpojumam var būt sava privātuma politika.',
+    termsTitle: 'Noteikumi', termsText: 'Lapa paredzēta tikai pieaugušajiem un var saturēt partneru saites. Ilustratīvie profili negarantē konkrētas personas pieejamību.',
+    profiles: [['Marija', 'Rīga'], ['Anna', 'Daugavpils'], ['Laura', 'Liepāja']]
+  },
+  uk: {
+    name: 'Українська', dir: 'ltr', metaTitle: 'HeartMatch — Познайомся з людиною, яка шукає справжнього',
+    eyebrow: 'Люди поблизу тебе зараз онлайн', heroTitle: 'Познайомся з людиною, яка шукає того самого, що й ти.',
+    heroText: 'Справжні розмови, місцеві профілі та жодного нескінченного гортання. Подивись, хто хотів би познайомитися з тобою вже сьогодні.',
+    heroCta: 'Показати людей поблизу', secondaryCta: 'Переглянути профілі', trustLocal: 'Місцеві профілі', trustPrivate: 'Приватно й непомітно', trustFast: 'Старт за хвилину',
+    liveNow: 'Зараз онлайн', online: 'Онлайн', messagePreview: 'Привіт 😊 Твій профіль привернув мою увагу.', now: 'зараз', newMatch: 'Нова симпатія', activeToday: 'Активна сьогодні',
+    adultsOnly: 'лише для повнолітніх', languages: 'швидка перевірка', quickStart: 'повідомлення й фото після перевірки', profilesKicker: 'Відкрий',
+    profilesTitle: 'Люди, які хотіли б познайомитися з кимось новим', profilesText: 'Добірка адаптується до твоєї мови та місцезнаходження.', viewProfile: 'Переглянути профіль',
+    howKicker: 'Просто й непомітно', howTitle: 'Три кроки до справжньої розмови', step1Title: 'Переглянь місцеві профілі', step1Text: 'Ми показуємо профілі, що відповідають твоїй мові та регіону.',
+    step2Title: 'Обери, хто тебе цікавить', step2Text: 'Відкрий профіль і вирішуй без поспіху.', step3Title: 'Почни розмову', step3Text: 'Звичайне «привіт» може стати початком чогось хорошого.',
+    finalKicker: 'Можливо, хтось уже чекає на тебе', finalTitle: 'Подивись, хто сьогодні поруч із тобою.', finalText: 'Перегляд займе менше хвилини.', finalCta: 'Показати місцеві профілі',
+    stickyCta: 'Переглянути профілі поруч', languageLabel: 'Мова', privacy: 'Конфіденційність', terms: 'Умови',
+    footerDisclaimer: 'Лише для повнолітніх. Показані профілі мають ілюстративний характер. Після продовження тебе може бути перенаправлено на зовнішній сервіс знайомств.',
+    privacyTitle: 'Конфіденційність', privacyText: 'Ми використовуємо необхідні технічні дані, щоб вибрати правильну мову та вимірювати відвідування. Відкритий сервіс знайомств може мати власну політику конфіденційності.',
+    termsTitle: 'Умови', termsText: 'Сторінка призначена лише для повнолітніх і може містити партнерські посилання. Ілюстративні профілі не гарантують доступність конкретної людини.',
+    profiles: [['Марія', 'Київ'], ['Олена', 'Львів'], ['Наталія', 'Одеса']]
+  },
   he: {
     name: 'עברית', dir: 'rtl', metaTitle: 'HeartMatch — להכיר מישהי שמחפשת קשר אמיתי',
     eyebrow: 'נשים מהאזור שלך מחוברות עכשיו', heroTitle: 'להכיר מישהי שמחפשת את אותו הדבר כמוך.',
@@ -364,14 +466,14 @@ const countryLocaleMap = {
   DE: 'de', AT: 'de', CH: 'de', NL: 'nl', BE: 'nl',
   FR: 'fr', IT: 'it', ES: 'es', PT: 'pt', PL: 'pl',
   SE: 'sv', NO: 'no', DK: 'da', FI: 'fi', GR: 'el', CY: 'el',
-  HR: 'hr', SI: 'sl', SK: 'sk', CZ: 'cs', HU: 'hu', IL: 'he'
+  HR: 'hr', SI: 'sl', SK: 'sk', CZ: 'cs', HU: 'hu', BG: 'bg', RO: 'ro', EE: 'et', LT: 'lt', LV: 'lv', UA: 'uk', IL: 'he'
 };
 
 const languageAliasMap = {
   en: 'en-GB', 'en-gb': 'en-GB', 'en-us': 'en-US', 'en-sg': 'en-SG',
   de: 'de', nl: 'nl', fr: 'fr', it: 'it', es: 'es', pt: 'pt', pl: 'pl',
   sv: 'sv', no: 'no', nb: 'no', nn: 'no', da: 'da', fi: 'fi', el: 'el',
-  hr: 'hr', sl: 'sl', sk: 'sk', cs: 'cs', hu: 'hu', he: 'he', iw: 'he'
+  hr: 'hr', sl: 'sl', sk: 'sk', cs: 'cs', hu: 'hu', bg: 'bg', ro: 'ro', et: 'et', lt: 'lt', lv: 'lv', uk: 'uk', ua: 'uk', he: 'he', iw: 'he'
 };
 
 const select = document.getElementById('languageSelect');
