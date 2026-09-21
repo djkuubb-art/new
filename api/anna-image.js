@@ -7,6 +7,6 @@ module.exports = function handler(req, res) {
   res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
   res.setHeader('CDN-Cache-Control', 'public, s-maxage=31536000, stale-while-revalidate=86400');
   res.setHeader('Vercel-CDN-Cache-Control', 'public, s-maxage=31536000, stale-while-revalidate=86400');
-  res.setHeader('Location', '/anna.jpg?v=20260902-1');
+  res.setHeader('Location', '/pobrane%20(1).jpg?v=20260921-maria1');
   return res.status(302).end();
 };
