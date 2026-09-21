@@ -8,6 +8,8 @@
     hu: '/audio/hu.mp3', he: '/audio/he.mp3'
   };
 
+  const NO_VOICE_LOCALES = new Set(['bg', 'ro', 'et', 'lt', 'lv', 'uk']);
+
   const copy = {
     'en-GB': { title: 'Voice note from Maria', play: 'Play Maria’s voice note', pause: 'Pause Maria’s voice note', listened: 'Listened' },
     'en-US': { title: 'Voice note from Maria', play: 'Play Maria’s voice note', pause: 'Pause Maria’s voice note', listened: 'Listened' },
@@ -43,6 +45,7 @@
     if (raw.startsWith('en-sg')) return 'en-SG';
     if (raw.startsWith('en')) return 'en-GB';
     const short = raw.split('-')[0];
+    if (NO_VOICE_LOCALES.has(short)) return short;
     return copy[short] ? short : 'en-GB';
   };
 
@@ -102,6 +105,15 @@
     if (!featured) return false;
 
     featured.closest('.phone-card')?.querySelector('.anna-voice-panel')?.remove();
+
+    if (NO_VOICE_LOCALES.has(getLocale())) {
+      if (activeAudio) activeAudio.pause();
+      featured.querySelector('.voice-pill')?.remove();
+      activeAudio = null;
+      activePill = null;
+      hasCompleted = false;
+      return true;
+    }
 
     const existing = featured.querySelector('.voice-pill');
     if (existing) {
@@ -220,7 +232,14 @@
 
     document.addEventListener('click', openFromNotification, true);
     document.getElementById('languageSelect')?.addEventListener('change', () => {
-      window.setTimeout(resetPlayer, 0);
+      window.setTimeout(() => {
+        if (NO_VOICE_LOCALES.has(getLocale())) {
+          installPlayer();
+          return;
+        }
+        if (!activePill) installPlayer();
+        else resetPlayer();
+      }, 0);
     });
   };
 
