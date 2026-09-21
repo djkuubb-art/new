@@ -20,6 +20,12 @@
     sk: 'Odpíš Márii',
     cs: 'Odepiš Marii',
     hu: 'Válaszolj Máriának',
+    bg: 'Отговори на Мария',
+    ro: 'Răspunde-i Mariei',
+    et: 'Vasta Mariale',
+    lt: 'Atsakyk Marijai',
+    lv: 'Atbildi Marijai',
+    uk: 'Відповісти Марії',
     he: 'השב למריה'
   };
 
