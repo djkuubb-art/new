@@ -166,6 +166,36 @@
     he: { comment: 'הגבת לפוסט של מריה בפייסבוק. היא מחכה לתשובה שלך.', facebook: 'ראית את מריה בפייסבוק. היא מחכה לתשובה שלך.' }
   };
 
+  const directContextCopy = {
+    'en-GB': 'Maria is waiting for your reply.',
+    'en-US': 'Maria is waiting for your reply.',
+    'en-SG': 'Maria is waiting for your reply.',
+    de: 'Maria wartet auf deine Antwort.',
+    nl: 'Maria wacht op je antwoord.',
+    fr: 'Marie attend votre réponse.',
+    it: 'Maria sta aspettando la tua risposta.',
+    es: 'María está esperando tu respuesta.',
+    pt: 'A Maria está à espera da tua resposta.',
+    pl: 'Maria czeka na Twoją odpowiedź.',
+    sv: 'Maria väntar på ditt svar.',
+    no: 'Maria venter på svaret ditt.',
+    da: 'Maria venter på dit svar.',
+    fi: 'Maria odottaa vastaustasi.',
+    el: 'Η Μαρία περιμένει την απάντησή σου.',
+    hr: 'Marija čeka tvoj odgovor.',
+    sl: 'Marija čaka na tvoj odgovor.',
+    sk: 'Mária čaká na tvoju odpoveď.',
+    cs: 'Marie čeká na tvoji odpověď.',
+    hu: 'Mária várja a válaszodat.',
+    bg: 'Мария чака отговора ти.',
+    ro: 'Maria așteaptă răspunsul tău.',
+    et: 'Maria ootab sinu vastust.',
+    lt: 'Marija laukia tavo atsakymo.',
+    lv: 'Marija gaida tavu atbildi.',
+    uk: 'Марія чекає на твою відповідь.',
+    he: 'מריה מחכה לתשובה שלך.'
+  };
+
   const normaliseLocale = (value = '') => {
     if (copy[value]) return value;
     const raw = String(value).toLowerCase();
@@ -196,7 +226,7 @@
     ).toLowerCase();
 
     if (explicit === 'comment' || params.get('comment') === '1') return 'comment';
-    if (['post', 'reel', 'story', 'facebook', 'fb'].includes(explicit)) return 'facebook';
+    if (['post', 'reel', 'story', 'facebook', 'fb'].includes(explicit) || params.has('fbclid')) return 'facebook';
 
     try {
       const ref = String(document.referrer || '').toLowerCase();
@@ -208,15 +238,7 @@
 
   const syncFacebookContext = (phone, cta) => {
     let strip = phone.querySelector('.fb-context-strip');
-    const type = getFacebookContextType();
-
-    if (!type) {
-      strip?.remove();
-      return;
-    }
-
     const locale = getLocale();
-    const text = facebookContextCopy[locale] || facebookContextCopy['en-GB'];
 
     if (!strip) {
       strip = document.createElement('div');
@@ -225,8 +247,9 @@
       cta.insertAdjacentElement('beforebegin', strip);
     }
 
-    strip.dataset.context = type;
-    strip.querySelector('.fb-context-copy').textContent = text[type] || text.facebook;
+    strip.dataset.context = 'reply';
+    strip.querySelector('.fb-context-copy').textContent =
+      directContextCopy[locale] || directContextCopy['en-GB'];
   };
 
   const injectStyles = () => {
