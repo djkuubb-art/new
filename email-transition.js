@@ -135,12 +135,12 @@
       .rmc-email-transition{position:fixed;inset:0;z-index:2147483600;display:grid;place-items:center;padding:22px;background:rgba(3,3,4,.88);backdrop-filter:blur(9px);opacity:0;pointer-events:none;transition:opacity .16s ease}
       .rmc-email-transition.is-visible{opacity:1;pointer-events:auto}
       .rmc-email-card{width:min(430px,100%);padding:28px 24px 22px;border:1px solid rgba(255,255,255,.13);border-radius:24px;background:linear-gradient(155deg,#1b1b1e,#09090a 75%);color:#fff;text-align:center;box-shadow:0 30px 90px rgba(0,0,0,.64)}
-      .rmc-email-icon{display:grid;width:62px;height:62px;margin:0 auto 15px;place-items:center;border-radius:19px;background:linear-gradient(145deg,#ef1722,#a70008);font-size:1.7rem;box-shadow:0 14px 34px rgba(229,9,20,.28)}
+      .rmc-email-icon{display:grid;width:62px;height:62px;margin:0 auto 15px;place-items:center;border-radius:19px;background:linear-gradient(145deg,#ef1722,#a70008);font-size:1.7rem;box-shadow:0 14px 34px rgba(239,101,150,.28)}
       .rmc-email-title{margin:0 auto 10px;max-width:360px;font-size:clamp(1.35rem,5vw,1.72rem);line-height:1.16;letter-spacing:-.02em}
       .rmc-email-body{margin:0 auto;max-width:360px;color:#c3c3c7;font-size:.96rem;line-height:1.55}
       .rmc-email-status{margin:19px 0 9px;color:#8c8c92;font-size:.78rem;font-weight:700}
       .rmc-email-progress{height:4px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.09)}
-      .rmc-email-progress::after{content:'';display:block;width:100%;height:100%;border-radius:inherit;background:#e50914;transform:scaleX(0);transform-origin:left;animation:rmcEmailProgress ${REDIRECT_DELAY_MS}ms linear forwards}
+      .rmc-email-progress::after{content:'';display:block;width:100%;height:100%;border-radius:inherit;background:#ef6596;transform:scaleX(0);transform-origin:left;animation:rmcEmailProgress ${REDIRECT_DELAY_MS}ms linear forwards}
       [dir='rtl'] .rmc-email-progress::after{transform-origin:right}
       @keyframes rmcEmailProgress{to{transform:scaleX(1)}}
       @media(max-width:520px){.rmc-email-transition{padding:16px}.rmc-email-card{padding:25px 19px 20px;border-radius:21px}.rmc-email-body{font-size:.91rem}}
