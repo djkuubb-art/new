@@ -18,7 +18,7 @@
     'en-US': { name: 'Maria', recently: 'Just now', followUp: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', voice: 'Sent you a voice message' },
     'en-SG': { name: 'Maria', recently: 'Just now', followUp: 'I cried last night. Am I really so ugly that you won’t even say hi to me?', voice: 'Sent you a voice message' },
     de: { name: 'Maria', recently: 'Gerade eben', followUp: 'Ich habe letzte Nacht geweint. Bin ich wirklich so hässlich, dass du mir nicht mal Hallo schreibst?', voice: 'Hat dir eine Sprachnachricht geschickt' },
-    nl: { name: 'Maria', recently: 'Zojuist', followUp: 'Zullen we deze week afspreken? Ik begin te denken dat je niet geïnteresseerd bent, want je laat helemaal nichts van je hören…', voice: 'Heeft je een spraakbericht gestuurd' },
+    nl: { name: 'Maria', recently: 'Zojuist', followUp: 'Ik heb vannacht gehuild. Ben ik echt zo lelijk dat je me niet eens hoi schrijft?', voice: 'Heeft je een spraakbericht gestuurd' },
     fr: { name: 'Marie', recently: 'À l’instant', followUp: 'J’ai pleuré cette nuit. Je suis vraiment si moche que tu ne peux même pas me dire bonjour ?', voice: 'Vous a envoyé un message vocal' },
     it: { name: 'Maria', recently: 'Proprio ora', followUp: 'Ho pianto stanotte. Sono davvero così brutta che non mi scrivi neanche ciao?', voice: 'Ti ha inviato un messaggio vocale' },
     es: { name: 'María', recently: 'Ahora mismo', followUp: 'Anoche lloré. ¿De verdad soy tan fea que ni siquiera me dices hola?', voice: 'Te ha enviado un mensaje de voz' },
