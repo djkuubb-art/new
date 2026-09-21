@@ -9,15 +9,17 @@
     gr: 'el', cy: 'el', hr: 'hr', si: 'sl', sk: 'sk', cz: 'cs', hu: 'hu', bg: 'bg', ro: 'ro', ee: 'et', lt: 'lt', lv: 'lv', ua: 'uk', il: 'he'
   };
 
-  const VALID_SOURCES = new Set(['post', 'reel', 'story']);
+  const VALID_SOURCES = new Set(['post', 'reel', 'story', 'comment']);
   const AU_TEST_PROFILES = new Set(['natalie', 'melissa', 'rachel', 'claire']);
   const parts = location.pathname.toLowerCase().split('/').filter(Boolean);
   const market = parts[0] || '';
   const locale = MARKET_LOCALE[market];
   if (!locale) return;
 
-  const source = VALID_SOURCES.has(parts[1]) ? parts[1] : 'direct';
-  const profileKey = new URLSearchParams(location.search).get('p')?.toLowerCase() || '';
+  const params = new URLSearchParams(location.search);
+  const querySource = String(params.get('source') || params.get('src') || params.get('from') || '').toLowerCase();
+  const source = VALID_SOURCES.has(parts[1]) ? parts[1] : (VALID_SOURCES.has(querySource) ? querySource : 'direct');
+  const profileKey = params.get('p')?.toLowerCase() || '';
 
   window.__rmcMarketContext = Object.freeze({ market, locale, source });
   document.documentElement.dataset.market = market;
