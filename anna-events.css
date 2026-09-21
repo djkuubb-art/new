@@ -37,7 +37,7 @@
   bottom: 0;
   left: 0;
   height: 3px;
-  background: linear-gradient(90deg, #f32250, #9f2cff);
+  background: linear-gradient(90deg, #ef6596, #9f2cff);
   transform: scaleX(0);
   transform-origin: left;
 }
@@ -53,7 +53,7 @@
 
 .anna-notification:hover,
 .anna-notification:focus-visible {
-  border-color: rgba(243, 34, 75, .62);
+  border-color: rgba(239, 101, 150, .62);
   outline: none;
 }
 
