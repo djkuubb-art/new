@@ -17,8 +17,8 @@
     el: 'Απάντησε στη Μαρία',
     hr: 'Odgovori Mariji',
     sl: 'Odgovori Mariji',
-    sk: 'Odpíš Anne',
-    cs: 'Odepiš Anně',
+    sk: 'Odpíš Márii',
+    cs: 'Odepiš Marii',
     hu: 'Válaszolj Annának',
     he: 'השב למריה'
   };
