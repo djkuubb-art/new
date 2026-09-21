@@ -136,6 +136,36 @@
     }
   };
 
+  const facebookContextCopy = {
+    'en-GB': { comment: 'You commented on Maria’s Facebook post. She’s waiting for your reply.', facebook: 'You saw Maria on Facebook. She’s waiting for your reply.' },
+    'en-US': { comment: 'You commented on Maria’s Facebook post. She’s waiting for your reply.', facebook: 'You saw Maria on Facebook. She’s waiting for your reply.' },
+    'en-SG': { comment: 'You commented on Maria’s Facebook post. She’s waiting for your reply.', facebook: 'You saw Maria on Facebook. She’s waiting for your reply.' },
+    de: { comment: 'Du hast Marias Beitrag auf Facebook kommentiert. Sie wartet auf deine Antwort.', facebook: 'Du hast Maria auf Facebook gesehen. Sie wartet auf deine Antwort.' },
+    nl: { comment: 'Je hebt gereageerd op Maria’s bericht op Facebook. Ze wacht op je antwoord.', facebook: 'Je zag Maria op Facebook. Ze wacht op je antwoord.' },
+    fr: { comment: 'Vous avez commenté la publication de Marie sur Facebook. Elle attend votre réponse.', facebook: 'Vous avez vu Marie sur Facebook. Elle attend votre réponse.' },
+    it: { comment: 'Hai commentato il post di Maria su Facebook. Sta aspettando la tua risposta.', facebook: 'Hai visto Maria su Facebook. Sta aspettando la tua risposta.' },
+    es: { comment: 'Comentaste la publicación de María en Facebook. Está esperando tu respuesta.', facebook: 'Viste a María en Facebook. Está esperando tu respuesta.' },
+    pt: { comment: 'Comentaste a publicação da Maria no Facebook. Ela está à espera da tua resposta.', facebook: 'Viste a Maria no Facebook. Ela está à espera da tua resposta.' },
+    pl: { comment: 'Skomentowałeś post Marii na Facebooku. Czeka na Twoją odpowiedź.', facebook: 'Widziałeś Marię na Facebooku. Czeka na Twoją odpowiedź.' },
+    sv: { comment: 'Du kommenterade Marias inlägg på Facebook. Hon väntar på ditt svar.', facebook: 'Du såg Maria på Facebook. Hon väntar på ditt svar.' },
+    no: { comment: 'Du kommenterte innlegget til Maria på Facebook. Hun venter på svaret ditt.', facebook: 'Du så Maria på Facebook. Hun venter på svaret ditt.' },
+    da: { comment: 'Du kommenterede Marias opslag på Facebook. Hun venter på dit svar.', facebook: 'Du så Maria på Facebook. Hun venter på dit svar.' },
+    fi: { comment: 'Kommentoit Marian julkaisua Facebookissa. Hän odottaa vastaustasi.', facebook: 'Näit Marian Facebookissa. Hän odottaa vastaustasi.' },
+    el: { comment: 'Σχολίασες τη δημοσίευση της Μαρίας στο Facebook. Περιμένει την απάντησή σου.', facebook: 'Είδες τη Μαρία στο Facebook. Περιμένει την απάντησή σου.' },
+    hr: { comment: 'Komentirao si Marijinu objavu na Facebooku. Čeka tvoj odgovor.', facebook: 'Vidio si Mariju na Facebooku. Čeka tvoj odgovor.' },
+    sl: { comment: 'Komentiral si Marijino objavo na Facebooku. Čaka na tvoj odgovor.', facebook: 'Marijo si videl na Facebooku. Čaka na tvoj odgovor.' },
+    sk: { comment: 'Komentoval si Máriin príspevok na Facebooku. Čaká na tvoju odpoveď.', facebook: 'Videl si Máriu na Facebooku. Čaká na tvoju odpoveď.' },
+    cs: { comment: 'Komentoval jsi Mariin příspěvek na Facebooku. Čeká na tvoji odpověď.', facebook: 'Viděl jsi Marii na Facebooku. Čeká na tvoji odpověď.' },
+    hu: { comment: 'Hozzászóltál Mária Facebook-bejegyzéséhez. Várja a válaszodat.', facebook: 'Láttad Máriát a Facebookon. Várja a válaszodat.' },
+    bg: { comment: 'Коментира публикацията на Мария във Facebook. Тя чака отговора ти.', facebook: 'Видя Мария във Facebook. Тя чака отговора ти.' },
+    ro: { comment: 'Ai comentat la postarea Mariei de pe Facebook. Ea așteaptă răspunsul tău.', facebook: 'Ai văzut-o pe Maria pe Facebook. Ea așteaptă răspunsul tău.' },
+    et: { comment: 'Kommenteerisid Maria postitust Facebookis. Ta ootab sinu vastust.', facebook: 'Nägid Mariat Facebookis. Ta ootab sinu vastust.' },
+    lt: { comment: 'Pakomentavai Marijos įrašą „Facebook“. Ji laukia tavo atsakymo.', facebook: 'Matei Mariją „Facebook“. Ji laukia tavo atsakymo.' },
+    lv: { comment: 'Tu komentēji Marijas ierakstu Facebook. Viņa gaida tavu atbildi.', facebook: 'Tu redzēji Mariju Facebook. Viņa gaida tavu atbildi.' },
+    uk: { comment: 'Ти прокоментував допис Марії у Facebook. Вона чекає на твою відповідь.', facebook: 'Ти бачив Марію у Facebook. Вона чекає на твою відповідь.' },
+    he: { comment: 'הגבת לפוסט של מריה בפייסבוק. היא מחכה לתשובה שלך.', facebook: 'ראית את מריה בפייסבוק. היא מחכה לתשובה שלך.' }
+  };
+
   const normaliseLocale = (value = '') => {
     if (copy[value]) return value;
     const raw = String(value).toLowerCase();
@@ -154,12 +184,57 @@
 
   const getText = () => copy[getLocale()] || copy['en-GB'];
 
+
+  const getFacebookContextType = () => {
+    const params = new URLSearchParams(location.search);
+    const querySource = String(params.get('source') || params.get('src') || params.get('from') || '').toLowerCase();
+    const explicit = String(
+      querySource ||
+      window.__rmcMarketContext?.source ||
+      document.documentElement.dataset.source ||
+      ''
+    ).toLowerCase();
+
+    if (explicit === 'comment' || params.get('comment') === '1') return 'comment';
+    if (['post', 'reel', 'story', 'facebook', 'fb'].includes(explicit)) return 'facebook';
+
+    try {
+      const ref = String(document.referrer || '').toLowerCase();
+      if (ref.includes('facebook.com') || ref.includes('fb.com') || ref.includes('messenger.com')) return 'facebook';
+    } catch (_) {}
+
+    return '';
+  };
+
+  const syncFacebookContext = (phone, cta) => {
+    let strip = phone.querySelector('.fb-context-strip');
+    const type = getFacebookContextType();
+
+    if (!type) {
+      strip?.remove();
+      return;
+    }
+
+    const locale = getLocale();
+    const text = facebookContextCopy[locale] || facebookContextCopy['en-GB'];
+
+    if (!strip) {
+      strip = document.createElement('div');
+      strip.className = 'fb-context-strip';
+      strip.innerHTML = '<span class="fb-context-icon" aria-hidden="true">💬</span><span class="fb-context-copy"></span>';
+      cta.insertAdjacentElement('beforebegin', strip);
+    }
+
+    strip.dataset.context = type;
+    strip.querySelector('.fb-context-copy').textContent = text[type] || text.facebook;
+  };
+
   const injectStyles = () => {
     if (document.getElementById('realmeetclub-dynamic-styles')) return;
     const style = document.createElement('style');
     style.id = 'realmeetclub-dynamic-styles';
     style.textContent = `
-      .phone-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.phone-top .mini-brand{margin-right:auto}.expiry-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border:1px solid rgba(239,101,150,.38);border-radius:999px;background:rgba(239,101,150,.12);color:#ff9abb;font-size:.64rem;font-weight:800;white-space:nowrap}.expiry-time{color:#fff;font-variant-numeric:tabular-nums;letter-spacing:.04em}.expiry-pill.is-urgent{animation:rmcPulse 1.15s infinite}.expiry-pill.is-expired{background:#ef6596;color:#fff}.urgency-strip{display:flex;align-items:center;justify-content:center;gap:7px;margin:8px 1px 0;padding:9px 10px;border-radius:12px;background:rgba(239,101,150,.10);color:#f4dce8;font-size:.76rem;font-weight:750;text-align:center}.urgency-dot{width:7px;height:7px;border-radius:50%;background:#ff79a6;box-shadow:0 0 0 4px rgba(239,101,150,.14)}.phone-cta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:9px;padding:13px 14px;border-radius:14px;background:linear-gradient(135deg,#ef6596,#b94373);color:#fff;text-decoration:none;font-size:.82rem;font-weight:900;letter-spacing:.015em;text-align:center;box-shadow:0 12px 28px rgba(239,101,150,.26);transition:transform .18s ease,filter .18s ease}.phone-cta:hover{transform:translateY(-1px);filter:brightness(1.08)}
+      .phone-top{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.phone-top .mini-brand{margin-right:auto}.expiry-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 8px;border:1px solid rgba(239,101,150,.38);border-radius:999px;background:rgba(239,101,150,.12);color:#ff9abb;font-size:.64rem;font-weight:800;white-space:nowrap}.expiry-time{color:#fff;font-variant-numeric:tabular-nums;letter-spacing:.04em}.expiry-pill.is-urgent{animation:rmcPulse 1.15s infinite}.expiry-pill.is-expired{background:#ef6596;color:#fff}.urgency-strip{display:flex;align-items:center;justify-content:center;gap:7px;margin:8px 1px 0;padding:9px 10px;border-radius:12px;background:rgba(239,101,150,.10);color:#f4dce8;font-size:.76rem;font-weight:750;text-align:center}.urgency-dot{width:7px;height:7px;border-radius:50%;background:#ff79a6;box-shadow:0 0 0 4px rgba(239,101,150,.14)}.fb-context-strip{display:flex;align-items:center;justify-content:center;gap:7px;margin:10px 2px 0;padding:9px 11px;border:1px solid rgba(70,130,246,.20);border-radius:12px;background:rgba(24,119,242,.07);color:#d9e8ff;font-size:.72rem;font-weight:760;line-height:1.32;text-align:center}.fb-context-icon{flex:0 0 auto;font-size:.86rem}.fb-context-copy{min-width:0}.phone-cta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:8px;padding:13px 14px;border-radius:14px;background:linear-gradient(135deg,#ef6596,#b94373);color:#fff;text-decoration:none;font-size:.82rem;font-weight:900;letter-spacing:.015em;text-align:center;box-shadow:0 12px 28px rgba(239,101,150,.26);transition:transform .18s ease,filter .18s ease}.phone-cta:hover{transform:translateY(-1px);filter:brightness(1.08)}
       .age-gate-modal{width:min(520px,calc(100vw - 28px));max-width:520px;padding:0;border:1px solid rgba(255,255,255,.12);border-radius:28px;background:linear-gradient(155deg,#1b1b1d,#09090a 72%);color:#fff;box-shadow:0 36px 120px rgba(0,0,0,.72);overflow:hidden}.age-gate-modal::backdrop{background:rgba(0,0,0,.78);backdrop-filter:blur(7px)}.age-gate-shell{position:relative;padding:34px 30px 30px;text-align:center}.age-gate-shell::before{content:'';position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#6b315c,#ff83ae,#6b315c)}.age-gate-close{position:absolute;top:13px;right:13px;display:grid;width:36px;height:36px;place-items:center;border:1px solid rgba(255,255,255,.12);border-radius:50%;background:rgba(255,255,255,.055);color:#aaa;font-size:1.35rem;line-height:1;cursor:pointer}.age-gate-close:hover{color:#fff;background:rgba(255,255,255,.10)}.age-gate-icon{display:grid;width:58px;height:58px;margin:0 auto 16px;place-items:center;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff91b7,#d24f80 62%,#6c2d58);font-size:1.55rem;box-shadow:0 15px 42px rgba(239,101,150,.34)}.age-gate-badge{display:inline-flex;padding:7px 11px;border:1px solid rgba(239,101,150,.36);border-radius:999px;background:rgba(239,101,150,.10);color:#ff91b7;font-size:.69rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase}.age-gate-title{margin:15px auto 10px;max-width:440px;font-size:clamp(1.55rem,5vw,2.18rem);line-height:1.08;letter-spacing:-.025em}.age-gate-text{margin:0 auto;max-width:420px;color:#b9b9bd;font-size:.98rem;line-height:1.55}.age-gate-progress{display:flex;align-items:center;gap:10px;margin:22px 0 19px}.age-gate-progress::before,.age-gate-progress::after{content:'';height:1px;flex:1;background:linear-gradient(90deg,transparent,#3b3b3e)}.age-gate-progress::after{background:linear-gradient(90deg,#3b3b3e,transparent)}.age-gate-progress span{color:#777;font-size:.69rem;font-weight:800;letter-spacing:.10em;text-transform:uppercase}.age-gate-options{display:grid;grid-template-columns:1fr 1fr;gap:12px}.age-option{display:flex;align-items:center;justify-content:center;min-height:74px;padding:14px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.025));color:#fff;text-decoration:none;font-size:1.65rem;font-weight:950;letter-spacing:-.02em;box-shadow:inset 0 1px 0 rgba(255,255,255,.05);transition:transform .18s ease,border-color .18s ease,background .18s ease}.age-option:hover{transform:translateY(-2px);border-color:rgba(255,132,174,.72);background:linear-gradient(145deg,rgba(239,101,150,.25),rgba(239,101,150,.08))}.age-option.age-option-primary{border-color:rgba(239,101,150,.48);background:linear-gradient(145deg,#ef6596,#b94373);box-shadow:0 14px 34px rgba(239,101,150,.22)}.age-gate-secure{display:flex;align-items:center;justify-content:center;gap:7px;margin:16px 0 0;color:#707075;font-size:.71rem}.age-gate-modal[open]{animation:rmcModalIn .22s ease-out}.age-gate-modal.closing{animation:rmcModalOut .16s ease-in forwards}[dir='rtl'] .age-gate-close{right:auto;left:13px}
       @keyframes rmcPulse{50%{box-shadow:0 0 0 5px rgba(239,101,150,.12)}}@keyframes rmcModalIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}@keyframes rmcModalOut{to{opacity:0;transform:translateY(8px) scale(.98)}}
       @media(max-width:640px){.expiry-pill{padding:5px 7px;font-size:.58rem}.urgency-strip{font-size:.69rem;padding:8px}.phone-cta{padding:12px 10px;font-size:.76rem}.age-gate-shell{padding:30px 18px 21px}.age-gate-title{font-size:1.62rem}.age-gate-text{font-size:.9rem}.age-gate-options{grid-template-columns:1fr;gap:10px}.age-option{min-height:62px;font-size:1.42rem}.age-gate-icon{width:52px;height:52px;margin-bottom:13px}}
@@ -227,6 +302,7 @@
     timer.querySelector('.expiry-copy').textContent = t.timerLabel;
     strip.querySelector('.urgency-copy').textContent = t.waiting;
     cta.querySelector('.phone-cta-copy').textContent = t.phoneCta;
+    syncFacebookContext(phone, cta);
 
     const heroImage = document.querySelector('.featured-profile img');
     const avatar = miniMessage.querySelector('img');
