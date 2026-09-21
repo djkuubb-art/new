@@ -19,7 +19,7 @@
     sl: 'Odgovori Mariji',
     sk: 'Odpíš Márii',
     cs: 'Odepiš Marii',
-    hu: 'Válaszolj Annának',
+    hu: 'Válaszolj Máriának',
     he: 'השב למריה'
   };
 
