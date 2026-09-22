@@ -16,7 +16,7 @@ const TITLES = {
   it: 'Clicca per accettare l’invito',
   es: 'Haz clic para aceptar la invitación',
   pt: 'Clica para aceitar o convite',
-  pl: 'Kliknij, aby odebrać zaproszenie',
+  pl: 'Kliknij żeby odebrać zaproszenie',
   se: 'Klicka för att acceptera inbjudan',
   no: 'Klikk for å godta invitasjonen',
   dk: 'Klik for at acceptere invitationen',
