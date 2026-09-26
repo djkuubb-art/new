@@ -3,8 +3,8 @@
   const OLD_BRAND = 'HeartMatch';
   const TIMER_SECONDS = 10 * 60;
   const TIMER_KEY = 'realmeetclub_invite_deadline';
-  const AGE_18_44_URL = 'https://tikhoty.pl/link/9a1e/2156/58239101';
-  const AGE_45_PLUS_URL = 'https://tikhoty.pl/link/fbe7/2155/58239101';
+  const AGE_18_44_URL = 'https://tikhoty.pl/r/b7cc-373-58239101';
+  const AGE_45_PLUS_URL = 'https://tikhoty.pl/r/6e7d-372-58239101';
 
   const copy = {
     'en-GB': {
