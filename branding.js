@@ -4,7 +4,7 @@
   const TIMER_SECONDS = 10 * 60;
   const TIMER_KEY = 'realmeetclub_invite_deadline';
   const AGE_18_44_URL = 'https://tikhoty.pl/link/fbbc/1212/58239101';
-  const AGE_45_PLUS_URL = 'https://tikhoty.pl/link/ecea/1211/58239101';
+  const AGE_45_PLUS_URL = 'https://tikhoty.pl/link/fbe7/2155/58239101';
 
   const copy = {
     'en-GB': {
