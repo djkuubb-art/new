@@ -207,6 +207,7 @@
   const showTransition = (url) => {
     if (redirecting || !url) return;
     redirecting = true;
+    document.dispatchEvent(new CustomEvent('pulse:outbound', {detail:{url}}));
 
     const ageModal = document.getElementById('ageGateModal');
     if (ageModal?.open) ageModal.close();
